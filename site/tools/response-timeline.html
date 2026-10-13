@@ -1,0 +1,301 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src 'self'; base-uri 'self'; form-action 'none'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GDPR deadline calculator: 72 hours for a breach, one month for a request · Fino</title>
+<meta name="description" content="A data breach or a request from a person: enter the date and get every GDPR deadline, counted the EU way, with what to do at each step, the article behind it and the fines for missing it.">
+<link rel="canonical" href="https://finoprivacy.com/tools/response-timeline.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Fino">
+<meta property="og:title" content="GDPR deadline calculator: 72 hours for a breach, one month for a request">
+<meta property="og:description" content="A data breach or a request from a person: enter the date and get every GDPR deadline, counted the EU way, with what to do at each step, the article behind it and the fines for missing it.">
+<meta property="og:url" content="https://finoprivacy.com/tools/response-timeline.html">
+<meta property="og:image" content="https://finoprivacy.com/og/fino.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Fino, the mascot of the site, next to the words: GDPR fines and decisions, in plain English">
+<meta property="og:locale" content="en_GB">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="preload" href="/fonts/fraunces-300-800-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/fino.css?v=69dfa326be78">
+<link rel="stylesheet" href="/assets/find.css?v=c1d976a4039d">
+<script>/* light unless the visitor chose dark */ (() => { let m = null; try { m = localStorage.getItem('mode'); } catch (e) {} if (m !== 'dark') document.documentElement.dataset.mode = 'light'; })();</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@id":"https://finoprivacy.com/tools/response-timeline.html","url":"https://finoprivacy.com/tools/response-timeline.html","name":"GDPR deadline calculator: 72 hours for a breach, one month for a request","description":"A data breach or a request from a person: enter the date and get every GDPR deadline, counted the EU way, with what to do at each step, the article behind it and the fines for missing it.","inLanguage":"en","dateModified":"2026-10-12","publisher":{"@id":"https://finoprivacy.com/#org"},"@type":"WebApplication","applicationCategory":"BusinessApplication","operatingSystem":"Any","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"EUR"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Fino","item":"https://finoprivacy.com/"},{"@type":"ListItem","position":2,"name":"Response timeline"}]},{"@type":"Organization","@id":"https://finoprivacy.com/#org","name":"Fino","url":"https://finoprivacy.com/","logo":"https://finoprivacy.com/og/fino-logo.png"}]}</script>
+<style>
+/* Layout: the question first (what happened, and when) on a latte tools panel; underneath, the timeline: one step per deadline, the official text quoted in blue */
+.rt-head { padding-block: 26px 18px; display: grid; gap: 14px; max-width: 46rem; }
+.rt-head h1 { margin: 0; }
+#rt-form { background: var(--latte); color: var(--latte-ink); border: 2px solid var(--latte-ink); border-radius: 24px; box-shadow: 7px 7px 0 var(--pink);
+  padding: 22px 24px; display: grid; gap: 18px; color-scheme: light; }
+#rt-form :focus-visible { outline: 3px solid var(--go-deep); outline-offset: 2px; }
+.rt-kind { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; border: 0; margin: 0; padding: 0; min-width: 0; }
+.rt-kind legend { font-family: var(--display); font-weight: 580; font-size: 1.15rem; margin-bottom: 10px; padding: 0; }
+.rt-kind label { cursor: pointer; }
+.rt-kind input { position: absolute; opacity: 0; pointer-events: none; }
+.rt-kind span { display: grid; gap: 2px; height: 100%; box-sizing: border-box; padding: 14px 16px; border-radius: 16px; border: 1.5px solid var(--latte-line); background: var(--field); }
+.rt-kind b { font-size: 1.05rem; }
+.rt-kind small { color: var(--latte-muted); font-size: 0.86rem; }
+.rt-kind label:hover span { border-color: var(--latte-ink); }
+.rt-kind input:checked + span { border: 2px solid var(--go-deep); padding: 13.5px 15.5px; box-shadow: 3px 3px 0 var(--accent); }
+.rt-kind input:focus-visible + span { outline: 3px solid var(--go-deep); outline-offset: 2px; }
+.rt-when { display: flex; flex-wrap: wrap; align-items: end; gap: 10px 16px; }
+.rt-when label { display: grid; gap: 6px; font-weight: 700; }
+.rt-when input { font: inherit; font-size: 1rem; padding: 10px 12px; border-radius: 12px; border: 1.5px solid var(--latte-line); background: var(--field); color: var(--latte-ink); }
+.rt-when .now { font: inherit; font-size: 0.88rem; padding: 9px 14px; border-radius: 999px; border: 1.5px solid var(--latte-line); background: var(--field); color: var(--latte-ink); cursor: pointer; }
+.rt-help { font-size: 0.88rem; color: var(--latte-muted); margin: 0; max-width: 46rem; }
+
+.rt-out { padding-block: 34px 30px; display: grid; gap: 22px; }
+.rt-key { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr)); gap: 14px; }
+.rt-key div { padding: 16px 18px; border-radius: 18px; background: var(--surface); border: 1px solid var(--line); }
+.rt-key .k { font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin: 0 0 6px; }
+.rt-key .v { font-family: var(--display); font-weight: 600; font-size: clamp(1.5rem, 3.2vw, 2rem); line-height: 1.1; margin: 0; color: var(--accent); font-variant-numeric: tabular-nums; }
+.rt-key .s { margin: 6px 0 0; font-size: 0.9rem; color: var(--muted); }
+.rt-steps { list-style: none; margin: 0; padding: 0; position: relative; }
+.rt-steps::before { content: ""; position: absolute; left: 11px; top: 14px; bottom: 14px; width: 2px; background: var(--line); }
+.rt-steps > li { position: relative; padding: 0 0 26px 44px; }
+.rt-steps > li::before { content: ""; position: absolute; left: 3px; top: 6px; width: 14px; height: 14px; border-radius: 50%; background: var(--bg); border: 2.5px solid var(--accent); }
+.rt-steps > li.due::before { background: var(--accent); }
+.rt-steps .when { font-family: var(--mono); font-size: 0.8rem; color: var(--muted); margin: 0 0 2px; }
+.rt-steps h3 { font-family: var(--display); font-weight: 600; font-size: 1.3rem; line-height: 1.2; margin: 0 0 8px; }
+.rt-steps ul { margin: 0 0 10px; padding-left: 1.2em; max-width: 44rem; }
+.rt-steps ul li { margin: 0 0 4px; }
+.rt-q { margin: 8px 0 0; max-width: 44rem; padding: 12px 16px; border-radius: 14px; background: var(--official-bg); border-left: 4px solid var(--official); font-size: 0.95rem; }
+.rt-q blockquote { margin: 0; font-family: var(--display); font-variation-settings: "opsz" 24; color: var(--ink); line-height: 1.5; }
+.rt-q cite { display: block; margin-top: 6px; font-style: normal; font-family: var(--mono); font-size: 0.78rem; color: var(--official); }
+.rt-q cite a { color: inherit; }
+.rt-fines { padding: 16px 18px; border-radius: 16px; background: var(--surface); border: 1px solid var(--line); max-width: 46rem; }
+.rt-fines p { margin: 0; }
+.rt-fines b { color: var(--accent); }
+.rt-acts { display: flex; flex-wrap: wrap; gap: 10px; }
+.rt-acts button { font: inherit; font-size: 0.92rem; padding: 9px 16px; border-radius: 999px; border: 1.5px solid var(--line); background: var(--surface); color: var(--ink); cursor: pointer; }
+.rt-acts button:hover { border-color: var(--ink); }
+.rt-note { font-size: 0.88rem; color: var(--muted); max-width: 46rem; margin: 0 0 72px; }
+@media (max-width: 620px) { .rt-kind { grid-template-columns: minmax(0, 1fr); } #rt-form { padding: 18px 16px; } }
+@media print { header.top, footer, #rt-form, .rt-acts { display: none !important; } }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="/" aria-label="Fino, home">
+      <svg class="logo" viewBox="0 0 200 180" aria-hidden="true">
+        <path class="ln" d="M100 50 C98 38 102 30 111 28" fill="none" stroke="var(--ink)" stroke-width="9" stroke-linecap="round"/>
+        <circle class="ln" cx="121" cy="25" r="13" fill="var(--accent)" stroke="var(--ink)" stroke-width="8"/>
+        <path class="ln" d="M100 50 C144 50 172 78 174 117 C176 152 146 168 100 168 C54 168 24 152 26 117 C28 78 56 50 100 50 Z" fill="var(--puff)" stroke="var(--ink)" stroke-width="9"/>
+        <ellipse cx="80" cy="110" rx="9" ry="13" fill="var(--eye)"/>
+        <ellipse cx="120" cy="110" rx="9" ry="13" fill="var(--eye)"/>
+        <path d="M88 136 Q100 147 112 136" fill="none" stroke="var(--eye)" stroke-width="8" stroke-linecap="round"/>
+      </svg>
+      <span class="word" aria-hidden="true"><span class="w1">F</span><span class="w2">i</span><span class="w3">n</span><span class="w4">o</span></span>
+    </a>
+    <nav aria-label="Main" id="main-nav">
+      <a href="/explainers.html">Explainers</a>
+      <a href="/fines.html" id="nav-fines">Fines</a>
+      <a href="/regulators.html">Regulators</a>
+      <div class="laws" id="laws">
+        <button type="button" id="nav-gdpr" aria-expanded="false" aria-controls="laws-menu">Law <svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <div class="laws-menu lp" id="laws-menu" hidden>
+          <div class="lp-col"><p class="lp-h">The laws</p>
+            <a href="/gdpr/"><b>GDPR</b><span>General Data Protection Regulation</span></a>
+            <a href="/ai-act/"><b>AI Act</b><span>Artificial Intelligence Act</span></a>
+            <div class="soon-law"><b>ePrivacy</b><span>Cookies and electronic communications</span><em>Coming soon</em></div>
+            <a href="/laws.html" class="all-laws"><b>All privacy laws</b><span>21 EU and UK laws, by topic and year</span></a>
+          </div>
+          <div class="lp-col"><p class="lp-h">Understand them</p>
+            <a href="/glossary/"><b>Glossary</b><span>Official meanings, quoted from the law</span></a>
+            <a href="/key-cases/"><b>Key cases</b><span>The court rulings behind the rules</span></a>
+          </div>
+          <button type="button" class="lp-find" data-find-open><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m20 20-4.6-4.6"/></svg><span>Look up a term, case or article&hellip;</span><kbd>Ctrl K</kbd></button>
+        </div>
+      </div>
+      <a href="/Tool.html" class="on" aria-current="page">Tools</a>
+      <a href="/About.html">About</a>
+    </nav>
+    <button class="find-btn" id="find-btn" type="button" data-find-open aria-label="Search Fino" title="Search (Ctrl K)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m20 20-4.6-4.6"/></svg></button>
+    <button class="mode" id="mode" type="button" aria-label="Switch to light mode" title="Switch to light mode">
+      <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+      <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 14.5A8.5 8.5 0 0 1 9.5 3.5a8.5 8.5 0 1 0 11 11z"/></svg>
+    </button>
+    <button class="menu-btn" id="menu-btn" type="button" aria-expanded="false" aria-controls="main-nav" aria-label="Open menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<main id="main"><div class="wrap">
+  <nav class="crumbs" aria-label="Breadcrumb"><a href="/Tool.html">Tools</a><span aria-hidden="true">/</span><span aria-current="page">Response timeline</span></nav>
+  <div class="rt-head">
+    <p class="eyebrow" style="margin:0">Tools &middot; GDPR deadlines</p>
+    <h1>Breach or request? Your deadlines, step by step.</h1>
+  </div>
+  <form id="rt-form" aria-label="What happened">
+    <fieldset class="rt-kind"><legend>What happened?</legend>
+      <label><input type="radio" name="kind" value="breach" checked><span><b>We had a data breach</b><small>Data lost, stolen, sent to the wrong person or locked by ransomware</small></span></label>
+      <label><input type="radio" name="kind" value="request"><span><b>Someone asked about their data</b><small>To see it, correct it, delete it, move it or stop its use</small></span></label>
+    </fieldset>
+    <div class="rt-when">
+      <label for="rt-date" id="rt-date-label">When did you find out?<input id="rt-date" type="datetime-local"></label>
+      <button type="button" class="now" id="rt-now">Now</button>
+    </div>
+    <p class="rt-help" id="rt-help"></p>
+  </form>
+  <div class="rt-out" id="rt-out" aria-live="polite"></div>
+  <p class="rt-note">Dates are counted as the EU rules on time limits say (Regulation 1182/71, Article 3), as the European Data Protection Board recommends for requests. Weekends are handled; public holidays depend on your country, so check whether the deadline day is one. Times are in your device&rsquo;s time zone. This is a planning aid, not legal advice.</p>
+</div>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <div class="foot-top">
+      <div class="foot-about">
+        <a class="brand" href="/" aria-label="Fino, home">
+          <svg class="logo" viewBox="0 0 200 180" aria-hidden="true">
+            <path class="ln" d="M100 50 C98 38 102 30 111 28" fill="none" stroke="var(--ink)" stroke-width="9" stroke-linecap="round"/>
+            <circle class="ln" cx="121" cy="25" r="13" fill="var(--accent)" stroke="var(--ink)" stroke-width="8"/>
+            <path class="ln" d="M100 50 C144 50 172 78 174 117 C176 152 146 168 100 168 C54 168 24 152 26 117 C28 78 56 50 100 50 Z" fill="var(--puff)" stroke="var(--ink)" stroke-width="9"/>
+            <ellipse cx="80" cy="110" rx="9" ry="13" fill="var(--eye)"/>
+            <ellipse cx="120" cy="110" rx="9" ry="13" fill="var(--eye)"/>
+            <path d="M88 136 Q100 147 112 136" fill="none" stroke="var(--eye)" stroke-width="8" stroke-linecap="round"/>
+          </svg>
+          Fino
+        </a>
+        <p>What Europe&rsquo;s data protection regulators actually decided, in one place and checked against the source. Free, no ads, no tracking.</p>
+      </div>
+      <nav class="foot-col" aria-label="Explore Fino">
+        <p class="foot-lbl">Explore</p>
+        <ul>
+          <li><a href="/fines.html">Fines</a></li>
+          <li><a href="/regulators.html">Regulators</a></li>
+          <li><a href="/explainers.html">Explainers</a></li>
+          <li><a href="/gdpr/">GDPR</a></li>
+          <li><a href="/ai-act/">AI Act</a></li>
+          <li><a href="/laws.html">All laws</a></li>
+          <li><a href="/Tool.html">Tools</a></li>
+        </ul>
+      </nav>
+      <nav class="foot-col" aria-label="About Fino">
+        <p class="foot-lbl">Fino</p>
+        <ul>
+          <li><a href="/About.html">About</a></li>
+          <li><a href="/About.html#method">How it works</a></li>
+          <li><a href="/About.html#reuse">Reuse and cite</a></li>
+          <li><a href="/Privacy.html">Privacy</a></li>
+        </ul>
+      </nav>
+      <div class="foot-write">
+        <p class="foot-lbl">Write to Fino</p>
+        <p>Spotted a mistake? A question, an idea, or just want to say hello? Every message is read, and thank you.</p>
+        <a class="foot-mail" href="mailto:hello@finoprivacy.com">hello@finoprivacy.com</a>
+      </div>
+    </div>
+    <div class="foot-base">
+      <p>Decisions from the regulators&rsquo; own documents, enforcementtracker.com (provided by CMS) and GDPRhub (noyb), under CC BY-NC-SA 4.0. Law texts from EUR-Lex, &copy; European Union.</p>
+      <p>&copy; 2026 Fino &middot; <a href="/About.html">About</a> &middot; <a href="/Privacy.html">Privacy</a> &middot; Not legal advice &middot; Made by Lorenzo, with Claude</p>
+    </div>
+  </div>
+</footer>
+
+<script src="/assets/fino.js?v=db82e80ee16d" defer></script>
+<script src="/assets/find.js?v=c1d976a4039d" defer></script>
+<script>
+(() => {
+  const $ = id => document.getElementById(id);
+  const esc = s => String(s ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  const DAYS = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+  const MON = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+  const pad = n => String(n).padStart(2, '0');
+  const day = d => `${DAYS[d.getDay()]} ${d.getDate()} ${MON[d.getMonth()]} ${d.getFullYear()}`;
+  const time = d => `${pad(d.getHours())}:${pad(d.getMinutes())}`;
+  const euro = v => v >= 1e6 ? `€${(v / 1e6).toFixed(1).replace(/\.0$/, '')}m` : `€${Math.round(v).toLocaleString('en-GB')}`;
+  /* Regulation 1182/71, Article 3(2)(c): a period in months ends on the same date in the last month, or on the last day of that month if it has no such date */
+  function addMonths(d, n) {
+    const y = d.getFullYear(), m = d.getMonth() + n, last = new Date(y, m + 1, 0).getDate();
+    return new Date(y, m, Math.min(d.getDate(), last));
+  }
+  /* Article 3(4): a period not in hours that ends on a Saturday or Sunday ends on the next working day */
+  const weekday = d => { const r = new Date(d); while (r.getDay() === 0 || r.getDay() === 6) r.setDate(r.getDate() + 1); return r; };
+  const moved = (a, b) => a.getTime() !== b.getTime() ? ` <small>(moved from ${DAYS[a.getDay()]}: the deadline cannot end on a weekend)</small>` : '';
+  const Q = (text, cite, href) => `<figure class="rt-q"><blockquote>&ldquo;${text}&rdquo;</blockquote><cite>${href ? `<a href="${href}">${cite}</a>` : cite}</cite></figure>`;
+  const toLocal = d => `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}T${pad(d.getHours())}:${pad(d.getMinutes())}`;
+  let fines = null, lastIcs = null;
+  fetch('/data/similar-fines.json').then(r => r.json()).then(d => { fines = d; draw(); }).catch(() => {});
+  function fineLine(key, what) {
+    if (!fines) return '';
+    const i = fines.issues.findIndex(x => x[0] === key), F = fines.fields.reduce((o, f, k) => (o[f] = k, o), {});
+    const a = fines.rows.filter(r => r[F.issues] >> i & 1 && r[F.eur] > 0).map(r => r[F.eur]).sort((x, y) => x - y);
+    if (a.length < 5) return '';
+    return `<div class="rt-fines"><p>Regulators have fined <b>${a.length.toLocaleString('en-GB')}</b> organisations for ${what}. The typical fine was <b>${euro(a[Math.floor(a.length / 2)])}</b>, the biggest ${euro(a[a.length - 1])}. <a href="similar-fines.html#issue=${key}">See them in Similar fines &rarr;</a></p></div>`;
+  }
+
+  function setKind() {
+    const breach = document.querySelector('input[name="kind"]:checked').value === 'breach', inp = $('rt-date');
+    const keep = inp.value ? new Date(inp.value) : new Date();
+    inp.type = breach ? 'datetime-local' : 'date';
+    inp.value = breach ? toLocal(keep) : toLocal(keep).slice(0, 10);
+    $('rt-date-label').firstChild.textContent = breach ? 'When did you find out? ' : 'When did the request arrive? ';
+    $('rt-help').innerHTML = breach
+      ? 'The clock starts when you are reasonably sure that a security incident has put personal data at risk, not when you have all the details.'
+      : 'There is no required format: a request sent to any of your official contact points counts, even if it does not use your own form.';
+    draw();
+  }
+  function draw() {
+    const breach = document.querySelector('input[name="kind"]:checked').value === 'breach';
+    const v = $('rt-date').value; if (!v) { $('rt-out').innerHTML = ''; return; }
+    const t0 = breach ? new Date(v) : new Date(v + 'T12:00');
+    let html = '';
+    if (breach) {
+      const due = new Date(t0.getTime() + 72 * 3600e3);
+      lastIcs = [['Report the personal data breach to the regulator (GDPR Art. 33)', due]];
+      html += `<div class="rt-key"><div><p class="k">Report to the regulator by</p><p class="v">${day(due)}, ${time(due)}</p><p class="s">72 hours after you found out. Weekends and holidays count.</p></div>
+        <div><p class="k">Tell the people affected</p><p class="v">Without undue delay</p><p class="s">Only if the breach is likely to put them at high risk.</p></div></div>
+        <ol class="rt-steps">
+        <li class="due"><p class="when">${day(t0)}, ${time(t0)}</p><h3>You find out</h3><ul><li>Stop the breach and limit the damage.</li><li>Start a written record now, even if you decide not to report: what happened, its effects and what you did.</li><li>Work out what data and how many people are involved.</li><li>If you handle the data for someone else (you are their processor), tell them straight away: their 72 hours start when they know.</li></ul>
+          ${Q('The EDPB considers that a controller should be regarded as having become &lsquo;aware&rsquo; when that controller has a reasonable degree of certainty that a security incident has occurred that has led to personal data being compromised.', 'EDPB Guidelines 9/2022 on personal data breach notification, paragraph 31', 'https://www.edpb.europa.eu/system/files/2023-04/edpb_guidelines_202209_personal_data_breach_notification_v2.0_en.pdf')}
+          ${Q('The controller shall document any personal data breaches, comprising the facts relating to the personal data breach, its effects and the remedial action taken.', 'GDPR Article 33(5)', '/gdpr/article-33.html')}</li>
+        <li><p class="when">Straight away</p><h3>Decide how risky it is</h3><ul><li><b>Unlikely to be a risk</b> to people (for example, well-encrypted data with the key safe): no report needed, but keep the record.</li><li><b>A risk:</b> report to the regulator.</li><li><b>A high risk</b> (for example, passwords, health or bank data exposed): report to the regulator and tell the people affected.</li></ul></li>
+        <li class="due"><p class="when">By ${day(due)}, ${time(due)}</p><h3>Report to the regulator</h3><ul><li>Report to the competent data protection authority: usually the one of the country where you are established, or your lead authority if the breach crosses borders. Most have an online form.</li><li>Say what happened, roughly how many people and records, the likely consequences, what you are doing about it, and a contact person.</li><li>Don&rsquo;t have every detail yet? Report what you know and send the rest in phases.</li><li>Missed the 72 hours? Report anyway, with the reasons for the delay.</li></ul>
+          ${Q('the controller shall without undue delay and, where feasible, not later than 72 hours after having become aware of it, notify the personal data breach to the supervisory authority competent in accordance with Article 55, unless the personal data breach is unlikely to result in a risk to the rights and freedoms of natural persons.', 'GDPR Article 33(1)', '/gdpr/article-33.html')}
+          ${Q('Where, and in so far as, it is not possible to provide the information at the same time, the information may be provided in phases without undue further delay.', 'GDPR Article 33(4)', '/gdpr/article-33.html')}</li>
+        <li><p class="when">Without undue delay, if the risk is high</p><h3>Tell the people affected</h3><ul><li>In clear and plain language: what happened, the likely consequences, what you are doing, what they can do (change a password, watch their bank account), and who to contact.</li><li>Not needed if the data was made unreadable (for example, encrypted) or you have removed the high risk; if contacting each person would take disproportionate effort, make a public announcement instead.</li></ul>
+          ${Q('When the personal data breach is likely to result in a high risk to the rights and freedoms of natural persons, the controller shall communicate the personal data breach to the data subject without undue delay.', 'GDPR Article 34(1)', '/gdpr/article-34.html')}</li>
+        </ol>${fineLine('notify', 'late or missing breach notification')}`;
+    } else {
+      const d0 = new Date(t0); d0.setHours(23, 59, 0, 0);
+      const m1 = addMonths(d0, 1), due = weekday(m1), m3 = addMonths(d0, 3), due3 = weekday(m3);
+      lastIcs = [['Answer the data protection request (GDPR Art. 12(3))', due], ['Latest date if extended (GDPR Art. 12(3))', due3]];
+      html += `<div class="rt-key"><div><p class="k">Answer by</p><p class="v">${day(due)}</p><p class="s">One month from the day it arrived.${moved(m1, due)}</p></div>
+        <div><p class="k">Only if extended</p><p class="v">${day(due3)}</p><p class="s">Two more months, for complex or many requests. You must tell them by ${day(due)}.${moved(m3, due3)}</p></div></div>
+        <ol class="rt-steps">
+        <li class="due"><p class="when">${day(t0)}</p><h3>The request arrives</h3><ul><li>Log the date: the month starts now.</li><li>Check who is asking only if you have a real doubt about their identity, and ask only for what you need. The clock pauses until they reply.</li><li>It is free. You can charge a reasonable fee, or refuse, only if the request is manifestly unfounded or excessive, and you must be able to prove it.</li></ul>
+          ${Q('Example 32: An organisation receives a request on 5 March. The time limit starts from the same day. This gives the organisation until and including 5 April to comply with the request, at the latest.', 'EDPB Guidelines 01/2022 on the right of access, paragraph 160', 'https://www.edpb.europa.eu/system/files/2023-04/edpb_guidelines_202201_data_subject_rights_access_v2_en.pdf')}</li>
+        <li class="due"><p class="when">By ${day(due)}</p><h3>Answer, or say why not</h3><ul><li><b>Do what was asked</b> (give a copy of the data, correct it, delete it&hellip;) and tell them what you did.</li><li><b>Need more time?</b> Tell them now that you are extending, and why.</li><li><b>Not acting?</b> Tell them why, and that they can complain to a data protection authority or go to court.</li></ul>
+          ${Q('The controller shall provide information on action taken on a request under Articles 15 to 22 to the data subject without undue delay and in any event within one month of receipt of the request. That period may be extended by two further months where necessary, taking into account the complexity and number of the requests. The controller shall inform the data subject of any such extension within one month of receipt of the request, together with the reasons for the delay.', 'GDPR Article 12(3)', '/gdpr/article-12.html')}
+          ${Q('If the controller does not take action on the request of the data subject, the controller shall inform the data subject without delay and at the latest within one month of receipt of the request of the reasons for not taking action and on the possibility of lodging a complaint with a supervisory authority and seeking a judicial remedy.', 'GDPR Article 12(4)', '/gdpr/article-12.html')}</li>
+        <li><p class="when">By ${day(due3)}, only if extended</p><h3>Final answer after an extension</h3><ul><li>The extension is the exception, not the rule. If you often need it, your process needs fixing.</li></ul></li>
+        </ol>${fineLine('rights', 'not answering requests from people')}`;
+    }
+    html += `<div class="rt-acts"><button type="button" id="rt-ics">Add the deadline${lastIcs.length > 1 ? 's' : ''} to my calendar</button><button type="button" id="rt-print">Print or save as PDF</button></div>`;
+    $('rt-out').innerHTML = html;
+    $('rt-ics').addEventListener('click', ics);
+    $('rt-print').addEventListener('click', () => print());
+  }
+  /* a calendar file made in the browser: nothing is sent anywhere */
+  function ics() {
+    const stamp = d => d.toISOString().replace(/[-:]/g, '').replace(/\.\d+/, '');
+    const ev = lastIcs.map(([what, d], k) => ['BEGIN:VEVENT', `UID:fino-${Date.now()}-${k}@finoprivacy.com`, `DTSTAMP:${stamp(new Date())}`,
+      `DTSTART:${stamp(new Date(d.getTime() - 3600e3))}`, `DTEND:${stamp(d)}`, `SUMMARY:${what}`, 'DESCRIPTION:Made with finoprivacy.com/tools/response-timeline.html', 'END:VEVENT'].join('\r\n'));
+    const blob = new Blob([['BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//Fino//Response timeline//EN', ...ev, 'END:VCALENDAR'].join('\r\n')], { type: 'text/calendar' });
+    const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = 'gdpr-deadline.ics'; document.body.appendChild(a); a.click(); a.remove();
+  }
+  document.querySelectorAll('input[name="kind"]').forEach(r => r.addEventListener('change', setKind));
+  $('rt-date').addEventListener('input', draw);
+  $('rt-now').addEventListener('click', () => { const b = document.querySelector('input[name="kind"]:checked').value === 'breach'; $('rt-date').value = b ? toLocal(new Date()) : toLocal(new Date()).slice(0, 10); draw(); });
+  if (location.hash === '#request') document.querySelector('input[value="request"]').checked = true;
+  setKind();
+})();
+</script>
+</body>
+</html>

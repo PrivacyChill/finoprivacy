@@ -1,0 +1,301 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src 'self'; base-uri 'self'; form-action 'none'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Act check: is your AI system banned, high-risk or transparency-only? (2026 text) · Fino</title>
+<meta name="description" content="Your role, what the AI does and where it is used: the likely category under the EU AI Act as amended in July 2026 (banned, high-risk, transparency or minimal risk), your duties with the articles, and the dates that apply.">
+<link rel="canonical" href="https://finoprivacy.com/tools/ai-act-triage.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Fino">
+<meta property="og:title" content="AI Act check: is your AI system banned, high-risk or transparency-only? (2026 text)">
+<meta property="og:description" content="Your role, what the AI does and where it is used: the likely category under the EU AI Act as amended in July 2026 (banned, high-risk, transparency or minimal risk), your duties with the articles, and the dates that apply.">
+<meta property="og:url" content="https://finoprivacy.com/tools/ai-act-triage.html">
+<meta property="og:image" content="https://finoprivacy.com/og/fino.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Fino, the mascot of the site, next to the words: GDPR fines and decisions, in plain English">
+<meta property="og:locale" content="en_GB">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="preload" href="/fonts/fraunces-300-800-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/fino.css?v=69dfa326be78">
+<link rel="stylesheet" href="/assets/find.css?v=c1d976a4039d">
+<script>/* light unless the visitor chose dark */ (() => { let m = null; try { m = localStorage.getItem('mode'); } catch (e) {} if (m !== 'dark') document.documentElement.dataset.mode = 'light'; })();</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@id":"https://finoprivacy.com/tools/ai-act-triage.html","url":"https://finoprivacy.com/tools/ai-act-triage.html","name":"AI Act check: is your AI system banned, high-risk or transparency-only? (2026 text)","description":"Your role, what the AI does and where it is used: the likely category under the EU AI Act as amended in July 2026 (banned, high-risk, transparency or minimal risk), your duties with the articles, and the dates that apply.","inLanguage":"en","dateModified":"2026-10-12","publisher":{"@id":"https://finoprivacy.com/#org"},"@type":"WebApplication","applicationCategory":"BusinessApplication","operatingSystem":"Any","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"EUR"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Fino","item":"https://finoprivacy.com/"},{"@type":"ListItem","position":2,"name":"AI Act check"}]},{"@type":"Organization","@id":"https://finoprivacy.com/#org","name":"Fino","url":"https://finoprivacy.com/","logo":"https://finoprivacy.com/og/fino-logo.png"}]}</script>
+<style>
+/* Layout: the questions first, in numbered steps on a latte tools panel; the answer below updates as you tick, with the category, your duties, the dates and the fines */
+.ai-head { padding-block: 26px 18px; display: grid; gap: 14px; max-width: 46rem; }
+.ai-head h1 { margin: 0; }
+#ai-form { background: var(--latte); color: var(--latte-ink); border: 2px solid var(--latte-ink); border-radius: 24px; box-shadow: 7px 7px 0 var(--pink); padding: 24px 26px; display: grid; gap: 26px; color-scheme: light; }
+#ai-form :focus-visible { outline: 3px solid var(--go-deep); outline-offset: 2px; }
+.ai-q { border: 0; margin: 0; padding: 0; display: grid; gap: 8px; min-width: 0; }
+.ai-q[hidden] { display: none; }
+.ai-q legend { font-family: var(--display); font-variation-settings: "SOFT" 100, "opsz" 72; font-weight: 580; font-size: 1.2rem; padding: 0; margin-bottom: 8px; }
+.ai-q legend small { display: block; font-family: var(--body); font-weight: 400; font-size: 0.86rem; color: var(--latte-muted); margin-top: 3px; }
+.ai-opts { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 22rem), 1fr)); gap: 8px; }
+.ai-opts label { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 10px; align-items: start; padding: 10px 14px; border-radius: 14px; border: 1.5px solid var(--latte-line); background: var(--field); cursor: pointer; line-height: 1.4; }
+.ai-opts label:hover { border-color: var(--latte-ink); }
+.ai-opts label:has(input:checked) { border: 2px solid var(--go-deep); padding: 9.5px 13.5px; }
+.ai-opts input { accent-color: var(--go-deep); width: 17px; height: 17px; margin: 2px 0 0; }
+.ai-opts small { display: block; font-family: var(--mono); font-size: 0.72rem; color: var(--latte-muted); margin-top: 2px; }
+.ai-out { padding-block: 34px 20px; display: grid; gap: 22px; max-width: 56rem; }
+.ai-verdict { padding: 22px 24px; border-radius: 20px; border: 2px solid var(--ink); background: var(--surface); }
+.ai-verdict .tag { display: inline-block; font-family: var(--mono); font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; padding: 4px 10px; border-radius: 6px; margin-bottom: 10px; }
+.ai-verdict.ban .tag { background: #A3304F; color: #fff; } .ai-verdict.high .tag { background: var(--blush); color: #211915; }
+.ai-verdict.trans .tag { background: var(--official-bg); color: var(--official); } .ai-verdict.min .tag, .ai-verdict.out .tag { background: var(--live-bg); color: var(--accent); }
+.ai-verdict h2 { font-family: var(--display); font-weight: 600; font-size: clamp(1.6rem, 3.6vw, 2.3rem); line-height: 1.1; margin: 0 0 8px; text-wrap: balance; }
+.ai-verdict p { margin: 0; font-size: 1.05rem; max-width: 44rem; }
+.ai-h { font-family: var(--mono); font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); font-weight: 500; margin: 0 0 10px; }
+.ai-duties { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
+.ai-duties li { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 2px 16px; padding: 11px 4px; border-bottom: 1px solid var(--line); }
+.ai-duties li a { grid-column: 2; grid-row: 1 / span 2; align-self: center; font-family: var(--mono); font-size: 0.82rem; white-space: nowrap; }
+.ai-duties li span { color: var(--muted); font-size: 0.9rem; grid-column: 1; }
+.ai-dates { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr)); gap: 12px; }
+.ai-dates div { padding: 14px 16px; border-radius: 16px; background: var(--surface); border: 1px solid var(--line); }
+.ai-dates b { display: block; font-family: var(--display); font-size: 1.3rem; color: var(--accent); }
+.ai-dates span { font-size: 0.9rem; color: var(--muted); }
+.ai-q2 { margin: 0; padding: 12px 16px; border-radius: 14px; background: var(--official-bg); border-left: 4px solid var(--official); font-size: 0.95rem; }
+.ai-q2 blockquote { margin: 0; font-family: var(--display); font-variation-settings: "opsz" 24; line-height: 1.5; color: var(--ink); }
+.ai-q2 cite { display: block; margin-top: 6px; font-style: normal; font-family: var(--mono); font-size: 0.78rem; color: var(--official); }
+.ai-q2 cite a { color: inherit; }
+/* the live answer, pinned to the bottom while the full answer is off screen */
+.ai-pin { position: fixed; left: 50%; bottom: calc(16px + env(safe-area-inset-bottom, 0px)); translate: -50% 0; z-index: 20; display: flex; align-items: center; gap: 12px;
+  padding: 10px 12px 10px 18px; border-radius: 999px; background: var(--latte); color: var(--latte-ink); border: 2px solid var(--latte-ink); box-shadow: 4px 4px 0 var(--pink);
+  text-decoration: none; font-size: 0.95rem; white-space: nowrap; max-width: calc(100vw - 32px); color-scheme: light; }
+.ai-pin[hidden] { display: none; }
+.ai-pin b { overflow: hidden; text-overflow: ellipsis; }
+.ai-pin span { padding: 5px 12px; border-radius: 999px; background: var(--go-deep); color: #fff; font-weight: 700; font-size: 0.85rem; }
+.ai-note { font-size: 0.88rem; color: var(--muted); max-width: 46rem; margin: 0 0 72px; }
+@media (max-width: 620px) { #ai-form { padding: 18px 16px; } .ai-verdict { padding: 18px; } }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="/" aria-label="Fino, home">
+      <svg class="logo" viewBox="0 0 200 180" aria-hidden="true">
+        <path class="ln" d="M100 50 C98 38 102 30 111 28" fill="none" stroke="var(--ink)" stroke-width="9" stroke-linecap="round"/>
+        <circle class="ln" cx="121" cy="25" r="13" fill="var(--accent)" stroke="var(--ink)" stroke-width="8"/>
+        <path class="ln" d="M100 50 C144 50 172 78 174 117 C176 152 146 168 100 168 C54 168 24 152 26 117 C28 78 56 50 100 50 Z" fill="var(--puff)" stroke="var(--ink)" stroke-width="9"/>
+        <ellipse cx="80" cy="110" rx="9" ry="13" fill="var(--eye)"/>
+        <ellipse cx="120" cy="110" rx="9" ry="13" fill="var(--eye)"/>
+        <path d="M88 136 Q100 147 112 136" fill="none" stroke="var(--eye)" stroke-width="8" stroke-linecap="round"/>
+      </svg>
+      <span class="word" aria-hidden="true"><span class="w1">F</span><span class="w2">i</span><span class="w3">n</span><span class="w4">o</span></span>
+    </a>
+    <nav aria-label="Main" id="main-nav">
+      <a href="/explainers.html">Explainers</a>
+      <a href="/fines.html" id="nav-fines">Fines</a>
+      <a href="/regulators.html">Regulators</a>
+      <div class="laws" id="laws">
+        <button type="button" id="nav-gdpr" aria-expanded="false" aria-controls="laws-menu">Law <svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <div class="laws-menu lp" id="laws-menu" hidden>
+          <div class="lp-col"><p class="lp-h">The laws</p>
+            <a href="/gdpr/"><b>GDPR</b><span>General Data Protection Regulation</span></a>
+            <a href="/ai-act/"><b>AI Act</b><span>Artificial Intelligence Act</span></a>
+            <div class="soon-law"><b>ePrivacy</b><span>Cookies and electronic communications</span><em>Coming soon</em></div>
+            <a href="/laws.html" class="all-laws"><b>All privacy laws</b><span>21 EU and UK laws, by topic and year</span></a>
+          </div>
+          <div class="lp-col"><p class="lp-h">Understand them</p>
+            <a href="/glossary/"><b>Glossary</b><span>Official meanings, quoted from the law</span></a>
+            <a href="/key-cases/"><b>Key cases</b><span>The court rulings behind the rules</span></a>
+          </div>
+          <button type="button" class="lp-find" data-find-open><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m20 20-4.6-4.6"/></svg><span>Look up a term, case or article&hellip;</span><kbd>Ctrl K</kbd></button>
+        </div>
+      </div>
+      <a href="/Tool.html" class="on" aria-current="page">Tools</a>
+      <a href="/About.html">About</a>
+    </nav>
+    <button class="find-btn" id="find-btn" type="button" data-find-open aria-label="Search Fino" title="Search (Ctrl K)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m20 20-4.6-4.6"/></svg></button>
+    <button class="mode" id="mode" type="button" aria-label="Switch to light mode" title="Switch to light mode">
+      <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+      <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 14.5A8.5 8.5 0 0 1 9.5 3.5a8.5 8.5 0 1 0 11 11z"/></svg>
+    </button>
+    <button class="menu-btn" id="menu-btn" type="button" aria-expanded="false" aria-controls="main-nav" aria-label="Open menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<main id="main"><div class="wrap">
+  <nav class="crumbs" aria-label="Breadcrumb"><a href="/Tool.html">Tools</a><span aria-hidden="true">/</span><span aria-current="page">AI Act check</span></nav>
+  <div class="ai-head">
+    <p class="eyebrow" style="margin:0">Tools &middot; EU AI Act &middot; text as amended in July 2026</p>
+    <h1>Is your AI system banned, high-risk or neither?</h1>
+  </div>
+  <form id="ai-form" aria-label="About your AI system">
+    <fieldset class="ai-q" id="q-role"><legend>1. What is your role?</legend><div class="ai-opts">
+      <label><input type="radio" name="role" value="provider" checked><span>We build it, or have it built, and offer it under our name<small>Provider</small></span></label>
+      <label><input type="radio" name="role" value="deployer"><span>We use someone else&rsquo;s AI system in our work<small>Deployer</small></span></label>
+      <label><input type="radio" name="role" value="importer"><span>We import or resell it in the EU<small>Importer or distributor</small></span></label>
+      <label><input type="radio" name="role" value="gpai"><span>We provide a general-purpose AI model (a model others build on)<small>Provider of a general-purpose AI model</small></span></label>
+      <label><input type="radio" name="role" value="out"><span>Personal use only, research before launch, or military and national security<small>Article 2: probably outside the Act</small></span></label></div></fieldset>
+    <fieldset class="ai-q" id="q-ban"><legend>2. Does it do any of these? <small>Tick any that apply. These are banned (Article 5).</small></legend><div class="ai-opts">
+      <label><input type="checkbox" name="ban" value="a"><span>Manipulates people with subliminal or deceptive techniques, causing significant harm<small>Article 5(1)(a)</small></span></label>
+      <label><input type="checkbox" name="ban" value="b"><span>Exploits people&rsquo;s age, disability or social or economic situation, causing significant harm<small>Article 5(1)(b)</small></span></label>
+      <label><input type="checkbox" name="ban" value="ba"><span>Creates realistic intimate or sexual images, video or audio of a real person without their explicit consent<small>Article 5(1)(ba) &middot; from 2 December 2026</small></span></label>
+      <label><input type="checkbox" name="ban" value="bb"><span>Generates child sexual abuse material<small>Article 5(1)(bb) &middot; from 2 December 2026</small></span></label>
+      <label><input type="checkbox" name="ban" value="c"><span>Scores people on their social behaviour or personality, leading to unfair treatment<small>Article 5(1)(c)</small></span></label>
+      <label><input type="checkbox" name="ban" value="d"><span>Predicts that someone will commit a crime based only on profiling or personality<small>Article 5(1)(d)</small></span></label>
+      <label><input type="checkbox" name="ban" value="e"><span>Builds face recognition databases by scraping images from the internet or CCTV<small>Article 5(1)(e)</small></span></label>
+      <label><input type="checkbox" name="ban" value="f"><span>Recognises emotions at work or in schools (other than for medical or safety reasons)<small>Article 5(1)(f)</small></span></label>
+      <label><input type="checkbox" name="ban" value="g"><span>Sorts people by biometric data to infer race, politics, union membership, religion or sex life<small>Article 5(1)(g)</small></span></label>
+      <label><input type="checkbox" name="ban" value="h"><span>Identifies people in real time in public places for the police (narrow exceptions)<small>Article 5(1)(h)</small></span></label></div></fieldset>
+    <fieldset class="ai-q" id="q-area"><legend>3. Where is it used? <small>Tick any that apply. These are the high-risk areas.</small></legend><div class="ai-opts">
+      <label><input type="checkbox" name="area" value="I"><span>As a safety part of a regulated product (machines, toys, lifts, medical devices, cars&hellip;)<small>Article 6(1) and Annex I</small></span></label>
+      <label><input type="checkbox" name="area" value="1"><span>Biometrics: remote identification, categorisation or emotion recognition<small>Annex III, point 1</small></span></label>
+      <label><input type="checkbox" name="area" value="2"><span>Critical infrastructure: energy, water, traffic, digital infrastructure<small>Annex III, point 2</small></span></label>
+      <label><input type="checkbox" name="area" value="3"><span>Education: admission, grading, monitoring tests<small>Annex III, point 3</small></span></label>
+      <label><input type="checkbox" name="area" value="4"><span>Work: hiring, promotion, firing, task allocation, monitoring staff<small>Annex III, point 4</small></span></label>
+      <label><input type="checkbox" name="area" value="5"><span>Essential services: public benefits, credit scores, life and health insurance, emergency calls<small>Annex III, point 5</small></span></label>
+      <label><input type="checkbox" name="area" value="6"><span>Law enforcement<small>Annex III, point 6</small></span></label>
+      <label><input type="checkbox" name="area" value="7"><span>Migration, asylum and border control<small>Annex III, point 7</small></span></label>
+      <label><input type="checkbox" name="area" value="8"><span>Courts and elections<small>Annex III, point 8</small></span></label></div></fieldset>
+    <fieldset class="ai-q" id="q-narrow" hidden><legend>3b. In that area, does it profile people? And does it only do a narrow task? <small>An Annex III system is not high-risk if it poses no significant risk, for example because it only does a narrow procedural or preparatory task, unless it profiles people (Article 6(3)).</small></legend><div class="ai-opts">
+      <label><input type="checkbox" name="profiling" value="1"><span>It profiles people (evaluates or predicts things about them)</span></label>
+      <label><input type="checkbox" name="narrow" value="1"><span>It only does a narrow procedural or preparatory task, or improves work a person already finished</span></label></div></fieldset>
+    <fieldset class="ai-q" id="q-trans"><legend>4. Does it do any of these? <small>Transparency duties (Article 50).</small></legend><div class="ai-opts">
+      <label><input type="checkbox" name="tr" value="chat"><span>Talks or chats directly with people<small>Article 50(1)</small></span></label>
+      <label><input type="checkbox" name="tr" value="synth"><span>Generates images, audio, video or text<small>Article 50(2)</small></span></label>
+      <label><input type="checkbox" name="tr" value="emo"><span>Recognises emotions or sorts people by biometric data<small>Article 50(3)</small></span></label>
+      <label><input type="checkbox" name="tr" value="fake"><span>Makes deep fakes, or text published to inform the public<small>Article 50(4)</small></span></label></div></fieldset>
+  </form>
+  <div class="ai-out" id="ai-out" aria-live="polite"></div>
+  <a class="ai-pin" id="ai-pin" href="#ai-out" hidden><b id="ai-pin-t"></b><span>See the answer &darr;</span></a>
+  <p class="ai-note">Based on Regulation (EU) 2024/1689 as amended by Regulation (EU) 2026/1744 (the Digital Omnibus on AI), in the consolidated text on Fino. A first orientation, not legal advice: the categories depend on details this check cannot see. Nothing you tick leaves your browser.</p>
+</div>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <div class="foot-top">
+      <div class="foot-about">
+        <a class="brand" href="/" aria-label="Fino, home">
+          <svg class="logo" viewBox="0 0 200 180" aria-hidden="true">
+            <path class="ln" d="M100 50 C98 38 102 30 111 28" fill="none" stroke="var(--ink)" stroke-width="9" stroke-linecap="round"/>
+            <circle class="ln" cx="121" cy="25" r="13" fill="var(--accent)" stroke="var(--ink)" stroke-width="8"/>
+            <path class="ln" d="M100 50 C144 50 172 78 174 117 C176 152 146 168 100 168 C54 168 24 152 26 117 C28 78 56 50 100 50 Z" fill="var(--puff)" stroke="var(--ink)" stroke-width="9"/>
+            <ellipse cx="80" cy="110" rx="9" ry="13" fill="var(--eye)"/>
+            <ellipse cx="120" cy="110" rx="9" ry="13" fill="var(--eye)"/>
+            <path d="M88 136 Q100 147 112 136" fill="none" stroke="var(--eye)" stroke-width="8" stroke-linecap="round"/>
+          </svg>
+          Fino
+        </a>
+        <p>What Europe&rsquo;s data protection regulators actually decided, in one place and checked against the source. Free, no ads, no tracking.</p>
+      </div>
+      <nav class="foot-col" aria-label="Explore Fino">
+        <p class="foot-lbl">Explore</p>
+        <ul>
+          <li><a href="/fines.html">Fines</a></li>
+          <li><a href="/regulators.html">Regulators</a></li>
+          <li><a href="/explainers.html">Explainers</a></li>
+          <li><a href="/gdpr/">GDPR</a></li>
+          <li><a href="/ai-act/">AI Act</a></li>
+          <li><a href="/laws.html">All laws</a></li>
+          <li><a href="/Tool.html">Tools</a></li>
+        </ul>
+      </nav>
+      <nav class="foot-col" aria-label="About Fino">
+        <p class="foot-lbl">Fino</p>
+        <ul>
+          <li><a href="/About.html">About</a></li>
+          <li><a href="/About.html#method">How it works</a></li>
+          <li><a href="/About.html#reuse">Reuse and cite</a></li>
+          <li><a href="/Privacy.html">Privacy</a></li>
+        </ul>
+      </nav>
+      <div class="foot-write">
+        <p class="foot-lbl">Write to Fino</p>
+        <p>Spotted a mistake? A question, an idea, or just want to say hello? Every message is read, and thank you.</p>
+        <a class="foot-mail" href="mailto:hello@finoprivacy.com">hello@finoprivacy.com</a>
+      </div>
+    </div>
+    <div class="foot-base">
+      <p>Decisions from the regulators&rsquo; own documents, enforcementtracker.com (provided by CMS) and GDPRhub (noyb), under CC BY-NC-SA 4.0. Law texts from EUR-Lex, &copy; European Union.</p>
+      <p>&copy; 2026 Fino &middot; <a href="/About.html">About</a> &middot; <a href="/Privacy.html">Privacy</a> &middot; Not legal advice &middot; Made by Lorenzo, with Claude</p>
+    </div>
+  </div>
+</footer>
+
+<script src="/assets/fino.js?v=db82e80ee16d" defer></script>
+<script src="/assets/find.js?v=c1d976a4039d" defer></script>
+<script>
+(() => {
+  const $ = id => document.getElementById(id), all = n => [...document.querySelectorAll(`input[name="${n}"]:checked`)].map(i => i.value);
+  const A = n => `/ai-act/article-${n}.html`;
+  const Q = (t, c, h) => `<figure class="ai-q2"><blockquote>&ldquo;${t}&rdquo;</blockquote><cite><a href="${h}">${c}</a></cite></figure>`;
+  const duty = (what, why, art, href) => `<li>${what}${why ? `<span>${why}</span>` : ''}<a href="${href || A(art)}">Art. ${art}</a></li>`;
+  const date = (d, what) => `<div><b>${d}</b><span>${what}</span></div>`;
+  const LIT = duty('Make sure staff who run or use the system get AI literacy support', 'Applies to providers and deployers of any AI system, from 2 February 2025.', 4);
+  function draw() {
+    const role = (document.querySelector('input[name="role"]:checked') || {}).value, ban = all('ban'), area = all('area'), tr = all('tr');
+    const annex3 = area.filter(a => a !== 'I'), prof = all('profiling').length > 0, narrow = all('narrow').length > 0;
+    const out = role === 'out';
+    ['q-ban', 'q-area', 'q-trans'].forEach(id => { $(id).hidden = out || role === 'gpai'; });
+    $('q-narrow').hidden = out || role === 'gpai' || !annex3.length;
+    let html = '';
+    if (out) {
+      html = `<div class="ai-verdict out"><span class="tag">Probably outside the AI Act</span><h2>The AI Act likely does not apply</h2>
+        <p>Purely personal use, research and testing before an AI system is placed on the market, and military, defence or national security uses are excluded. Testing in real-world conditions is not excluded.</p></div>
+        ${Q('This Regulation does not apply to obligations of deployers who are natural persons using AI systems in the course of a purely personal non-professional activity.', 'AI Act Article 2(10)', A(2))}
+        ${Q('This Regulation does not apply to any research, testing or development activity regarding AI systems or AI models prior to their being placed on the market or put into service.', 'AI Act Article 2(8)', A(2))}`;
+    } else if (role === 'gpai') {
+      html = `<div class="ai-verdict trans"><span class="tag">General-purpose AI model</span><h2>Duties for model providers apply</h2><p>Since 2 August 2025, providers of general-purpose AI models must document the model, inform the companies that build on it, respect EU copyright law and publish a summary of the training content. Models with systemic risk have extra duties.</p></div>
+        <section><h2 class="ai-h">Your duties</h2><ul class="ai-duties">${duty('Technical documentation, information for downstream providers, a copyright policy and a public summary of training content', '', 53)}
+        ${duty('If the model has systemic risk (for example, trained with more than 10<sup>25</sup> floating-point operations): evaluations, risk mitigation, incident reporting and cybersecurity', 'Article 51 sets when a model is presumed to have systemic risk.', 55)}${LIT}</ul></section>
+        <section><h2 class="ai-h">Dates</h2><div class="ai-dates">${date('2 Aug 2025', 'Chapter V (general-purpose AI models) applies')}${date('2 Aug 2026', 'Most of the Act applies, including enforcement')}</div></section>`;
+    } else if (ban.length) {
+      const late = ban.every(b => b === 'ba' || b === 'bb');
+      html = `<div class="ai-verdict ban"><span class="tag">Prohibited</span><h2>This practice is banned in the EU</h2><p>${late ? 'The ban on this practice applies from 2 December 2026.' : 'The bans have applied since 2 February 2025.'} It cannot be placed on the market, put into service or used, whatever your role. Check the exact wording: some bans have narrow exceptions.</p></div>
+        <section><h2 class="ai-h">The articles to read</h2><ul class="ai-duties">${ban.map(b => duty(`Article 5(1), point (${b})`, '', '5')).join('')}</ul></section>
+        ${Q('Non-compliance with the prohibition of the AI practices referred to in Article 5 shall be subject to administrative fines of up to EUR 35 000 000 or, if the offender is an undertaking, up to 7 % of its total worldwide annual turnover for the preceding financial year, whichever is higher.', 'AI Act Article 99(3)', A(99))}`;
+    } else {
+      const high = area.includes('I') || (annex3.length && (prof || !narrow));
+      const exempt = annex3.length && !prof && narrow && !area.includes('I');
+      const dates = [];
+      let duties = '';
+      if (high) {
+        if (role === 'provider') duties += [duty('A risk management system for the whole life of the system', '', 9), duty('Quality and governance of training, validation and testing data', '', 10),
+          duty('Technical documentation and automatic logs', '', 11), duty('Clear instructions for deployers', '', 13), duty('Human oversight built in', '', 14), duty('Accuracy, robustness and cybersecurity', '', 15),
+          duty('A quality management system, conformity assessment, CE marking and EU registration', '', 16), duty('Monitoring after launch and reporting serious incidents', '', 72)].join('');
+        if (role === 'deployer') duties += [duty('Use it as the instructions say, with trained people overseeing it', '', 26), duty('Keep the logs it produces for at least six months and monitor how it works', '', 26),
+          duty('Tell workers and their representatives before using it at work, and tell people when it helps make decisions about them', '', 26),
+          duty('A fundamental rights impact assessment if you are a public body, provide public services, or use it for credit scores or life and health insurance', '', 27),
+          duty('Explain decisions to the people affected when they ask', '', 86)].join('');
+        if (role === 'importer') duties += [duty('Check that the provider did the conformity assessment, the documentation and the CE marking', 'Importers', 23), duty('Check the CE marking and the instructions before selling it on', 'Distributors', 24)].join('');
+        if (area.includes('I')) dates.push(date('2 Aug 2028', 'High-risk rules for AI in regulated products (Annex I)'));
+        if (annex3.length) dates.push(date('2 Dec 2027', 'High-risk rules for the Annex III areas'));
+      }
+      if (exempt && role === 'provider') duties += duty('Write down why the system is not high-risk before launch, and register it in the EU database', 'Article 6(4) and Article 49(2).', 6);
+      const T = { chat: ['Tell people they are talking to an AI, unless it is obvious', '50(1)', 'provider'], synth: ['Mark generated content in a machine-readable way, so it can be detected as AI-made', '50(2)', 'provider'],
+        emo: ['Tell people exposed to emotion recognition or biometric categorisation that it is in use', '50(3)', 'deployer'], fake: ['Disclose that deep fakes, or texts published to inform the public, are AI-generated', '50(4)', 'deployer'] };
+      const trs = tr.filter(k => role === 'importer' || T[k][2] === role || (role === 'provider' && T[k][2] === 'provider') || (role === 'deployer' && T[k][2] === 'deployer'));
+      if (trs.length) { duties += trs.map(k => duty(T[k][0], '', T[k][1], A(50))).join(''); dates.push(date('2 Aug 2026', 'Transparency duties (Article 50) apply')); }
+      const other = tr.filter(k => !trs.includes(k));
+      duties += LIT;
+      dates.unshift(date('2 Feb 2025', 'Bans and AI literacy apply'));
+      const v = high ? ['high', 'High-risk', 'Your system is likely high-risk', `The strictest duties outside the bans apply${role === 'deployer' ? ' to you as a deployer' : role === 'provider' ? ' to you as the provider' : ''}.${annex3.length && prof ? ' Profiling people in an Annex III area always makes a system high-risk.' : ''}`]
+        : exempt ? ['high', 'Maybe not high-risk', 'Likely not high-risk, if the exception really fits', 'An Annex III system that only does a narrow task and does not profile people can fall outside high-risk, but the provider must document why.']
+        : trs.length || other.length ? ['trans', 'Transparency duties', 'Not high-risk, but people must be told', 'Your system is not in a high-risk area, but what it does comes with transparency duties.']
+        : ['min', 'Minimal risk', 'No specific AI Act duties beyond AI literacy', 'Your system is not banned, not in a high-risk area and has no transparency duty. Voluntary codes of conduct can still help (Article 95).'];
+      html = `<div class="ai-verdict ${v[0]}"><span class="tag">${v[1]}</span><h2>${v[2]}</h2><p>${v[3]}</p></div>
+        <section><h2 class="ai-h">Your duties</h2><ul class="ai-duties">${duties}</ul>${other.length ? `<p class="ai-note" style="margin:10px 0 0">The ${other.map(k => 'Article ' + T[k][1]).join(' and ')} duty falls on the ${other.map(k => T[k][2]).filter((x, i, s) => s.indexOf(x) === i).join(' and ')}, not on you.</p>` : ''}</section>
+        <section><h2 class="ai-h">When it applies</h2><div class="ai-dates">${dates.join('')}</div></section>
+        ${high && annex3.length && prof ? Q('Notwithstanding the first subparagraph, an AI system referred to in Annex III shall always be considered to be high-risk where the AI system performs profiling of natural persons.', 'AI Act Article 6(3)', A(6)) : ''}
+        ${high ? Q('Non-compliance with any of the following provisions related to operators or notified bodies, other than those laid down in Articles 5, shall be subject to administrative fines of up to EUR 15 000 000 or, if the offender is an undertaking, up to 3 % of its total worldwide annual turnover for the preceding financial year, whichever is higher', 'AI Act Article 99(4) &middot; for SMEs and start-ups, whichever is lower (Article 99(6))', A(99)) : ''}`;
+    }
+    $('ai-out').innerHTML = html + '<p style="margin:0"><a href="/ai-act/">Read the whole AI Act on Fino &rarr;</a> &middot; <a href="/glossary/">Glossary of AI Act terms &rarr;</a></p>';
+    const tag = $('ai-out').querySelector('.tag'); $('ai-pin-t').textContent = tag ? tag.textContent : '';
+  }
+  /* show the pinned answer only while the form is on screen and the answer is not */
+  let seen = false, touched = false;
+  if ('IntersectionObserver' in window) new IntersectionObserver(es => { seen = es[0].isIntersecting; $('ai-pin').hidden = seen || !touched; }, { threshold: 0.15 }).observe($('ai-out'));
+  $('ai-form').addEventListener('change', () => { touched = true; $('ai-pin').hidden = seen; });
+  $('ai-form').addEventListener('change', draw);
+  draw();
+})();
+</script>
+</body>
+</html>

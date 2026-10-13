@@ -1,0 +1,1789 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src 'self'; base-uri 'self'; form-action 'none'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GDPR fines and decisions · Fino</title>
+<meta name="description" content="Search 5,016 GDPR fines and decisions from 34 countries, read the GDPR with each article linked to the fines that cite it, and save any decision as a PDF. Free, no sign-up.">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="canonical" href="https://finoprivacy.com/fines.html">
+<link rel="preload" href="fonts/fraunces-300-800-latin.woff2" as="font" type="font/woff2" crossorigin>
+<script>/* light unless the visitor chose dark */ (() => { let m = null; try { m = localStorage.getItem('mode'); } catch (e) {} if (m !== 'dark') document.documentElement.dataset.mode = 'light'; })();</script>
+<style>
+/* Fonts are served from this site, so no visitor data goes to a font provider. All under the SIL Open Font License. */
+@font-face { font-family: "Fraunces"; font-style: normal; font-weight: 300 800; font-display: swap; src: url("fonts/fraunces-300-800-latin.woff2") format("woff2"); }
+@font-face { font-family: "Atkinson Hyperlegible"; font-style: normal; font-weight: 400; font-display: swap; src: url("fonts/atkinson-hyperlegible-400-latin.woff2") format("woff2"); }
+@font-face { font-family: "Atkinson Hyperlegible"; font-style: normal; font-weight: 700; font-display: swap; src: url("fonts/atkinson-hyperlegible-700-latin.woff2") format("woff2"); }
+@font-face { font-family: "IBM Plex Mono"; font-style: normal; font-weight: 400; font-display: swap; src: url("fonts/ibm-plex-mono-400-latin.woff2") format("woff2"); }
+@font-face { font-family: "IBM Plex Mono"; font-style: normal; font-weight: 500; font-display: swap; src: url("fonts/ibm-plex-mono-500-latin.woff2") format("woff2"); }
+
+/* Layout: one shell, four views (browse, decision, GDPR article, export sheet), switched by the link anchor.
+   Same tokens as the homepage: espresso by default, latte with the sun/moon button. */
+:root {
+  --bg: #241B17;
+  --surface: #2F2520;
+  --ink: #F4EBE2;
+  --muted: #C2B1A2;
+  --line: #44362F;
+  --dot: #6A574C;
+  --accent: #BFD183;
+  --accent-ink: #151A05;
+  --pink: #F59BB4;
+  --puff: #FFCDB8;
+  --blush: #FF8BA4;
+  --eye: #211915;
+  --soon: #FFB3C6;
+  --soon-bg: #45242D;
+  --live-bg: #33381E;
+  --desk: #1B1411;
+  /* What each colour means (see the Design rules view):
+     green  = you can do something here (solid = the main action, underlined = a link)
+     pink   = look here; emphasis only, never clickable
+     latte  = a panel of tools you set (filters, export options) and where you are in the menu
+     blue   = the official EU source; it always opens EUR-Lex */
+  --latte: #F1EAE1;
+  --latte-ink: #211915;
+  --latte-muted: #6E6158;
+  --latte-line: #D6C7B6;
+  --field: #FFFDF9;
+  --go-deep: #56662A;
+  --official: #9DB8FF;
+  --official-bg: #222C45;
+  --neutral-bg: #3A2F29;
+  color-scheme: dark;
+
+  --display: "Fraunces", "Iowan Old Style", Georgia, serif;
+  --body: "Atkinson Hyperlegible", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, "Cascadia Mono", Consolas, monospace;
+}
+:root[data-mode="light"] {
+  --bg: #F1EAE1; --surface: #FBF7F2; --ink: #211915; --muted: #6E6158; --line: #E0D4C6; --dot: #B9A794;
+  --accent: #56662A; --accent-ink: #FFFFFF; --pink: #FFC4D3;
+  --soon: #A3304F; --soon-bg: #FFE1E8; --live-bg: #E6E9CF; --desk: #E4DACD;
+  --latte: #FFFDF9; --latte-line: #E0D4C6; --field: #FFFFFF;
+  --official: #2D4FA8; --official-bg: #E4EAFA; --neutral-bg: #E7DED3;
+  color-scheme: light;
+}
+
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--ink); font-family: var(--body); font-size: 1.0625rem; line-height: 1.55; overflow-x: hidden; overflow-x: clip; margin: 0; }
+a { color: inherit; }
+a:focus-visible, button:focus-visible, select:focus-visible, input:focus-visible, label:focus-within { outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 6px; }
+::selection { background: var(--pink); color: #15141F; }
+.wrap { max-width: 1120px; margin-inline: auto; padding-inline: 20px; }
+.mono { font-family: var(--mono); }
+.muted { color: var(--muted); }
+
+/* Header */
+.top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 18px; flex-wrap: wrap; }
+.brand { display: flex; align-items: center; gap: 10px; text-decoration: none; font-family: var(--display); font-weight: 650; font-size: 1.5rem; font-variation-settings: "SOFT" 100, "opsz" 48; letter-spacing: -0.01em; }
+.brand svg { width: 34px; height: 31px; }
+.top nav { display: flex; gap: 4px; flex-wrap: wrap; margin-left: auto; }
+.top nav a { text-decoration: none; font-size: 0.95rem; padding: 6px 12px; border-radius: 999px; color: var(--muted); }
+.top nav a:hover { color: var(--ink); background: var(--surface); }
+.top nav a.on, .laws > button.on { color: var(--latte-ink); background: var(--latte); box-shadow: inset 0 0 0 1.5px var(--latte-line); }
+.laws { position: relative; }
+.laws-menu[hidden] { display: none; }
+.laws > button { display: inline-flex; align-items: center; gap: 5px; font: inherit; font-size: 0.95rem; padding: 6px 12px; border-radius: 999px; border: 0; background: none; color: var(--muted); cursor: pointer; }
+.laws > button:hover { color: var(--ink); background: var(--surface); }
+.laws > button.on:hover { color: var(--latte-ink); background: var(--latte); }
+.laws > button svg { width: 12px; height: 12px; transition: transform .15s ease; }
+.laws > button[aria-expanded="true"] svg { transform: rotate(180deg); }
+.laws-menu { position: absolute; right: 0; top: calc(100% + 8px); z-index: 10; list-style: none; margin: 0; padding: 8px; width: 290px; max-width: calc(100vw - 32px);
+  background: var(--latte); color: var(--latte-ink); border: 2px solid var(--latte-ink); border-radius: 20px; box-shadow: 6px 6px 0 var(--pink); display: grid; gap: 2px; color-scheme: light; }
+.top nav .laws-menu a, .laws-menu .soon-law { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 0 10px; padding: 10px 12px; border-radius: 14px; text-decoration: none; color: var(--latte-ink); font-size: 1rem; }
+.top nav .laws-menu a:hover { background: var(--field); color: var(--latte-ink); }
+.top nav .laws-menu a:focus-visible { outline: 3px solid var(--go-deep); outline-offset: 0; }
+.laws-menu b { font-size: 1rem; }
+.laws-menu span { grid-column: 1; font-size: 0.85rem; color: var(--latte-muted); }
+.laws-menu .soon-law { opacity: .75; }
+.laws-menu em { grid-column: 2; grid-row: 1 / span 2; align-self: center; font-style: normal; font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.06em; text-transform: uppercase; padding: 3px 7px; border-radius: 6px; background: #FFE1E8; color: #A3304F; }
+.mode { display: grid; place-items: center; width: 40px; height: 40px; border-radius: 50%; border: 1.5px solid var(--line); background: var(--surface); color: var(--ink); cursor: pointer; padding: 0; }
+.mode:hover { border-color: var(--ink); }
+.mode svg { width: 20px; height: 20px; }
+.mode .moon { display: none; }
+:root[data-mode="light"] .mode .sun { display: none; }
+:root[data-mode="light"] .mode .moon { display: block; }
+/* Light switch: light spreads out from the sun button; going dark pulls it back in (view transitions).
+   With reduced motion it is a short fade; browsers without view transitions switch at once. */
+::view-transition-group(root) { animation-duration: .22s; }
+:root[data-switch]::view-transition-old(root), :root[data-switch]::view-transition-new(root) { animation: none; mix-blend-mode: normal; }
+:root[data-switch="dark"]::view-transition-old(root) { z-index: 2; }
+:root[data-switch="dark"]::view-transition-new(root) { z-index: 1; }
+
+/* The header stays at the top while you scroll. Its height is kept in --head-h, so links to a heading stop
+   below it, and it gets a soft edge once the page has scrolled. */
+.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 30; background: var(--bg); transition: box-shadow .2s ease; }
+.top.scrolled { box-shadow: 0 1px 0 var(--line), 0 12px 24px -20px rgba(0, 0, 0, .6); }
+html { scroll-padding-top: calc(var(--head-h, 80px) + 12px); }
+@media (max-width: 860px) {
+  .top .wrap { padding-block: 10px; row-gap: 4px; }
+  .top nav { flex-wrap: nowrap; gap: 0; }
+  .top nav > a, .laws > button { padding: 6px 9px; font-size: 0.9rem; }
+}
+@media (max-width: 360px) { .top nav > a, .laws > button { padding: 6px 6px; font-size: 0.85rem; } }
+@media (prefers-reduced-motion: reduce) { .top { transition: none; } }
+
+.preview { border-bottom: 1px dashed var(--line); font-family: var(--mono); font-size: 0.78rem; color: var(--muted); }
+.preview p { margin: 0; padding-block: 9px; }
+
+/* Shared type */
+.crumbs { font-family: var(--mono); font-size: 0.82rem; color: var(--muted); margin: 30px 0 0; display: flex; flex-wrap: wrap; gap: 6px; }
+.crumbs a { text-decoration: none; }
+.crumbs a:hover { color: var(--ink); text-decoration: underline; }
+.eyebrow { font-family: var(--mono); font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin: 0 0 14px; }
+h1 { font-family: var(--display); font-variation-settings: "SOFT" 100, "opsz" 144; font-weight: 560; font-size: clamp(2.2rem, 5vw, 3.9rem); line-height: 1.0; letter-spacing: -0.025em; margin: 0 0 16px; text-wrap: balance; overflow-wrap: anywhere; }
+h1.unnamed { font-style: italic; font-weight: 400; color: var(--muted); }
+h1 .tag-person { display: inline-block; vertical-align: 0.4em; margin-left: 12px; font-family: var(--mono); font-style: normal; font-size: 0.75rem;
+  font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; background: var(--latte); color: var(--latte-ink);
+  border-radius: 6px; padding: 5px 10px; box-shadow: inset 0 0 0 1.5px var(--latte-line); }
+.sec-h { font-family: var(--display); font-variation-settings: "SOFT" 100, "opsz" 72; font-weight: 560; font-size: 1.7rem; letter-spacing: -0.015em; line-height: 1.1; margin: 0 0 14px; text-wrap: balance; }
+.lede { margin: 0; font-size: 1.2rem; color: var(--muted); max-width: 36em; }
+.lede strong, .hl { color: var(--ink); font-weight: 700; background: linear-gradient(transparent 62%, var(--pink) 62%, var(--pink) 92%, transparent 92%); }
+.note { color: var(--muted); margin: 0; }
+.legend { font-family: var(--mono); font-size: 0.75rem; color: var(--muted); margin: 8px 0 0; }
+.btn { display: inline-flex; align-items: center; gap: 8px; text-decoration: none; font: inherit; font-weight: 700; padding: 11px 20px; border-radius: 999px; border: 2px solid var(--ink); background: transparent; color: var(--ink); cursor: pointer; transition: transform .15s ease, background .15s ease; }
+.btn:hover { transform: translateY(-2px); background: var(--surface); }
+.btn.primary:hover { background: var(--accent); filter: brightness(1.05); }
+.btn.primary { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
+.btn.small { padding: 7px 14px; font-size: 0.92rem; }
+.btn.latte { background: var(--latte); color: var(--latte-ink); border-color: var(--latte); }
+.btn.latte:hover { background: var(--latte); box-shadow: 4px 4px 0 var(--pink); }
+.pill { justify-self: start; font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.06em; text-transform: uppercase; padding: 4px 9px; border-radius: 6px; white-space: nowrap; }
+.pill.bad { background: var(--soon-bg); color: var(--soon); }
+.pill.ok { background: var(--neutral-bg); color: var(--muted); }
+.card { background: var(--surface); border: 2px solid var(--ink); border-radius: 24px; padding: 22px; }
+
+/* ---------- Browse ---------- */
+.b-head { padding-block: 26px 22px; display: grid; gap: 14px; }
+.panel { background: var(--latte); color: var(--latte-ink); border: 2px solid var(--latte-ink); border-radius: 26px; box-shadow: 7px 7px 0 var(--pink); color-scheme: light; }
+.panel :focus-visible { outline-color: var(--go-deep); }
+.finder { display: grid; gap: 14px; padding: 20px; }
+.search { display: flex; align-items: center; gap: 10px; border: 2px solid var(--latte-line); border-radius: 999px; padding: 0 16px; background: var(--field); }
+.search:focus-within { border-color: var(--go-deep); }
+.search svg { width: 20px; height: 20px; flex: none; color: var(--latte-muted); }
+.search input { flex: 1; min-width: 0; border: 0; background: transparent; color: var(--latte-ink); font: inherit; font-size: 1.05rem; padding: 12px 0; outline: none; }
+.search input::placeholder { color: var(--latte-muted); }
+.filters { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 10px; }
+.filters label { display: grid; gap: 4px; font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--latte-muted); min-width: 0; }
+.filters select { font: inherit; font-family: var(--body); font-size: 0.95rem; letter-spacing: 0; text-transform: none; color: var(--latte-ink); background: var(--field); border: 1.5px solid var(--latte-line); border-radius: 12px; padding: 9px 10px; width: 100%; min-width: 0; }
+.bands { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.bands span { font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--latte-muted); margin-right: 4px; }
+.chip { font: inherit; font-size: 0.88rem; padding: 5px 13px; border-radius: 999px; border: 1.5px solid var(--latte-line); background: var(--field); color: var(--latte-ink); cursor: pointer; }
+.chip:hover { border-color: var(--latte-ink); }
+.chip[aria-pressed="true"] { background: var(--go-deep); border-color: var(--go-deep); color: #FFFFFF; }
+.tally { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: 12px 24px; padding-block: 30px 12px; }
+.tally .big { font-family: var(--display); font-variation-settings: "SOFT" 100, "opsz" 72; font-size: 1.6rem; font-weight: 560; margin: 0; line-height: 1.15; }
+.tally .big b { color: var(--accent); font-weight: 650; }
+.tally .sub { margin: 4px 0 0; color: var(--muted); font-family: var(--mono); font-size: 0.85rem; font-variant-numeric: tabular-nums; }
+.tally .right { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+.tally select { font: inherit; font-size: 0.92rem; color: var(--ink); background: var(--surface); border: 1.5px solid var(--line); border-radius: 999px; padding: 7px 12px; }
+.linkbtn { font: inherit; font-size: 0.92rem; background: none; border: 0; color: var(--muted); text-decoration: underline; cursor: pointer; padding: 4px; }
+.linkbtn:hover { color: var(--ink); }
+.results { list-style: none; margin: 0; padding: 0; border-top: 2px solid var(--ink); }
+.results li { border-bottom: 1px solid var(--line); }
+.results a { display: grid; grid-template-columns: 112px minmax(0, 1fr) 130px 150px; gap: 18px; align-items: start; padding: 16px 6px; text-decoration: none; border-radius: 14px; transition: background .15s ease; }
+.results a:hover { background: var(--surface); }
+.results .dt { font-family: var(--mono); font-size: 0.85rem; color: var(--muted); padding-top: 3px; font-variant-numeric: tabular-nums; }
+.results .who { min-width: 0; }
+.results .who b { display: block; font-size: 1.05rem; overflow-wrap: anywhere; }
+.results .who b.unnamed { font-style: italic; font-weight: 400; color: var(--muted); }
+.results .who span { display: block; color: var(--muted); font-size: 0.92rem; }
+.results .who small { display: block; font-family: var(--mono); font-size: 0.75rem; color: var(--muted); margin-top: 4px; }
+.results .cty { color: var(--muted); font-size: 0.95rem; padding-top: 2px; }
+img.flag { display: inline-block; width: 1.15em; height: 1.15em; border-radius: 50%; vertical-align: -0.2em; margin-right: 0.45em; box-shadow: 0 0 0 1px var(--line); }
+.results .amt { text-align: right; font-family: var(--mono); font-weight: 500; font-variant-numeric: tabular-nums; padding-top: 2px; }
+.results .amt small { display: block; font-weight: 400; font-size: 0.8rem; color: var(--muted); }
+.results .amt.none { color: var(--muted); font-weight: 400; font-size: 0.85rem; }
+.more { display: flex; justify-content: center; padding-block: 26px 64px; }
+.empty-list { padding: 40px 0; display: grid; grid-template-columns: 92px minmax(0, 1fr); gap: 18px; align-items: center; max-width: 560px; }
+
+/* ---------- Decision ---------- */
+.head { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 340px); gap: 32px 48px; align-items: end; padding-block: 22px 36px; }
+.fine { background: var(--surface); border: 2px solid var(--ink); border-radius: 26px; box-shadow: 7px 7px 0 var(--pink); padding: 22px 24px 20px; display: grid; gap: 6px; }
+.fine .lbl { font-family: var(--mono); font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+.fine .amt { font-family: var(--display); font-variation-settings: "SOFT" 100, "opsz" 96; font-weight: 600; font-size: clamp(2rem, 4.4vw, 2.9rem); line-height: 1.05; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; overflow-wrap: anywhere; }
+.fine .amt.none { font-size: 1.6rem; font-weight: 500; }
+.amt s { text-decoration-thickness: 2px; color: var(--muted); }
+.after { margin: 14px 0 0; padding: 10px 14px; border-left: 3px solid var(--latte-line); background: var(--neutral-bg); font-size: 0.92rem; max-width: 62ch; }
+.after a { white-space: nowrap; }
+.fine .amt .cur { font-size: 0.5em; font-weight: 500; letter-spacing: 0.02em; margin-right: 0.25em; vertical-align: 0.12em; }
+.fine .conv { font-family: var(--display); font-variation-settings: "SOFT" 100; font-weight: 500; font-size: 1.35rem; line-height: 1.1; font-variant-numeric: tabular-nums; }
+.fine .pill { margin-top: 6px; }
+.facts { margin: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 2px solid var(--ink); }
+.facts div { padding: 16px 16px 16px 0; border-bottom: 1px solid var(--line); min-width: 0; }
+.facts dt { font-family: var(--mono); font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-bottom: 4px; }
+.facts dd { margin: 0; overflow-wrap: anywhere; }
+.facts dd small { display: block; color: var(--muted); font-size: 0.85rem; }
+.tools { display: flex; flex-wrap: wrap; gap: 10px; padding-top: 22px; }
+.body { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.75fr); gap: 56px; padding-block: 40px 24px; align-items: start; }
+.body section + section, aside section + section { margin-top: 44px; }
+.summary { font-size: 1.15rem; line-height: 1.6; margin: 0; max-width: 36em; }
+.credit { font-family: var(--mono); font-size: 0.8rem; color: var(--muted); margin: 14px 0 0; }
+.empty { display: grid; grid-template-columns: 92px minmax(0, 1fr); gap: 18px; align-items: center; }
+.bubble { position: relative; background: var(--surface); border: 2px solid var(--ink); border-radius: 20px; padding: 14px 18px; margin: 0; box-shadow: 5px 5px 0 var(--pink); }
+.bubble::after { content: ""; position: absolute; left: -10px; top: 50%; width: 16px; height: 16px; margin-top: -8px; background: var(--surface); border-left: 2px solid var(--ink); border-bottom: 2px solid var(--ink); transform: rotate(45deg); border-bottom-left-radius: 4px; }
+.mini { width: 92px; height: auto; overflow: visible; }
+.rules { list-style: none; margin: 0; padding: 0; border-top: 2px solid var(--ink); }
+.rules li { border-bottom: 1px solid var(--line); }
+.rules a.in, .rules .r { display: grid; grid-template-columns: 76px minmax(0, 1fr) auto; gap: 14px; align-items: baseline; padding: 14px 4px; text-decoration: none; border-radius: 12px; transition: background .15s ease; }
+.rules a.in:hover { background: var(--surface); }
+.rules a.in:hover .no { color: var(--accent); }
+.rules .no { font-family: var(--mono); font-weight: 500; }
+.rules .t { min-width: 0; }
+.rules .t small { display: block; font-family: var(--mono); font-size: 0.78rem; color: var(--muted); margin-top: 2px; }
+.rules .go { font-family: var(--mono); font-size: 0.8rem; color: var(--muted); white-space: nowrap; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 18px 0 0; padding: 0; list-style: none; }
+.chips li { font-size: 0.85rem; padding: 3px 9px; border-radius: 6px; background: var(--neutral-bg); color: var(--muted); }
+.ctx .big { font-family: var(--display); font-variation-settings: "SOFT" 100, "opsz" 72; font-weight: 560; font-size: 1.35rem; line-height: 1.2; margin: 0 0 4px; text-wrap: balance; }
+.ctx .big b { color: var(--accent); font-weight: 650; }
+.ctx .sub { color: var(--muted); font-size: 0.92rem; margin: 0 0 12px; }
+.strip { display: block; width: 100%; height: auto; }
+.strip text { font-family: var(--mono); font-size: 10px; fill: var(--muted); }
+.strip .tick { stroke: var(--line); stroke-width: 1; }
+.strip .d { fill: var(--dot); }
+.strip .me { fill: var(--pink); stroke: var(--ink); stroke-width: 2; }
+.strip .pin { stroke: var(--ink); stroke-width: 1; }
+.strip .melbl { fill: var(--ink); font-weight: 500; }
+.sim { list-style: none; margin: 0; padding: 0; border-top: 2px solid var(--ink); }
+.sim li { border-bottom: 1px solid var(--line); }
+.sim a { display: block; padding: 12px 4px; text-decoration: none; border-radius: 12px; }
+.sim a:hover { background: var(--surface); }
+.sim b { display: block; overflow-wrap: anywhere; }
+.sim span { display: block; font-family: var(--mono); font-size: 0.8rem; color: var(--muted); font-variant-numeric: tabular-nums; }
+.sources { padding-block: 24px 64px; }
+.orgs { list-style: none; margin: 0 0 14px; padding: 0; border-top: 2px solid var(--ink); }
+.orgs li { border-bottom: 1px solid var(--line); padding: 10px 4px; display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 2px 12px; }
+.orgs li.me b::after { content: "this decision"; margin-left: 8px; font-family: var(--mono); font-size: 0.68rem; letter-spacing: .06em; text-transform: uppercase;
+  padding: 2px 6px; border-radius: 6px; background: var(--neutral-bg); color: var(--muted); font-weight: 400; vertical-align: 2px; }
+.orgs b { overflow-wrap: anywhere; }
+.orgs span { grid-column: 1; font-family: var(--mono); font-size: 0.78rem; color: var(--muted); }
+.orgs em { grid-column: 2; grid-row: 1 / span 2; align-self: center; font-style: normal; font-family: var(--mono); font-size: 0.85rem; text-align: right; font-variant-numeric: tabular-nums; }
+.active { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin: 0 0 4px; }
+.active .chip { background: var(--latte); color: var(--latte-ink); border-color: var(--latte); display: inline-flex; gap: 8px; align-items: center; }
+.active .chip span { font-family: var(--mono); font-size: 0.7rem; letter-spacing: .06em; text-transform: uppercase; color: var(--latte-muted); }
+.links { list-style: none; margin: 0 0 18px; padding: 0; display: flex; flex-wrap: wrap; gap: 12px; }
+.fine-print { font-size: 0.92rem; color: var(--muted); margin: 0; max-width: 52em; }
+.fine-print + .fine-print { margin-top: 8px; }
+.mail { font-family: var(--mono); color: inherit; text-decoration: none; border-bottom: 1.5px solid var(--accent); }
+.mail:hover { color: var(--accent); }
+
+/* ---------- GDPR ---------- */
+.law { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 0.7fr); gap: 56px; padding-block: 22px 40px; align-items: start; }
+.law h1 { font-size: clamp(2.2rem, 4.6vw, 3.4rem); margin-bottom: 6px; }
+.law .atitle { font-family: var(--display); font-variation-settings: "SOFT" 100, "opsz" 72; font-weight: 420; font-style: italic; font-size: clamp(1.3rem, 2.4vw, 1.7rem); line-height: 1.2; margin: 0 0 30px; color: var(--muted); text-wrap: balance; }
+.text { font-size: 1.1rem; line-height: 1.65; max-width: 40em; }
+.text p { margin: 0 0 12px; }
+.text .par { display: grid; grid-template-columns: 34px minmax(0, 1fr); gap: 6px; margin-bottom: 14px; }
+.text .pn { font-family: var(--mono); font-weight: 500; color: var(--accent); padding-top: 2px; }
+.text .pt { display: grid; grid-template-columns: 38px minmax(0, 1fr); gap: 4px; margin: 0 0 6px; }
+.text .pl { font-family: var(--mono); color: var(--muted); padding-top: 2px; }
+.text .pt .pt .pl { color: var(--muted); }
+.text a.xref { color: var(--accent); font-weight: 700; text-decoration: none; border-bottom: 1.5px solid currentColor; }
+.text a.xref:hover { background: var(--live-bg); }
+.official { display: grid; gap: 10px; }
+.eurlex { display: inline-flex; align-items: center; gap: 8px; text-decoration: none; font-family: var(--mono); font-size: 0.82rem; font-weight: 500; color: var(--official); background: var(--official-bg); border: 1.5px solid currentColor; border-radius: 999px; padding: 5px 12px 5px 6px; white-space: nowrap; transition: transform .15s ease; }
+.eurlex:hover { transform: translateY(-1px); }
+.eurlex .sec { display: grid; place-items: center; width: 22px; height: 22px; border-radius: 50%; background: var(--official); color: var(--official-bg); font-family: var(--display); font-weight: 700; font-size: 0.95rem; line-height: 1; }
+.eurlex.small { font-size: 0.74rem; padding: 3px 9px 3px 4px; gap: 6px; }
+.eurlex.small .sec { width: 18px; height: 18px; font-size: 0.8rem; }
+.law .titlerow { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 16px; margin-bottom: 6px; }
+.law .titlerow h1 { margin: 0; }
+.official p { margin: 0; font-size: 0.92rem; color: var(--muted); }
+.stat { font-family: var(--display); font-variation-settings: "SOFT" 100, "opsz" 72; font-weight: 560; font-size: 1.35rem; line-height: 1.2; margin: 0 0 12px; }
+.stat b { color: var(--accent); font-weight: 650; }
+.prevnext { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; border-top: 2px solid var(--ink); padding-block: 18px 64px; }
+.prevnext a { text-decoration: none; max-width: 48%; }
+.prevnext a span { display: block; font-family: var(--mono); font-size: 0.75rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
+.prevnext a:hover b { text-decoration: underline; }
+.toc { padding-block: 10px 64px; display: grid; gap: 34px; }
+.toc h2 { font-family: var(--display); font-variation-settings: "SOFT" 100, "opsz" 72; font-weight: 560; font-size: 1.45rem; margin: 0 0 10px; }
+.toc h2 span { display: block; font-family: var(--mono); font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); font-weight: 400; }
+.toc ol { list-style: none; margin: 0; padding: 0; border-top: 2px solid var(--ink); columns: 2; column-gap: 32px; }
+.toc li { break-inside: avoid; border-bottom: 1px solid var(--line); }
+.toc ol a { display: grid; grid-template-columns: 74px minmax(0, 1fr) auto; gap: 10px; padding: 9px 4px; text-decoration: none; border-radius: 10px; align-items: baseline; }
+.toc ol a:hover { background: var(--surface); }
+.toc .n { font-family: var(--mono); font-weight: 500; }
+.toc .c { font-family: var(--mono); font-size: 0.75rem; color: var(--muted); white-space: nowrap; }
+.pre-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: 12px 20px; margin-bottom: 10px; }
+.pre-head h2 { margin: 0; }
+.goto { display: flex; align-items: center; gap: 8px; padding: 8px 8px 8px 16px; border-radius: 999px; box-shadow: 4px 4px 0 var(--pink); }
+.goto label { font-family: var(--mono); font-size: 0.78rem; letter-spacing: 0.04em; color: var(--latte-ink); white-space: nowrap; }
+.goto input { font: inherit; width: 4.6em; padding: 6px 10px; border-radius: 999px; border: 1.5px solid var(--latte-line); background: var(--field); color: var(--latte-ink); }
+.goto input:focus-visible { outline: 3px solid var(--go-deep); outline-offset: 1px; }
+.goto .btn { background: var(--go-deep); border-color: var(--go-deep); color: #FFFFFF; padding: 6px 16px; }
+.goto-msg { font-family: var(--mono); font-size: 0.78rem; color: var(--soon); margin: 0; flex-basis: 100%; text-align: right; min-height: 0; }
+.preamble { border-top: 2px solid var(--ink); }
+.preamble > summary { list-style: none; cursor: pointer; display: grid; grid-template-columns: 74px minmax(0, 1fr) auto; gap: 10px; padding: 9px 4px; border-bottom: 1px solid var(--line); border-radius: 10px; align-items: baseline; }
+.preamble > summary::-webkit-details-marker { display: none; }
+.preamble > summary:hover { background: var(--surface); }
+.preamble > summary:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+.preamble .tw { font-family: var(--mono); font-size: 0.75rem; color: var(--accent); white-space: nowrap; }
+.preamble .tw::after { content: "Show \25BE"; }
+.preamble[open] .tw::after { content: "Hide \25B4"; }
+.preamble .inner { padding: 10px 0 18px; }
+.preamble .formal { font-family: var(--mono); font-size: 0.85rem; letter-spacing: 0.04em; color: var(--muted); margin: 18px 0 10px; }
+.preamble .cits { margin: 0 0 8px; padding: 0; list-style: none; display: grid; gap: 6px; max-width: 46em; }
+.rec { display: grid; grid-template-columns: 56px minmax(0, 1fr); gap: 8px; padding: 12px 0; border-bottom: 1px solid var(--line); max-width: 52em; scroll-margin-top: 20px; }
+.rec .rn { font-family: var(--mono); font-weight: 500; color: var(--accent); text-decoration: none; padding-top: 2px; }
+.rec .rn:hover { text-decoration: underline; }
+.rec p { margin: 0 0 8px; line-height: 1.6; }
+.rec:target { background: var(--surface); border-radius: 12px; padding-inline: 8px; }
+.rec .fix { display: block; font-family: var(--mono); font-size: 0.75rem; color: var(--muted); }
+.rec-tools { display: flex; flex-wrap: wrap; justify-content: flex-end; align-items: center; gap: 4px 12px; margin: 10px 0 0; }
+.rec-tools .goto { padding: 4px 4px 4px 12px; gap: 6px; box-shadow: none; border-width: 1.5px; }
+.rec-tools .goto label { font-size: 0.72rem; }
+.rec-tools .goto input { width: 3.8em; padding: 3px 8px; font-size: 0.88rem; }
+.rec-tools .goto .btn { padding: 3px 12px; font-size: 0.82rem; border-width: 1.5px; }
+.rec-tools .goto-msg { flex-basis: 100%; text-align: right; font-size: 0.72rem; }
+.pre-end { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px 16px; margin-top: 14px; }
+.pre-end .legend { margin: 0; }
+/* AI Act: the "Changed 2026" label, headings inside annexes, the one annex table, 10 to the power 25 */
+.toc .chg { font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.06em; text-transform: uppercase; padding: 2px 6px; border-radius: 6px; background: var(--soon-bg); color: var(--soon); }
+.card.changed { box-shadow: 4px 4px 0 var(--pink); }
+.text .sh { font-weight: 700; margin: 22px 0 10px; }
+.text sup { font-size: 0.7em; line-height: 0; }
+/* The other law: one small square tag, in the text's own ink. "GDPR" on a link from the AI Act to the GDPR,
+   "AI Act" the other way round. It is drawn by CSS, so the law's words stay untouched (and copy without it). */
+.law-tag, .text a.xref[title$=" GDPR"]::after { display: inline-block; font-family: var(--mono); font-style: normal; font-weight: 500; font-size: 0.62rem;
+  letter-spacing: 0.06em; text-transform: uppercase; line-height: 1; padding: 3px 5px 2px; border: 1.2px solid currentColor; border-radius: 4px; vertical-align: 2px; }
+.text a.xref[title$=" GDPR"]::after { content: "GDPR"; margin-left: 4px; }
+.sim .law-tag { margin-right: 7px; vertical-align: 3px; }
+.text .tbl { overflow-x: auto; margin: 0 0 16px; }
+.text table { border-collapse: collapse; font-size: 0.95rem; line-height: 1.45; min-width: 100%; }
+.text th, .text td { text-align: left; vertical-align: top; padding: 7px 10px; border-bottom: 1px solid var(--line); }
+.text th { font-family: var(--mono); font-size: 0.75rem; letter-spacing: 0.04em; font-weight: 500; color: var(--muted); border-bottom: 2px solid var(--ink); }
+.text td:first-child { font-family: var(--mono); font-size: 0.85rem; white-space: nowrap; }
+
+/* ---------- Export sheet ---------- */
+.x-bar { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 14px; padding: 16px 20px; margin-block: 24px 14px; }
+.x-bar .btn.primary { background: var(--go-deep); border-color: var(--go-deep); color: #FFFFFF; }
+.x-bar fieldset { border: 0; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px 16px; align-items: center; }
+.x-bar legend { float: left; font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--latte-muted); margin-right: 6px; padding: 0; }
+.x-bar label { display: inline-flex; gap: 6px; align-items: center; font-size: 0.95rem; cursor: pointer; }
+.x-bar input { accent-color: var(--go-deep); width: 17px; height: 17px; }
+.desk { background: var(--desk); border-radius: 28px; padding: 32px 16px 40px; margin-bottom: 64px; overflow-x: auto; }
+.sheet { color: #211915; font-size: 13.5px; line-height: 1.5; }
+/* The preview is cut into A4 pages exactly as they print (210 x 297 mm), so what you see is what you get */
+.pages { display: grid; justify-content: center; gap: 28px; }
+.page { position: relative; width: 210mm; height: 297mm; box-sizing: border-box; padding: 14mm 15mm 18mm; background: #FFFDF9;
+  box-shadow: 0 18px 50px rgba(0,0,0,.35); border-radius: 4px; overflow: hidden; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+.page .pg-body { height: 100%; overflow: hidden; }
+.page .pg-body > :first-child { margin-top: 0; }
+.page .pg-foot { position: absolute; left: 15mm; right: 15mm; bottom: 8mm; display: flex; justify-content: space-between; gap: 12px;
+  font-family: var(--mono); font-size: 9.5px; letter-spacing: .04em; color: #6E6158; }
+.sheet .s-art.open, .sheet ul.open { margin-bottom: 0; }
+.sheet .s-art.cont, .sheet ul.cont { margin-top: 0; }
+.sheet .s-foot.cont { margin-top: 0; border-top: 0; padding-top: 3px; }
+.sheet .s-foot.open { padding-bottom: 0; }
+.sheet .s-top { display: flex; justify-content: space-between; align-items: center; gap: 16px; border-bottom: 2px solid #211915; padding-bottom: 12px; }
+.sheet .s-brand { display: flex; align-items: center; gap: 8px; font-family: var(--display); font-variation-settings: "SOFT" 100, "opsz" 48; font-weight: 650; font-size: 20px; }
+.sheet .s-brand svg { width: 26px; height: 24px; }
+.sheet .s-kind { font-family: var(--mono); font-size: 10.5px; letter-spacing: .08em; text-transform: uppercase; color: #6E6158; text-align: right; }
+.sheet h2.s-title { font-family: var(--display); font-variation-settings: "SOFT" 100, "opsz" 96; font-weight: 600; font-size: 30px; line-height: 1.08; letter-spacing: -0.02em; margin: 22px 0 4px; overflow-wrap: anywhere; }
+.sheet .s-meta { font-family: var(--mono); font-size: 11px; color: #6E6158; margin: 0 0 14px; }
+.sheet .s-fine { display: flex; gap: 14px; align-items: baseline; flex-wrap: wrap; margin-bottom: 16px; }
+.sheet .s-fine b { font-family: var(--display); font-size: 26px; font-weight: 600; font-variant-numeric: tabular-nums; }
+.sheet .s-fine span { font-family: var(--mono); font-size: 10.5px; text-transform: uppercase; letter-spacing: .06em; background: #FFE1E8; color: #A3304F; padding: 3px 8px; border-radius: 99px; }
+.sheet .cite { border: 1.5px solid #211915; border-radius: 10px; padding: 10px 14px; margin: 0 0 18px; background: #F6F0E8; }
+.sheet .cite small { display: block; font-family: var(--mono); font-size: 9.5px; letter-spacing: .08em; text-transform: uppercase; color: #6E6158; margin-bottom: 3px; }
+.sheet h3 { font-family: var(--display); font-variation-settings: "SOFT" 100, "opsz" 48; font-weight: 600; font-size: 16px; margin: 20px 0 6px; border-bottom: 1px solid #E0D4C6; padding-bottom: 4px; }
+.sheet table { width: 100%; border-collapse: collapse; }
+.sheet table { color: #211915; font-size: 13px; }
+.sheet td { padding: 4px 0; vertical-align: top; border-bottom: 1px solid #EFE6DB; color: #211915; }
+.sheet td:first-child { width: 150px; font-family: var(--mono); font-size: 10.5px; text-transform: uppercase; letter-spacing: .06em; color: #6E6158; padding-top: 6px; }
+.sheet p { margin: 0 0 6px; }
+.sheet .s-small { font-size: 11px; color: #6E6158; }
+.sheet .s-art { margin: 8px 0 12px; padding-left: 12px; border-left: 3px solid #DCE3B8; }
+.sheet .s-art .par { display: grid; grid-template-columns: 22px 1fr; gap: 4px; }
+.sheet .s-art .pt { display: grid; grid-template-columns: 26px 1fr; gap: 2px; }
+.sheet .s-art a { color: inherit; text-decoration: none; }
+.sheet ul { margin: 0; padding-left: 18px; }
+.sheet .url { font-family: var(--mono); font-size: 10.5px; overflow-wrap: anywhere; }
+.sheet .s-foot { margin-top: 26px; border-top: 2px solid #211915; padding-top: 10px; font-size: 10.5px; color: #6E6158; display: grid; gap: 3px; }
+.x-note { font-family: var(--mono); font-size: 0.8rem; color: var(--muted); margin: 0; }
+.rules-grid { list-style: none; margin: 0 0 64px; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+.rules-grid li { border: 2px solid var(--ink); border-radius: 22px; padding: 20px; display: grid; gap: 12px; align-content: start; }
+.rules-grid h2 { font-family: var(--display); font-variation-settings: "SOFT" 100, "opsz" 72; font-weight: 560; font-size: 1.3rem; margin: 0; }
+.rules-grid p { margin: 0; color: var(--muted); }
+.rules-grid .demo { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+.swatch { width: 28px; height: 28px; border-radius: 50%; border: 2px solid var(--ink); flex: none; }
+@media (max-width: 760px) { .rules-grid { grid-template-columns: minmax(0, 1fr); } }
+
+/* Footer: a latte band (espresso in the light look): who Fino is, where to go, how to write */
+footer { background: var(--ink); color: var(--bg); }
+footer .foot { padding-block: 48px 28px; display: grid; gap: 32px; font-size: 0.95rem; }
+footer .foot-top { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 0.7fr) minmax(0, 0.8fr) minmax(0, 1.3fr); gap: 32px; }
+footer p { margin: 0; max-width: 60em; }
+footer .brand { color: inherit; margin-bottom: 12px; }
+footer .brand svg .ln { stroke: var(--bg); }
+footer .foot-about p { opacity: .85; max-width: 28em; line-height: 1.55; }
+footer .foot-lbl { font-family: var(--mono); font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; opacity: .7; margin-bottom: 10px; }
+footer ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
+footer .foot-col a { color: inherit; text-decoration: none; border-bottom: 1.5px solid transparent; }
+footer .foot-col a:hover { border-bottom-color: currentColor; }
+footer .foot-write p:not(.foot-lbl) { opacity: .85; line-height: 1.55; margin-bottom: 14px; }
+/* green = you can do something: a solid pill, one click opens your own mail program */
+footer .foot-mail { display: inline-block; font-family: var(--mono); font-size: 0.9rem; text-decoration: none; padding: 8px 16px; border-radius: 999px;
+  background: var(--go-deep); color: #FFFFFF; border: 2px solid var(--go-deep); }
+footer .foot-mail:hover { background: transparent; color: inherit; }
+footer a:focus-visible { outline: 3px solid var(--go-deep); outline-offset: 3px; border-radius: 6px; }
+footer .foot-base a { color: inherit; text-decoration: none; border-bottom: 1px solid currentColor; }
+footer .foot-base { border-top: 1.5px solid currentColor; padding-top: 16px; display: grid; gap: 6px; font-size: 0.82rem; opacity: .75; }
+@media (max-width: 900px) { footer .foot-top { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); } }
+@media (max-width: 560px) { footer .foot-top { gap: 24px; } footer .foot-about, footer .foot-write { grid-column: 1 / -1; } }
+
+@media (max-width: 960px) {
+  .filters { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .results a { grid-template-columns: minmax(0, 1fr) auto; gap: 4px 14px; }
+  .results .dt { grid-column: 1; grid-row: 1; padding: 0; }
+  .results .amt { grid-column: 2; grid-row: 1 / span 2; }
+  .results .who { grid-column: 1; }
+  .results .cty { grid-column: 1; font-size: 0.85rem; padding: 0; }
+}
+@media (max-width: 860px) {
+  .top nav { order: 3; width: 100%; margin-left: -12px; }
+  .laws-menu { left: 0; right: auto; }
+  .head { grid-template-columns: minmax(0, 1fr); align-items: start; }
+  .facts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .body, .law { grid-template-columns: minmax(0, 1fr); gap: 44px; }
+  .rules a.in, .rules .r { grid-template-columns: 56px minmax(0, 1fr); }
+  .rules .go { display: none; }
+  .toc ol { columns: 1; }
+}
+@media (max-width: 480px) {
+  .filters { grid-template-columns: minmax(0, 1fr); }
+  .facts { grid-template-columns: minmax(0, 1fr); }
+  .empty, .empty-list { grid-template-columns: 64px minmax(0, 1fr); }
+  .mini { width: 64px; }
+}
+@media (prefers-reduced-motion: reduce) { .btn, .rules a, .results a { transition: none; } }
+
+/* The export sheet is what the browser saves as a PDF; everything else is hidden */
+@media print {
+  @page { size: A4; margin: 0; }
+  body { background: #FFFFFF; }
+  body > *:not(main), .x-bar, .x-note, .crumbs { display: none !important; }
+  main .wrap { max-width: none !important; padding: 0 !important; margin: 0 !important; }
+  .desk { background: none; padding: 0; margin: 0; overflow: visible; border-radius: 0; }
+  .pages { display: block; zoom: 1 !important; }
+  .page { box-shadow: none; border-radius: 0; height: 296.5mm; break-after: page; }
+  .page:last-child { break-after: auto; }
+}
+/* Header logo: the word at the top; on scroll the letters close in (outer pair first, then the inner pair)
+   and the mascot pops up where they meet. Reduced motion: a plain fade. */
+.top .brand { position: relative; gap: 0; }
+.top .brand .logo { position: absolute; left: 50%; top: 50%; translate: -50% -50%; scale: .2; opacity: 0;
+  transition: scale .16s ease, opacity .12s ease; }
+.top .brand .word { display: inline-flex; }
+.top .brand .word span { display: inline-block; transition: transform .3s cubic-bezier(.5, 0, .3, 1) .14s, opacity .22s ease .2s; }
+.top .brand .word .w2, .top .brand .word .w3 { transition-delay: .1s, .16s; }
+.top.scrolled .brand .word span { opacity: 0; transition: transform .3s cubic-bezier(.6, 0, .4, 1), opacity .2s ease .1s; }
+.top.scrolled .brand .word .w2, .top.scrolled .brand .word .w3 { transition-delay: .08s, .16s; }
+.top.scrolled .brand .word .w1 { transform: translateX(.86em); }
+.top.scrolled .brand .word .w2 { transform: translateX(.3em); }
+.top.scrolled .brand .word .w3 { transform: translateX(-.28em); }
+.top.scrolled .brand .word .w4 { transform: translateX(-.84em); }
+.top.scrolled .brand .logo { scale: 1; opacity: 1; transition: scale .42s cubic-bezier(.34, 1.56, .64, 1) .24s, opacity .16s ease .24s; }
+@media (prefers-reduced-motion: reduce) {
+  .top .brand .word span, .top.scrolled .brand .word span { transform: none !important; transition: opacity .2s ease; transition-delay: 0s; }
+  .top .brand .logo, .top.scrolled .brand .logo { scale: 1; transition: opacity .2s ease; }
+}
+/* Phone menu: below 760px the links fold behind a three-line button and open as a full-screen list.
+   Only when the script has run (.has-menu), so without JavaScript the links simply wrap as before. */
+.menu-btn { display: none; }
+@media (max-width: 760px) {
+  .top.has-menu .wrap { flex-wrap: nowrap; padding-block: 10px; }
+  .top.has-menu .mode { order: 2; margin-left: auto; }
+  .top.has-menu .menu-btn { order: 3; }
+  .top.has-menu .menu-btn { display: inline-grid; place-content: center; gap: 5px; width: 44px; height: 44px; flex: none; padding: 0; border-radius: 50%;
+    border: 1.5px solid var(--line); background: var(--surface); color: var(--ink); cursor: pointer; -webkit-tap-highlight-color: transparent; }
+  .menu-btn span { display: block; width: 18px; height: 2px; border-radius: 2px; background: currentColor; transition: transform .25s ease, opacity .2s ease; }
+  .top.open .menu-btn span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .top.open .menu-btn span:nth-child(2) { opacity: 0; }
+  .top.open .menu-btn span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+  .top.has-menu nav { position: fixed; inset: var(--head-h, 64px) 0 0 0; z-index: 40; order: 0; width: auto; margin: 0; display: flex; flex-direction: column;
+    flex-wrap: nowrap; gap: 0; padding: 8px 20px calc(28px + env(safe-area-inset-bottom, 0px)); background: var(--bg); overflow-y: auto; overscroll-behavior: contain;
+    opacity: 0; visibility: hidden; transform: translateY(-10px); transition: opacity .2s ease, transform .25s ease, visibility 0s linear .25s; }
+  .top.has-menu.open nav { opacity: 1; visibility: visible; transform: none; transition: opacity .2s ease, transform .25s ease; }
+  .top.has-menu nav > a { font-family: var(--display); font-size: 1.85rem; line-height: 1.2; padding: 16px 2px; border-radius: 0; color: var(--ink);
+    background: none; box-shadow: none; border-bottom: 1px solid var(--line); }
+  .top.has-menu nav > a.on { background: none; box-shadow: none; color: var(--ink); }
+  .top.has-menu nav > a.on::after { content: ''; display: inline-block; width: 9px; height: 9px; margin-left: 12px; vertical-align: middle; border-radius: 50%; background: var(--accent); }
+  .top.has-menu .laws { order: 0; border-bottom: 1px solid var(--line); }
+  .top.has-menu .laws > button, .top.has-menu .laws > button.on, .top.has-menu .laws > button:hover { display: flex; width: 100%; justify-content: space-between; align-items: center;
+    font-family: var(--display); font-size: 1.85rem; line-height: 1.2; padding: 16px 2px; border-radius: 0; color: var(--ink); background: none; box-shadow: none; }
+  .top.has-menu .laws > button svg { width: 18px; height: 18px; }
+  .top.has-menu .laws-menu:not([hidden]) { display: grid; position: static; width: auto; max-width: none; padding: 0 0 12px; margin: 0; gap: 2px;
+    background: none; border: 0; box-shadow: none; animation: menu-in .25s cubic-bezier(.2, .7, .3, 1) both; }
+  .top.has-menu nav .laws-menu a, .top.has-menu .laws-menu .soon-law { padding: 10px 2px; border-radius: 10px; color: var(--ink); }
+  .top.has-menu .laws-menu b { font-size: 1.15rem; }
+  .top.has-menu .laws-menu span { color: var(--muted); }
+  .top.has-menu.open nav > * { animation: menu-in .35s cubic-bezier(.2, .7, .3, 1) both; }
+  .top.has-menu.open nav > :nth-child(2) { animation-delay: .03s; } .top.has-menu.open nav > :nth-child(3) { animation-delay: .06s; }
+  .top.has-menu.open nav > :nth-child(4) { animation-delay: .09s; } .top.has-menu.open nav > :nth-child(5) { animation-delay: .12s; }
+  html.menu-open { overflow: hidden; }
+}
+@keyframes menu-in { from { opacity: 0; transform: translateY(8px); } }
+@media (prefers-reduced-motion: reduce) {
+  .menu-btn span, .top.has-menu nav, .top.has-menu.open nav { transition: none; }
+  .top.has-menu.open nav > * { animation: none; }
+}
+/* Phone filters: the search stays on the page with a Filters button beside it; the filters slide up in a sheet.
+   On wider screens the sheet is invisible as a box (display: contents) and the panel looks as before. */
+.fbtn, .fs-head, .fs-go, .fback { display: none; }
+.fsheet { display: contents; }
+@media (max-width: 760px) {
+  .finder { grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 10px; padding: 12px; }
+  .fbtn { display: inline-flex; align-items: center; gap: 7px; height: 48px; padding: 0 16px; border-radius: 999px; border: 1.5px solid var(--latte-line);
+    background: var(--field); color: var(--latte-ink); font: inherit; font-weight: 700; font-size: 0.95rem; cursor: pointer; -webkit-tap-highlight-color: transparent; }
+  .fbtn svg { width: 18px; height: 18px; }
+  .fbtn .fn:not(:empty) { display: inline-grid; place-content: center; min-width: 22px; height: 22px; padding: 0 6px; border-radius: 999px; background: var(--go-deep); color: #fff; font-size: 0.78rem; }
+  .fsheet { display: grid; gap: 16px; position: fixed; left: 0; right: 0; bottom: 0; z-index: 60; max-height: 86dvh; overflow-y: auto; overscroll-behavior: contain;
+    padding: 10px 20px calc(16px + env(safe-area-inset-bottom, 0px)); border-radius: 24px 24px 0 0; background: var(--latte); color: var(--latte-ink);
+    box-shadow: 0 -10px 40px rgba(0, 0, 0, .25); transform: translateY(105%); visibility: hidden; transition: transform .32s cubic-bezier(.2, .8, .3, 1), visibility 0s linear .32s; }
+  .fsheet.open { transform: none; visibility: visible; transition: transform .32s cubic-bezier(.2, .8, .3, 1); }
+  .fsheet::before { content: ''; justify-self: center; width: 40px; height: 5px; border-radius: 3px; background: var(--latte-line); }
+  .fs-head { display: flex; align-items: center; justify-content: space-between; }
+  .fs-head b { font-family: var(--display); font-size: 1.5rem; font-weight: 600; }
+  .fs-x { display: inline-grid; place-content: center; width: 40px; height: 40px; border-radius: 50%; border: 0; background: var(--field); color: var(--latte-ink); cursor: pointer; }
+  .fs-x svg { width: 18px; height: 18px; }
+  .fsheet .filters { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+  .fsheet .filters select { padding: 11px 10px; }
+  .fs-go { display: block; position: sticky; bottom: 0; height: 52px; border: 0; border-radius: 999px; background: var(--go-deep); color: #fff; font: inherit; font-weight: 700; font-size: 1rem; cursor: pointer; }
+  .fback:not([hidden]) { display: block; position: fixed; inset: 0; z-index: 55; background: rgba(20, 14, 10, .4); animation: fade-in .2s ease both; }
+  html.sheet-open { overflow: hidden; }
+}
+@keyframes fade-in { from { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .fsheet, .fsheet.open { transition: none; } .fback:not([hidden]) { animation: none; } }
+.top nav .laws-menu a.all-laws { border-top: 1px solid var(--latte-line); border-radius: 0 0 14px 14px; margin-top: 4px; }
+
+/* Loading scene: Fino reads with a magnifying glass, a sheet flies off the pile, a tick pops up */
+.fetch { display: grid; justify-items: center; gap: 14px; padding-block: 56px 80px; text-align: center; }
+.fetch-art { width: min(340px, 86vw); height: auto; overflow: visible; }
+.fetch-sub { margin: 0; color: var(--muted); font-size: 0.92rem; }
+.fetch-art .bob { animation: f-bob 1.6s ease-in-out infinite; }
+.fetch-art .ant { animation: f-ant 1.2s steps(2, jump-none) infinite; }
+.fetch-art .scan { animation: f-scan 2.4s ease-in-out infinite; }
+.fetch-art .sheet { transform-box: fill-box; transform-origin: center; animation: f-sheet 2.4s ease-in-out infinite; }
+.fetch-art .tick { transform-box: fill-box; transform-origin: center; opacity: 0; animation: f-tick 2.4s ease-out infinite; }
+@keyframes f-bob { 50% { transform: translateY(-4px); } }
+@keyframes f-ant { 50% { opacity: .35; } }
+@keyframes f-scan { 0%, 100% { transform: translateX(0); } 50% { transform: translateX(3px); } }
+@keyframes f-sheet { 0%, 12% { transform: none; opacity: 1; } 58% { transform: translate(-66px, -18px) rotate(-14deg); opacity: 1; } 72%, 100% { transform: translate(-74px, -22px) rotate(-16deg) scale(.5); opacity: 0; } }
+@keyframes f-tick { 0%, 60% { opacity: 0; transform: scale(.4); } 70% { opacity: 1; transform: scale(1.15); } 78%, 92% { opacity: 1; transform: scale(1); } 100% { opacity: 0; transform: scale(1); } }
+@media (prefers-reduced-motion: reduce) { .fetch-art .bob, .fetch-art .ant, .fetch-art .scan, .fetch-art .sheet { animation: none; } .fetch-art .tick { animation: none; opacity: 1; } }
+</style>
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/assets/find.css?v=c1d976a4039d">
+<!-- seo -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Fino">
+<meta property="og:title" content="GDPR fines and decisions">
+<meta property="og:description" content="Search 5,016 GDPR fines and decisions from 34 countries, read the GDPR with each article linked to the fines that cite it, and save any decision as a PDF. Free, no sign-up.">
+<meta property="og:url" content="https://finoprivacy.com/fines.html">
+<meta property="og:image" content="https://finoprivacy.com/og/fino.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Fino, the mascot of the site, next to the words: GDPR fines and decisions, in plain English">
+<meta property="og:locale" content="en_GB">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Dataset","@id":"https://finoprivacy.com/fines.html#dataset","name":"Fino: GDPR fines and decisions","description":"5,016 GDPR fines and decisions by data protection authorities in 34 countries, from 2018 to today, with the regulator, the date, the fine in euro (other currencies converted at the ECB rate and marked as estimates), the GDPR articles involved, a short summary and links to the original decision. Built from the CMS Enforcement Tracker and GDPRhub (noyb), with duplicates merged.","url":"https://finoprivacy.com/fines.html","license":"https://creativecommons.org/licenses/by-nc-sa/4.0/","isAccessibleForFree":true,"creator":{"@id":"https://finoprivacy.com/#org"},"publisher":{"@id":"https://finoprivacy.com/#org"},"isBasedOn":["https://www.enforcementtracker.com/","https://gdprhub.eu/"],"keywords":["GDPR fines","GDPR enforcement","data protection authority decisions","privacy fines Europe","DPA decisions"],"temporalCoverage":"2018/2026-10-02","spatialCoverage":"Europe","dateModified":"2026-10-12","variableMeasured":["Fine amount in euro","Decision date","Country","Data protection authority","GDPR articles","Outcome","Sector"],"distribution":[{"@type":"DataDownload","encodingFormat":"application/json","contentUrl":"https://finoprivacy.com/data/cases.json"}]},{"@type":"WebPage","@id":"https://finoprivacy.com/fines.html","url":"https://finoprivacy.com/fines.html","name":"GDPR fines and decisions","description":"Search 5,016 GDPR fines and decisions from 34 countries, read the GDPR with each article linked to the fines that cite it, and save any decision as a PDF. Free, no sign-up.","mainEntity":{"@id":"https://finoprivacy.com/fines.html#dataset"}},{"@type":"Organization","@id":"https://finoprivacy.com/#org","name":"Fino","url":"https://finoprivacy.com/","logo":"https://finoprivacy.com/og/fino-logo.png"}]}</script>
+<!-- /seo -->
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="index.html" aria-label="Fino, home">
+      <svg class="logo" viewBox="0 0 200 180" aria-hidden="true">
+        <path class="ln" d="M100 50 C98 38 102 30 111 28" fill="none" stroke="var(--ink)" stroke-width="9" stroke-linecap="round"/>
+        <circle class="ln" cx="121" cy="25" r="13" fill="var(--accent)" stroke="var(--ink)" stroke-width="8"/>
+        <path class="ln" d="M100 50 C144 50 172 78 174 117 C176 152 146 168 100 168 C54 168 24 152 26 117 C28 78 56 50 100 50 Z" fill="var(--puff)" stroke="var(--ink)" stroke-width="9"/>
+        <ellipse cx="80" cy="110" rx="9" ry="13" fill="var(--eye)"/>
+        <ellipse cx="120" cy="110" rx="9" ry="13" fill="var(--eye)"/>
+        <path d="M88 136 Q100 147 112 136" fill="none" stroke="var(--eye)" stroke-width="8" stroke-linecap="round"/>
+      </svg>
+      <span class="word" aria-hidden="true"><span class="w1">F</span><span class="w2">i</span><span class="w3">n</span><span class="w4">o</span></span>
+    </a>
+    <nav aria-label="Main" id="main-nav">
+      <a href="explainers.html">Explainers</a>
+      <a href="#fines" id="nav-fines">Fines</a>
+      <a href="regulators.html">Regulators</a>
+      <div class="laws" id="laws">
+        <button type="button" id="nav-gdpr" aria-expanded="false" aria-controls="laws-menu">Law <svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <div class="laws-menu lp" id="laws-menu" hidden>
+          <div class="lp-col"><p class="lp-h">The laws</p>
+            <a href="#gdpr"><b>GDPR</b><span>General Data Protection Regulation</span></a>
+            <a href="#ai-act"><b>AI Act</b><span>Artificial Intelligence Act</span></a>
+            <div class="soon-law"><b>ePrivacy</b><span>Cookies and electronic communications</span><em>Coming soon</em></div>
+            <a href="laws.html" class="all-laws"><b>All privacy laws</b><span>21 EU and UK laws, by topic and year</span></a>
+          </div>
+          <div class="lp-col"><p class="lp-h">Understand them</p>
+            <a href="/glossary/"><b>Glossary</b><span>Official meanings, quoted from the law</span></a>
+            <a href="/key-cases/"><b>Key cases</b><span>The court rulings behind the rules</span></a>
+          </div>
+          <button type="button" class="lp-find" data-find-open><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m20 20-4.6-4.6"/></svg><span>Look up a term, case or article&hellip;</span><kbd>Ctrl K</kbd></button>
+        </div>
+      </div>
+      <a href="Tool.html">Tools</a>
+      <a href="About.html">About</a>
+    </nav>
+    <button class="find-btn" id="find-btn" type="button" data-find-open aria-label="Search Fino" title="Search (Ctrl K)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m20 20-4.6-4.6"/></svg></button>
+    <button class="mode" id="mode" type="button" aria-label="Switch to light mode" title="Switch to light mode">
+      <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+      <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 14.5A8.5 8.5 0 0 1 9.5 3.5a8.5 8.5 0 1 0 11 11z"/></svg>
+    </button>
+    <button class="menu-btn" id="menu-btn" type="button" aria-expanded="false" aria-controls="main-nav" aria-label="Open menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<main id="main"></main>
+
+<footer>
+  <div class="wrap foot">
+    <div class="foot-top">
+      <div class="foot-about">
+        <a class="brand" href="/" aria-label="Fino, home">
+          <svg class="logo" viewBox="0 0 200 180" aria-hidden="true">
+            <path class="ln" d="M100 50 C98 38 102 30 111 28" fill="none" stroke="var(--ink)" stroke-width="9" stroke-linecap="round"/>
+            <circle class="ln" cx="121" cy="25" r="13" fill="var(--accent)" stroke="var(--ink)" stroke-width="8"/>
+            <path class="ln" d="M100 50 C144 50 172 78 174 117 C176 152 146 168 100 168 C54 168 24 152 26 117 C28 78 56 50 100 50 Z" fill="var(--puff)" stroke="var(--ink)" stroke-width="9"/>
+            <ellipse cx="80" cy="110" rx="9" ry="13" fill="var(--eye)"/>
+            <ellipse cx="120" cy="110" rx="9" ry="13" fill="var(--eye)"/>
+            <path d="M88 136 Q100 147 112 136" fill="none" stroke="var(--eye)" stroke-width="8" stroke-linecap="round"/>
+          </svg>
+          Fino
+        </a>
+        <p>What Europe&rsquo;s data protection regulators actually decided, in one place and checked against the source. Free, no ads, no tracking.</p>
+      </div>
+      <nav class="foot-col" aria-label="Explore Fino">
+        <p class="foot-lbl">Explore</p>
+        <ul>
+          <li><a href="/fines.html">Fines</a></li>
+          <li><a href="/regulators.html">Regulators</a></li>
+          <li><a href="/explainers.html">Explainers</a></li>
+          <li><a href="/gdpr/">GDPR</a></li>
+          <li><a href="/ai-act/">AI Act</a></li>
+          <li><a href="/laws.html">All laws</a></li>
+          <li><a href="/Tool.html">Tools</a></li>
+        </ul>
+      </nav>
+      <nav class="foot-col" aria-label="About Fino">
+        <p class="foot-lbl">Fino</p>
+        <ul>
+          <li><a href="/About.html">About</a></li>
+          <li><a href="/About.html#method">How it works</a></li>
+          <li><a href="/About.html#reuse">Reuse and cite</a></li>
+          <li><a href="/Privacy.html">Privacy</a></li>
+        </ul>
+      </nav>
+      <div class="foot-write">
+        <p class="foot-lbl">Write to Fino</p>
+        <p>Spotted a mistake? A question, an idea, or just want to say hello? Every message is read, and thank you.</p>
+        <a class="foot-mail" href="mailto:hello@finoprivacy.com">hello@finoprivacy.com</a>
+      </div>
+    </div>
+    <div class="foot-base">
+      <p>Decisions from the regulators&rsquo; own documents, enforcementtracker.com (provided by CMS) and GDPRhub (noyb), under CC BY-NC-SA 4.0. Law texts from EUR-Lex, &copy; European Union.</p>
+      <p>&copy; 2026 Fino &middot; <a href="/About.html">About</a> &middot; <a href="/Privacy.html">Privacy</a> &middot; Not legal advice &middot; Made by Lorenzo, with Claude</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+const byId = id => document.getElementById(id);
+function boot(DATA) {
+const F = DATA.fields, col = Object.fromEntries(F.map((f, i) => [f, i]));
+/* The law text is a separate file. If it fails to load, the decisions still work and the law pages say so. */
+const GDPR = DATA.gdpr || { arts: {}, chapters: [], preamble: { recitals: {} } };
+/* Explainers (data/explainers.json, written by the explainer builder): which explainer covers which decision
+   and which GDPR article. If the file is missing, the pages simply show no "Explained in" box. */
+const EX_BY_CASE = new Map(), EX_BY_ART = new Map();
+for (const e of (DATA.ex && DATA.ex.explainers) || []) {
+  for (const id of e.decisions) (EX_BY_CASE.get(id) || EX_BY_CASE.set(id, []).get(id)).push(e);
+  for (const n of e.arts) (EX_BY_ART.get(n) || EX_BY_ART.set(n, []).get(n)).push(e);
+}
+const explainedBlock = list => !list || !list.length ? '' : `<section><h2 class="sec-h">Explained in</h2>
+  <ul class="sim">${list.map(e => `<li><a href="${esc(e.slug)}.html"><b>${esc(e.question)}</b><span>Explainer &middot; ${esc(e.shelf)} &rarr;</span></a></li>`).join('')}</ul></section>`;
+const SOURCE_NAMES = { cms_tracker: 'CMS Enforcement Tracker', gdprhub: 'GDPRhub (noyb)' };
+const MONTHS = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+const EURLEX = n => `https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:02016R0679-20160504#art_${n}`;
+const ELI = 'https://eur-lex.europa.eu/eli/reg/2016/679/oj';
+const EURLEX_RCT = n => `https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679#rct_${n}`;
+const EURLEX_BADGE = (href, label, small) => `<a class="eurlex${small ? ' small' : ''}" href="${href}" target="_blank" rel="noopener" title="Opens the official text on EUR-Lex, the EU's law database"><span class="sec" aria-hidden="true">§</span><span class="lbl">${label}</span><span aria-hidden="true">&nearr;</span></a>`;
+
+const SITE = 'finoprivacy.com';
+
+const $ = id => document.getElementById(id);
+const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+const eur = n => '€' + Math.round(n).toLocaleString('en-GB');
+const num = n => n.toLocaleString('en-GB');
+/* an estimate is shown to three significant figures: €160,053 becomes ≈ €160,000 */
+const approx = n => { const d = 10 ** Math.max(0, Math.floor(Math.log10(n)) - 2); return Math.round(n / d) * d; };
+const money = c => c.est ? '≈ ' + eur(approx(c.fine_eur)) : eur(c.fine_eur);
+const native = c => `${c.currency} ${c.fine_amount.toLocaleString('en-GB', { maximumFractionDigits: 2 })}`;
+function fxNote(c) {
+  const [basis, rate, cur] = c.fx.split('|'), [kind, when_] = basis.split(' ');
+  const [y, m, d] = when_.split('-');
+  const at = kind === 'day' ? `the ECB rate of ${+d} ${MONTHS[m - 1]} ${y}` : kind === 'month' ? `the average ECB rate for ${MONTHS[m - 1]} ${y}` : `the average ECB rate for ${y}`;
+  return `Converted at ${at} (€1 = ${(+rate).toLocaleString('en-GB', { maximumFractionDigits: 2 })} ${cur}). An estimate for comparison; the fine was set in ${cur}.`;
+}
+const bigEur = n => n >= 1e9 ? `€${(n / 1e9).toFixed(2)} billion` : n >= 1e6 ? `€${(n / 1e6).toFixed(1)} million` : eur(n);
+const short = n => n >= 1e9 ? '€' + n / 1e9 + 'bn' : n >= 1e6 ? '€' + n / 1e6 + 'm' : n >= 1e3 ? '€' + n / 1e3 + 'k' : '€' + n;
+const slug = id => id.replace(/\//g, '-');
+const today = () => { const d = new Date(); return `${d.getDate()} ${MONTHS[d.getMonth()]} ${d.getFullYear()}`; };
+function when(d, p) {
+  if (!d) return { main: 'Date not published', short: 'No date', note: '' };
+  const [y, m, day] = d.split('-');
+  if (p === 'day') return { main: `${+day} ${MONTHS[m - 1]} ${y}`, short: `${+day} ${MONTHS[m - 1].slice(0, 3)} ${y}`, note: '' };
+  if (p === 'month') return { main: `${MONTHS[m - 1]} ${y}`, short: `${MONTHS[m - 1].slice(0, 3)} ${y}`, note: 'Exact day not published' };
+  return { main: y, short: y, note: 'Exact date not published' };
+}
+/* CMS writes some abbreviations in lower case, e.g. "(aepd)" */
+const authority = a => (a || 'Not given').replace(/\(([a-z]{2,8})\)$/, (_, x) => `(${x.toUpperCase()})`);
+const artList = a => (a || '').split(',').map(s => s.trim()).filter(Boolean);
+const artNo = s => +((s.match(/Art\.\s*(\d+)/) || [])[1] || 0);
+const outcomeKind = o => /reject|dismiss|no violation|not upheld|no further/i.test(o || '') ? 'ok' : 'bad';
+const LINK_BASE = id => id; // stays inside this preview
+
+/* ---------- Data, prepared once ---------- */
+const CASES = DATA.rows.map((r, i) => {
+  const c = Object.fromEntries(F.map((f, k) => [f, r[k]]));
+  c.idx = i;
+  c.summary = DATA.sum ? DATA.sum[i] : null; // in the browser: filled in when the summary files arrive (end of boot)
+  c.cred = DATA.cred[i];
+  /* read by Fino in the regulator's own document: 'decision|2026-10-11|SAN-2024-021' */
+  [c.own_kind, c.own_date, c.own_ref] = c.own ? c.own.split('|') : [];
+  c.year = (c.decision_date || '').slice(0, 4);
+  c.arts = [...new Set(artList(c.articles).map(artNo).filter(Boolean))];
+  c.cats = (c.categories || '').split(',').map(s => s.trim()).filter(Boolean);
+  /* GDPRhub page titles end with the regulator's own reference, e.g. "CNIL (France) - SAN-2024-021" */
+  c.ref = c.own_ref || (c.source === 'gdprhub' && c.case_id.includes(' - ') ? c.case_id.split(' - ').slice(1).join(' - ') : null);
+  /* A fine in another currency keeps its own amount as the real figure. The euro value is an estimate from the
+     European Central Bank rate of the decision date; it counts in comparisons and totals, always marked with ≈. */
+  c.est = !c.fine_eur && !!c.fine_eur_est;
+  if (c.est) c.fine_eur = c.fine_eur_est;
+  c.hay = [c.controller, c.parties_named, c.controller_note, c.authority, c.pharos_id, c.ref, c.violation_type, c.categories, c.summary].filter(Boolean).join(' ').toLowerCase();
+  return c;
+});
+const BY_SLUG = new Map(CASES.map(c => [slug(c.pharos_id), c]));
+/* A decision whose ID changed (an undated ND/ case that later got its year) keeps its old link working. */
+for (const [old, cur] of Object.entries(DATA.meta.moved || {})) if (!BY_SLUG.has(slug(old)) && BY_SLUG.has(slug(cur))) BY_SLUG.set(slug(old), BY_SLUG.get(slug(cur)));
+const FINES_BY_CC = {};
+for (const c of CASES) if (c.fine_eur) (FINES_BY_CC[c.country_code] ||= []).push(c.fine_eur);
+for (const k in FINES_BY_CC) FINES_BY_CC[k].sort((a, b) => a - b);
+const ALL_FINES = CASES.filter(c => c.fine_eur).map(c => c.fine_eur).sort((a, b) => a - b);
+/* Same company: 'org' is the pipeline's key for one legal entity. Same group: 'org_group', only for groups
+   a person has checked (organisations.csv). Each company is shown with the countries where it was fined. */
+const BY_ORG = {}, BY_GROUP = {};
+for (const c of CASES) {
+  if (c.org) (BY_ORG[c.org] ||= []).push(c);
+  if (c.org_group) (BY_GROUP[c.org_group] ||= []).push(c);
+}
+const ORG_NAME = {};
+for (const [k, list] of Object.entries(BY_ORG)) {
+  const n = {};
+  for (const c of list) n[c.controller] = (n[c.controller] || 0) + (/[a-z]/.test(c.controller) ? 2 : 1);  // prefer the usual capitals
+  ORG_NAME[k] = Object.entries(n).sort((a, b) => b[1] - a[1])[0][0];
+}
+const countriesOf = list => [...new Set(list.map(c => c.country).filter(Boolean))].sort();
+const sumFines = list => list.reduce((a, c) => a + (c.fine_eur || 0), 0);
+const BY_ART = {};
+for (const c of CASES) for (const n of c.arts) (BY_ART[n] ||= []).push(c);
+const CHAPTER = Object.fromEntries(GDPR.chapters.map(ch => [ch.id, ch]));
+/* The party a decision is about. When the source names several parties without saying who is who,
+   they are shown as named, marked as not yet checked, and never presented as the one fined. */
+/* the country's round flag (site/flags, from flag-icons, MIT licence), shown before its name */
+const flag = c => c.country_code ? `<img class="flag" src="/flags/${esc(c.country_code.toLowerCase())}.svg" alt="" width="18" height="18" loading="lazy">` : '';
+const party = c => c.controller ? { name: c.controller, cls: '', sub: c.controller_note ? `Described in the source as: ${c.controller_note}` : '' }
+  : c.party_kind === 'person' ? { name: c.controller_note || 'Private person', cls: 'unnamed', person: true, sub: 'Private person' }
+  : c.party_kind === 'opinion' ? { name: 'General opinion', cls: 'unnamed', sub: 'No party: the regulator gave an opinion or guidance' }
+  : c.parties_named ? { name: c.parties_named.split('; ').join(' · '), cls: 'unnamed', unchecked: true, sub: 'Named in the source, roles not yet checked' }
+  : c.controller_note ? { name: c.controller_note, cls: 'unnamed', sub: 'Name not published' }
+  : { name: 'Not named in the source', cls: 'unnamed', sub: '' };
+/* the date the sources were last read, not the date of the last export */
+const UPDATED = (() => { const s = (DATA.meta.last_fetch || DATA.meta.generated_at).slice(0, 10).split('-'); return `${+s[2]} ${MONTHS[s[1] - 1]} ${s[0]}`; })();
+
+/* ---------- Shared bits ---------- */
+const MINI = `<svg class="mini" viewBox="0 0 200 180" role="img" aria-label="Fino, the site's mascot">
+  <ellipse cx="100" cy="172" rx="62" ry="6" fill="var(--ink)" opacity=".12"/>
+  <path d="M100 24 C152 24 184 60 186 106 C188 148 152 166 100 166 C48 166 12 148 14 106 C16 60 48 24 100 24 Z" fill="var(--puff)" stroke="var(--ink)" stroke-width="4"/>
+  <path d="M98 24 C96 14 102 8 110 9" fill="none" stroke="var(--ink)" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="111" cy="9" r="5" fill="var(--accent)" stroke="var(--ink)" stroke-width="2.5"/>
+  <ellipse cx="54" cy="120" rx="14" ry="8" fill="var(--blush)" opacity=".55"/>
+  <ellipse cx="146" cy="120" rx="14" ry="8" fill="var(--blush)" opacity=".55"/>
+  <ellipse cx="78" cy="104" rx="8" ry="11" fill="var(--eye)"/><circle cx="81" cy="99" r="3" fill="#FFFFFF"/>
+  <ellipse cx="122" cy="104" rx="8" ry="11" fill="var(--eye)"/><circle cx="125" cy="99" r="3" fill="#FFFFFF"/>
+  <path d="M92 128 Q100 123 108 128" fill="none" stroke="var(--eye)" stroke-width="3" stroke-linecap="round"/>
+</svg>`;
+const SHEET_MARK = `<svg viewBox="0 0 200 180" aria-hidden="true"><path d="M100 50 C98 38 102 30 111 28" fill="none" stroke="#211915" stroke-width="9" stroke-linecap="round"/><circle cx="121" cy="25" r="13" fill="#7E9A3A" stroke="#211915" stroke-width="8"/><path d="M100 50 C144 50 172 78 174 117 C176 152 146 168 100 168 C54 168 24 152 26 117 C28 78 56 50 100 50 Z" fill="#FFCDB8" stroke="#211915" stroke-width="9"/><ellipse cx="80" cy="110" rx="9" ry="13" fill="#211915"/><ellipse cx="120" cy="110" rx="9" ry="13" fill="#211915"/><path d="M88 136 Q100 147 112 136" fill="none" stroke="#211915" stroke-width="8" stroke-linecap="round"/></svg>`;
+
+/* What happened next (case_status): an annulled fine shows struck through and counts nowhere; a fine changed
+   or confirmed in court shows the amount that stands, with a short label. */
+const STATUS_LABEL = { annulled: 'Annulled by a court', reduced: 'Reduced on appeal', increased: 'Increased on appeal', confirmed: 'Confirmed in court', appealed: 'Under appeal' };
+function fineInfo(c) {
+  const st = STATUS_LABEL[c.status];
+  if (c.status === 'annulled') return { label: c.fine_before ? eur(c.fine_before) : 'Fine', struck: true, status: st, none: !c.fine_before };
+  if (st) return { ...fineInfoPlain(c), status: st };
+  return fineInfoPlain(c);
+}
+function fineInfoPlain(c) {
+  if (c.est) return { label: native(c), conv: money(c), note: fxNote(c), none: false };
+  if (c.fine_eur) return { label: eur(c.fine_eur), none: false };
+  if (c.fine_original && c.fine_original !== 'None' && c.currency && c.currency !== 'EUR') return { label: `${c.fine_original} ${c.currency}`, none: false };
+  if (/fine/i.test(c.best_outcome || '')) return { label: 'Amount not published', none: true };
+  return { label: 'No fine', none: true };
+}
+function similar(c) {
+  const out = [];
+  for (const q of CASES) {
+    if (q === c || q.country_code !== c.country_code) continue;
+    const sa = q.arts.filter(n => c.arts.includes(n)).length, sc = q.cats.filter(t => c.cats.includes(t)).length;
+    const score = sa * 2 + sc;
+    if (!score) continue;
+    const dist = c.fine_eur && q.fine_eur ? Math.abs(Math.log10(q.fine_eur) - Math.log10(c.fine_eur)) : 3;
+    out.push([score, dist, q.year, q]);
+  }
+  out.sort((a, b) => b[0] - a[0] || a[1] - b[1] || (b[2] > a[2] ? 1 : -1));
+  return out.slice(0, 3).map(x => x[3]);
+}
+function context(c) {
+  if (!c.fine_eur) return null;
+  const list = FINES_BY_CC[c.country_code] || [];
+  return { below: list.filter(x => x < c.fine_eur).length, n: list.length,
+           eu_below: ALL_FINES.filter(x => x < c.fine_eur).length, eu_n: ALL_FINES.length };
+}
+
+/* ---------- View: browse ---------- */
+const state = { q: '', country: '', year: '', sector: '', art: '', outcome: '', band: '', org: '', group: '', reg: '', sort: 'new', shown: 40, scroll: 0 };
+const BANDS = [['', 'Any'], ['0-1e4', 'Under €10k'], ['1e4-1e5', '€10k–100k'], ['1e5-1e6', '€100k–1m'], ['1e6-1e7', '€1m–10m'], ['1e7-1e12', 'Over €10m']];
+function options(values, cur, all) {
+  return `<option value="">${all}</option>` + values.map(([v, l]) => `<option value="${esc(v)}"${String(v) === String(cur) ? ' selected' : ''}>${esc(l)}</option>`).join('');
+}
+function countBy(fn) { const m = new Map(); for (const c of CASES) for (const k of [].concat(fn(c))) if (k) m.set(k, (m.get(k) || 0) + 1); return m; }
+const COUNTRIES = [...countBy(c => c.country)].sort((a, b) => a[0].localeCompare(b[0])).map(([k, n]) => [k, `${k} (${num(n)})`]);
+const YEARS = [...countBy(c => c.year)].sort((a, b) => b[0].localeCompare(a[0])).map(([k, n]) => [k, `${k} (${num(n)})`]);
+const SECTORS = [...countBy(c => c.sector_tag)].sort((a, b) => a[0].localeCompare(b[0])).map(([k, n]) => [k, `${k} (${num(n)})`]);
+const ARTS = Object.keys(BY_ART).map(Number).sort((a, b) => a - b).map(n => [n, `Art. ${n}${GDPR.arts[n] ? ' · ' + GDPR.arts[n].t : ''} (${num(BY_ART[n].length)})`]);
+const OUTCOMES = [['fine', 'With a fine'], ['found', 'Violation, no fine'], ['rejected', 'Rejected'], ['other', 'Other or not given']];
+
+function matches(c) {
+  if (state.org && c.org !== state.org) return false;
+  if (state.reg && c.regulator !== state.reg) return false;
+  if (state.group && c.org_group !== state.group) return false;
+  if (state.country && c.country !== state.country) return false;
+  if (state.year && c.year !== state.year) return false;
+  if (state.sector && c.sector_tag !== state.sector) return false;
+  if (state.art && !c.arts.includes(+state.art)) return false;
+  if (state.outcome) {
+    const o = c.best_outcome || '';
+    const k = c.fine_eur || o === 'Fine issued' ? 'fine' : o === 'Violation found' ? 'found' : o === 'Rejected' ? 'rejected' : 'other';
+    if (k !== state.outcome) return false;
+  }
+  if (state.band) { const [lo, hi] = state.band.split('-').map(Number); if (!c.fine_eur || c.fine_eur < lo || c.fine_eur >= hi) return false; }
+  if (state.q) { for (const w of state.q.toLowerCase().split(/\s+/).filter(Boolean)) if (!c.hay.includes(w)) return false; }
+  return true;
+}
+function sorted(list) {
+  const by = {
+    new: (a, b) => (b.decision_date || '').localeCompare(a.decision_date || ''),
+    old: (a, b) => (a.decision_date || '9999').localeCompare(b.decision_date || '9999'),
+    big: (a, b) => (b.fine_eur || -1) - (a.fine_eur || -1),
+    small: (a, b) => (a.fine_eur || Infinity) - (b.fine_eur || Infinity)
+  }[state.sort];
+  return list.sort(by);
+}
+function median(xs) { if (!xs.length) return 0; const s = [...xs].sort((a, b) => a - b), m = s.length >> 1; return s.length % 2 ? s[m] : (s[m - 1] + s[m]) / 2; }
+
+function renderBrowse() {
+  $('main').innerHTML = `
+  <div class="wrap">
+    <div class="b-head">
+      <p class="eyebrow" style="margin:28px 0 0">Fines database &middot; updated ${UPDATED}</p>
+      <h1 style="margin:0">Every GDPR fine and decision, in one place.</h1>
+      <p class="lede">${num(CASES.length)} decisions from ${countBy(c => c.country_code).size} countries, collected by CMS and GDPRhub. Search runs in your browser, so nothing you type leaves your device.</p>
+      <p class="legend" style="margin:0">Beta: while I finish checking for duplicates, a few decisions may appear twice.</p>
+    </div>
+    <form class="finder panel" id="finder" role="search" onsubmit="return false">
+      <label class="search" for="q">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg>
+        <input id="q" type="search" placeholder="Company, regulator, case number or a word like &ldquo;cookies&rdquo;" value="${esc(state.q)}" autocomplete="off">
+      </label>
+      <button type="button" class="fbtn" id="fbtn" aria-expanded="false" aria-controls="fsheet"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h10M18 7h2M4 17h4M12 17h8"/><circle cx="16" cy="7" r="2"/><circle cx="10" cy="17" r="2"/></svg>Filters<span class="fn" id="fn"></span></button>
+      <div class="fback" id="fback" hidden></div>
+      <div class="fsheet" id="fsheet" aria-label="Filters">
+      <div class="fs-head"><b>Filters</b><button type="button" class="fs-x" id="fs-x" aria-label="Close filters"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button></div>
+      <div class="filters">
+        <label for="f-country">Country<select id="f-country">${options(COUNTRIES, state.country, 'All countries')}</select></label>
+        <label for="f-year">Year<select id="f-year">${options(YEARS, state.year, 'All years')}</select></label>
+        <label for="f-sector">Sector<select id="f-sector">${options(SECTORS, state.sector, 'All sectors')}</select></label>
+        <label for="f-art">GDPR article<select id="f-art">${options(ARTS, state.art, 'All articles')}</select></label>
+        <label for="f-outcome">Outcome<select id="f-outcome">${options(OUTCOMES, state.outcome, 'All outcomes')}</select></label>
+      </div>
+      <div class="bands" role="group" aria-label="Fine size">
+        <span>Fine size</span>
+        ${BANDS.map(([v, l]) => `<button type="button" class="chip" data-band="${v}" aria-pressed="${state.band === v}">${l}</button>`).join('')}
+      </div>
+      <button type="button" class="fs-go" id="fs-go">Show results</button>
+      </div>
+    </form>
+    <div class="tally" id="tally"></div>
+    <ul class="results" id="results"></ul>
+    <div class="more" id="more"></div>
+  </div>`;
+  const bind = (id, key) => $(id).addEventListener('change', e => { state[key] = e.target.value; state.shown = 40; renderResults(); });
+  bind('f-country', 'country'); bind('f-year', 'year'); bind('f-sector', 'sector'); bind('f-art', 'art'); bind('f-outcome', 'outcome');
+  let t;
+  const sheet = $('fsheet'), back = $('fback'), fbtn = $('fbtn');
+  const setSheet = open => {
+    sheet.classList.toggle('open', open); back.hidden = !open; document.documentElement.classList.toggle('sheet-open', open);
+    fbtn.setAttribute('aria-expanded', String(open));
+    if (open) $('fs-x').focus(); else if (document.activeElement && sheet.contains(document.activeElement)) fbtn.focus();
+  };
+  if (matchMedia('(max-width: 760px)').matches) $('q').placeholder = 'Company or keyword';   // the long hint does not fit beside the Filters button
+  fbtn.addEventListener('click', () => setSheet(true));
+  [$('fs-x'), $('fs-go'), back].forEach(el => el.addEventListener('click', () => setSheet(false)));
+  sheet.addEventListener('keydown', e => { if (e.key === 'Escape') setSheet(false); });
+  matchMedia('(min-width: 761px)').addEventListener('change', e => { if (e.matches) setSheet(false); });
+  $('q').addEventListener('input', e => { clearTimeout(t); t = setTimeout(() => { state.q = e.target.value.trim(); state.shown = 40; renderResults(); }, 120); });
+  $('finder').addEventListener('click', e => {
+    const b = e.target.closest('[data-band]'); if (!b) return;
+    state.band = b.dataset.band; state.shown = 40;
+    document.querySelectorAll('[data-band]').forEach(x => x.setAttribute('aria-pressed', String(x.dataset.band === state.band)));
+    renderResults();
+  });
+  renderResults();
+}
+function renderResults() {
+  const list = sorted(CASES.filter(matches));
+  const fines = list.filter(c => c.fine_eur).map(c => c.fine_eur);
+  const total = fines.reduce((a, b) => a + b, 0);
+  const converted = list.filter(c => c.est).length;
+  const filtered = state.q || state.country || state.year || state.sector || state.art || state.outcome || state.band || state.org || state.group || state.reg;
+  if ($('fn')) {
+    const nf = ['country', 'year', 'sector', 'art', 'outcome', 'band'].filter(k => state[k]).length;
+    $('fn').textContent = nf ? String(nf) : '';
+    $('fs-go').textContent = list.length ? `Show ${num(list.length)} ${list.length === 1 ? 'decision' : 'decisions'}` : 'Nothing matches yet';
+  }
+  const active = state.org ? ['Company', ORG_NAME[state.org] || state.org, 'org'] : state.group ? ['Group', state.group, 'group']
+    : state.reg ? ['Regulator', (DATA.meta.regulators || {})[state.reg] || state.reg, 'reg'] : null;
+  $('tally').innerHTML = `
+    <div>
+      ${active ? `<p class="active"><button type="button" class="chip" id="drop-org" aria-label="Remove the ${active[0].toLowerCase()} filter"><span>${active[0]}</span>${esc(active[1])} &times;</button></p>` : ''}
+      <p class="big"><b>${num(list.length)}</b> ${list.length === 1 ? 'decision' : 'decisions'}${filtered ? ' match' : ''}</p>
+      <p class="sub">${fines.length ? `${converted ? '≈ ' : ''}${bigEur(total)} in ${num(fines.length)} ${fines.length === 1 ? 'fine' : 'fines'} &middot; typical fine ${eur(median(fines))} &middot; biggest ${eur(Math.max(...fines))}` : 'No fines in this selection'}</p>
+    </div>
+    <div class="right">
+      ${filtered ? '<button type="button" class="linkbtn" id="clear">Clear filters</button>' : ''}
+      <label for="sort" class="legend" style="margin:0">Sort</label>
+      <select id="sort">${options([['new', 'Newest first'], ['old', 'Oldest first'], ['big', 'Biggest fine'], ['small', 'Smallest fine']], state.sort, '').replace('<option value=""></option>', '')}</select>
+    </div>`;
+  $('sort').addEventListener('change', e => { state.sort = e.target.value; renderResults(); });
+  if ($('drop-org')) $('drop-org').addEventListener('click', () => { state.org = ''; state.group = ''; state.reg = ''; state.shown = 40; renderResults(); });
+  if ($('clear')) $('clear').addEventListener('click', () => { Object.assign(state, { q: '', country: '', year: '', sector: '', art: '', outcome: '', band: '', org: '', group: '', reg: '', shown: 40 }); renderBrowse(); });
+
+  if (!list.length) {
+    $('results').innerHTML = `<li style="border:0"><div class="empty-list">${MINI}<p class="bubble">Nothing matches all of that. Try removing a filter, or a shorter search word.</p></div></li>`;
+    $('more').innerHTML = '';
+    return;
+  }
+  $('results').innerHTML = list.slice(0, state.shown).map(c => {
+    const d = when(c.decision_date, c.date_precision), f = fineInfo(c);
+    const about = c.violation_type || c.categories || '';
+    return `<li><a href="#d-${slug(c.pharos_id)}">
+      <span class="dt">${esc(d.short)}</span>
+      <span class="who"><b class="${party(c).cls}">${esc(party(c).name)}</b>${party(c).sub ? `<small>${esc(party(c).sub)}</small>` : ''}${about ? `<span>${esc(about)}</span>` : ''}${c.arts.length ? `<small>${c.arts.slice(0, 5).map(n => 'Art. ' + n).join(', ')}${c.arts.length > 5 ? ' …' : ''}</small>` : ''}</span>
+      <span class="cty">${flag(c)}${esc(c.country || '')}</span>
+      <span class="amt ${f.none ? 'none' : ''}">${f.struck ? `<s>${esc(f.label)}</s>` : esc(f.label)}${f.conv ? `<small>${esc(f.conv)}</small>` : ''}${f.status ? `<small>${esc(f.status)}</small>` : ''}</span>
+    </a></li>`;
+  }).join('');
+  $('more').innerHTML = list.length > state.shown
+    ? `<button type="button" class="btn" id="more-btn">Show ${Math.min(40, list.length - state.shown)} more <span class="muted" style="font-weight:400">of ${num(list.length - state.shown)} left</span></button>` : '';
+  if ($('more-btn')) $('more-btn').addEventListener('click', () => { state.shown += 40; renderResults(); });
+}
+
+/* ---------- View: decision ---------- */
+function strip(c) {
+  const list = FINES_BY_CC[c.country_code];
+  if (!c.fine_eur || !list) return '';
+  const W = 320, H = 118, L = 24, Rg = 24, top = 34, bot = 26;
+  const lo = Math.floor(Math.log10(Math.max(1, Math.min(...list, c.fine_eur))));
+  const hi = Math.ceil(Math.log10(Math.max(...list, c.fine_eur)));
+  const span = Math.max(1, hi - lo);
+  const x = v => L + (Math.log10(Math.max(v, 1)) - lo) / span * (W - L - Rg);
+  let ticks = '';
+  const every = span > 6 ? 2 : 1;
+  for (let p = lo; p <= hi; p += every) {
+    const tx = x(10 ** p);
+    ticks += `<line class="tick" x1="${tx}" x2="${tx}" y1="${top - 6}" y2="${H - bot + 4}"/><text x="${tx}" y="${H - 8}" text-anchor="middle">${short(10 ** p)}</text>`;
+  }
+  /* each dot is one fine; a fixed pseudo-random height keeps them apart and stable between visits */
+  let dots = '';
+  list.forEach((v, i) => {
+    const jy = top + ((Math.sin(i * 12.9898 + v * 0.0001) * 43758.5453) % 1 + 1) % 1 * (H - bot - top - 4) + 2;
+    dots += `<circle class="d" cx="${x(v).toFixed(1)}" cy="${jy.toFixed(1)}" r="2.2" opacity=".75"/>`;
+  });
+  const mx = x(c.fine_eur), my = (top + H - bot) / 2;
+  const anchor = mx > W * 0.7 ? 'end' : mx < W * 0.3 ? 'start' : 'middle';
+  const lx = anchor === 'end' ? mx + 6 : anchor === 'start' ? mx - 6 : mx;
+  return `<svg class="strip" viewBox="0 0 ${W} ${H}" role="img" aria-label="Every fine in ${esc(c.country)} on a scale from ${short(10 ** lo)} to ${short(10 ** hi)}, with this one highlighted">
+    ${ticks}${dots}
+    <line class="pin" x1="${mx}" x2="${mx}" y1="16" y2="${my - 7}"/>
+    <text class="melbl" x="${lx}" y="12" text-anchor="${anchor}">This fine</text>
+    <circle class="me" cx="${mx}" cy="${my}" r="6.5"/>
+  </svg>`;
+}
+function rulesBlock(c) {
+  const groups = new Map();
+  for (const a of artList(c.articles)) {
+    const n = artNo(a);
+    if (!groups.has(n)) groups.set(n, []);
+    groups.get(n).push(a.replace(/^Art\.\s*/, ''));
+  }
+  if (!groups.size) return `<p class="note">The source doesn&rsquo;t list which GDPR articles were involved.</p>`;
+  return `<ul class="rules">${[...groups.entries()].sort((a, b) => a[0] - b[0]).map(([n, parts]) => {
+    const detail = parts.filter(p => p !== String(n));
+    const head = GDPR.arts[n] ? esc(GDPR.arts[n].t) : '<span class="note">Not a GDPR article number</span>';
+    const inner = `<span class="no">Art. ${n}</span><span class="t">${head}${detail.length ? `<small>${detail.map(esc).join(' · ')}</small>` : ''}</span>`;
+    return GDPR.arts[n] ? `<li><a class="in" href="#art-${n}">${inner}<span class="go">Read &rarr;</span></a></li>` : `<li><div class="r">${inner}</div></li>`;
+  }).join('')}</ul>`;
+}
+/* Credit line for a decision Fino read itself in the regulator's document */
+function ownCredit(c) {
+  const doc = { decision: 'decision', 'press release': 'press release', summary: 'official summary', 'annual report': 'annual report', 'court ruling': 'court ruling' }[c.own_kind] || 'document';
+  return `Summary by Fino, read in the regulator&rsquo;s own ${doc}. Every fact here was checked word for word against it${c.own_date ? ` (${esc(c.own_date)})` : ''}.`;
+}
+let SUM_READY = !!DATA.sum;
+function summaryBlock(c) {
+  if (!c.summary && !SUM_READY) return `<p class="summary" id="sum-wait" data-id="${esc(c.pharos_id)}">Loading the summary&hellip;</p>`;
+  if (!c.summary) return `<div class="empty">${MINI}<p class="bubble">Nobody has summarised this decision yet. The regulator&rsquo;s own decision is linked below.</p></div>`;
+  if (c.cred === 'f') return `<p class="summary">${esc(c.summary)}</p><p class="credit">${ownCredit(c)}</p>`;
+  const by = c.cred === 'c' ? 'the CMS Enforcement Tracker' : c.source === 'gdprhub' ? 'GDPRhub (noyb), written by its volunteers' : 'the GDPRhub page for this decision, written by its volunteers';
+  return `<p class="summary">${esc(c.summary)}</p><p class="credit">Summary from ${by}, not by Fino. CC BY-NC-SA 4.0.</p>`;
+}
+function sourceLinks(c) {
+  const out = [];
+  if (c.source_url) out.push(['The regulator’s decision', c.source_url, true]);
+  if (c.source === 'cms_tracker' && c.source_page) out.push(['CMS Enforcement Tracker', c.source_page]);
+  if (c.source === 'gdprhub' && c.source_page) out.push(['GDPRhub', c.source_page]);
+  if (c.gdprhub_page) out.push(['GDPRhub', c.gdprhub_page]);
+  return out;
+}
+let fromBrowse = false;
+function companyBlock(c) {
+  const list = c.org ? BY_ORG[c.org] : null;
+  if (!list || list.length < 2) return '';
+  const others = list.filter(x => x !== c).sort((a, b) => (b.decision_date || '').localeCompare(a.decision_date || ''));
+  const total = sumFines(list);
+  return `<section><h2 class="sec-h">Same company</h2>
+    <p class="stat" style="font-size:1.15rem">${num(list.length)} decisions against ${esc(ORG_NAME[c.org])}${total ? `, ${bigEur(total)} in fines` : ''}.</p>
+    <p class="legend" style="margin:0 0 8px">Decisions in ${esc(countriesOf(list).join(', '))}.</p>
+    <ul class="sim">${others.slice(0, 3).map(s => `<li><a href="#d-${slug(s.pharos_id)}"><b>${esc(s.country)} &middot; ${esc(when(s.decision_date, s.date_precision).short)}</b><span>${s.fine_eur ? money(s) : 'No fine amount'}${s.arts.length ? ' · ' + s.arts.slice(0, 3).map(n => 'Art. ' + n).join(', ') : ''}</span></a></li>`).join('')}</ul>
+    <p style="margin:14px 0 0"><a class="btn small latte" href="#fines" data-org="${esc(c.org)}">All ${num(list.length)} decisions &rarr;</a></p>
+  </section>`;
+}
+function groupBlock(c) {
+  const list = c.org_group ? BY_GROUP[c.org_group] : null;
+  if (!list) return '';
+  const members = {};
+  for (const x of list) (members[x.org] ||= []).push(x);
+  if (Object.keys(members).length < 2) return '';
+  const rows = Object.entries(members).sort((a, b) => sumFines(b[1]) - sumFines(a[1]) || b[1].length - a[1].length);
+  const note = (DATA.meta.groups || {})[c.org_group];
+  return `<section><h2 class="sec-h">Same group: ${esc(c.org_group)}</h2>
+    <p class="stat" style="font-size:1.15rem">${num(list.length)} decisions against ${rows.length} companies in the group${sumFines(list) ? `, ${bigEur(sumFines(list))} in fines` : ''}.</p>
+    ${note ? `<p class="legend" style="margin:0 0 8px">${esc(note)}</p>` : ''}
+    <ul class="orgs">${rows.map(([k, l]) => `<li class="${k === c.org ? 'me' : ''}"><b>${esc(ORG_NAME[k])}</b><span>Decisions in ${esc(countriesOf(l).join(', '))} &middot; ${num(l.length)} ${l.length === 1 ? 'decision' : 'decisions'}</span><em>${sumFines(l) ? eur(sumFines(l)) : '&ndash;'}</em></li>`).join('')}</ul>
+    <p style="margin:0"><a class="btn small latte" href="#fines" data-group="${esc(c.org_group)}">All ${num(list.length)} decisions in the group &rarr;</a></p>
+  </section>`;
+}
+function renderDecision(c) {
+  const d = when(c.decision_date, c.date_precision), f = fineInfo(c), k = context(c), sims = similar(c);
+  const about = c.violation_type ? `<span class="hl">${esc(c.violation_type)}</span>` : c.categories ? `About: ${esc(c.categories)}` : '';
+  const pill = f.status ? `<span class="pill ok">${esc(f.status)}</span>`
+    : c.best_outcome ? `<span class="pill ${outcomeKind(c.best_outcome)}">${esc(c.best_outcome)}</span>` : '';
+  const after = c.status_note ? `<p class="after"><b>What happened next.</b> ${esc(c.status_note)}${c.status_source ? ` <a href="${esc(c.status_source)}" target="_blank" rel="noopener">Source &rarr;</a>` : ''}</p>` : '';
+  const pc = k && Math.round(k.below / k.n * 100), eu = k && Math.round(k.eu_below / k.eu_n * 100);
+  $('main').innerHTML = `
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb">
+      <a href="#fines">${fromBrowse ? '&larr; Back to results' : 'Fines'}</a><span aria-hidden="true">/</span>
+      <span>${esc(c.country || 'No country')}</span><span aria-hidden="true">/</span>
+      <span aria-current="page">${esc(c.pharos_id)}</span>
+    </nav>
+    <div class="head">
+      <div>
+        <p class="eyebrow">${esc(authority(c.authority))} &middot; ${esc(d.main)}</p>
+        <h1 class="${party(c).cls}">${esc(party(c).name)}${party(c).person ? '<span class="tag-person">Private person</span>' : ''}</h1>
+        ${party(c).unchecked ? '<p class="legend" style="margin:0 0 12px">The source names these parties without saying which one the decision is about. I&rsquo;m checking it.</p>'
+          : party(c).sub && !party(c).person ? `<p class="legend" style="margin:0 0 12px">${esc(party(c).sub)}.</p>` : ''}
+        <p class="lede">${about}</p>
+        ${after}
+      </div>
+      <div class="fine"><span class="lbl">Fine</span><span class="amt ${f.none ? 'none' : ''}">${f.conv ? `<span class="cur">${esc(c.currency)}</span>${esc(f.label.slice(c.currency.length + 1))}` : f.struck ? `<s>${esc(f.label)}</s>` : esc(f.label)}</span>${f.conv ? `<span class="conv" title="${esc(f.note)}">${esc(f.conv)}</span>` : ''}${pill}</div>
+    </div>
+    <dl class="facts">
+      <div><dt>Regulator</dt><dd>${esc(authority(c.authority))}</dd></div>
+      <div><dt>Decided</dt><dd>${esc(d.main)}${d.note ? `<small>${esc(d.note)}</small>` : ''}</dd></div>
+      <div><dt>Country</dt><dd>${flag(c)}${esc(c.country || 'Not given')}</dd></div>
+      <div><dt>Sector</dt><dd>${esc(c.sector_tag || 'Not given')}</dd></div>
+      <div><dt>Regulator&rsquo;s reference</dt><dd class="mono">${esc(c.ref || 'Not recorded')}</dd></div>
+      <div><dt>Fino case number</dt><dd class="mono">${esc(c.pharos_id)}</dd></div>
+    </dl>
+    <div class="tools">
+      <a class="btn primary small" href="#x-${slug(c.pharos_id)}">Export as PDF</a>
+      <button type="button" class="btn small" id="copy-cite">Copy citation</button>
+      <span class="legend" id="copied" aria-live="polite" style="align-self:center"></span>
+    </div>
+    <div class="body">
+      <div>
+        <section><h2 class="sec-h">What happened</h2>${summaryBlock(c)}</section>
+        <section><h2 class="sec-h">Rules involved</h2>${rulesBlock(c)}
+          ${c.cats.length ? `<ul class="chips" aria-label="Topics">${c.cats.map(t => `<li>${esc(t)}</li>`).join('')}</ul>` : ''}</section>
+      </div>
+      <aside>
+        <section class="card ctx"><h2 class="sec-h">How big is it?</h2>
+          ${k ? `<p class="big">Bigger than <b>${pc}%</b> of the ${num(k.n)} fines in ${esc(c.country)}.</p>
+            <p class="sub">Across the whole database, bigger than ${eu}% of ${num(k.eu_n)} fines.</p>${strip(c)}
+            <p class="legend">Each dot is one fine in ${esc(c.country)}. The scale grows tenfold at each line.</p>`
+          : `<p class="big">No amount to compare.</p><p class="sub">This decision has no fine amount we can read, so it isn&rsquo;t placed among the others.</p>`}
+        </section>
+        ${explainedBlock(EX_BY_CASE.get(c.pharos_id))}
+        ${companyBlock(c)}
+        ${groupBlock(c)}
+        <section><h2 class="sec-h">Similar decisions</h2>
+          ${sims.length ? `<ul class="sim">${sims.map(s => `<li><a href="#d-${slug(s.pharos_id)}"><b>${esc(party(s).name)}</b><span>${[s.year || 'No date', s.fine_eur ? money(s) : 'No fine amount', s.arts.slice(0, 3).map(n => 'Art. ' + n).join(', ')].filter(Boolean).join(' · ')}</span></a></li>`).join('')}</ul>
+            <p class="legend">Same country, overlapping articles or topics.</p>` : '<p class="note">No similar decisions from the same country yet.</p>'}
+        </section>
+      </aside>
+    </div>
+  </div>
+  <section class="sources"><div class="wrap">
+    <h2 class="sec-h">Sources</h2>
+    <ul class="links">${sourceLinks(c).map(([l, u, p]) => `<li><a class="btn ${p ? 'primary' : ''}" href="${esc(u)}" target="_blank" rel="noopener">${esc(l)} &nearr;</a></li>`).join('')}</ul>
+    <p class="fine-print">The facts on this page come from the sources above, as they recorded them. Nothing has been estimated or filled in. Not legal advice.</p>
+    <p class="fine-print">Spotted a mistake? Thank you for telling me: write to <a class="mail" href="mailto:hello@finoprivacy.com">hello@finoprivacy.com</a> and quote ${esc(c.pharos_id)}.</p>
+  </div></section>`;
+  document.querySelectorAll('[data-org], [data-group]').forEach(a => a.addEventListener('click', () => {
+    Object.assign(state, { q: '', country: '', year: '', sector: '', art: '', outcome: '', band: '', shown: 40,
+                           org: a.dataset.org || '', group: a.dataset.group || '' });
+  }));
+  $('copy-cite').addEventListener('click', () => {
+    const text = citation(c);
+    const done = m => { $('copied').textContent = m; };
+    try { navigator.clipboard.writeText(text).then(() => done('Copied.'), () => done(text)); } catch (e) { done(text); }
+  });
+}
+function citation(c) {
+  const d = when(c.decision_date, c.date_precision), f = fineInfo(c);
+  const parts = [authority(c.authority), c.ref ? `decision ${c.ref}` : 'decision', d.main !== 'Date not published' ? `of ${d.main}` : ''].filter(Boolean).join(' ');
+  const who = c.controller ? ` (${c.controller})` : '';
+  const amt = c.est ? `, fine of ${native(c)} (about ${eur(approx(c.fine_eur))})` : c.fine_eur ? `, fine of ${eur(c.fine_eur)}` : '';
+  return `${parts}${who}${amt}. Fino case ${c.pharos_id}, ${SITE}/decisions/${slug(c.pharos_id)}.html, accessed ${today()}.`;
+}
+
+/* ---------- View: GDPR ---------- */
+function artStats(n) {
+  const list = BY_ART[n] || [];
+  const fined = list.filter(c => c.fine_eur);
+  return { list, fined, total: fined.reduce((a, c) => a + c.fine_eur, 0) };
+}
+function bindGdpr(pre = 'rec-') {
+  const f = $('goto-form'); if (!f) return;
+  const max = +$('goto-rec').max;
+  /* the Go button and the Enter key do the same thing */
+  f.addEventListener('submit', e => {
+    e.preventDefault();
+    const n = +$('goto-rec').value;
+    if (!(n >= 1 && n <= max)) { $('goto-msg').textContent = `Choose a number from 1 to ${max}.`; return; }
+    $('goto-msg').textContent = '';
+    history.replaceState(null, '', '#' + pre + n);
+    openRecital(n, pre);
+  });
+}
+function renderGdpr() {
+  $('main').innerHTML = `<div class="wrap">
+    <div class="b-head">
+      <p class="eyebrow" style="margin:28px 0 0">Regulation (EU) 2016/679</p>
+      <h1 style="margin:0">The GDPR, with the fines attached.</h1>
+      <p class="lede">All 99 articles and the 173 recitals in the official English text, each article linked to the decisions that cite it and to the original on EUR-Lex.</p>
+    </div>
+    <div class="toc">
+    ${preamble()}
+    ${GDPR.chapters.map(ch => `<section><h2><span>${esc(ch.num)}</span>${esc(ch.title)}</h2><ol>${ch.arts.map(n => {
+      const k = (BY_ART[n] || []).length;
+      return `<li><a href="#art-${n}"><span class="n">Art. ${n}</span><span>${esc(GDPR.arts[n].t)}</span><span class="c">${k ? num(k) + ' cases' : ''}</span></a></li>`;
+    }).join('')}</ol></section>`).join('')}</div>
+  </div>`;
+}
+/* The preamble of a law (GDPR or AI Act): the legal bases and the recitals, closed until opened */
+const GDPR_PRE = { pre: 'rec-', hint: 71, oj: 'https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679', legend: '',
+  fix: n => GDPR.preamble.corrected.includes(n) ? '<span class="fix">As corrected by the corrigendum in OJ L 127, 23.5.2018, p. 2.</span>' : '' };
+function preamble(P = GDPR.preamble, L = GDPR_PRE) {
+  const nums = Object.keys(P.recitals).map(Number).sort((a, b) => a - b), max = nums[nums.length - 1];
+  return `<section>
+    <h2><span>Preamble</span>Legal bases and recitals</h2>
+    <details class="preamble" id="preamble">
+      <summary><span class="n">1&ndash;${max}</span><span>The legal bases and the ${max} recitals, which explain why each rule exists and how to read it</span><span class="tw" aria-hidden="true"></span></summary>
+      <div class="inner">
+        <div class="rec-tools">
+          <form class="goto panel" id="goto-form" novalidate>
+            <label for="goto-rec">Go to recital</label>
+            <input id="goto-rec" type="number" min="1" max="${max}" inputmode="numeric" placeholder="${L.hint}" aria-describedby="goto-msg">
+            <button type="submit" class="btn small">Go</button>
+          </form>
+          <p class="goto-msg" id="goto-msg" aria-live="polite"></p>
+        </div>
+        <p class="formal">${esc(P.opening)}</p>
+        <ul class="cits">${P.citations.map(c => `<li>${esc(c)}</li>`).join('')}</ul>
+        <p class="formal">Whereas:</p>
+        ${nums.map(n => `<div class="rec" id="${L.pre}${n}"><a class="rn" href="#${L.pre}${n}" aria-label="Recital ${n}">(${n})</a><div>${P.recitals[n]}${L.fix(n)}</div></div>`).join('')}
+        <p class="formal">${esc(P.closing)}</p>
+        <div class="pre-end">
+          <p class="legend">Footnotes of the Official Journal are left out here; they are on EUR-Lex.${L.legend}</p>
+          ${EURLEX_BADGE(L.oj, 'Official Journal text on EUR-Lex')}
+        </div>
+      </div>
+    </details>
+  </section>`;
+}
+function openRecital(n, pre = 'rec-') {
+  const d = $('preamble'); if (!d) return;
+  d.open = true;
+  const el = $(pre + n); if (el) el.scrollIntoView({ block: 'start' });
+}
+function renderArticle(n) {
+  const a = GDPR.arts[n], ch = CHAPTER[a.ch], st = artStats(n);
+  const top = [...st.fined].sort((x, y) => y.fine_eur - x.fine_eur).slice(0, 5);
+  const prev = GDPR.arts[n - 1] ? n - 1 : null, next = GDPR.arts[n + 1] ? n + 1 : null;
+  $('main').innerHTML = `<div class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><span>Laws</span><span aria-hidden="true">/</span><a href="#gdpr">GDPR</a><span aria-hidden="true">/</span><span>${esc(ch.num)}</span><span aria-hidden="true">/</span><span aria-current="page">Article ${n}</span></nav>
+    <div class="law">
+      <article>
+        <p class="eyebrow">${esc(ch.num)} &middot; ${esc(ch.title)}${a.sec ? ` &middot; ${esc(a.sec)}` : ''}</p>
+        <div class="titlerow"><h1>Article ${n}</h1>${EURLEX_BADGE(EURLEX(n), 'Official text on EUR-Lex')}</div>
+        <p class="atitle">${esc(a.t)}</p>
+        <div class="text">${a.h}</div>
+      </article>
+      <aside>
+        <section class="card">
+          <h2 class="sec-h">In the fines database</h2>
+          ${st.list.length ? `<p class="stat">Cited in <b>${num(st.list.length)}</b> decisions${st.fined.length ? `, with ${bigEur(st.total)} in fines` : ''}.</p>
+            ${top.length ? `<p class="legend" style="margin:0 0 4px">Biggest fines citing Article ${n}</p><ul class="sim">${top.map(s => `<li><a href="#d-${slug(s.pharos_id)}"><b>${esc(party(s).name || 'Not named in the source')}</b><span>${esc(s.country)} · ${s.year} · ${money(s)}</span></a></li>`).join('')}</ul>` : ''}
+            <p style="margin:16px 0 0"><a class="btn small latte" href="#fines" data-art="${n}">See all ${num(st.list.length)} decisions &rarr;</a></p>`
+          : '<p class="note">No decision in the database cites this article yet.</p>'}
+        </section>
+        ${explainedBlock(EX_BY_ART.get(n))}
+        ${inAiAct(n)}
+        <section class="official">
+          <h2 class="sec-h">About this text</h2>
+          <p>Shown here from the consolidated version on EUR-Lex, which includes the published corrections. Only the version in the Official Journal of the EU is legally binding.</p>
+          <p><a href="${ELI}" target="_blank" rel="noopener">Regulation (EU) 2016/679, OJ L 119, 4.5.2016, p. 1</a></p>
+        </section>
+      </aside>
+    </div>
+    <nav class="prevnext" aria-label="Other articles">
+      ${prev ? `<a href="#art-${prev}"><span>&larr; Article ${prev}</span><b>${esc(GDPR.arts[prev].t)}</b></a>` : '<span></span>'}
+      ${next ? `<a href="#art-${next}" style="text-align:right"><span>Article ${next} &rarr;</span><b>${esc(GDPR.arts[next].t)}</b></a>` : ''}
+    </nav>
+  </div>`;
+  const all = document.querySelector('[data-art]');
+  if (all) all.addEventListener('click', () => { Object.assign(state, { q: '', country: '', year: '', sector: '', art: String(n), outcome: '', band: '', org: '', group: '', shown: 40 }); });
+}
+
+/* ---------- GDPR and AI Act side by side ----------
+   data/law-links.json (pipeline/law/law_links.py): 'cites' = the AI Act names this GDPR article in its text (a fact);
+   'pairs' = same topic in both laws, shown only once Lorenzo has said yes. Without the file the boxes simply don't show. */
+const LL = DATA.links || { cites: {}, cite_recs: {}, pairs: [] };
+const aiHref = (kind, k) => kind === 'ai-art' ? `#ai-art-${k}` : `#ai-annex-${k}`;
+const aiName = (kind, k) => kind === 'ai-art' ? `Article ${k}` : `Annex ${k}`;
+function inAiAct(n) {
+  const cites = LL.cites[n] || [], recs = LL.cite_recs[n] || [];
+  const named = new Set(cites.map(([kind, k]) => kind + k));
+  const pairs = LL.pairs.filter(p => p.gdpr === n && !named.has(p.kind + p.ai));
+  if (!cites.length && !pairs.length && !recs.length) return '';
+  return `<section><h2 class="sec-h">In the AI Act</h2>
+    ${cites.length || pairs.length ? `<ul class="sim">${cites.map(([kind, k, t]) => `<li><a href="${aiHref(kind, k)}"><b><small class="law-tag">AI Act</small>${aiName(kind, k)} &middot; ${esc(t)}</b><span>Names this article &rarr;</span></a></li>`).join('')}${pairs.map(p =>
+      `<li><a href="${aiHref(p.kind, p.ai)}"><b><small class="law-tag">AI Act</small>${aiName(p.kind, p.ai)} &middot; ${esc(p.ai_t)}</b><span>Same topic: ${esc(p.topic)} &rarr;</span></a></li>`).join('')}</ul>` : ''}
+    ${recs.length ? `<p class="legend" style="margin:10px 0 0">${cites.length || pairs.length ? 'Also named in' : 'Named in'} AI Act recital${recs.length > 1 ? 's' : ''} ${recs.map(r => `<a href="#ai-rec-${r}">${r}</a>`).join(', ')}.</p>` : ''}
+  </section>`;
+}
+function inGdpr(kind, k, h) {
+  const named = [...new Set([...(h || '').matchAll(/href="#art-(\d+)"/g)].map(m => +m[1]))].sort((a, b) => a - b);
+  const pairs = LL.pairs.filter(p => p.kind === kind && p.ai === k && !named.includes(p.gdpr));
+  const row = (n, why) => {
+    if (!GDPR.arts[n]) return '';
+    const c = (BY_ART[n] || []).length;
+    return `<li><a href="#art-${n}"><b><small class="law-tag">GDPR</small>Article ${n} &middot; ${esc(GDPR.arts[n].t)}</b><span>${why}${c ? ` &middot; ${num(c)} decision${c > 1 ? 's' : ''}` : ''} &rarr;</span></a></li>`;
+  };
+  const rows = named.map(n => row(n, 'Named here')).join('') + pairs.map(p => row(p.gdpr, `Same topic: ${esc(p.topic)}`)).join('');
+  return rows ? `<section><h2 class="sec-h">In the GDPR</h2><ul class="sim">${rows}</ul></section>` : '';
+}
+
+/* ---------- View: AI Act ----------
+   data/reg-2024-1689.json, built by pipeline/law/aiact_parse.py. It is loaded only when an AI Act page is opened.
+   Keys: articles '1'...'113' plus '4a', '60a', '75a' (added in 2026); annexes 'I'...'XIV'. */
+const AI_CONS = 'https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:02024R1689-20260727';
+const AI_ELI = 'https://eur-lex.europa.eu/eli/reg/2024/1689/oj';
+const AI_OMNIBUS = 'https://eur-lex.europa.eu/eli/reg/2026/1744/oj';
+const AI_PRE = { pre: 'ai-rec-', hint: 12, oj: 'https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32024R1689', fix: () => '',
+  legend: ' These are the recitals of the 2024 Act; the 2026 amendment has its own, on EUR-Lex.' };
+let AI = DATA.aiact || null, AI_CH = {}, aiLoading = false;
+const aiReady = d => { AI = d; AI_CH = Object.fromEntries(d.chapters.map(ch => [ch.id, ch])); };
+if (AI) aiReady(AI);
+function loadAi() {
+  $('main').innerHTML = `<div class="wrap"><p class="lede" style="padding-block:80px">Fetching the AI Act&hellip;</p></div>`;
+  if (aiLoading) return;
+  aiLoading = true;
+  fetch('data/reg-2024-1689.json').then(r => { if (!r.ok) throw new Error(r.status); return r.json(); })
+    .then(d => { aiReady(d); lastView = ''; route(); }, () => renderLawMissing('the AI Act', AI_ELI))
+    .finally(() => { aiLoading = false; });
+}
+const aiNew = k => /a$/.test(k) || k === 'annex-XIV';
+function aiChanged(k, what) {
+  if (!AI.amended.includes(k)) return '';
+  return `<section class="card changed">
+    <h2 class="sec-h">${aiNew(k) ? 'Added' : 'Changed'} in July 2026</h2>
+    <p>${aiNew(k) ? `This ${what} was added` : `Part of this ${what} was changed`} by the Digital Omnibus on AI, Regulation (EU) 2026/1744. The text here already includes the change.</p>
+    <p style="margin:0"><a href="${AI_OMNIBUS}" target="_blank" rel="noopener">Regulation (EU) 2026/1744 on EUR-Lex &nearr;</a></p>
+  </section>`;
+}
+const aiAside = (k, what, h) => `<aside>
+        ${aiChanged(k, what)}
+        ${inGdpr(what === 'annex' ? 'ai-annex' : 'ai-art', what === 'annex' ? k.slice(6) : k, h)}
+        <section class="card">
+          <h2 class="sec-h">Where does your AI system fit?</h2>
+          <p>Three questions give a first idea of its AI Act category and which articles to read.</p>
+          <p style="margin:16px 0 0"><a class="btn small latte" href="Tool.html">Try the AI Act triage &rarr;</a></p>
+        </section>
+        <section class="official">
+          <h2 class="sec-h">About this text</h2>
+          <p>Shown here from the consolidated version on EUR-Lex of 27 July 2026, which includes the changes made by Regulation (EU) 2026/1744. Only the version in the Official Journal of the EU is legally binding.</p>
+          <p><a href="${AI_ELI}" target="_blank" rel="noopener">Regulation (EU) 2024/1689, OJ L, 2024/1689, 12.7.2024</a></p>
+        </section>
+      </aside>`;
+const aiFlag = k => AI.amended.includes(k) ? `<span class="c"><span class="chg">${aiNew(k) ? 'New' : 'Changed'} 2026</span></span>` : '<span class="c"></span>';
+function renderAiAct() {
+  $('main').innerHTML = `<div class="wrap">
+    <div class="b-head">
+      <p class="eyebrow" style="margin:28px 0 0">Regulation (EU) 2024/1689</p>
+      <h1 style="margin:0">The AI Act, as amended in 2026.</h1>
+      <p class="lede">All ${AI.order.length} articles, ${AI.annex_order.length} annexes and ${Object.keys(AI.preamble.recitals).length} recitals in the official English text, including the July 2026 changes (the Digital Omnibus on AI). Each article links to the original on EUR-Lex.</p>
+    </div>
+    <div class="toc">
+    ${preamble(AI.preamble, AI_PRE)}
+    ${AI.chapters.map(ch => `<section><h2><span>${esc(ch.num)}</span>${esc(ch.title)}</h2><ol>${ch.arts.map(k =>
+      `<li><a href="#ai-art-${k}"><span class="n">Art. ${k}</span><span>${esc(AI.arts[k].t)}</span>${aiFlag(k)}</a></li>`).join('')}</ol></section>`).join('')}
+    <section><h2><span>Annexes</span>Lists, forms and technical details</h2><ol>${AI.annex_order.map(r =>
+      `<li><a href="#ai-annex-${r}"><span class="n">Annex ${r}</span><span>${esc(AI.annexes[r].t)}</span>${aiFlag('annex-' + r)}</a></li>`).join('')}</ol></section>
+    </div>
+  </div>`;
+}
+function renderAiArticle(k) {
+  const a = AI.arts[k], ch = AI_CH[a.ch], i = AI.order.indexOf(k);
+  const prev = AI.order[i - 1], next = AI.order[i + 1];
+  $('main').innerHTML = `<div class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><span>Laws</span><span aria-hidden="true">/</span><a href="#ai-act">AI Act</a><span aria-hidden="true">/</span><span>${esc(ch.num)}</span><span aria-hidden="true">/</span><span aria-current="page">Article ${k}</span></nav>
+    <div class="law">
+      <article>
+        <p class="eyebrow">${esc(ch.num)} &middot; ${esc(ch.title)}${a.sec ? ` &middot; ${esc(a.sec)}` : ''}</p>
+        <div class="titlerow"><h1>Article ${k}</h1>${EURLEX_BADGE(`${AI_CONS}#art_${k}`, 'Official text on EUR-Lex')}</div>
+        <p class="atitle">${esc(a.t)}</p>
+        <div class="text">${a.h}</div>
+      </article>
+      ${aiAside(k, 'article', a.h)}
+    </div>
+    <nav class="prevnext" aria-label="Other articles">
+      ${prev ? `<a href="#ai-art-${prev}"><span>&larr; Article ${prev}</span><b>${esc(AI.arts[prev].t)}</b></a>` : '<span></span>'}
+      ${next ? `<a href="#ai-art-${next}" style="text-align:right"><span>Article ${next} &rarr;</span><b>${esc(AI.arts[next].t)}</b></a>` : `<a href="#ai-annex-I" style="text-align:right"><span>Annex I &rarr;</span><b>${esc(AI.annexes.I.t)}</b></a>`}
+    </nav>
+  </div>`;
+}
+function renderAiAnnex(r) {
+  const a = AI.annexes[r], i = AI.annex_order.indexOf(r);
+  const prev = AI.annex_order[i - 1], next = AI.annex_order[i + 1], last = AI.order[AI.order.length - 1];
+  $('main').innerHTML = `<div class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><span>Laws</span><span aria-hidden="true">/</span><a href="#ai-act">AI Act</a><span aria-hidden="true">/</span><span>Annexes</span><span aria-hidden="true">/</span><span aria-current="page">Annex ${r}</span></nav>
+    <div class="law">
+      <article>
+        <p class="eyebrow">AI Act &middot; Annexes</p>
+        <div class="titlerow"><h1>Annex ${r}</h1>${EURLEX_BADGE(`${AI_CONS}#anx_${r}`, 'Official text on EUR-Lex')}</div>
+        <p class="atitle">${esc(a.t)}</p>
+        <div class="text">${a.h}</div>
+      </article>
+      ${aiAside('annex-' + r, 'annex', a.h)}
+    </div>
+    <nav class="prevnext" aria-label="Other annexes">
+      ${prev ? `<a href="#ai-annex-${prev}"><span>&larr; Annex ${prev}</span><b>${esc(AI.annexes[prev].t)}</b></a>` : `<a href="#ai-art-${last}"><span>&larr; Article ${last}</span><b>${esc(AI.arts[last].t)}</b></a>`}
+      ${next ? `<a href="#ai-annex-${next}" style="text-align:right"><span>Annex ${next} &rarr;</span><b>${esc(AI.annexes[next].t)}</b></a>` : ''}
+    </nav>
+  </div>`;
+}
+
+/* ---------- View: export sheet ---------- */
+const include = { summary: true, articles: false, context: true, similar: true };
+function renderExport(c) {
+  $('main').innerHTML = `<div class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="#d-${slug(c.pharos_id)}">&larr; Back to the decision</a></nav>
+    <div class="x-bar panel">
+      <fieldset><legend>Include</legend>
+        <label for="i-summary"><input type="checkbox" id="i-summary" data-inc="summary"${include.summary ? ' checked' : ''}> Summary</label>
+        <label for="i-articles"><input type="checkbox" id="i-articles" data-inc="articles"${include.articles ? ' checked' : ''}> Full text of the articles</label>
+        <label for="i-context"><input type="checkbox" id="i-context" data-inc="context"${include.context ? ' checked' : ''}> How big is it</label>
+        <label for="i-similar"><input type="checkbox" id="i-similar" data-inc="similar"${include.similar ? ' checked' : ''}> Similar decisions</label>
+      </fieldset>
+      <button type="button" class="btn primary" id="save">Save as PDF</button>
+    </div>
+    <p class="x-note" id="x-note">Choose &ldquo;Save as PDF&rdquo; in the window that opens. Your browser makes the PDF; nothing is sent anywhere.</p>
+    <div class="desk"><div class="pages" id="pages" aria-label="Preview of the PDF, page by page"></div></div>
+  </div>`;
+  const draw = () => {
+    const n = paginate(sheet(c), c);
+    $('x-note').innerHTML = `${n === 1 ? 'One page' : `${n} pages`}, as shown below. Choose &ldquo;Save as PDF&rdquo; in the window that opens. Your browser makes the PDF; nothing is sent anywhere.`;
+  };
+  draw();
+  if (document.fonts) document.fonts.ready.then(() => { if ($('pages')) draw(); });   // measure again once the fonts are in
+  document.querySelectorAll('[data-inc]').forEach(el => el.addEventListener('change', () => { include[el.dataset.inc] = el.checked; draw(); }));
+  $('save').addEventListener('click', () => { try { window.print(); } catch (e) {} });
+}
+/* Cut the sheet into A4 pages as they will print: a block that does not fit moves to the next page, tables and
+   lists split between rows, and a heading never ends a page. Returns the number of pages. */
+const MM = 96 / 25.4;
+function paginate(html, c) {
+  const book = $('pages');
+  book.style.zoom = '';
+  const src = document.createElement('div');
+  src.innerHTML = html;
+  book.innerHTML = '';
+  let box;
+  const newPage = () => {
+    const p = document.createElement('section');
+    p.className = 'page sheet';
+    p.innerHTML = '<div class="pg-body"></div><div class="pg-foot"></div>';
+    book.appendChild(p);
+    box = p.firstChild;
+  };
+  const fits = () => box.scrollHeight <= box.clientHeight + 1;
+  const pieces = el => {
+    if (el.tagName === 'TABLE') {
+      const rows = [...el.rows];
+      return rows.length > 1 ? rows.map(r => { const t = el.cloneNode(false); t.appendChild(r); return t; }) : null;
+    }
+    if (el.classList.contains('par')) {   // an article paragraph splits between its points; the number stays on the first part
+      const [n, body] = el.children, kids = body ? [...body.children] : [];
+      return kids.length > 1 ? kids.map((k, i) => {
+        const w = el.cloneNode(false), part = body.cloneNode(false);
+        part.appendChild(k); w.append(n.cloneNode(i === 0), part);
+        return w;
+      }) : null;
+    }
+    if (el.tagName === 'UL' || el.classList.contains('s-art') || el.classList.contains('s-foot')) {
+      const kids = el.classList.contains('s-art') && el.children.length === 1 ? pieces(el.firstElementChild) : [...el.children];
+      if (!kids) return null;
+      return kids.length > 1 ? kids.map((k, i) => {
+        const w = el.cloneNode(false); w.appendChild(k);
+        if (i) w.classList.add('cont');
+        if (i < kids.length - 1) w.classList.add('open');
+        return w;
+      }) : null;
+    }
+    return null;
+  };
+  const place = (el, fresh) => {
+    box.appendChild(el);
+    if (fits()) return;
+    el.remove();
+    const parts = pieces(el);
+    if (parts) { parts.forEach(p => place(p)); return; }
+    if (fresh || !box.children.length) { box.appendChild(el); return; }   // taller than a whole page: it stays, cut at the edge
+    const carry = [];
+    while (box.children.length > 1 && /^H[23]$/.test(box.lastElementChild.tagName)) { const h = box.lastElementChild; h.remove(); carry.unshift(h); }
+    newPage();
+    carry.forEach(h => box.appendChild(h));
+    place(el, true);
+  };
+  newPage();
+  [...src.children].forEach(el => place(el));
+  const pages = [...book.children];
+  pages.forEach((p, i) => { p.lastChild.innerHTML = `<span>Fino &middot; Decision record ${esc(c.pharos_id)}</span><span>Page ${i + 1} of ${pages.length}</span>`; });
+  fitPages();
+  return pages.length;
+}
+/* On a narrow screen the pages are shown smaller, whole, instead of cut off */
+function fitPages() {
+  const book = $('pages');
+  if (!book) return;
+  const room = book.parentElement.clientWidth - 32, page = 210 * MM;
+  book.style.zoom = room < page ? (room / page).toFixed(3) : '';
+}
+window.addEventListener('resize', fitPages);
+
+function sheet(c) {
+  const d = when(c.decision_date, c.date_precision), f = fineInfo(c), k = context(c);
+  const rows = [
+    ['Regulator', authority(c.authority)], ['Decided', d.main + (d.note ? ` (${d.note.toLowerCase()})` : '')],
+    ['Country', c.country || 'Not given'], ['Sector', c.sector_tag || 'Not given'],
+    ['Outcome', c.best_outcome || 'Not given'], ['Regulator’s reference', c.ref || 'Not recorded'],
+    ['What it was about', c.violation_type || c.categories || 'Not given'], ['Fino case number', c.pharos_id]
+  ];
+  const arts = [...new Set(artList(c.articles).map(artNo))].sort((a, b) => a - b);
+  const summary = !include.summary ? '' : `<h3>What happened</h3>${c.summary
+    ? `<p>${esc(c.summary)}</p><p class="s-small">${c.cred === 'f' ? ownCredit(c) : `Summary from ${c.cred === 'c' ? 'the CMS Enforcement Tracker' : 'GDPRhub (noyb)'}, CC BY-NC-SA 4.0.`}</p>`
+    : '<p class="s-small">No summary has been published for this decision. See the regulator&rsquo;s decision listed under Sources.</p>'}`;
+  const rules = `<h3>GDPR articles involved</h3>${arts.length ? (include.articles
+    ? arts.map(n => GDPR.arts[n] ? `<p><b>Article ${n}</b> &middot; ${esc(GDPR.arts[n].t)}</p><div class="s-art">${GDPR.arts[n].h}</div>` : `<p><b>Article ${n}</b></p>`).join('')
+      + '<p class="s-small">Article text from the consolidated version on EUR-Lex, corrections included. Only the Official Journal version is legally binding.</p>'
+    : `<ul>${arts.map(n => `<li><b>Article ${n}</b>${GDPR.arts[n] ? ' &middot; ' + esc(GDPR.arts[n].t) : ''}</li>`).join('')}</ul>`)
+    : '<p class="s-small">The source does not list the articles involved.</p>'}`;
+  const ctx = !include.context ? '' : `<h3>How big is it</h3>${k
+    ? `<p>Bigger than ${Math.round(k.below / k.n * 100)}% of the ${num(k.n)} fines in ${esc(c.country)}, and ${Math.round(k.eu_below / k.eu_n * 100)}% of the ${num(k.eu_n)} fines in the Fino database (data of ${UPDATED}).</p>`
+    : '<p class="s-small">No fine amount, so it is not compared with the others.</p>'}`;
+  const sims = include.similar ? similar(c) : [];
+  const simH = !include.similar ? '' : `<h3>Similar decisions</h3>${sims.length ? `<table>${sims.map(s => `<tr><td>${esc(s.pharos_id)}</td><td>${esc(party(s).name)} &middot; ${s.year || 'no date'} &middot; ${s.fine_eur ? money(s) : 'no fine amount'}</td></tr>`).join('')}</table>` : '<p class="s-small">None from the same country yet.</p>'}`;
+  const src = sourceLinks(c);
+  return `
+    <div class="s-top"><div class="s-brand">${SHEET_MARK}Fino</div><div class="s-kind">Decision record<br>${esc(c.pharos_id)}</div></div>
+    <h2 class="s-title">${esc(party(c).name)}${party(c).person ? ' (private person)' : ''}</h2>
+    ${party(c).unchecked ? '<p class="s-small">Named in the source; which of them the decision is about has not been checked yet.</p>' : ''}
+    <p class="s-meta">${esc(authority(c.authority))} &middot; ${esc(d.main)} &middot; ${esc(c.country || '')}</p>
+    <div class="s-fine"><b>${esc(f.label)}</b>${f.conv ? `<span>${esc(f.conv)}</span>` : ''}${c.best_outcome ? `<span>${esc(c.best_outcome)}</span>` : ''}</div>
+    <div class="cite"><small>Cite as</small>${esc(citation(c))}</div>
+    <h3>Key facts</h3>
+    <table>${rows.map(([k, v]) => `<tr><td>${esc(k)}</td><td>${esc(v)}</td></tr>`).join('')}</table>
+    ${summary}${rules}${ctx}${simH}
+    <h3>Sources</h3>
+    <table>${src.map(([l, u]) => `<tr><td>${esc(l)}</td><td class="url">${esc(u)}</td></tr>`).join('')}
+      <tr><td>This page</td><td class="url">https://${SITE}/fines.html#d-${slug(c.pharos_id)}</td></tr></table>
+    <div class="s-foot">
+      ${c.own ? `<span>Read by Fino in the regulator&rsquo;s ${esc(c.own_kind)} on ${esc(c.own_date)}; every fact on this page was checked word for word against it. Fino data of ${UPDATED}. Not legal advice.</span>`
+        : `<span>Facts as recorded by ${esc(SOURCE_NAMES[c.source])}${c.gdprhub_page && c.source !== 'gdprhub' ? ' and GDPRhub' : ''}; Fino data of ${UPDATED}. Nothing estimated or filled in.</span>
+      <span>Decision data and summaries under CC BY-NC-SA 4.0: share with credit, not for commercial use, same licence. Not legal advice.</span>`}
+      <span>Exported from ${SITE} on ${today()}.</span>
+    </div>`;
+}
+
+/* ---------- View: design rules ---------- */
+function renderLawMissing(law = 'the GDPR', eli = ELI) {
+  $('main').innerHTML = `<div class="wrap"><p class="lede" style="padding-block:80px">The text of ${law} could not be loaded. Please reload the page. If it keeps happening, a content blocker may be stopping it; the official text is on <a href="${eli}" rel="noopener">EUR-Lex &nearr;</a>.</p></div>`;
+}
+function renderStyle() {
+  $('main').innerHTML = `<div class="wrap">
+    <div class="b-head">
+      <p class="eyebrow" style="margin:28px 0 0">How Fino looks</p>
+      <h1 style="margin:0">Design rules</h1>
+      <p class="lede">Every colour and shape means one thing, everywhere on the site, so people learn it once.</p>
+    </div>
+    <ul class="rules-grid">
+      <li><div class="demo"><span class="swatch" style="background:var(--accent)"></span><h2>Green: do something</h2></div>
+        <p>Anything green can be clicked. A solid green button is the main action on the page, and there is only one per screen. Green underlined words are links inside text.</p>
+        <div class="demo"><span class="btn primary small">Export as PDF</span><span class="text" style="font-size:1rem">see <a class="xref" href="#art-6">Article 6</a></span></div></li>
+      <li><div class="demo"><span class="swatch" style="background:var(--pink)"></span><h2>Pink: look here</h2></div>
+        <p>Emphasis only: the highlighter, the shadow behind a key card, a warning label. Pink is never clickable.</p>
+        <div class="demo"><span class="hl">Insufficient legal basis</span><span class="pill bad">Fine issued</span></div></li>
+      <li><div class="demo"><span class="swatch" style="background:var(--latte)"></span><h2>Latte: tools you set</h2></div>
+        <p>A latte panel holds the controls you change, like filters and export options. In the menu, the latte item is the section you are in. A latte button takes you deeper into Fino, such as every decision that cites an article.</p>
+        <div class="demo"><span class="chip" style="background:var(--latte);color:var(--latte-ink);border-color:var(--latte-line)">Under €10k</span><span class="chip" aria-pressed="true" style="background:var(--go-deep);color:#fff;border-color:var(--go-deep)">€10k–100k</span></div></li>
+      <li><div class="demo"><span class="swatch" style="background:var(--official)"></span><h2>Blue §: the official source</h2></div>
+        <p>The blue badge always opens the official text on EUR-Lex, in a new tab. It appears only on our law pages, next to the article number: people read our version first, and the original is always one click away.</p>
+        <div class="demo">${EURLEX_BADGE(EURLEX(5), 'Official text on EUR-Lex')}</div></li>
+      <li><h2>Round means clickable, square means label</h2>
+        <p>Buttons and filter choices are fully rounded. Labels such as an outcome or a topic have small square corners and do nothing when clicked.</p>
+        <div class="demo"><span class="btn small">Copy citation</span><span class="btn small latte">See all decisions &rarr;</span><span class="pill ok">Rejected</span><span class="pill bad">Violation found</span></div></li>
+      <li><h2>A GDPR or AI Act tag: the other law</h2>
+        <p>A small square tag naming a law means the link takes you to that other law on Fino, for example from an AI Act article to the GDPR article it mentions.</p>
+        <div class="demo"><span class="text" style="font-size:1rem">see <a class="xref" href="#art-35" title="Article 35 GDPR">Article 35</a></span><span><small class="law-tag">AI Act</small> Article 27</span></div></li>
+      <li><h2>Arrows tell you where you go</h2>
+        <p>&rarr; stays on Fino. &nearr; opens another website in a new tab, such as a regulator, GDPRhub or EUR-Lex.</p>
+        <div class="demo"><span class="btn small">See all decisions &rarr;</span><span class="btn small">The regulator&rsquo;s decision &nearr;</span></div></li>
+    </ul>
+  </div>`;
+}
+
+function titleFor(h) {
+  let m;
+  if ((m = h.match(/^[dx]-(.+)$/)) && BY_SLUG.has(m[1])) { const c = BY_SLUG.get(m[1]); return `${c.controller || 'Decision ' + c.pharos_id} · Fino`; }
+  if ((m = h.match(/^art-(\d+)$/))) return `Article ${m[1]} GDPR · Fino`;
+  if (h === 'gdpr' || h.startsWith('rec-')) return 'The GDPR · Fino';
+  if ((m = h.match(/^ai-art-(\w+)$/))) return `Article ${m[1]} AI Act · Fino`;
+  if ((m = h.match(/^ai-annex-(\w+)$/))) return `Annex ${m[1]} AI Act · Fino`;
+  if (h === 'ai-act' || h.startsWith('ai-rec-')) return 'The AI Act · Fino';
+  return 'GDPR fines and decisions · Fino';
+}
+
+/* ---------- Router ---------- */
+let lastView = '';
+function route() {
+  const h = location.hash.slice(1) || 'fines';
+  let m;
+  const wasBrowse = lastView === 'fines';
+  if (wasBrowse) state.scroll = window.scrollY;
+  $('nav-fines').classList.toggle('on', /^(fines|d-|x-)/.test(h));
+  $('nav-gdpr').classList.toggle('on', /^(gdpr|art-|rec-|ai-)/.test(h));
+  if ((m = h.match(/^d-(.+)$/)) && BY_SLUG.has(m[1])) { fromBrowse = wasBrowse || (fromBrowse && lastView.startsWith('x-')); renderDecision(BY_SLUG.get(m[1])); window.scrollTo(0, 0); }
+  else if ((m = h.match(/^x-(.+)$/)) && BY_SLUG.has(m[1])) { renderExport(BY_SLUG.get(m[1])); window.scrollTo(0, 0); }
+  else if (!DATA.gdpr && /^(gdpr|art-\d+|rec-\d+)$/.test(h)) { renderLawMissing(); window.scrollTo(0, 0); }
+  else if ((m = h.match(/^art-(\d+)$/)) && GDPR.arts[m[1]]) { renderArticle(+m[1]); window.scrollTo(0, 0); }
+  else if (h === 'gdpr') { renderGdpr(); bindGdpr(); window.scrollTo(0, 0); }
+  else if ((m = h.match(/^rec-(\d+)$/)) && GDPR.preamble.recitals[m[1]]) { if (lastView !== 'gdpr' && !lastView.startsWith('rec-')) { renderGdpr(); bindGdpr(); } openRecital(+m[1]); }
+  else if (!AI && /^ai-(act|art-\w+|annex-[IVX]+|rec-\d+)$/.test(h)) { loadAi(); window.scrollTo(0, 0); }
+  else if ((m = h.match(/^ai-art-(\d+a?)$/)) && AI.arts[m[1]]) { renderAiArticle(m[1]); window.scrollTo(0, 0); }
+  else if ((m = h.match(/^ai-annex-([IVX]+)$/)) && AI.annexes[m[1]]) { renderAiAnnex(m[1]); window.scrollTo(0, 0); }
+  else if (h === 'ai-act') { renderAiAct(); bindGdpr('ai-rec-'); window.scrollTo(0, 0); }
+  else if ((m = h.match(/^ai-rec-(\d+)$/)) && AI.preamble.recitals[m[1]]) { if (lastView !== 'ai-act' && !lastView.startsWith('ai-rec-')) { renderAiAct(); bindGdpr('ai-rec-'); } openRecital(+m[1], 'ai-rec-'); }
+  else if (h === 'style') { renderStyle(); window.scrollTo(0, 0); }
+  /* links from the static pages open the list already filtered: #fines-art-5, #fines-org-<key>, #fines-group-<key>, #fines-reg-<key> */
+  else if ((m = h.match(/^fines-(art|org|group|q|country|reg)-(.+)$/))) {
+    Object.assign(state, { q: '', country: '', year: '', sector: '', art: '', outcome: '', band: '', org: '', group: '', reg: '', shown: 40, [m[1]]: decodeURIComponent(m[2]) });
+    history.replaceState(null, '', '#fines'); renderBrowse(); window.scrollTo(0, 0);
+  }
+  else { renderBrowse(); window.scrollTo(0, lastView.startsWith('d-') ? state.scroll : 0); }
+  document.title = titleFor(h);
+  lastView = h;
+}
+window.addEventListener('hashchange', route);
+route();
+
+/* The summaries (half the download) load after the list is on screen. When they land, search covers them
+   and a decision already open gets its summary. */
+if (DATA.sumP) DATA.sumP.then(sum => {
+  CASES.forEach((c, i) => { c.summary = sum[i]; if (sum[i]) c.hay += ' ' + sum[i].toLowerCase(); });
+}).catch(() => {}).finally(() => {
+  SUM_READY = true;
+  const w = $('sum-wait');
+  if (w) { const c = CASES.find(x => x.pharos_id === w.dataset.id); if (c) w.outerHTML = summaryBlock(c); }
+  if (lastView.startsWith('x-')) route();
+  else if (lastView === 'fines' && state.q) renderResults();
+});
+
+}
+
+/* Load the data, then start. The summaries come in 250-row files, in the same order as the cases. */
+(async () => {
+  const main = byId('main');
+  main.innerHTML = `<div class="wrap"><div class="fetch" role="status" aria-live="polite">
+    <svg class="fetch-art" viewBox="0 0 340 200" aria-hidden="true">
+      <ellipse cx="110" cy="192" rx="72" ry="6" fill="var(--ink)" opacity=".12"/>
+      <g class="stack">
+        <rect x="226" y="146" width="92" height="40" rx="5" fill="#FFFFFF" stroke="var(--ink)" stroke-width="3"/>
+        <path d="M232 156 H312 M232 166 H312 M232 176 H312" stroke="var(--ink)" stroke-width="1.5" opacity=".35"/>
+        <rect x="232" y="136" width="80" height="12" rx="3" fill="#FFFFFF" stroke="var(--ink)" stroke-width="2.5"/>
+      </g>
+      <g class="sheet"><rect x="248" y="76" width="48" height="60" rx="4" fill="#FFFFFF" stroke="var(--ink)" stroke-width="2.5"/>
+        <path d="M256 90 H288 M256 100 H288 M256 110 H280 M256 120 H286" stroke="var(--ink)" stroke-width="2" opacity=".4" stroke-linecap="round"/></g>
+      <g class="tick"><circle cx="214" cy="52" r="15" fill="var(--accent)" stroke="var(--ink)" stroke-width="2.5"/>
+        <path d="M206 52 l6 6 l10 -11" fill="none" stroke="#FFFFFF" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></g>
+      <g transform="translate(10 14)"><g class="bob">
+        <path d="M100 50 C98 38 102 30 111 28" fill="none" stroke="var(--ink)" stroke-width="5" stroke-linecap="round"/>
+        <circle class="ant" cx="119" cy="25" r="10" fill="var(--accent)" stroke="var(--ink)" stroke-width="4"/>
+        <path d="M100 50 C144 50 172 78 174 117 C176 152 146 168 100 168 C54 168 24 152 26 117 C28 78 56 50 100 50 Z" fill="var(--puff)" stroke="var(--ink)" stroke-width="4"/>
+        <ellipse cx="58" cy="128" rx="13" ry="7" fill="var(--blush)" opacity=".55"/>
+        <g class="scan"><ellipse cx="78" cy="108" rx="8" ry="12" fill="var(--eye)"/><circle cx="81" cy="103" r="3" fill="#FFFFFF"/></g>
+        <path d="M82 138 Q93 148 104 138" fill="none" stroke="var(--eye)" stroke-width="4" stroke-linecap="round"/>
+        <path d="M137 128 L160 152" stroke="var(--ink)" stroke-width="9" stroke-linecap="round"/>
+        <circle cx="122" cy="110" r="25" fill="#FFFFFF" fill-opacity=".55" stroke="var(--ink)" stroke-width="5"/>
+        <g class="scan"><ellipse cx="124" cy="110" rx="12" ry="17" fill="var(--eye)"/><circle cx="129" cy="102" r="4.5" fill="#FFFFFF"/></g>
+        <ellipse cx="163" cy="156" rx="10" ry="8" fill="var(--puff)" stroke="var(--ink)" stroke-width="3"/>
+      </g></g>
+    </svg>
+    <p class="bubble" id="fetch-line">Fetching every decision&hellip;</p>
+    <p class="fetch-sub" id="fetch-sub"></p></div></div>`;
+  /* a new line every two seconds while Fino works; it stops by itself once the list replaces the scene */
+  const LINES = ['Fetching every decision&hellip;', 'Reading the regulators&rsquo; decisions so you don&rsquo;t have to&hellip;',
+    'Checking every fact against the original&hellip;', 'Converting z&#322;oty and kroner at the ECB rate&hellip;',
+    'Sorting the fines that stand from the ones that fell&hellip;', 'Polishing my antenna&hellip;'];
+  let li = 0;
+  const tick = setInterval(() => { const el = byId('fetch-line'); if (!el) return clearInterval(tick); el.innerHTML = LINES[++li % LINES.length]; }, 2000);
+  /* fines.html#fetching keeps the scene on screen, to look at it */
+  if (location.hash === '#fetching') { byId('fetch-sub').innerHTML = 'This is Fino&rsquo;s loading screen. <a href="fines.html">Open the fines</a>'; return; }
+  const get = (u, o) => fetch(u, o).then(r => { if (!r.ok) throw new Error(u); return r.json(); });
+  const clean = s => (s && s.replace(/<!--[\s\S]*?-->/g, '').replace(/\s+/g, ' ').trim()) || null;
+  try {
+    /* cases.json is always checked with the server; the summary files carry its export time, so a cached
+       summary file from an older export (rows in a different order) is never paired with newer cases. */
+    const [cases, gdpr, ex, links] = await Promise.all([get('data/cases.json', { cache: 'no-cache' }), get('data/reg-2016-679.json').catch(() => null),
+                                                 get('data/explainers.json', { cache: 'no-cache' }).catch(() => null),
+                                                 get('data/law-links.json', { cache: 'no-cache' }).catch(() => null)]);
+    const n = Math.ceil(cases.rows.length / cases.meta.summary_shard);
+    const v = encodeURIComponent(cases.meta.generated_at || '');
+    const sumP = Promise.all(Array.from({ length: n }, (_, i) => get(`data/summaries/${i}.json?v=${v}`))).then(a => a.flat().map(clean));
+    const by = cases.meta.fields.indexOf('summary_by');
+    boot({ meta: cases.meta, fields: cases.meta.fields, rows: cases.rows, sumP, gdpr, ex, links,
+           cred: cases.rows.map(r => r[by] === 'cms_tracker' ? 'c' : r[by] === 'fino' ? 'f' : 'g') });
+  } catch (e) {
+    main.innerHTML = `<div class="wrap"><p class="lede" style="padding-block:80px">The decisions could not be loaded. Please reload the page; if it keeps happening, write to <a class="mail" href="mailto:hello@finoprivacy.com">hello@finoprivacy.com</a>.</p></div>`;
+  }
+})();
+
+/* Laws menu: opens on click, closes on Escape, an outside click, or after choosing */
+const lawsBtn = byId('nav-gdpr'), lawsMenu = byId('laws-menu');
+function setLaws(open) { lawsBtn.setAttribute('aria-expanded', String(open)); lawsMenu.hidden = !open; }
+lawsBtn.addEventListener('click', e => { e.stopPropagation(); setLaws(lawsMenu.hidden); if (!lawsMenu.hidden) lawsMenu.querySelector('a').focus(); });
+lawsMenu.addEventListener('click', e => { if (e.target.closest('a')) setLaws(false); });
+document.addEventListener('click', e => { if (!e.target.closest('#laws')) setLaws(false); });
+document.addEventListener('keydown', e => { if (e.key === 'Escape' && !lawsMenu.hidden) { setLaws(false); lawsBtn.focus(); } });
+
+/* Phone menu: the three-line button opens the links full screen; a link, Escape or a wider screen closes it */
+(() => {
+  const top = document.querySelector('.top'), btn = document.getElementById('menu-btn'), nav = document.getElementById('main-nav');
+  if (!top || !btn || !nav) return;
+  top.classList.add('has-menu');
+  const set = open => {
+    top.classList.toggle('open', open); document.documentElement.classList.toggle('menu-open', open);
+    btn.setAttribute('aria-expanded', String(open)); btn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+  };
+  btn.addEventListener('click', () => set(!top.classList.contains('open')));
+  nav.addEventListener('click', e => { if (e.target.closest('a')) set(false); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape' && top.classList.contains('open')) { set(false); btn.focus(); } });
+  matchMedia('(min-width: 761px)').addEventListener('change', e => { if (e.matches) set(false); });
+})();
+/* Sticky header: remember its height (for links to headings and the side contents) and show a soft edge once scrolled */
+(() => {
+  const head = document.querySelector('header.top');
+  if (!head) return;
+  const height = () => document.documentElement.style.setProperty('--head-h', head.offsetHeight + 'px');
+  height();
+  if (window.ResizeObserver) new ResizeObserver(height).observe(head);
+  const edge = () => head.classList.toggle('scrolled', window.scrollY > 4);
+  edge();
+  addEventListener('scroll', edge, { passive: true });
+})();
+
+/* Light / dark button, as on the homepage */
+const root = document.documentElement, modeBtn = byId('mode');
+function setMode(v, save) {
+  if (v === 'light') root.dataset.mode = 'light'; else delete root.dataset.mode;
+  const label = v === 'light' ? 'Switch to dark mode' : 'Switch to light mode';
+  modeBtn.setAttribute('aria-label', label); modeBtn.title = label;
+  if (save) { try { localStorage.setItem('mode', v); } catch (e) {} }
+}
+modeBtn.addEventListener('click', () => {
+    const next = root.dataset.mode === 'light' ? 'dark' : 'light';
+    const calm = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!document.startViewTransition) { setMode(next, true); return; }
+    if (!calm) root.dataset.switch = next;
+    const t = document.startViewTransition(() => setMode(next, true));
+    t.finished.finally(() => { delete root.dataset.switch; });
+    if (calm) return;
+    const b = modeBtn.getBoundingClientRect(), x = b.left + b.width / 2, y = b.top + b.height / 2;
+    const far = Math.hypot(Math.max(x, innerWidth - x), Math.max(y, innerHeight - y));
+    const dot = `circle(0px at ${x}px ${y}px)`, all = `circle(${far}px at ${x}px ${y}px)`;
+    t.ready.then(() => next === 'light'
+      ? root.animate({ clipPath: [dot, all] }, { duration: 700, easing: 'cubic-bezier(.25,.7,.25,1)', pseudoElement: '::view-transition-new(root)' })
+      : root.animate({ clipPath: [all, dot] }, { duration: 560, easing: 'cubic-bezier(.5,0,.75,.4)', pseudoElement: '::view-transition-old(root)' }));
+  });
+let saved = null;
+try { saved = localStorage.getItem('mode'); } catch (e) {}
+setMode(saved === 'dark' ? 'dark' : 'light', false);
+</script>
+<script src="/assets/find.js?v=c1d976a4039d" defer></script>
+</body>
+</html>

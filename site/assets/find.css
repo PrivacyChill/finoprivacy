@@ -1,0 +1,90 @@
+/* Fino: the "Law" panel in the header, the search (the lens, Ctrl+K) and the glossary cards.
+   Shared by every page; uses the colour tokens each page already defines. Hand-written, not built. */
+
+/* ---------- The Law panel: one level, everything visible ---------- */
+.laws-menu.lp { width: 540px; padding: 14px; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 4px 14px; }
+.lp-col { display: grid; gap: 2px; align-content: start; }
+.lp-h { margin: 2px 12px 6px; font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--latte-muted); }
+.lp-find { grid-column: 1 / -1; display: flex; align-items: center; gap: 10px; margin-top: 8px; padding: 11px 14px; border-radius: 14px;
+  border: 1.5px solid var(--latte-line); background: var(--field); color: var(--latte-muted); font: inherit; font-size: 0.95rem; cursor: pointer; text-align: left; }
+.lp-find:hover { border-color: var(--latte-ink); color: var(--latte-ink); }
+.lp-find svg { width: 18px; height: 18px; flex: none; }
+.lp-find kbd, .find-kbd { margin-left: auto; font-family: var(--mono); font-size: 0.72rem; padding: 2px 7px; border-radius: 6px; border: 1px solid var(--latte-line); color: var(--latte-muted); background: var(--latte); }
+@media (max-width: 860px) { .laws-menu.lp { width: min(540px, calc(100vw - 32px)); } }
+
+/* ---------- The lens button ---------- */
+.find-btn { display: grid; place-items: center; width: 40px; height: 40px; border-radius: 50%; border: 1.5px solid var(--line); background: var(--surface);
+  color: var(--ink); cursor: pointer; padding: 0; flex: none; }
+.find-btn:hover { border-color: var(--ink); }
+.find-btn svg { width: 19px; height: 19px; }
+.top .wrap > .find-btn { margin-left: 4px; margin-right: -8px; }
+
+/* ---------- Phone menu: one flat list, small grey headings, nothing folds ---------- */
+@media (max-width: 760px) {
+  .top.has-menu .wrap > .find-btn { order: 2; margin: 0 0 0 auto; }
+  .top.has-menu .wrap > .find-btn ~ .mode { margin-left: 8px; }
+  .top.has-menu .laws { border-bottom: 0; }
+  .top.has-menu .laws > button { display: none !important; }
+  .top.has-menu .laws-menu.lp, .top.has-menu .laws-menu.lp[hidden] { display: grid; position: static; width: auto; max-width: none; grid-template-columns: minmax(0, 1fr);
+    padding: 0; margin: 0; gap: 0; background: none; border: 0; box-shadow: none; animation: none; }
+  .top.has-menu .lp-col { gap: 0; }
+  .top.has-menu .lp-h { margin: 22px 0 4px; color: var(--muted); }
+  .top.has-menu nav .laws-menu.lp a, .top.has-menu .laws-menu.lp .soon-law { font-family: var(--display); font-size: 1.5rem; line-height: 1.2; padding: 10px 2px;
+    border-radius: 0; border-bottom: 1px solid var(--line); color: var(--ink); }
+  .top.has-menu .laws-menu.lp b { font-size: inherit; font-weight: 500; }
+  .top.has-menu .laws-menu.lp span { font-family: var(--body); font-size: 0.85rem; }
+  .top.has-menu .lp-find { display: none; }
+  .top.has-menu .laws-menu.lp .all-laws { border-top: 0; margin-top: 0; }
+}
+
+/* ---------- The search dialog ---------- */
+.find-dlg { width: min(660px, calc(100vw - 24px)); max-height: min(640px, calc(100dvh - 48px)); margin: 8vh auto auto; padding: 0; border: 2px solid var(--latte-ink);
+  border-radius: 22px; background: var(--latte); color: var(--latte-ink); box-shadow: 8px 8px 0 var(--pink); color-scheme: light; overflow: hidden; }
+.find-dlg[open] { display: flex; flex-direction: column; animation: find-in .18s cubic-bezier(.2, .7, .3, 1) both; }
+.find-dlg::backdrop { background: rgba(20, 14, 11, .55); backdrop-filter: blur(2px); }
+@keyframes find-in { from { opacity: 0; transform: translateY(-8px) scale(.99); } }
+.find-bar { display: flex; align-items: center; gap: 10px; padding: 12px 14px; border-bottom: 1.5px solid var(--latte-line); }
+.find-bar svg { width: 22px; height: 22px; flex: none; color: var(--latte-muted); }
+.find-bar input { flex: 1; min-width: 0; font: inherit; font-size: 1.15rem; padding: 8px 2px; border: 0; background: none; color: var(--latte-ink); outline: none; }
+.find-bar input::-webkit-search-cancel-button { -webkit-appearance: none; appearance: none; display: none; }
+.find-bar input::placeholder { color: var(--latte-muted); }
+.find-x { font: inherit; font-size: 0.85rem; border: 1.5px solid var(--latte-line); background: var(--field); color: var(--latte-ink); border-radius: 999px; padding: 5px 12px; cursor: pointer; }
+.find-out { overflow-y: auto; overscroll-behavior: contain; padding: 6px 8px 12px; }
+.find-g { margin: 12px 10px 4px; font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--latte-muted); }
+.find-out ul { list-style: none; margin: 0; padding: 0; }
+.find-out a { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 1px 12px; padding: 9px 12px; border-radius: 12px; text-decoration: none; color: var(--latte-ink); }
+.find-out a b { font-weight: 600; overflow-wrap: anywhere; }
+.find-out a span { grid-column: 1; font-size: 0.86rem; color: var(--latte-muted); }
+.find-out a i { grid-column: 2; grid-row: 1 / span 2; align-self: center; font-style: normal; font-family: var(--mono); font-size: 0.78rem; color: var(--latte-muted); white-space: nowrap; }
+.find-out a[aria-selected="true"], .find-out a:hover { background: var(--field); box-shadow: inset 0 0 0 1.5px var(--latte-line); }
+.find-out mark { background: #FFE1E8; color: inherit; border-radius: 3px; padding: 0 1px; }
+.find-tip { margin: 14px 12px; color: var(--latte-muted); font-size: 0.95rem; }
+.find-tip button { font: inherit; font-size: 0.88rem; margin: 6px 6px 0 0; padding: 4px 11px; border-radius: 999px; border: 1.5px solid var(--latte-line); background: var(--field); color: var(--latte-ink); cursor: pointer; }
+.find-foot { display: flex; gap: 14px; flex-wrap: wrap; padding: 9px 16px; border-top: 1.5px solid var(--latte-line); font-size: 0.8rem; color: var(--latte-muted); }
+.find-foot kbd { font-family: var(--mono); font-size: 0.72rem; padding: 1px 6px; border-radius: 5px; border: 1px solid var(--latte-line); background: var(--field); }
+@media (max-width: 600px) {
+  .find-dlg { width: 100vw; max-width: 100vw; height: 100dvh; max-height: 100dvh; margin: 0; border: 0; border-radius: 0; box-shadow: none;
+    padding-top: env(safe-area-inset-top, 0px); }
+  .find-out a { padding-block: 12px; }
+  .find-foot { display: none; }
+}
+@media (prefers-reduced-motion: reduce) { .find-dlg[open] { animation: none; } }
+
+/* ---------- Click-to-define: a dotted word opens a small card (a sheet from the bottom on a phone) ---------- */
+button.def { font: inherit; color: inherit; background: none; border: 0; padding: 0; cursor: help; text-decoration: underline dotted; text-decoration-thickness: 1.5px;
+  text-underline-offset: 3px; text-decoration-color: var(--muted); }
+button.def:hover, button.def[aria-expanded="true"] { text-decoration-color: var(--accent); text-decoration-style: solid; }
+.def-card { position: absolute; z-index: 50; width: min(360px, calc(100vw - 24px)); padding: 14px 16px 12px; border: 2px solid var(--latte-ink); border-radius: 16px;
+  background: var(--latte); color: var(--latte-ink); box-shadow: 5px 5px 0 var(--pink); color-scheme: light; font-size: 0.95rem; line-height: 1.45; }
+.def-card[hidden] { display: none; }
+.def-card h3 { margin: 0 0 4px; font-family: var(--display); font-size: 1.15rem; font-weight: 600; }
+.def-card p { margin: 0 0 8px; }
+.def-card .def-src { font-family: var(--mono); font-size: 0.76rem; color: var(--latte-muted); }
+.def-card .def-go { font-weight: 600; color: var(--go-deep); }
+.def-card .def-close { position: absolute; top: 8px; right: 8px; width: 30px; height: 30px; border-radius: 50%; border: 0; background: none; color: var(--latte-muted); font-size: 1.2rem; cursor: pointer; }
+@media (max-width: 600px) {
+  .def-card { position: fixed; left: 0 !important; right: 0; top: auto !important; bottom: 0; width: auto; border-radius: 20px 20px 0 0; border-width: 2px 0 0;
+    box-shadow: 0 -10px 30px rgba(0, 0, 0, .25); padding: 18px 20px calc(18px + env(safe-area-inset-bottom, 0px)); animation: sheet-in .22s cubic-bezier(.2, .7, .3, 1) both; }
+}
+@keyframes sheet-in { from { transform: translateY(30px); opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .def-card { animation: none !important; } }
