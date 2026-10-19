@@ -61,6 +61,29 @@ let saved = null;
 try { saved = localStorage.getItem('mode'); } catch (e) {}
 setMode(saved === 'dark' ? 'dark' : 'light', false);
 
+/* Moving between pages: a link to a decision carries its name and amount into the decision page, and back again */
+(() => {
+  if (!('onpageswap' in window)) return;
+  const pathOf = u => { try { return new URL(u, location.href).pathname.replace(/\.html$/, ''); } catch (e) { return ''; } };
+  const linkTo = p => [...document.querySelectorAll('a[href*="decisions/"]')].find(a => pathOf(a.href) === p);
+  const mark = (a, on) => {
+    document.querySelectorAll('.head h1, .head .fine .amt').forEach(x => { x.style.viewTransitionName = on ? 'none' : ''; });
+    const n = a.querySelector('b'), m = a.querySelector('.amt, .pk-amt');
+    if (n) n.style.viewTransitionName = on ? 'm-name' : '';
+    if (m) m.style.viewTransitionName = on ? 'm-amt' : '';
+  };
+  addEventListener('pageswap', e => {
+    if (!e.viewTransition || !e.activation || !e.activation.entry) return;
+    const a = linkTo(pathOf(e.activation.entry.url)); if (!a) return;
+    mark(a, true); addEventListener('pageshow', () => mark(a, false), { once: true });
+  });
+  addEventListener('pagereveal', e => {
+    const from = e.viewTransition && window.navigation && navigation.activation && navigation.activation.from;
+    const a = from && linkTo(pathOf(from.url)); if (!a) return;
+    mark(a, true); e.viewTransition.finished.finally(() => mark(a, false));
+  });
+})();
+
 /* Copy citation (decision pages): the date of access is today's */
 (() => {
   const b = byId('copy-cite'); if (!b || !b.dataset.cite) return;

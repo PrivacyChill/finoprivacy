@@ -22,6 +22,12 @@
 /* Layout: one shell, four views (browse, decision, GDPR article, export sheet), switched by the link anchor.
    Same tokens as the homepage: espresso by default, latte with the sun/moon button. */
 :root {
+  /* Motion: three speeds and three curves for the whole site. Only the slow loops, the light switch,
+     the map lighting up and Fino's own moves (blink, hop, antenna) keep their own timing. */
+  --fast: .15s; --mid: .25s; --slow: .4s;
+  --ease: cubic-bezier(.4, 0, .2, 1);       /* something moves or changes */
+  --enter: cubic-bezier(.2, .7, .3, 1);     /* something appears */
+  --pop: cubic-bezier(.34, 1.56, .64, 1);   /* a small overshoot */
   --bg: #241B17;
   --surface: #2F2520;
   --ink: #F4EBE2;
@@ -89,7 +95,7 @@ a:focus-visible, button:focus-visible, select:focus-visible, input:focus-visible
 .laws > button { display: inline-flex; align-items: center; gap: 5px; font: inherit; font-size: 0.95rem; padding: 6px 12px; border-radius: 999px; border: 0; background: none; color: var(--muted); cursor: pointer; }
 .laws > button:hover { color: var(--ink); background: var(--surface); }
 .laws > button.on:hover { color: var(--latte-ink); background: var(--latte); }
-.laws > button svg { width: 12px; height: 12px; transition: transform .15s ease; }
+.laws > button svg { width: 12px; height: 12px; transition: transform var(--fast) var(--ease); }
 .laws > button[aria-expanded="true"] svg { transform: rotate(180deg); }
 .laws-menu { position: absolute; right: 0; top: calc(100% + 8px); z-index: 10; list-style: none; margin: 0; padding: 8px; width: 290px; max-width: calc(100vw - 32px);
   background: var(--latte); color: var(--latte-ink); border: 2px solid var(--latte-ink); border-radius: 20px; box-shadow: 6px 6px 0 var(--pink); display: grid; gap: 2px; color-scheme: light; }
@@ -108,14 +114,24 @@ a:focus-visible, button:focus-visible, select:focus-visible, input:focus-visible
 :root[data-mode="light"] .mode .moon { display: block; }
 /* Light switch: light spreads out from the sun button; going dark pulls it back in (view transitions).
    With reduced motion it is a short fade; browsers without view transitions switch at once. */
-::view-transition-group(root) { animation-duration: .22s; }
+::view-transition-group(root) { animation-duration: var(--mid); }
 :root[data-switch]::view-transition-old(root), :root[data-switch]::view-transition-new(root) { animation: none; mix-blend-mode: normal; }
 :root[data-switch="dark"]::view-transition-old(root) { z-index: 2; }
 :root[data-switch="dark"]::view-transition-new(root) { z-index: 1; }
+/* Moving between pages (pose to pose): the header stays put, the page fades across, and a fine opened from a list
+   carries its company name and amount up into the decision's title and fine box. Never during the light switch;
+   with reduced motion, or in browsers without view transitions, pages simply change. */
+@media (prefers-reduced-motion: no-preference) { @view-transition { navigation: auto; } }
+:root:not([data-switch])::view-transition-old(root) { animation-duration: var(--fast); }   /* the old page leaves quickly, so the two never blur together */
+:root:not([data-switch]) .top { view-transition-name: top; }
+:root:not([data-switch]) .head h1 { view-transition-name: m-name; }
+:root:not([data-switch]) .head .fine .amt { view-transition-name: m-amt; }
+::view-transition-group(m-name), ::view-transition-group(m-amt) { animation-duration: var(--slow); animation-timing-function: var(--ease); }
+::view-transition-old(m-name), ::view-transition-new(m-name), ::view-transition-old(m-amt), ::view-transition-new(m-amt) { block-size: 100%; inline-size: auto; animation-duration: var(--slow); }
 
 /* The header stays at the top while you scroll. Its height is kept in --head-h, so links to a heading stop
    below it, and it gets a soft edge once the page has scrolled. */
-.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 30; background: var(--bg); transition: box-shadow .2s ease; }
+.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 30; background: var(--bg); transition: box-shadow var(--fast) var(--ease); }
 .top.scrolled { box-shadow: 0 1px 0 var(--line), 0 12px 24px -20px rgba(0, 0, 0, .6); }
 html { scroll-padding-top: calc(var(--head-h, 80px) + 12px); }
 @media (max-width: 860px) {
@@ -144,7 +160,7 @@ h1 .tag-person { display: inline-block; vertical-align: 0.4em; margin-left: 12px
 .lede strong, .hl { color: var(--ink); font-weight: 700; background: linear-gradient(transparent 62%, var(--pink) 62%, var(--pink) 92%, transparent 92%); }
 .note { color: var(--muted); margin: 0; }
 .legend { font-family: var(--mono); font-size: 0.75rem; color: var(--muted); margin: 8px 0 0; }
-.btn { display: inline-flex; align-items: center; gap: 8px; text-decoration: none; font: inherit; font-weight: 700; padding: 11px 20px; border-radius: 999px; border: 2px solid var(--ink); background: transparent; color: var(--ink); cursor: pointer; transition: transform .15s ease, background .15s ease; }
+.btn { display: inline-flex; align-items: center; gap: 8px; text-decoration: none; font: inherit; font-weight: 700; padding: 11px 20px; border-radius: 999px; border: 2px solid var(--ink); background: transparent; color: var(--ink); cursor: pointer; transition: transform var(--fast) var(--ease), background var(--fast) var(--ease); }
 .btn:hover { transform: translateY(-2px); background: var(--surface); }
 .btn.primary:hover { background: var(--accent); filter: brightness(1.05); }
 .btn.primary { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
@@ -184,7 +200,7 @@ h1 .tag-person { display: inline-block; vertical-align: 0.4em; margin-left: 12px
 .linkbtn:hover { color: var(--ink); }
 .results { list-style: none; margin: 0; padding: 0; border-top: 2px solid var(--ink); }
 .results li { border-bottom: 1px solid var(--line); }
-.results a { display: grid; grid-template-columns: 112px minmax(0, 1fr) 130px 150px; gap: 18px; align-items: start; padding: 16px 6px; text-decoration: none; border-radius: 14px; transition: background .15s ease; }
+.results a { display: grid; grid-template-columns: 112px minmax(0, 1fr) 130px 150px; gap: 18px; align-items: start; padding: 16px 6px; text-decoration: none; border-radius: 14px; transition: background var(--fast) var(--ease); }
 .results a:hover { background: var(--surface); }
 .results .dt { font-family: var(--mono); font-size: 0.85rem; color: var(--muted); padding-top: 3px; font-variant-numeric: tabular-nums; }
 .results .who { min-width: 0; }
@@ -228,7 +244,7 @@ img.flag { display: inline-block; width: 1.15em; height: 1.15em; border-radius: 
 .mini { width: 92px; height: auto; overflow: visible; }
 .rules { list-style: none; margin: 0; padding: 0; border-top: 2px solid var(--ink); }
 .rules li { border-bottom: 1px solid var(--line); }
-.rules a.in, .rules .r { display: grid; grid-template-columns: 76px minmax(0, 1fr) auto; gap: 14px; align-items: baseline; padding: 14px 4px; text-decoration: none; border-radius: 12px; transition: background .15s ease; }
+.rules a.in, .rules .r { display: grid; grid-template-columns: 76px minmax(0, 1fr) auto; gap: 14px; align-items: baseline; padding: 14px 4px; text-decoration: none; border-radius: 12px; transition: background var(--fast) var(--ease); }
 .rules a.in:hover { background: var(--surface); }
 .rules a.in:hover .no { color: var(--accent); }
 .rules .no { font-family: var(--mono); font-weight: 500; }
@@ -284,7 +300,7 @@ img.flag { display: inline-block; width: 1.15em; height: 1.15em; border-radius: 
 .text a.xref { color: var(--accent); font-weight: 700; text-decoration: none; border-bottom: 1.5px solid currentColor; }
 .text a.xref:hover { background: var(--live-bg); }
 .official { display: grid; gap: 10px; }
-.eurlex { display: inline-flex; align-items: center; gap: 8px; text-decoration: none; font-family: var(--mono); font-size: 0.82rem; font-weight: 500; color: var(--official); background: var(--official-bg); border: 1.5px solid currentColor; border-radius: 999px; padding: 5px 12px 5px 6px; white-space: nowrap; transition: transform .15s ease; }
+.eurlex { display: inline-flex; align-items: center; gap: 8px; text-decoration: none; font-family: var(--mono); font-size: 0.82rem; font-weight: 500; color: var(--official); background: var(--official-bg); border: 1.5px solid currentColor; border-radius: 999px; padding: 5px 12px 5px 6px; white-space: nowrap; transition: transform var(--fast) var(--ease); }
 .eurlex:hover { transform: translateY(-1px); }
 .eurlex .sec { display: grid; place-items: center; width: 22px; height: 22px; border-radius: 50%; background: var(--official); color: var(--official-bg); font-family: var(--display); font-weight: 700; font-size: 0.95rem; line-height: 1; }
 .eurlex.small { font-size: 0.74rem; padding: 3px 9px 3px 4px; gap: 6px; }
@@ -476,21 +492,26 @@ footer .foot-base { border-top: 1.5px solid currentColor; padding-top: 16px; dis
    and the mascot pops up where they meet. Reduced motion: a plain fade. */
 .top .brand { position: relative; gap: 0; }
 .top .brand .logo { position: absolute; left: 50%; top: 50%; translate: -50% -50%; scale: .2; opacity: 0;
-  transition: scale .16s ease, opacity .12s ease; }
+  transition: scale var(--fast) var(--ease), opacity var(--fast) var(--ease); }
 .top .brand .word { display: inline-flex; }
-.top .brand .word span { display: inline-block; transition: transform .3s cubic-bezier(.5, 0, .3, 1) .14s, opacity .22s ease .2s; }
+.top .brand .word span { display: inline-block; transition: transform var(--mid) var(--ease) .14s, opacity var(--mid) var(--ease) .2s; }
 .top .brand .word .w2, .top .brand .word .w3 { transition-delay: .1s, .16s; }
-.top.scrolled .brand .word span { opacity: 0; transition: transform .3s cubic-bezier(.6, 0, .4, 1), opacity .2s ease .1s; }
+.top.scrolled .brand .word span { opacity: 0; transition: transform var(--mid) var(--ease), opacity var(--fast) var(--ease) .1s; }
 .top.scrolled .brand .word .w2, .top.scrolled .brand .word .w3 { transition-delay: .08s, .16s; }
 .top.scrolled .brand .word .w1 { transform: translateX(.86em); }
 .top.scrolled .brand .word .w2 { transform: translateX(.3em); }
 .top.scrolled .brand .word .w3 { transform: translateX(-.28em); }
 .top.scrolled .brand .word .w4 { transform: translateX(-.84em); }
-.top.scrolled .brand .logo { scale: 1; opacity: 1; transition: scale .42s cubic-bezier(.34, 1.56, .64, 1) .24s, opacity .16s ease .24s; }
+.top.scrolled .brand .logo { scale: 1; opacity: 1; transition: scale var(--slow) var(--pop) .24s, opacity var(--fast) var(--ease) .24s; }
 @media (prefers-reduced-motion: reduce) {
-  .top .brand .word span, .top.scrolled .brand .word span { transform: none !important; transition: opacity .2s ease; transition-delay: 0s; }
-  .top .brand .logo, .top.scrolled .brand .logo { scale: 1; transition: opacity .2s ease; }
+  .top .brand .word span, .top.scrolled .brand .word span { transform: none !important; transition: opacity var(--fast) var(--ease); transition-delay: 0s; }
+  .top .brand .logo, .top.scrolled .brand .logo { scale: 1; transition: opacity var(--fast) var(--ease); }
 }
+/* The small mascot's antenna wobbles to a stop just after the mascot pops up (follow-through). */
+.brand .logo .ant { transform-origin: 100px 50px; }
+.top.scrolled .brand .logo .ant { animation: ant-wobble .8s var(--ease) .45s both; }
+@keyframes ant-wobble { 0%, 100% { transform: none; } 25% { transform: rotate(14deg); } 50% { transform: rotate(-8deg); } 75% { transform: rotate(3deg); } }
+@media (prefers-reduced-motion: reduce) { .top.scrolled .brand .logo .ant { animation: none; } }
 /* Phone menu: below 760px the links fold behind a three-line button and open as a full-screen list.
    Only when the script has run (.has-menu), so without JavaScript the links simply wrap as before. */
 .menu-btn { display: none; }
@@ -500,14 +521,14 @@ footer .foot-base { border-top: 1.5px solid currentColor; padding-top: 16px; dis
   .top.has-menu .menu-btn { order: 3; }
   .top.has-menu .menu-btn { display: inline-grid; place-content: center; gap: 5px; width: 44px; height: 44px; flex: none; padding: 0; border-radius: 50%;
     border: 1.5px solid var(--line); background: var(--surface); color: var(--ink); cursor: pointer; -webkit-tap-highlight-color: transparent; }
-  .menu-btn span { display: block; width: 18px; height: 2px; border-radius: 2px; background: currentColor; transition: transform .25s ease, opacity .2s ease; }
+  .menu-btn span { display: block; width: 18px; height: 2px; border-radius: 2px; background: currentColor; transition: transform var(--mid) var(--ease), opacity var(--fast) var(--ease); }
   .top.open .menu-btn span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
   .top.open .menu-btn span:nth-child(2) { opacity: 0; }
   .top.open .menu-btn span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
   .top.has-menu nav { position: fixed; inset: var(--head-h, 64px) 0 0 0; z-index: 40; order: 0; width: auto; margin: 0; display: flex; flex-direction: column;
     flex-wrap: nowrap; gap: 0; padding: 8px 20px calc(28px + env(safe-area-inset-bottom, 0px)); background: var(--bg); overflow-y: auto; overscroll-behavior: contain;
-    opacity: 0; visibility: hidden; transform: translateY(-10px); transition: opacity .2s ease, transform .25s ease, visibility 0s linear .25s; }
-  .top.has-menu.open nav { opacity: 1; visibility: visible; transform: none; transition: opacity .2s ease, transform .25s ease; }
+    opacity: 0; visibility: hidden; transform: translateY(-10px); transition: opacity var(--fast) var(--ease), transform var(--mid) var(--ease), visibility 0s linear var(--mid); }
+  .top.has-menu.open nav { opacity: 1; visibility: visible; transform: none; transition: opacity var(--fast) var(--ease), transform var(--mid) var(--ease); }
   .top.has-menu nav > a { font-family: var(--display); font-size: 1.85rem; line-height: 1.2; padding: 16px 2px; border-radius: 0; color: var(--ink);
     background: none; box-shadow: none; border-bottom: 1px solid var(--line); }
   .top.has-menu nav > a.on { background: none; box-shadow: none; color: var(--ink); }
@@ -517,11 +538,11 @@ footer .foot-base { border-top: 1.5px solid currentColor; padding-top: 16px; dis
     font-family: var(--display); font-size: 1.85rem; line-height: 1.2; padding: 16px 2px; border-radius: 0; color: var(--ink); background: none; box-shadow: none; }
   .top.has-menu .laws > button svg { width: 18px; height: 18px; }
   .top.has-menu .laws-menu:not([hidden]) { display: grid; position: static; width: auto; max-width: none; padding: 0 0 12px; margin: 0; gap: 2px;
-    background: none; border: 0; box-shadow: none; animation: menu-in .25s cubic-bezier(.2, .7, .3, 1) both; }
+    background: none; border: 0; box-shadow: none; animation: menu-in var(--mid) var(--enter) both; }
   .top.has-menu nav .laws-menu a, .top.has-menu .laws-menu .soon-law { padding: 10px 2px; border-radius: 10px; color: var(--ink); }
   .top.has-menu .laws-menu b { font-size: 1.15rem; }
   .top.has-menu .laws-menu span { color: var(--muted); }
-  .top.has-menu.open nav > * { animation: menu-in .35s cubic-bezier(.2, .7, .3, 1) both; }
+  .top.has-menu.open nav > * { animation: menu-in var(--slow) var(--enter) both; }
   .top.has-menu.open nav > :nth-child(2) { animation-delay: .03s; } .top.has-menu.open nav > :nth-child(3) { animation-delay: .06s; }
   .top.has-menu.open nav > :nth-child(4) { animation-delay: .09s; } .top.has-menu.open nav > :nth-child(5) { animation-delay: .12s; }
   html.menu-open { overflow: hidden; }
@@ -543,8 +564,8 @@ footer .foot-base { border-top: 1.5px solid currentColor; padding-top: 16px; dis
   .fbtn .fn:not(:empty) { display: inline-grid; place-content: center; min-width: 22px; height: 22px; padding: 0 6px; border-radius: 999px; background: var(--go-deep); color: #fff; font-size: 0.78rem; }
   .fsheet { display: grid; gap: 16px; position: fixed; left: 0; right: 0; bottom: 0; z-index: 60; max-height: 86dvh; overflow-y: auto; overscroll-behavior: contain;
     padding: 10px 20px calc(16px + env(safe-area-inset-bottom, 0px)); border-radius: 24px 24px 0 0; background: var(--latte); color: var(--latte-ink);
-    box-shadow: 0 -10px 40px rgba(0, 0, 0, .25); transform: translateY(105%); visibility: hidden; transition: transform .32s cubic-bezier(.2, .8, .3, 1), visibility 0s linear .32s; }
-  .fsheet.open { transform: none; visibility: visible; transition: transform .32s cubic-bezier(.2, .8, .3, 1); }
+    box-shadow: 0 -10px 40px rgba(0, 0, 0, .25); transform: translateY(105%); visibility: hidden; transition: transform var(--mid) var(--enter), visibility 0s linear var(--mid); }
+  .fsheet.open { transform: none; visibility: visible; transition: transform var(--mid) var(--enter); }
   .fsheet::before { content: ''; justify-self: center; width: 40px; height: 5px; border-radius: 3px; background: var(--latte-line); }
   .fs-head { display: flex; align-items: center; justify-content: space-between; }
   .fs-head b { font-family: var(--display); font-size: 1.5rem; font-weight: 600; }
@@ -553,7 +574,7 @@ footer .foot-base { border-top: 1.5px solid currentColor; padding-top: 16px; dis
   .fsheet .filters { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
   .fsheet .filters select { padding: 11px 10px; }
   .fs-go { display: block; position: sticky; bottom: 0; height: 52px; border: 0; border-radius: 999px; background: var(--go-deep); color: #fff; font: inherit; font-weight: 700; font-size: 1rem; cursor: pointer; }
-  .fback:not([hidden]) { display: block; position: fixed; inset: 0; z-index: 55; background: rgba(20, 14, 10, .4); animation: fade-in .2s ease both; }
+  .fback:not([hidden]) { display: block; position: fixed; inset: 0; z-index: 55; background: rgba(20, 14, 10, .4); animation: fade-in var(--fast) var(--ease) both; }
   html.sheet-open { overflow: hidden; }
 }
 @keyframes fade-in { from { opacity: 0; } }
@@ -583,7 +604,7 @@ footer .foot-base { border-top: 1.5px solid currentColor; padding-top: 16px; dis
 
 
 
-<link rel="stylesheet" href="/assets/find.css?v=c1d976a4039d">
+<link rel="stylesheet" href="/assets/find.css?v=8e38065df983">
 <!-- seo -->
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Fino">
@@ -605,8 +626,7 @@ footer .foot-base { border-top: 1.5px solid currentColor; padding-top: 16px; dis
   <div class="wrap">
     <a class="brand" href="index.html" aria-label="Fino, home">
       <svg class="logo" viewBox="0 0 200 180" aria-hidden="true">
-        <path class="ln" d="M100 50 C98 38 102 30 111 28" fill="none" stroke="var(--ink)" stroke-width="9" stroke-linecap="round"/>
-        <circle class="ln" cx="121" cy="25" r="13" fill="var(--accent)" stroke="var(--ink)" stroke-width="8"/>
+        <g class="ant"><path class="ln" d="M100 50 C98 38 102 30 111 28" fill="none" stroke="var(--ink)" stroke-width="9" stroke-linecap="round"/><circle class="ln" cx="121" cy="25" r="13" fill="var(--accent)" stroke="var(--ink)" stroke-width="8"/></g>
         <path class="ln" d="M100 50 C144 50 172 78 174 117 C176 152 146 168 100 168 C54 168 24 152 26 117 C28 78 56 50 100 50 Z" fill="var(--puff)" stroke="var(--ink)" stroke-width="9"/>
         <ellipse cx="80" cy="110" rx="9" ry="13" fill="var(--eye)"/>
         <ellipse cx="120" cy="110" rx="9" ry="13" fill="var(--eye)"/>
@@ -654,8 +674,7 @@ footer .foot-base { border-top: 1.5px solid currentColor; padding-top: 16px; dis
       <div class="foot-about">
         <a class="brand" href="/" aria-label="Fino, home">
           <svg class="logo" viewBox="0 0 200 180" aria-hidden="true">
-            <path class="ln" d="M100 50 C98 38 102 30 111 28" fill="none" stroke="var(--ink)" stroke-width="9" stroke-linecap="round"/>
-            <circle class="ln" cx="121" cy="25" r="13" fill="var(--accent)" stroke="var(--ink)" stroke-width="8"/>
+            <g class="ant"><path class="ln" d="M100 50 C98 38 102 30 111 28" fill="none" stroke="var(--ink)" stroke-width="9" stroke-linecap="round"/><circle class="ln" cx="121" cy="25" r="13" fill="var(--accent)" stroke="var(--ink)" stroke-width="8"/></g>
             <path class="ln" d="M100 50 C144 50 172 78 174 117 C176 152 146 168 100 168 C54 168 24 152 26 117 C28 78 56 50 100 50 Z" fill="var(--puff)" stroke="var(--ink)" stroke-width="9"/>
             <ellipse cx="80" cy="110" rx="9" ry="13" fill="var(--eye)"/>
             <ellipse cx="120" cy="110" rx="9" ry="13" fill="var(--eye)"/>
@@ -1621,7 +1640,18 @@ function titleFor(h) {
 
 /* ---------- Router ---------- */
 let lastView = '';
+/* Opening a decision from the list (and going back): the company name and the fine slide between the row and the
+   decision's title and fine box. Only with view transitions and when motion is welcome; otherwise the view just changes. */
 function route() {
+  const h = location.hash.slice(1) || 'fines', to = h.match(/^d-(.+)$/), from = lastView.match(/^d-(.+)$/);
+  const s = /^fines/.test(lastView) && to ? to[1] : from && h === 'fines' ? from[1] : '';
+  if (!s || typeof document.startViewTransition !== 'function' || matchMedia('(prefers-reduced-motion: reduce)').matches) return draw();
+  const row = () => { const a = document.querySelector(`#results a[href="#d-${s}"]`); return a ? [a.querySelector('.who b'), a.querySelector('.amt')] : []; };
+  const mark = on => row().forEach((el, i) => { if (el) el.style.viewTransitionName = on ? ['m-name', 'm-amt'][i] : ''; });
+  if (to) mark(true);
+  document.startViewTransition(() => { draw(); if (!to) mark(true); }).finished.finally(() => mark(false));
+}
+function draw() {
   const h = location.hash.slice(1) || 'fines';
   let m;
   const wasBrowse = lastView === 'fines';
@@ -1783,7 +1813,30 @@ modeBtn.addEventListener('click', () => {
 let saved = null;
 try { saved = localStorage.getItem('mode'); } catch (e) {}
 setMode(saved === 'dark' ? 'dark' : 'light', false);
+
+/* Moving between pages: a link to a decision carries its name and amount into the decision page, and back again */
+(() => {
+  if (!('onpageswap' in window)) return;
+  const pathOf = u => { try { return new URL(u, location.href).pathname.replace(/\.html$/, ''); } catch (e) { return ''; } };
+  const linkTo = p => [...document.querySelectorAll('a[href*="decisions/"]')].find(a => pathOf(a.href) === p);
+  const mark = (a, on) => {
+    document.querySelectorAll('.head h1, .head .fine .amt').forEach(x => { x.style.viewTransitionName = on ? 'none' : ''; });
+    const n = a.querySelector('b'), m = a.querySelector('.amt, .pk-amt');
+    if (n) n.style.viewTransitionName = on ? 'm-name' : '';
+    if (m) m.style.viewTransitionName = on ? 'm-amt' : '';
+  };
+  addEventListener('pageswap', e => {
+    if (!e.viewTransition || !e.activation || !e.activation.entry) return;
+    const a = linkTo(pathOf(e.activation.entry.url)); if (!a) return;
+    mark(a, true); addEventListener('pageshow', () => mark(a, false), { once: true });
+  });
+  addEventListener('pagereveal', e => {
+    const from = e.viewTransition && window.navigation && navigation.activation && navigation.activation.from;
+    const a = from && linkTo(pathOf(from.url)); if (!a) return;
+    mark(a, true); e.viewTransition.finished.finally(() => mark(a, false));
+  });
+})();
 </script>
-<script src="/assets/find.js?v=c1d976a4039d" defer></script>
+<script src="/assets/find.js?v=8e38065df983" defer></script>
 </body>
 </html>

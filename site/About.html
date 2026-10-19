@@ -21,8 +21,8 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="preload" href="/fonts/fraunces-300-800-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/assets/fino.css?v=69dfa326be78">
-<link rel="stylesheet" href="/assets/find.css?v=c1d976a4039d">
+<link rel="stylesheet" href="/assets/fino.css?v=f91468254a38">
+<link rel="stylesheet" href="/assets/find.css?v=8e38065df983">
 <script>/* light unless the visitor chose dark */ (() => { let m = null; try { m = localStorage.getItem('mode'); } catch (e) {} if (m !== 'dark') document.documentElement.dataset.mode = 'light'; })();</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@id":"https://finoprivacy.com/About.html","url":"https://finoprivacy.com/About.html","name":"About Fino: who made it and how it works","description":"Who made Fino and how it works: where the GDPR decisions come from, how duplicates, private people and other currencies are handled, and what the data gets wrong.","inLanguage":"en","dateModified":"2026-10-19","publisher":{"@id":"https://finoprivacy.com/#org"},"@type":"AboutPage","mainEntity":{"@type":"Person","name":"Lorenzo A.","hasCredential":{"@type":"EducationalOccupationalCredential","name":"CIPP/E (Certified Information Privacy Professional/Europe)","url":"https://www.credential.net/98edbe48-0231-4993-b41e-b2ec89d3acc8","image":"https://finoprivacy.com/assets/cipp-e-badge.png","recognizedBy":{"@type":"Organization","name":"IAPP","url":"https://iapp.org/"}}}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Fino","item":"https://finoprivacy.com/"},{"@type":"ListItem","position":2,"name":"About"}]},{"@type":"Organization","@id":"https://finoprivacy.com/#org","name":"Fino","url":"https://finoprivacy.com/","logo":"https://finoprivacy.com/og/fino-logo.png"}]}</script>
 <style>
@@ -36,7 +36,7 @@
 .a-toc ol a:hover { color: var(--ink); background: var(--surface); }
 /* the section you are reading, set by the script at the end while you scroll */
 .a-toc ol a[aria-current] { color: var(--ink); font-weight: 700; box-shadow: inset 3px 0 0 var(--go); padding-left: 12px; }
-@media (prefers-reduced-motion: no-preference) { .a-toc ol a { transition: padding-left .15s ease, color .15s ease; } }
+@media (prefers-reduced-motion: no-preference) { .a-toc ol a { transition: padding-left var(--fast) var(--ease), color var(--fast) var(--ease); } }
 .paper { background: var(--latte); color: var(--latte-ink); border: 2px solid var(--latte-ink); border-radius: 28px; box-shadow: 8px 8px 0 var(--pink);
   padding: 44px 56px 40px; color-scheme: light; font-size: 1.125rem; line-height: 1.7; min-width: 0; }
 .paper :focus-visible { outline-color: var(--go-deep); }
@@ -58,7 +58,7 @@
 .cred .a-lead { margin: 0; }
 .cred .badge { grid-column: 2; grid-row: 1 / span 2; display: grid; justify-items: center; gap: 8px; border: 0; text-align: center; }
 .paper .cred .badge:hover { background: none; }
-.cred .badge img { width: 120px; height: 120px; border-radius: 50%; display: block; transition: transform .15s ease; }
+.cred .badge img { width: 120px; height: 120px; border-radius: 50%; display: block; transition: transform var(--fast) var(--ease); }
 .cred .badge:hover img { transform: translateY(-2px); }
 .cred .badge:focus-visible img { outline: 3px solid var(--go-deep); outline-offset: 3px; }
 .cred .badge span { font-family: var(--mono); font-size: 0.75rem; font-weight: 500; line-height: 1.3; }
@@ -90,8 +90,7 @@
   <div class="wrap">
     <a class="brand" href="/" aria-label="Fino, home">
       <svg class="logo" viewBox="0 0 200 180" aria-hidden="true">
-        <path class="ln" d="M100 50 C98 38 102 30 111 28" fill="none" stroke="var(--ink)" stroke-width="9" stroke-linecap="round"/>
-        <circle class="ln" cx="121" cy="25" r="13" fill="var(--accent)" stroke="var(--ink)" stroke-width="8"/>
+        <g class="ant"><path class="ln" d="M100 50 C98 38 102 30 111 28" fill="none" stroke="var(--ink)" stroke-width="9" stroke-linecap="round"/><circle class="ln" cx="121" cy="25" r="13" fill="var(--accent)" stroke="var(--ink)" stroke-width="8"/></g>
         <path class="ln" d="M100 50 C144 50 172 78 174 117 C176 152 146 168 100 168 C54 168 24 152 26 117 C28 78 56 50 100 50 Z" fill="var(--puff)" stroke="var(--ink)" stroke-width="9"/>
         <ellipse cx="80" cy="110" rx="9" ry="13" fill="var(--eye)"/>
         <ellipse cx="120" cy="110" rx="9" ry="13" fill="var(--eye)"/>
@@ -214,8 +213,7 @@
       <div class="foot-about">
         <a class="brand" href="/" aria-label="Fino, home">
           <svg class="logo" viewBox="0 0 200 180" aria-hidden="true">
-            <path class="ln" d="M100 50 C98 38 102 30 111 28" fill="none" stroke="var(--ink)" stroke-width="9" stroke-linecap="round"/>
-            <circle class="ln" cx="121" cy="25" r="13" fill="var(--accent)" stroke="var(--ink)" stroke-width="8"/>
+            <g class="ant"><path class="ln" d="M100 50 C98 38 102 30 111 28" fill="none" stroke="var(--ink)" stroke-width="9" stroke-linecap="round"/><circle class="ln" cx="121" cy="25" r="13" fill="var(--accent)" stroke="var(--ink)" stroke-width="8"/></g>
             <path class="ln" d="M100 50 C144 50 172 78 174 117 C176 152 146 168 100 168 C54 168 24 152 26 117 C28 78 56 50 100 50 Z" fill="var(--puff)" stroke="var(--ink)" stroke-width="9"/>
             <ellipse cx="80" cy="110" rx="9" ry="13" fill="var(--eye)"/>
             <ellipse cx="120" cy="110" rx="9" ry="13" fill="var(--eye)"/>
@@ -259,8 +257,8 @@
   </div>
 </footer>
 
-<script src="/assets/fino.js?v=db82e80ee16d" defer></script>
-<script src="/assets/find.js?v=c1d976a4039d" defer></script>
+<script src="/assets/fino.js?v=c4a0cd2a1724" defer></script>
+<script src="/assets/find.js?v=8e38065df983" defer></script>
 <script>
 /* Contents that follow you: the link of the section you are reading is marked while you scroll */
 (() => {
