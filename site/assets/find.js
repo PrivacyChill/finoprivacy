@@ -3,6 +3,7 @@
    /data/home.json (the fines, shared with the homepage). Both load only when first needed. Hand-written, not built. */
 (() => {
   const LENS = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m20 20-4.6-4.6"/></svg>';
+  const HMM = '<svg class="mini hmm" viewBox="0 0 200 180" role="img" aria-label="Fino, the site\'s mascot, tilting its head, puzzled"><ellipse cx="100" cy="172" rx="62" ry="6" fill="var(--ink)" opacity=".12"/><g class="m-body"><path d="M100 24 C152 24 184 60 186 106 C188 148 152 166 100 166 C48 166 12 148 14 106 C16 60 48 24 100 24 Z" fill="var(--puff)" stroke="var(--ink)" stroke-width="4"/><g class="m-ant"><path d="M98 24 C96 14 102 8 110 9" fill="none" stroke="var(--ink)" stroke-width="4" stroke-linecap="round"/><circle cx="111" cy="9" r="5" fill="var(--accent)" stroke="var(--ink)" stroke-width="2.5"/></g><ellipse cx="54" cy="120" rx="14" ry="8" fill="var(--blush)" opacity=".55"/><ellipse cx="146" cy="120" rx="14" ry="8" fill="var(--blush)" opacity=".55"/><path d="M62 82 Q75 70 89 78 M112 84 H136" fill="none" stroke="var(--eye)" stroke-width="3.5" stroke-linecap="round"/><ellipse cx="78" cy="104" rx="8" ry="11" fill="var(--eye)"/><circle cx="81" cy="99" r="3" fill="#FFFFFF"/><ellipse cx="122" cy="104" rx="8" ry="11" fill="var(--eye)"/><circle cx="125" cy="99" r="3" fill="#FFFFFF"/><path d="M93 129 Q101 125 108 130" fill="none" stroke="var(--eye)" stroke-width="3" stroke-linecap="round"/></g><text class="m-q" x="156" y="48">?</text></svg>';
   const esc = s => String(s ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
   const fold = s => String(s ?? '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[’']/g, "'");
   let data = null, fines = null, findP = null, finesP = null;   // the loaded data, and the requests that fetch it once
@@ -104,9 +105,11 @@
     }
     /* the group holding the best match goes first */
     groups.sort((p, n) => n[1][0][0] - p[1][0][0]);
-    out.innerHTML = groups.length ? groups.map(([h, list]) => `<p class="find-g">${h}</p><ul>${list.map(([, html, href, right]) =>
+    const none = !groups.length && data && out.querySelector('.find-none');
+    if (none) none.querySelector('.find-tip').innerHTML = `Nothing found for &ldquo;${esc(raw)}&rdquo;. Try a shorter word, an article number, or a company name.`;
+    else out.innerHTML = groups.length ? groups.map(([h, list]) => `<p class="find-g">${h}</p><ul>${list.map(([, html, href, right]) =>
       `<li><a href="${href}" role="option">${html}${right ? `<i>${right}</i>` : ''}</a></li>`).join('')}</ul>`).join('')
-      : (data ? `<p class="find-tip">Nothing found for &ldquo;${esc(raw)}&rdquo;. Try a shorter word, an article number, or a company name.</p>` : '<p class="find-tip">Loading&hellip;</p>');
+      : (data ? `<div class="find-none">${HMM}<p class="find-tip">Nothing found for &ldquo;${esc(raw)}&rdquo;. Try a shorter word, an article number, or a company name.</p></div>` : '<p class="find-tip">Loading&hellip;</p>');
     items = [...out.querySelectorAll('a')]; sel = -1;
     if (items.length) move(1);
   }

@@ -109,9 +109,18 @@ a:focus-visible, button:focus-visible, select:focus-visible, input:focus-visible
 .mode { display: grid; place-items: center; width: 40px; height: 40px; border-radius: 50%; border: 1.5px solid var(--line); background: var(--surface); color: var(--ink); cursor: pointer; padding: 0; }
 .mode:hover { border-color: var(--ink); }
 .mode svg { width: 20px; height: 20px; }
-.mode .moon { display: none; }
-:root[data-mode="light"] .mode .sun { display: none; }
-:root[data-mode="light"] .mode .moon { display: block; }
+/* The icon turns into the other one: the sun spins away as its rays pull in, the moon swings in along a small arc.
+   During the light switch the button is drawn on its own layer, so the turn shows while the light spreads or retracts. */
+.mode svg { grid-area: 1 / 1; transition: transform var(--slow) var(--pop), opacity var(--fast) var(--ease); }
+.mode .sun path { transform-origin: 12px 12px; transition: transform var(--mid) var(--ease); }
+.mode .moon { opacity: 0; transform-origin: 50% 170%; transform: rotate(-75deg); }
+:root[data-mode="light"] .mode .sun { opacity: 0; transform: rotate(90deg) scale(.4); }
+:root[data-mode="light"] .mode .sun path { transform: scale(.3); }
+:root[data-mode="light"] .mode .moon { opacity: 1; transform: none; }
+:root[data-switch] .mode { view-transition-name: mode-btn; }
+::view-transition-group(mode-btn), ::view-transition-new(mode-btn) { animation: none; }
+::view-transition-old(mode-btn) { display: none; }
+@media (prefers-reduced-motion: reduce) { .mode svg, .mode .sun path { transition: none; } }
 /* Light switch: light spreads out from the sun button; going dark pulls it back in (view transitions).
    With reduced motion it is a short fade; browsers without view transitions switch at once. */
 ::view-transition-group(root) { animation-duration: var(--mid); }
@@ -160,7 +169,7 @@ h1 .tag-person { display: inline-block; vertical-align: 0.4em; margin-left: 12px
 .lede strong, .hl { color: var(--ink); font-weight: 700; background: linear-gradient(transparent 62%, var(--pink) 62%, var(--pink) 92%, transparent 92%); }
 .note { color: var(--muted); margin: 0; }
 .legend { font-family: var(--mono); font-size: 0.75rem; color: var(--muted); margin: 8px 0 0; }
-.btn { display: inline-flex; align-items: center; gap: 8px; text-decoration: none; font: inherit; font-weight: 700; padding: 11px 20px; border-radius: 999px; border: 2px solid var(--ink); background: transparent; color: var(--ink); cursor: pointer; transition: transform var(--fast) var(--ease), background var(--fast) var(--ease); }
+.btn { display: inline-flex; align-items: center; gap: 8px; text-decoration: none; font: inherit; font-weight: 700; padding: 11px 20px; border-radius: 999px; border: 2px solid var(--ink); background: transparent; color: var(--ink); cursor: pointer; transition: transform var(--fast) var(--ease), background var(--fast) var(--ease), scale var(--fast) var(--pop); }
 .btn:hover { transform: translateY(-2px); background: var(--surface); }
 .btn.primary:hover { background: var(--accent); filter: brightness(1.05); }
 .btn.primary { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
@@ -512,6 +521,14 @@ footer .foot-base { border-top: 1.5px solid currentColor; padding-top: 16px; dis
 .top.scrolled .brand .logo .ant { animation: ant-wobble .8s var(--ease) .45s both; }
 @keyframes ant-wobble { 0%, 100% { transform: none; } 25% { transform: rotate(14deg); } 50% { transform: rotate(-8deg); } 75% { transform: rotate(3deg); } }
 @media (prefers-reduced-motion: reduce) { .top.scrolled .brand .logo .ant { animation: none; } }
+/* Press feedback (squash and stretch): buttons dip for a moment when pressed, so a tap feels answered */
+.chip, .mode, .menu-btn, .linkbtn { transition: scale var(--fast) var(--pop); }
+.btn:active, .chip:active, .mode:active, .menu-btn:active, .linkbtn:active { scale: .96; }
+@media (prefers-reduced-motion: reduce) { .btn:active, .chip:active, .mode:active, .menu-btn:active, .linkbtn:active { scale: none; } }
+/* Copy citation: a tick pops onto the button once the citation is on the clipboard */
+.btn.done::before { content: "\2713"; font-weight: 700; animation: tick-in var(--mid) var(--pop) both; }
+@keyframes tick-in { from { opacity: 0; transform: scale(.4); } }
+@media (prefers-reduced-motion: reduce) { .btn.done::before { animation: none; } }
 /* Phone menu: below 760px the links fold behind a three-line button and open as a full-screen list.
    Only when the script has run (.has-menu), so without JavaScript the links simply wrap as before. */
 .menu-btn { display: none; }
@@ -578,6 +595,11 @@ footer .foot-base { border-top: 1.5px solid currentColor; padding-top: 16px; dis
   html.sheet-open { overflow: hidden; }
 }
 @keyframes fade-in { from { opacity: 0; } }
+/* When a filter or the search changes the list (staging): the rows fade in quickly and the count flashes once */
+#results.fresh { animation: fade-in var(--fast) var(--ease); }
+#tally .big b.flash { border-radius: 6px; animation: count-flash var(--slow) var(--ease); }
+@keyframes count-flash { from { background: var(--pink); color: #15141F; box-shadow: 0 0 0 4px var(--pink); } }
+@media (prefers-reduced-motion: reduce) { #results.fresh, #tally .big b.flash { animation: none; } }
 @media (prefers-reduced-motion: reduce) { .fsheet, .fsheet.open { transition: none; } .fback:not([hidden]) { animation: none; } }
 .top nav .laws-menu a.all-laws { border-top: 1px solid var(--latte-line); border-radius: 0 0 14px 14px; margin-top: 4px; }
 
@@ -604,7 +626,7 @@ footer .foot-base { border-top: 1.5px solid currentColor; padding-top: 16px; dis
 
 
 
-<link rel="stylesheet" href="/assets/find.css?v=8e38065df983">
+<link rel="stylesheet" href="/assets/find.css?v=427aca0a8635">
 <!-- seo -->
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Fino">
@@ -844,6 +866,7 @@ const MINI = `<svg class="mini" viewBox="0 0 200 180" role="img" aria-label="Fin
   <ellipse cx="122" cy="104" rx="8" ry="11" fill="var(--eye)"/><circle cx="125" cy="99" r="3" fill="#FFFFFF"/>
   <path d="M92 128 Q100 123 108 128" fill="none" stroke="var(--eye)" stroke-width="3" stroke-linecap="round"/>
 </svg>`;
+const HMM = `<svg class="mini hmm" viewBox="0 0 200 180" role="img" aria-label="Fino, the site's mascot, tilting its head, puzzled"><ellipse cx="100" cy="172" rx="62" ry="6" fill="var(--ink)" opacity=".12"/><g class="m-body"><path d="M100 24 C152 24 184 60 186 106 C188 148 152 166 100 166 C48 166 12 148 14 106 C16 60 48 24 100 24 Z" fill="var(--puff)" stroke="var(--ink)" stroke-width="4"/><g class="m-ant"><path d="M98 24 C96 14 102 8 110 9" fill="none" stroke="var(--ink)" stroke-width="4" stroke-linecap="round"/><circle cx="111" cy="9" r="5" fill="var(--accent)" stroke="var(--ink)" stroke-width="2.5"/></g><ellipse cx="54" cy="120" rx="14" ry="8" fill="var(--blush)" opacity=".55"/><ellipse cx="146" cy="120" rx="14" ry="8" fill="var(--blush)" opacity=".55"/><path d="M62 82 Q75 70 89 78 M112 84 H136" fill="none" stroke="var(--eye)" stroke-width="3.5" stroke-linecap="round"/><ellipse cx="78" cy="104" rx="8" ry="11" fill="var(--eye)"/><circle cx="81" cy="99" r="3" fill="#FFFFFF"/><ellipse cx="122" cy="104" rx="8" ry="11" fill="var(--eye)"/><circle cx="125" cy="99" r="3" fill="#FFFFFF"/><path d="M93 129 Q101 125 108 130" fill="none" stroke="var(--eye)" stroke-width="3" stroke-linecap="round"/></g><text class="m-q" x="156" y="48">?</text></svg>`;
 const SHEET_MARK = `<svg viewBox="0 0 200 180" aria-hidden="true"><path d="M100 50 C98 38 102 30 111 28" fill="none" stroke="#211915" stroke-width="9" stroke-linecap="round"/><circle cx="121" cy="25" r="13" fill="#7E9A3A" stroke="#211915" stroke-width="8"/><path d="M100 50 C144 50 172 78 174 117 C176 152 146 168 100 168 C54 168 24 152 26 117 C28 78 56 50 100 50 Z" fill="#FFCDB8" stroke="#211915" stroke-width="9"/><ellipse cx="80" cy="110" rx="9" ry="13" fill="#211915"/><ellipse cx="120" cy="110" rx="9" ry="13" fill="#211915"/><path d="M88 136 Q100 147 112 136" fill="none" stroke="#211915" stroke-width="8" stroke-linecap="round"/></svg>`;
 
 /* What happened next (case_status): an annulled fine shows struck through and counts nowhere; a fine changed
@@ -982,8 +1005,13 @@ function renderBrowse() {
   });
   renderResults();
 }
+/* what the list showed last time, so a change of filter, search or sort can be shown (not "Show more") */
+let lastKey = null, lastCount = null;
 function renderResults() {
   const list = sorted(CASES.filter(matches));
+  const key = JSON.stringify(['q', 'country', 'year', 'sector', 'art', 'outcome', 'band', 'org', 'group', 'reg', 'sort'].map(k => state[k]));
+  const fresh = lastKey !== null && key !== lastKey, flash = fresh && list.length !== lastCount;
+  lastKey = key; lastCount = list.length;
   const fines = list.filter(c => c.fine_eur).map(c => c.fine_eur);
   const total = fines.reduce((a, b) => a + b, 0);
   const converted = list.filter(c => c.est).length;
@@ -998,7 +1026,7 @@ function renderResults() {
   $('tally').innerHTML = `
     <div>
       ${active ? `<p class="active"><button type="button" class="chip" id="drop-org" aria-label="Remove the ${active[0].toLowerCase()} filter"><span>${active[0]}</span>${esc(active[1])} &times;</button></p>` : ''}
-      <p class="big"><b>${num(list.length)}</b> ${list.length === 1 ? 'decision' : 'decisions'}${filtered ? ' match' : ''}</p>
+      <p class="big"><b${flash ? ' class="flash"' : ''}>${num(list.length)}</b> ${list.length === 1 ? 'decision' : 'decisions'}${filtered ? ' match' : ''}</p>
       <p class="sub">${fines.length ? `${converted ? '≈ ' : ''}${bigEur(total)} in ${num(fines.length)} ${fines.length === 1 ? 'fine' : 'fines'} &middot; typical fine ${eur(median(fines))} &middot; biggest ${eur(Math.max(...fines))}` : 'No fines in this selection'}</p>
     </div>
     <div class="right">
@@ -1011,7 +1039,8 @@ function renderResults() {
   if ($('clear')) $('clear').addEventListener('click', () => { Object.assign(state, { q: '', country: '', year: '', sector: '', art: '', outcome: '', band: '', org: '', group: '', reg: '', shown: 40 }); renderBrowse(); });
 
   if (!list.length) {
-    $('results').innerHTML = `<li style="border:0"><div class="empty-list">${MINI}<p class="bubble">Nothing matches all of that. Try removing a filter, or a shorter search word.</p></div></li>`;
+    /* puzzled Fino; drawn once, so it does not tilt again with every letter typed */
+    if (!$('results').querySelector('.hmm')) $('results').innerHTML = `<li style="border:0"><div class="empty-list">${HMM}<p class="bubble">Nothing matches all of that. Try removing a filter, or a shorter search word.</p></div></li>`;
     $('more').innerHTML = '';
     return;
   }
@@ -1028,6 +1057,7 @@ function renderResults() {
   $('more').innerHTML = list.length > state.shown
     ? `<button type="button" class="btn" id="more-btn">Show ${Math.min(40, list.length - state.shown)} more <span class="muted" style="font-weight:400">of ${num(list.length - state.shown)} left</span></button>` : '';
   if ($('more-btn')) $('more-btn').addEventListener('click', () => { state.shown += 40; renderResults(); });
+  if (fresh) { const r = $('results'); r.classList.remove('fresh'); void r.offsetWidth; r.classList.add('fresh'); }
 }
 
 /* ---------- View: decision ---------- */
@@ -1198,8 +1228,9 @@ function renderDecision(c) {
   }));
   $('copy-cite').addEventListener('click', () => {
     const text = citation(c);
-    const done = m => { $('copied').textContent = m; };
-    try { navigator.clipboard.writeText(text).then(() => done('Copied.'), () => done(text)); } catch (e) { done(text); }
+    const done = m => { $('copied').textContent = m; }, b = $('copy-cite');
+    const tick = () => { b.classList.remove('done'); void b.offsetWidth; b.classList.add('done'); clearTimeout(b.t); b.t = setTimeout(() => b.classList.remove('done'), 2000); done('Copied.'); };
+    try { navigator.clipboard.writeText(text).then(tick, () => done(text)); } catch (e) { done(text); }
   });
 }
 function citation(c) {
@@ -1806,9 +1837,12 @@ modeBtn.addEventListener('click', () => {
     const b = modeBtn.getBoundingClientRect(), x = b.left + b.width / 2, y = b.top + b.height / 2;
     const far = Math.hypot(Math.max(x, innerWidth - x), Math.max(y, innerHeight - y));
     const dot = `circle(0px at ${x}px ${y}px)`, all = `circle(${far}px at ${x}px ${y}px)`;
+    /* the time follows the distance the light travels: about 0.45s on a phone, up to 0.7s on a big screen; going dark is a little quicker */
+    const up = Math.min(700, Math.max(450, far * .42)), dur = next === 'light' ? up : Math.round(up * .8);
+    document.dispatchEvent(new CustomEvent('fino:light', { detail: { next, x, y, far, dur } }));   // the homepage Fino reacts
     t.ready.then(() => next === 'light'
-      ? root.animate({ clipPath: [dot, all] }, { duration: 700, easing: 'cubic-bezier(.25,.7,.25,1)', pseudoElement: '::view-transition-new(root)' })
-      : root.animate({ clipPath: [all, dot] }, { duration: 560, easing: 'cubic-bezier(.5,0,.75,.4)', pseudoElement: '::view-transition-old(root)' }));
+      ? root.animate({ clipPath: [dot, all] }, { duration: dur, easing: 'cubic-bezier(.25,.7,.25,1)', pseudoElement: '::view-transition-new(root)' })
+      : root.animate({ clipPath: [all, dot] }, { duration: dur, easing: 'cubic-bezier(.5,0,.75,.4)', pseudoElement: '::view-transition-old(root)' }));
   });
 let saved = null;
 try { saved = localStorage.getItem('mode'); } catch (e) {}
@@ -1837,6 +1871,6 @@ setMode(saved === 'dark' ? 'dark' : 'light', false);
   });
 })();
 </script>
-<script src="/assets/find.js?v=8e38065df983" defer></script>
+<script src="/assets/find.js?v=427aca0a8635" defer></script>
 </body>
 </html>

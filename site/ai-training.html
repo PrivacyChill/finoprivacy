@@ -105,9 +105,18 @@ a:focus-visible, button:focus-visible, select:focus-visible, input:focus-visible
 .mode { display: grid; place-items: center; width: 40px; height: 40px; border-radius: 50%; border: 1.5px solid var(--line); background: var(--surface); color: var(--ink); cursor: pointer; padding: 0; }
 .mode:hover { border-color: var(--ink); }
 .mode svg { width: 20px; height: 20px; }
-.mode .moon { display: none; }
-:root[data-mode="light"] .mode .sun { display: none; }
-:root[data-mode="light"] .mode .moon { display: block; }
+/* The icon turns into the other one: the sun spins away as its rays pull in, the moon swings in along a small arc.
+   During the light switch the button is drawn on its own layer, so the turn shows while the light spreads or retracts. */
+.mode svg { grid-area: 1 / 1; transition: transform var(--slow) var(--pop), opacity var(--fast) var(--ease); }
+.mode .sun path { transform-origin: 12px 12px; transition: transform var(--mid) var(--ease); }
+.mode .moon { opacity: 0; transform-origin: 50% 170%; transform: rotate(-75deg); }
+:root[data-mode="light"] .mode .sun { opacity: 0; transform: rotate(90deg) scale(.4); }
+:root[data-mode="light"] .mode .sun path { transform: scale(.3); }
+:root[data-mode="light"] .mode .moon { opacity: 1; transform: none; }
+:root[data-switch] .mode { view-transition-name: mode-btn; }
+::view-transition-group(mode-btn), ::view-transition-new(mode-btn) { animation: none; }
+::view-transition-old(mode-btn) { display: none; }
+@media (prefers-reduced-motion: reduce) { .mode svg, .mode .sun path { transition: none; } }
 /* Light switch: light spreads out from the sun button; going dark pulls it back in (view transitions).
    With reduced motion it is a short fade; browsers without view transitions switch at once. */
 ::view-transition-group(root) { animation-duration: var(--mid); }
@@ -156,7 +165,7 @@ h1 .tag-person { display: inline-block; vertical-align: 0.4em; margin-left: 12px
 .lede strong, .hl { color: var(--ink); font-weight: 700; background: linear-gradient(transparent 62%, var(--pink) 62%, var(--pink) 92%, transparent 92%); }
 .note { color: var(--muted); margin: 0; }
 .legend { font-family: var(--mono); font-size: 0.75rem; color: var(--muted); margin: 8px 0 0; }
-.btn { display: inline-flex; align-items: center; gap: 8px; text-decoration: none; font: inherit; font-weight: 700; padding: 11px 20px; border-radius: 999px; border: 2px solid var(--ink); background: transparent; color: var(--ink); cursor: pointer; transition: transform var(--fast) var(--ease), background var(--fast) var(--ease); }
+.btn { display: inline-flex; align-items: center; gap: 8px; text-decoration: none; font: inherit; font-weight: 700; padding: 11px 20px; border-radius: 999px; border: 2px solid var(--ink); background: transparent; color: var(--ink); cursor: pointer; transition: transform var(--fast) var(--ease), background var(--fast) var(--ease), scale var(--fast) var(--pop); }
 .btn:hover { transform: translateY(-2px); background: var(--surface); }
 .btn.primary:hover { background: var(--accent); filter: brightness(1.05); }
 .btn.primary { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
@@ -326,6 +335,14 @@ a.pill-card:hover { transform: translateY(-3px); }
 .top.scrolled .brand .logo .ant { animation: ant-wobble .8s var(--ease) .45s both; }
 @keyframes ant-wobble { 0%, 100% { transform: none; } 25% { transform: rotate(14deg); } 50% { transform: rotate(-8deg); } 75% { transform: rotate(3deg); } }
 @media (prefers-reduced-motion: reduce) { .top.scrolled .brand .logo .ant { animation: none; } }
+/* Press feedback (squash and stretch): buttons dip for a moment when pressed, so a tap feels answered */
+.chip, .mode, .menu-btn, .linkbtn { transition: scale var(--fast) var(--pop); }
+.btn:active, .chip:active, .mode:active, .menu-btn:active, .linkbtn:active { scale: .96; }
+@media (prefers-reduced-motion: reduce) { .btn:active, .chip:active, .mode:active, .menu-btn:active, .linkbtn:active { scale: none; } }
+/* Copy citation: a tick pops onto the button once the citation is on the clipboard */
+.btn.done::before { content: "\2713"; font-weight: 700; animation: tick-in var(--mid) var(--pop) both; }
+@keyframes tick-in { from { opacity: 0; transform: scale(.4); } }
+@media (prefers-reduced-motion: reduce) { .btn.done::before { animation: none; } }
 /* Phone menu: below 760px the links fold behind a three-line button and open as a full-screen list.
    Only when the script has run (.has-menu), so without JavaScript the links simply wrap as before. */
 .menu-btn { display: none; }
@@ -369,7 +386,7 @@ a.pill-card:hover { transform: translateY(-3px); }
 .top nav .laws-menu a.all-laws { border-top: 1px solid var(--latte-line); border-radius: 0 0 14px 14px; margin-top: 4px; }
 </style>
 
-<link rel="stylesheet" href="/assets/find.css?v=8e38065df983">
+<link rel="stylesheet" href="/assets/find.css?v=427aca0a8635">
 <!-- seo -->
 <link rel="canonical" href="https://finoprivacy.com/ai-training.html">
 <meta property="og:type" content="article">
@@ -591,9 +608,12 @@ modeBtn.addEventListener('click', () => {
     const b = modeBtn.getBoundingClientRect(), x = b.left + b.width / 2, y = b.top + b.height / 2;
     const far = Math.hypot(Math.max(x, innerWidth - x), Math.max(y, innerHeight - y));
     const dot = `circle(0px at ${x}px ${y}px)`, all = `circle(${far}px at ${x}px ${y}px)`;
+    /* the time follows the distance the light travels: about 0.45s on a phone, up to 0.7s on a big screen; going dark is a little quicker */
+    const up = Math.min(700, Math.max(450, far * .42)), dur = next === 'light' ? up : Math.round(up * .8);
+    document.dispatchEvent(new CustomEvent('fino:light', { detail: { next, x, y, far, dur } }));   // the homepage Fino reacts
     t.ready.then(() => next === 'light'
-      ? root.animate({ clipPath: [dot, all] }, { duration: 700, easing: 'cubic-bezier(.25,.7,.25,1)', pseudoElement: '::view-transition-new(root)' })
-      : root.animate({ clipPath: [all, dot] }, { duration: 560, easing: 'cubic-bezier(.5,0,.75,.4)', pseudoElement: '::view-transition-old(root)' }));
+      ? root.animate({ clipPath: [dot, all] }, { duration: dur, easing: 'cubic-bezier(.25,.7,.25,1)', pseudoElement: '::view-transition-new(root)' })
+      : root.animate({ clipPath: [all, dot] }, { duration: dur, easing: 'cubic-bezier(.5,0,.75,.4)', pseudoElement: '::view-transition-old(root)' }));
   });
 let saved = null;
 try { saved = localStorage.getItem('mode'); } catch (e) {}
@@ -623,6 +643,6 @@ setMode(saved === 'dark' ? 'dark' : 'light', false);
 })();
 
 </script>
-<script src="/assets/find.js?v=8e38065df983" defer></script>
+<script src="/assets/find.js?v=427aca0a8635" defer></script>
 </body>
 </html>

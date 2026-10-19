@@ -53,9 +53,12 @@ modeBtn.addEventListener('click', () => {
     const b = modeBtn.getBoundingClientRect(), x = b.left + b.width / 2, y = b.top + b.height / 2;
     const far = Math.hypot(Math.max(x, innerWidth - x), Math.max(y, innerHeight - y));
     const dot = `circle(0px at ${x}px ${y}px)`, all = `circle(${far}px at ${x}px ${y}px)`;
+    /* the time follows the distance the light travels: about 0.45s on a phone, up to 0.7s on a big screen; going dark is a little quicker */
+    const up = Math.min(700, Math.max(450, far * .42)), dur = next === 'light' ? up : Math.round(up * .8);
+    document.dispatchEvent(new CustomEvent('fino:light', { detail: { next, x, y, far, dur } }));   // the homepage Fino reacts
     t.ready.then(() => next === 'light'
-      ? root.animate({ clipPath: [dot, all] }, { duration: 700, easing: 'cubic-bezier(.25,.7,.25,1)', pseudoElement: '::view-transition-new(root)' })
-      : root.animate({ clipPath: [all, dot] }, { duration: 560, easing: 'cubic-bezier(.5,0,.75,.4)', pseudoElement: '::view-transition-old(root)' }));
+      ? root.animate({ clipPath: [dot, all] }, { duration: dur, easing: 'cubic-bezier(.25,.7,.25,1)', pseudoElement: '::view-transition-new(root)' })
+      : root.animate({ clipPath: [all, dot] }, { duration: dur, easing: 'cubic-bezier(.5,0,.75,.4)', pseudoElement: '::view-transition-old(root)' }));
   });
 let saved = null;
 try { saved = localStorage.getItem('mode'); } catch (e) {}
@@ -91,7 +94,8 @@ setMode(saved === 'dark' ? 'dark' : 'light', false);
   b.addEventListener('click', () => {
     const d = new Date(), t = `${b.dataset.cite}, accessed ${d.getDate()} ${M[d.getMonth()]} ${d.getFullYear()}.`;
     const done = m => { byId('copied').textContent = m; };
-    try { navigator.clipboard.writeText(t).then(() => done('Copied.'), () => done(t)); } catch (e) { done(t); }
+    const tick = () => { b.classList.remove('done'); void b.offsetWidth; b.classList.add('done'); clearTimeout(b.t); b.t = setTimeout(() => b.classList.remove('done'), 2000); done('Copied.'); };
+    try { navigator.clipboard.writeText(t).then(tick, () => done(t)); } catch (e) { done(t); }
   });
 })();
 

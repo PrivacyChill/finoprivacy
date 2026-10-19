@@ -88,3 +88,21 @@ button.def:hover, button.def[aria-expanded="true"] { text-decoration-color: var(
 }
 @keyframes sheet-in { from { transform: translateY(30px); opacity: 0; } }
 @media (prefers-reduced-motion: reduce) { .def-card { animation: none !important; } }
+
+/* ---------- Fino, puzzled (nothing found): tilts its head, the antenna wobbles, a question mark pops up ---------- */
+.hmm { overflow: visible; }
+.hmm .m-body { transform-box: fill-box; transform-origin: 50% 100%; animation: hmm-tilt .6s var(--pop) .1s both; }
+.hmm .m-ant { transform-box: fill-box; transform-origin: 10% 100%; animation: hmm-ant .8s var(--ease) .3s both; }
+.hmm .m-q { font: 600 46px var(--display, Georgia, serif); fill: var(--ink); transform-box: fill-box; transform-origin: 50% 100%; animation: hmm-q var(--mid) var(--pop) .45s both; }
+@keyframes hmm-tilt { 0% { transform: none; } 60% { transform: rotate(-10deg); } 100% { transform: rotate(-7deg); } }
+@keyframes hmm-ant { 0%, 100% { transform: none; } 25% { transform: rotate(-14deg); } 50% { transform: rotate(8deg); } 75% { transform: rotate(-3deg); } }
+@keyframes hmm-q { from { opacity: 0; transform: translateY(8px) scale(.6); } }
+@media (prefers-reduced-motion: reduce) { .hmm .m-body, .hmm .m-ant, .hmm .m-q { animation: none; } .hmm .m-body { transform: rotate(-7deg); } }
+.find-none { display: grid; grid-template-columns: 52px minmax(0, 1fr); gap: 4px; align-items: center; margin: 6px 4px 0 12px; }
+.find-none .hmm { width: 52px; height: auto; --ink: var(--latte-ink); }
+.find-none .find-tip { margin: 14px 8px; }
+
+/* ---------- Press feedback: the lens and the search row dip a little when pressed ---------- */
+.find-btn, .lp-find { transition: scale var(--fast) var(--pop); }
+.find-btn:active, .lp-find:active { scale: .96; }
+@media (prefers-reduced-motion: reduce) { .find-btn:active, .lp-find:active { scale: none; } }
