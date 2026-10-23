@@ -872,12 +872,12 @@ const MINI = `<svg class="mini" viewBox="0 0 200 180" role="img" aria-label="Fin
 const HMM = `<svg class="mini hmm" viewBox="0 0 200 180" role="img" aria-label="Fino, the site's mascot, tilting its head, puzzled"><ellipse cx="100" cy="172" rx="62" ry="6" fill="var(--ink)" opacity=".12"/><g class="m-body"><path d="M100 24 C152 24 184 60 186 106 C188 148 152 166 100 166 C48 166 12 148 14 106 C16 60 48 24 100 24 Z" fill="var(--puff)" stroke="var(--ink)" stroke-width="4"/><g class="m-ant"><path d="M98 24 C96 14 102 8 110 9" fill="none" stroke="var(--ink)" stroke-width="4" stroke-linecap="round"/><circle cx="111" cy="9" r="5" fill="var(--accent)" stroke="var(--ink)" stroke-width="2.5"/></g><ellipse cx="54" cy="120" rx="14" ry="8" fill="var(--blush)" opacity=".55"/><ellipse cx="146" cy="120" rx="14" ry="8" fill="var(--blush)" opacity=".55"/><path d="M62 82 Q75 70 89 78 M112 84 H136" fill="none" stroke="var(--eye)" stroke-width="3.5" stroke-linecap="round"/><ellipse cx="78" cy="104" rx="8" ry="11" fill="var(--eye)"/><circle cx="81" cy="99" r="3" fill="#FFFFFF"/><ellipse cx="122" cy="104" rx="8" ry="11" fill="var(--eye)"/><circle cx="125" cy="99" r="3" fill="#FFFFFF"/><path d="M93 129 Q101 125 108 130" fill="none" stroke="var(--eye)" stroke-width="3" stroke-linecap="round"/></g><text class="m-q" x="156" y="48">?</text></svg>`;
 const SHEET_MARK = `<svg viewBox="0 0 200 180" aria-hidden="true"><path d="M100 50 C98 38 102 30 111 28" fill="none" stroke="#211915" stroke-width="9" stroke-linecap="round"/><circle cx="121" cy="25" r="13" fill="#7E9A3A" stroke="#211915" stroke-width="8"/><path d="M100 50 C144 50 172 78 174 117 C176 152 146 168 100 168 C54 168 24 152 26 117 C28 78 56 50 100 50 Z" fill="#FFCDB8" stroke="#211915" stroke-width="9"/><ellipse cx="80" cy="110" rx="9" ry="13" fill="#211915"/><ellipse cx="120" cy="110" rx="9" ry="13" fill="#211915"/><path d="M88 136 Q100 147 112 136" fill="none" stroke="#211915" stroke-width="8" stroke-linecap="round"/></svg>`;
 
-/* What happened next (case_status): an annulled fine shows struck through and counts nowhere; a fine changed
+/* What happened next (case_status): an annulled or withdrawn fine shows struck through and counts nowhere; a fine changed
    or confirmed in court shows the amount that stands, with a short label. */
-const STATUS_LABEL = { annulled: 'Annulled by a court', reduced: 'Reduced on appeal', increased: 'Increased on appeal', confirmed: 'Confirmed in court', appealed: 'Under appeal', final: 'Final' };
+const STATUS_LABEL = { annulled: 'Annulled by a court', reduced: 'Reduced on appeal', increased: 'Increased on appeal', confirmed: 'Confirmed in court', appealed: 'Under appeal', final: 'Final', withdrawn: 'Withdrawn by the regulator', objection: 'Reduced after objection' };
 function fineInfo(c) {
   const st = STATUS_LABEL[c.status];
-  if (c.status === 'annulled') return { label: c.fine_before ? eur(c.fine_before) : 'Fine', struck: true, status: st, none: !c.fine_before };
+  if (c.status === 'annulled' || c.status === 'withdrawn') return { label: c.fine_before ? eur(c.fine_before) : 'Fine', struck: true, status: st, none: !c.fine_before };
   if (c.status === 'reduced' && c.fine_eur === 0) return { label: 'Warning only', conv: `was ${eur(c.fine_before)}`, none: true, status: st };  /* the court swapped the fine for a warning */
   if (st) return { ...fineInfoPlain(c), status: st };
   return fineInfoPlain(c);
@@ -1164,7 +1164,7 @@ function renderDecision(c) {
   const about = c.violation_type ? `<span class="hl">${esc(c.violation_type)}</span>` : c.categories ? `About: ${esc(c.categories)}` : '';
   const pill = f.status ? `<span class="pill ok">${esc(f.status)}</span>`
     : c.best_outcome ? `<span class="pill ${outcomeKind(c.best_outcome)}">${esc(c.best_outcome)}</span>` : '';
-  const after = c.status_note ? `<p class="after"><b>What happened next.</b> ${esc(c.status_note)}${c.status_source ? ` <a href="${esc(c.status_source)}" target="_blank" rel="noopener">Source &rarr;</a>` : ''}</p>` : '';
+  const after = c.status_note ? `<p class="after"><b>What happened next.</b> ${esc(c.status_note).replace(/\b((?:20\d\d|ND)\/[A-Z]{2}\/\d{3})\b/g, (m) => BY_SLUG.has(slug(m)) ? `<a href="#d-${slug(m)}">${m}</a>` : m)}${c.status_source ? ` <a href="${esc(c.status_source)}" target="_blank" rel="noopener">Source &rarr;</a>` : ''}</p>` : '';
   const pc = k && Math.round(k.below / k.n * 100), eu = k && Math.round(k.eu_below / k.eu_n * 100);
   $('main').innerHTML = `
   <div class="wrap">
@@ -1241,7 +1241,11 @@ function citation(c) {
   const d = when(c.decision_date, c.date_precision), f = fineInfo(c);
   const parts = [authority(c.authority), c.ref ? `decision ${c.ref}` : 'decision', d.main !== 'Date not published' ? `of ${d.main}` : ''].filter(Boolean).join(' ');
   const who = c.controller ? ` (${c.controller})` : '';
-  const amt = c.est ? `, fine of ${native(c)} (about ${eur(approx(c.fine_eur))})` : c.fine_eur ? `, fine of ${eur(c.fine_eur)}` : '';
+  /* cite the fine the decision imposed, then what a later ruling or objection did to it */
+  const st = c.status && c.fine_before && c.fine_before !== c.fine_eur ? STATUS_LABEL[c.status] : '';
+  const amt = st ? (c.status === 'reduced' && c.fine_eur === 0 ? `, fine of ${eur(c.fine_before)}, replaced by a warning on appeal`
+      : c.fine_eur ? `, fine of ${eur(c.fine_before)}, ${st.toLowerCase()} to ${eur(c.fine_eur)}` : `, fine of ${eur(c.fine_before)}, ${st.toLowerCase()}`)
+    : c.est ? `, fine of ${native(c)} (about ${eur(approx(c.fine_eur))})` : c.fine_eur ? `, fine of ${eur(c.fine_eur)}` : '';
   return `${parts}${who}${amt}. Fino case ${c.pharos_id}, ${SITE}/decisions/${slug(c.pharos_id)}.html, accessed ${today()}.`;
 }
 
