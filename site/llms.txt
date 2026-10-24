@@ -38,7 +38,7 @@ Facts about the data:
 - [Article 24: Responsibility of the controller](https://finoprivacy.com/gdpr/article-24.html): 268 decisions cite it
 - [Article 25: Data protection by design and by default](https://finoprivacy.com/gdpr/article-25.html): 313 decisions cite it
 - [Article 28: Processor](https://finoprivacy.com/gdpr/article-28.html): 204 decisions cite it
-- [Article 32: Security of processing](https://finoprivacy.com/gdpr/article-32.html): 906 decisions cite it
+- [Article 32: Security of processing](https://finoprivacy.com/gdpr/article-32.html): 907 decisions cite it
 - [Article 33: Notification of a personal data breach to the supervisory authority](https://finoprivacy.com/gdpr/article-33.html): 171 decisions cite it
 - [Article 58: Powers](https://finoprivacy.com/gdpr/article-58.html): 394 decisions cite it
 
