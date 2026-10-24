@@ -26,21 +26,21 @@ Facts about the data:
 ## The GDPR
 
 - [The full text, 99 articles and 173 recitals](https://finoprivacy.com/gdpr/)
-- [Article 4: Definitions](https://finoprivacy.com/gdpr/article-4.html): 197 decisions cite it
-- [Article 5: Principles relating to processing of personal data](https://finoprivacy.com/gdpr/article-5.html): 2,176 decisions cite it
-- [Article 6: Lawfulness of processing](https://finoprivacy.com/gdpr/article-6.html): 1,595 decisions cite it
-- [Article 9: Processing of special categories of personal data](https://finoprivacy.com/gdpr/article-9.html): 362 decisions cite it
-- [Article 12: Transparent information, communication and modalities for the exercise of the rights of the data subject](https://finoprivacy.com/gdpr/article-12.html): 703 decisions cite it
-- [Article 13: Information to be provided where personal data are collected from the data subject](https://finoprivacy.com/gdpr/article-13.html): 793 decisions cite it
-- [Article 14: Information to be provided where personal data have not been obtained from the data subject](https://finoprivacy.com/gdpr/article-14.html): 209 decisions cite it
-- [Article 15: Right of access by the data subject](https://finoprivacy.com/gdpr/article-15.html): 472 decisions cite it
-- [Article 17: Right to erasure (‘right to be forgotten’)](https://finoprivacy.com/gdpr/article-17.html): 302 decisions cite it
-- [Article 24: Responsibility of the controller](https://finoprivacy.com/gdpr/article-24.html): 260 decisions cite it
-- [Article 25: Data protection by design and by default](https://finoprivacy.com/gdpr/article-25.html): 308 decisions cite it
+- [Article 4: Definitions](https://finoprivacy.com/gdpr/article-4.html): 198 decisions cite it
+- [Article 5: Principles relating to processing of personal data](https://finoprivacy.com/gdpr/article-5.html): 2,198 decisions cite it
+- [Article 6: Lawfulness of processing](https://finoprivacy.com/gdpr/article-6.html): 1,619 decisions cite it
+- [Article 9: Processing of special categories of personal data](https://finoprivacy.com/gdpr/article-9.html): 364 decisions cite it
+- [Article 12: Transparent information, communication and modalities for the exercise of the rights of the data subject](https://finoprivacy.com/gdpr/article-12.html): 728 decisions cite it
+- [Article 13: Information to be provided where personal data are collected from the data subject](https://finoprivacy.com/gdpr/article-13.html): 794 decisions cite it
+- [Article 14: Information to be provided where personal data have not been obtained from the data subject](https://finoprivacy.com/gdpr/article-14.html): 213 decisions cite it
+- [Article 15: Right of access by the data subject](https://finoprivacy.com/gdpr/article-15.html): 485 decisions cite it
+- [Article 17: Right to erasure (‘right to be forgotten’)](https://finoprivacy.com/gdpr/article-17.html): 310 decisions cite it
+- [Article 24: Responsibility of the controller](https://finoprivacy.com/gdpr/article-24.html): 266 decisions cite it
+- [Article 25: Data protection by design and by default](https://finoprivacy.com/gdpr/article-25.html): 310 decisions cite it
 - [Article 28: Processor](https://finoprivacy.com/gdpr/article-28.html): 196 decisions cite it
-- [Article 32: Security of processing](https://finoprivacy.com/gdpr/article-32.html): 886 decisions cite it
-- [Article 33: Notification of a personal data breach to the supervisory authority](https://finoprivacy.com/gdpr/article-33.html): 169 decisions cite it
-- [Article 58: Powers](https://finoprivacy.com/gdpr/article-58.html): 387 decisions cite it
+- [Article 32: Security of processing](https://finoprivacy.com/gdpr/article-32.html): 888 decisions cite it
+- [Article 33: Notification of a personal data breach to the supervisory authority](https://finoprivacy.com/gdpr/article-33.html): 170 decisions cite it
+- [Article 58: Powers](https://finoprivacy.com/gdpr/article-58.html): 390 decisions cite it
 
 ## The AI Act
 
