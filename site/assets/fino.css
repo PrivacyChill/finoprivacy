@@ -224,7 +224,7 @@ img.flag { display: inline-block; width: 1.15em; height: 1.15em; border-radius: 
 .after a { white-space: nowrap; }
 .fine .amt .cur { font-size: 0.5em; font-weight: 500; letter-spacing: 0.02em; margin-right: 0.25em; vertical-align: 0.12em; }
 .fine .conv { font-family: var(--display); font-variation-settings: "SOFT" 100; font-weight: 500; font-size: 1.35rem; line-height: 1.1; font-variant-numeric: tabular-nums; }
-.fine .pill { margin-top: 6px; }
+.fine .pill { margin-top: 6px; white-space: normal; max-width: 100%; line-height: 1.35; }
 .facts { margin: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 2px solid var(--ink); }
 .facts div { padding: 16px 16px 16px 0; border-bottom: 1px solid var(--line); min-width: 0; }
 .facts dt { font-family: var(--mono); font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-bottom: 4px; }
