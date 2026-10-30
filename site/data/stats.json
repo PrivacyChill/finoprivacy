@@ -1,17 +1,17 @@
 {
-  "generated_at": "2026-10-28 23:49:48",
+  "generated_at": "2026-10-30 01:21:22",
   "licence": "CC BY-NC-SA 4.0 — https://creativecommons.org/licenses/by-nc-sa/4.0/",
   "sources": [
     "enforcementtracker.com, provided by CMS (CC BY-NC-SA 4.0)",
     "GDPRhub, noyb (CC BY-NC-SA 4.0)"
   ],
   "stats": {
-    "cases": 5058,
+    "cases": 4984,
     "countries": 34,
-    "total_fines_eur": 8389464235,
+    "total_fines_eur": 7771845233,
     "latest_decision": "2026-10-16",
-    "last_run": "2026-10-28 23:49:48",
-    "total_fines_eur_converted": 101524630
+    "last_run": "2026-10-30 01:20:56",
+    "total_fines_eur_converted": 133793946
   },
   "last_fetch": "2026-10-27 08:00:11",
   "regulators": {
