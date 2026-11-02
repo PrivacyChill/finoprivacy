@@ -63,6 +63,29 @@ modeBtn.addEventListener('click', () => {
 let saved = null;
 try { saved = localStorage.getItem('mode'); } catch (e) {}
 setMode(saved === 'dark' ? 'dark' : 'light', false);
+/* Look switch: the Fino look or a quieter corporate look. The choice stays in this browser (localStorage 'fino-look'),
+   nothing is sent; the line in the head applies it before the page paints. A quick cross-fade, none with reduced motion. */
+(() => {
+  const b = document.getElementById('look-btn'), r = document.documentElement;
+  if (!b) return;
+  const t = b.querySelector('.look-txt');
+  const show = () => {
+    const on = r.dataset.look === 'corporate';
+    b.setAttribute('aria-pressed', String(on)); t.textContent = on ? 'Fino look' : 'Corporate';
+    b.title = on ? 'Switch back to the Fino look' : 'Switch to the corporate look';
+  };
+  const set = on => {
+    if (on) r.dataset.look = 'corporate'; else delete r.dataset.look;
+    try { if (on) localStorage.setItem('fino-look', 'corporate'); else localStorage.removeItem('fino-look'); } catch (e) {}
+    show();
+  };
+  show();
+  b.addEventListener('click', () => {
+    const on = r.dataset.look !== 'corporate';
+    if (!document.startViewTransition || matchMedia('(prefers-reduced-motion: reduce)').matches) set(on);
+    else document.startViewTransition(() => set(on));
+  });
+})();
 
 /* Moving between pages: a link to a decision carries its name and amount into the decision page, and back again */
 (() => {

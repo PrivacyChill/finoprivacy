@@ -46,6 +46,7 @@
   --official: #9DB8FF;
   --official-bg: #222C45;
   --neutral-bg: #3A2F29;
+  --hl-bg: #6B3A47;   /* the highlighter under light text in the dark look (pink in the light look) */
   color-scheme: dark;
 
   --display: "Fraunces", "Iowan Old Style", Georgia, serif;
@@ -53,6 +54,7 @@
   --mono: "IBM Plex Mono", ui-monospace, "Cascadia Mono", Consolas, monospace;
 }
 :root[data-mode="light"] {
+  --hl-bg: var(--pink);
   --bg: #F1EAE1; --surface: #FBF7F2; --ink: #211915; --muted: #6E6158; --line: #E0D4C6; --dot: #B9A794;
   --accent: #56662A; --accent-ink: #FFFFFF; --pink: #FFC4D3;
   --soon: #A3304F; --soon-bg: #FFE1E8; --live-bg: #E6E9CF; --desk: #E4DACD;
@@ -154,7 +156,7 @@ h1 .tag-person { display: inline-block; vertical-align: 0.4em; margin-left: 12px
   border-radius: 6px; padding: 5px 10px; box-shadow: inset 0 0 0 1.5px var(--latte-line); }
 .sec-h { font-family: var(--display); font-variation-settings: "SOFT" 100, "opsz" 72; font-weight: 560; font-size: 1.7rem; letter-spacing: -0.015em; line-height: 1.1; margin: 0 0 14px; text-wrap: balance; }
 .lede { margin: 0; font-size: 1.2rem; color: var(--muted); max-width: 36em; }
-.lede strong, .hl { color: var(--ink); font-weight: 700; background: linear-gradient(transparent 62%, var(--pink) 62%, var(--pink) 92%, transparent 92%); }
+.lede strong, .hl { color: var(--ink); font-weight: 700; background: linear-gradient(transparent 62%, var(--hl-bg) 62%, var(--hl-bg) 92%, transparent 92%); }
 .note { color: var(--muted); margin: 0; }
 .legend { font-family: var(--mono); font-size: 0.75rem; color: var(--muted); margin: 8px 0 0; }
 .btn { display: inline-flex; align-items: center; gap: 8px; text-decoration: none; font: inherit; font-weight: 700; padding: 11px 20px; border-radius: 999px; border: 2px solid var(--ink); background: transparent; color: var(--ink); cursor: pointer; transition: transform var(--fast) var(--ease), background var(--fast) var(--ease), scale var(--fast) var(--pop); }
@@ -167,6 +169,7 @@ h1 .tag-person { display: inline-block; vertical-align: 0.4em; margin-left: 12px
 .pill { justify-self: start; font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.06em; text-transform: uppercase; padding: 4px 9px; border-radius: 6px; white-space: nowrap; }
 .pill.bad { background: var(--soon-bg); color: var(--soon); }
 .pill.ok { background: var(--neutral-bg); color: var(--muted); }
+:root[data-mode="light"]:not([data-look]) .pill.ok { color: #635750; }   /* the muted brown on this beige is just under 4.5:1 */
 .card { background: var(--surface); border: 2px solid var(--ink); border-radius: 24px; padding: 22px; }
 
 /* ---------- Browse ---------- */
@@ -187,15 +190,25 @@ h1 .tag-person { display: inline-block; vertical-align: 0.4em; margin-left: 12px
 .chip { font: inherit; font-size: 0.88rem; padding: 5px 13px; border-radius: 999px; border: 1.5px solid var(--latte-line); background: var(--field); color: var(--latte-ink); cursor: pointer; }
 .chip:hover { border-color: var(--latte-ink); }
 .chip[aria-pressed="true"] { background: var(--go-deep); border-color: var(--go-deep); color: #FFFFFF; }
-.tally { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: 12px 24px; padding-block: 30px 12px; }
-.tally .big { font-family: var(--display); font-variation-settings: "SOFT" 100, "opsz" 72; font-size: 1.6rem; font-weight: 560; margin: 0; line-height: 1.15; }
-.tally .big b { color: var(--accent); font-weight: 650; }
-.tally .sub { margin: 4px 0 0; color: var(--muted); font-family: var(--mono); font-size: 0.85rem; font-variant-numeric: tabular-nums; }
-.tally .right { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
-.tally select { font: inherit; font-size: 0.92rem; color: var(--ink); background: var(--surface); border: 1.5px solid var(--line); border-radius: 999px; padding: 7px 12px; }
+/* The list (layout v2): the finder without the pink shadow, the selection as a facts row, the sort beside the column names */
+.finder.panel { box-shadow: none; margin-top: 4px; }
+.tally { padding-top: 34px; }
+.facts-row.tally-facts dd { font-family: var(--display); font-variation-settings: "SOFT" 100, "opsz" 72; font-weight: 560; font-size: 1.55rem; line-height: 1.15; font-variant-numeric: tabular-nums; }
+.facts-row.tally-facts dd b { color: var(--accent); font-weight: 650; }
+.facts-row.tally-facts dd small { font-family: var(--body); font-variation-settings: normal; font-weight: 400; font-size: 0.85rem; }
+.tally .legend { margin: 8px 0 0; }
+.r-tools { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 10px 20px; padding-block: 22px 14px; }
+.r-tools .active { margin: 0; }
+.r-tools .right { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; margin-left: auto; }
+.r-tools select { font: inherit; font-size: 0.92rem; color: var(--ink); background: var(--surface); border: 1.5px solid var(--line); border-radius: 999px; padding: 7px 12px; }
+.r-tools .legend { margin: 0; }
 .linkbtn { font: inherit; font-size: 0.92rem; background: none; border: 0; color: var(--muted); text-decoration: underline; cursor: pointer; padding: 4px; }
 .linkbtn:hover { color: var(--ink); }
-.results { list-style: none; margin: 0; padding: 0; border-top: 2px solid var(--ink); }
+/* the column names over the list, as in a table; on a phone each row says it all */
+.r-cols { display: grid; grid-template-columns: 112px minmax(0, 1fr) 130px 150px; gap: 18px; padding: 0 6px 8px; border-bottom: 2px solid var(--ink);
+  font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+.r-cols span:last-child { text-align: right; }
+.results { list-style: none; margin: 0; padding: 0; }
 .results li { border-bottom: 1px solid var(--line); }
 .results a { display: grid; grid-template-columns: 112px minmax(0, 1fr) 130px 150px; gap: 18px; align-items: start; padding: 16px 6px; text-decoration: none; border-radius: 14px; transition: background var(--fast) var(--ease); }
 .results a:hover { background: var(--surface); }
@@ -203,18 +216,103 @@ h1 .tag-person { display: inline-block; vertical-align: 0.4em; margin-left: 12px
 .results .who { min-width: 0; }
 .results .who b { display: block; font-size: 1.05rem; overflow-wrap: anywhere; }
 .results .who b.unnamed { font-style: italic; font-weight: 400; color: var(--muted); }
-.results .who span { display: block; color: var(--muted); font-size: 0.92rem; }
+.results .who > span { display: block; color: var(--muted); font-size: 0.92rem; }
 .results .who small { display: block; font-family: var(--mono); font-size: 0.75rem; color: var(--muted); margin-top: 4px; }
 .results .cty { color: var(--muted); font-size: 0.95rem; padding-top: 2px; }
 img.flag { display: inline-block; width: 1.15em; height: 1.15em; border-radius: 50%; vertical-align: -0.2em; margin-right: 0.45em; box-shadow: 0 0 0 1px var(--line); }
 .results .amt { text-align: right; font-family: var(--mono); font-weight: 500; font-variant-numeric: tabular-nums; padding-top: 2px; }
 .results .amt small { display: block; font-weight: 400; font-size: 0.8rem; color: var(--muted); }
 .results .amt.none { color: var(--muted); font-weight: 400; font-size: 0.85rem; }
+/* what happened next, as a label: square corners, it is not a button */
+.results .amt small.tag { display: inline-block; margin-top: 6px; padding: 2px 6px; border: 1px solid var(--line); border-radius: 4px; font-size: 0.68rem; letter-spacing: 0.06em; text-transform: uppercase; line-height: 1.35; }
 .more { display: flex; justify-content: center; padding-block: 26px 64px; }
 .empty-list { padding: 40px 0; display: grid; grid-template-columns: 92px minmax(0, 1fr); gap: 18px; align-items: center; max-width: 560px; }
 
+/* ---------- Layout v2 (rows 275 and 276, 2 Nov 2026): parts any page can use ----------
+   From the decision page pilot (research/decision-page-pilot/DESIGN.md): one large plain title, topics as chips,
+   a facts row like a project's credits, numbered sections with the label on the left, a chart before the words. */
+/* The shared parts (.pg-head, .topics, .facts-row, .sec-row, .rel-grid, .record) are in assets/find.css, which every
+   page loads, hand-written ones included. These are the parts that work with this page's own classes. */
+.sec-body .rules, .sec-body .sim { margin-top: 0; }
+/* The dot chart: every fine on a scale whose marks are ten or a hundred times apart, one dot each, this one pinned.
+   The dots are one shared drawing per country (assets/dots/), so a page carries only its own pin. */
+.dots-fig { margin: 22px 0 0; max-width: 620px; }
+.dots-fig figcaption { font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); padding-bottom: 6px; border-bottom: 1px solid var(--line); }
+.strip { display: block; width: 100%; height: auto; overflow: visible; }
+.strip text { font-family: var(--mono); font-size: 12px; fill: var(--muted); }
+.strip .tick { stroke: var(--line); stroke-width: 1; }
+.strip use { stroke: var(--muted); stroke-opacity: .5; fill: none; }
+.strip .me { fill: var(--pink); stroke: var(--ink); stroke-width: 2; }
+.strip .pin { stroke: var(--ink); stroke-width: 1; }
+/* the bell: the whole list pale, the part smaller than this fine shaded, a thin line on top */
+.strip .b-all { fill: var(--line); } .strip .b-in { fill: var(--pink); } .strip .b-top { fill: none; stroke: var(--ink); stroke-width: 1.5; stroke-linejoin: round; }
+[data-look="corporate"] .strip .b-in { fill: color-mix(in srgb, var(--brand) 32%, var(--bg)); }
+.strip .melbl { fill: var(--ink); font-weight: 500; }
+.size-big { font-family: var(--display); font-variation-settings: "SOFT" 100, "opsz" 72; font-weight: 500; font-size: 1.6rem; line-height: 1.22; margin: 0 0 6px; text-wrap: balance; }
+.size-big b { font-weight: 650; background: linear-gradient(transparent 58%, var(--hl-bg) 58%, var(--hl-bg) 92%, transparent 92%); }
+.size-big.none { font-size: 1.3rem; }
+.size-sub { font-size: 0.9rem; color: var(--muted); margin: 14px 0 0; max-width: 40em; }
+/* Related: one list alone spreads its items across the row */
+.rel-grid.n1 .sim { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: 28px; }
+.rel-grid .sec-h { font-size: 1.2rem; margin-bottom: 8px; }
+.record-actions .links { margin: 0; gap: 10px; }
+.record-actions #copied { align-self: center; }
+.sec-row .fine-print { font-size: 0.88rem; }
+.sub-h { font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); font-weight: 400; margin: 26px 0 8px; }
+/* "What a DPO could check": prompts drawn from what the regulator found, then the regulator's words */
+.dpo { padding: 20px 22px 16px; border: 2px solid var(--ink); border-radius: 24px; background: var(--surface); }
+.dpo-sub { font-family: var(--mono); font-size: 0.8rem; color: var(--muted); margin: 0 0 14px; }
+.dpo-list { margin: 0 0 16px; padding-left: 1.1em; }
+.dpo-list li { font-size: 1.05rem; line-height: 1.55; margin: 0 0 8px; }
+.dpo-from { font-family: var(--mono); font-size: 0.78rem; color: var(--official); font-weight: 500; margin: 0 0 8px; }
+.dpo-from span { display: block; margin-top: 2px; font-weight: 400; color: var(--muted); }
+.dpo-q { margin: 0 0 10px; padding: 12px 14px; border-radius: 14px; background: var(--official-bg); border-left: 4px solid var(--official); }
+.dpo-q blockquote { margin: 0; }
+.dpo-q blockquote p { margin: 0; font-family: var(--display); font-variation-settings: "SOFT" 50, "opsz" 24; font-size: 1rem; line-height: 1.5; color: var(--ink); }
+.dpo-q .orig { margin: 8px 0 0; font-size: 0.84rem; line-height: 1.45; color: var(--muted); }
+.dpo-q .orig span { font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.06em; text-transform: uppercase; margin-right: 6px; }
+.dpo-q .orig q { font-style: italic; quotes: "\201C" "\201D"; }
+.dpo-status { font-size: 0.9rem; margin: 12px 0 0; }
+.dpo-status b { font-family: var(--mono); font-size: 0.78rem; font-weight: 500; color: var(--muted); margin-right: 6px; }
+@media (max-width: 760px) {
+  .size-big { font-size: 1.3rem; }
+  .strip text { font-size: 17px; }
+  .rel-grid.n1 .sim { grid-template-columns: minmax(0, 1fr); }
+  .dpo { padding: 16px 16px 12px; border-radius: 20px; }
+}
+
 /* ---------- Decision ---------- */
-.head { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 340px); gap: 32px 48px; align-items: end; padding-block: 22px 36px; }
+/* Head: the name large with its topics under it; the fine card on the right at the same height (under the name on a phone) */
+.head { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 24px 56px; align-items: start; padding-block: 26px 30px; }
+.head h1 { font-size: clamp(2.3rem, 5.6vw, 4.6rem); line-height: 0.98; letter-spacing: -0.03em; margin: 0 0 18px; max-width: 14em; }
+.head .legend { margin: -4px 0 14px; }
+.head .lede { margin: 0 0 14px; font-size: 1.1rem; }
+.head .fine { min-width: 270px; max-width: 360px; margin: 6px 7px 7px 0; }
+.summary-row .summary { font-size: 1.28rem; line-height: 1.58; max-width: none; }
+.summary-row .credit { margin-top: 16px; }
+@media (max-width: 760px) {
+  .head { grid-template-columns: minmax(0, 1fr); gap: 20px; padding-block: 18px 24px; }
+  .head .fine { min-width: 0; max-width: none; }
+  .summary-row .summary { font-size: 1.1rem; }
+}
+/* the corporate look (tokens in assets/find.css): plainer type, no pink shadow, square corners */
+[data-look="corporate"] .head h1 { font-size: clamp(2rem, 4.6vw, 3.6rem); line-height: 1.04; letter-spacing: -0.035em; }
+[data-look="corporate"] .sec-lbl h2, [data-look="corporate"] .fine .amt, [data-look="corporate"] .fine .conv, [data-look="corporate"] .dpo-q blockquote p { font-variation-settings: normal; font-weight: 700; letter-spacing: -0.02em; }
+[data-look="corporate"] .dpo-q blockquote p { font-weight: 400; letter-spacing: 0; }
+[data-look="corporate"] .size-big { font-variation-settings: normal; font-weight: 400; letter-spacing: -0.01em; }
+[data-look="corporate"] .size-big b { background: none; color: var(--accent); font-weight: 700; }
+[data-look="corporate"] .fine { box-shadow: none; border: 1px solid var(--line); border-radius: 4px; }
+[data-look="corporate"] .dpo { border-width: 1px; border-color: var(--line); border-radius: 4px; }
+[data-look="corporate"] .dpo-q { border-radius: 2px; border-left-width: 3px; }
+[data-look="corporate"] .strip .me { fill: var(--accent); stroke: var(--bg); stroke-width: 2; }
+[data-look="corporate"] .facts-row.tally-facts dd, [data-look="corporate"] .lawpage .atitle { font-variation-settings: normal; font-weight: 700; letter-spacing: -0.02em; }
+[data-look="corporate"] .lawpage .atitle { font-weight: 400; letter-spacing: -0.01em; }
+[data-look="corporate"] .results a, [data-look="corporate"] .law-toc a, [data-look="corporate"] .preamble > summary, [data-look="corporate"] .sim a,
+[data-look="corporate"] .rules a.in, [data-look="corporate"] .goto input { border-radius: 2px; }
+[data-look="corporate"] .results .amt small.tag, [data-look="corporate"] .law-toc .chg, [data-look="corporate"] .topics li.chg-t { border-radius: 2px; }
+[data-look="corporate"] .desk { border-radius: 4px; }
+[data-look="corporate"] .r-cols, [data-look="corporate"] .law-toc, [data-look="corporate"] .rules, [data-look="corporate"] .sim, [data-look="corporate"] .prevnext { border-top-width: 1px; }
+[data-look="corporate"] .r-cols { border-bottom-width: 1px; }
 .fine { background: var(--surface); border: 2px solid var(--ink); border-radius: 26px; box-shadow: 7px 7px 0 var(--pink); padding: 22px 24px 20px; display: grid; gap: 6px; }
 .fine .lbl { font-family: var(--mono); font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
 .fine .amt { font-family: var(--display); font-variation-settings: "SOFT" 100, "opsz" 96; font-weight: 600; font-size: clamp(2rem, 4.4vw, 2.9rem); line-height: 1.05; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; overflow-wrap: anywhere; }
@@ -225,14 +323,7 @@ img.flag { display: inline-block; width: 1.15em; height: 1.15em; border-radius: 
 .fine .amt .cur { font-size: 0.5em; font-weight: 500; letter-spacing: 0.02em; margin-right: 0.25em; vertical-align: 0.12em; }
 .fine .conv { font-family: var(--display); font-variation-settings: "SOFT" 100; font-weight: 500; font-size: 1.35rem; line-height: 1.1; font-variant-numeric: tabular-nums; }
 .fine .pill { margin-top: 6px; white-space: normal; max-width: 100%; line-height: 1.35; }
-.facts { margin: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 2px solid var(--ink); }
-.facts div { padding: 16px 16px 16px 0; border-bottom: 1px solid var(--line); min-width: 0; }
-.facts dt { font-family: var(--mono); font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-bottom: 4px; }
-.facts dd { margin: 0; overflow-wrap: anywhere; }
-.facts dd small { display: block; color: var(--muted); font-size: 0.85rem; }
-.tools { display: flex; flex-wrap: wrap; gap: 10px; padding-top: 22px; }
-.body { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.75fr); gap: 56px; padding-block: 40px 24px; align-items: start; }
-.body section + section, aside section + section { margin-top: 44px; }
+aside section + section { margin-top: 44px; }
 .summary { font-size: 1.15rem; line-height: 1.6; margin: 0; max-width: 36em; }
 .credit { font-family: var(--mono); font-size: 0.8rem; color: var(--muted); margin: 14px 0 0; }
 .empty { display: grid; grid-template-columns: 92px minmax(0, 1fr); gap: 18px; align-items: center; }
@@ -241,35 +332,25 @@ img.flag { display: inline-block; width: 1.15em; height: 1.15em; border-radius: 
 .mini { width: 92px; height: auto; overflow: visible; }
 .rules { list-style: none; margin: 0; padding: 0; border-top: 2px solid var(--ink); }
 .rules li { border-bottom: 1px solid var(--line); }
-.rules a.in, .rules .r { display: grid; grid-template-columns: 76px minmax(0, 1fr) auto; gap: 14px; align-items: baseline; padding: 14px 4px; text-decoration: none; border-radius: 12px; transition: background var(--fast) var(--ease); }
+.rules a.in, .rules .r { display: grid; grid-template-columns: 84px minmax(0, 1fr) auto; gap: 14px; align-items: baseline; padding: 14px 4px; text-decoration: none; border-radius: 12px; transition: background var(--fast) var(--ease); }
 .rules a.in:hover { background: var(--surface); }
 .rules a.in:hover .no { color: var(--accent); }
-.rules .no { font-family: var(--mono); font-weight: 500; }
+.rules .no { font-family: var(--mono); font-weight: 500; white-space: nowrap; }   /* "Art. 4" on one line, also on a phone */
+@media (max-width: 760px) { .rules a.in, .rules .r { grid-template-columns: 70px minmax(0, 1fr) auto; gap: 10px; } .rules .no { font-size: 0.86rem; } }
 .rules .t { min-width: 0; }
 .rules .t small { display: block; font-family: var(--mono); font-size: 0.78rem; color: var(--muted); margin-top: 2px; }
 .rules .go { font-family: var(--mono); font-size: 0.8rem; color: var(--muted); white-space: nowrap; }
 .chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 18px 0 0; padding: 0; list-style: none; }
 .chips li { font-size: 0.85rem; padding: 3px 9px; border-radius: 6px; background: var(--neutral-bg); color: var(--muted); }
-.ctx .big { font-family: var(--display); font-variation-settings: "SOFT" 100, "opsz" 72; font-weight: 560; font-size: 1.35rem; line-height: 1.2; margin: 0 0 4px; text-wrap: balance; }
-.ctx .big b { color: var(--accent); font-weight: 650; }
-.ctx .sub { color: var(--muted); font-size: 0.92rem; margin: 0 0 12px; }
-.strip { display: block; width: 100%; height: auto; }
-.strip text { font-family: var(--mono); font-size: 10px; fill: var(--muted); }
-.strip .tick { stroke: var(--line); stroke-width: 1; }
-.strip .d { fill: var(--dot); }
-.strip .me { fill: var(--pink); stroke: var(--ink); stroke-width: 2; }
-.strip .pin { stroke: var(--ink); stroke-width: 1; }
-.strip .melbl { fill: var(--ink); font-weight: 500; }
 .sim { list-style: none; margin: 0; padding: 0; border-top: 2px solid var(--ink); }
 .sim li { border-bottom: 1px solid var(--line); }
 .sim a { display: block; padding: 12px 4px; text-decoration: none; border-radius: 12px; }
 .sim a:hover { background: var(--surface); }
 .sim b { display: block; overflow-wrap: anywhere; }
-.sim span { display: block; font-family: var(--mono); font-size: 0.8rem; color: var(--muted); font-variant-numeric: tabular-nums; }
-.sources { padding-block: 24px 64px; }
+.sim a > span { display: block; font-family: var(--mono); font-size: 0.8rem; color: var(--muted); font-variant-numeric: tabular-nums; }
 .orgs { list-style: none; margin: 0 0 14px; padding: 0; border-top: 2px solid var(--ink); }
 .orgs li { border-bottom: 1px solid var(--line); padding: 10px 4px; display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 2px 12px; }
-.orgs li.me b::after { content: "this decision"; margin-left: 8px; font-family: var(--mono); font-size: 0.68rem; letter-spacing: .06em; text-transform: uppercase;
+.orgs li.me b::after { content: "this company"; margin-left: 8px; font-family: var(--mono); font-size: 0.68rem; letter-spacing: .06em; text-transform: uppercase;
   padding: 2px 6px; border-radius: 6px; background: var(--neutral-bg); color: var(--muted); font-weight: 400; vertical-align: 2px; }
 .orgs b { overflow-wrap: anywhere; }
 .orgs span { grid-column: 1; font-family: var(--mono); font-size: 0.78rem; color: var(--muted); }
@@ -311,15 +392,25 @@ img.flag { display: inline-block; width: 1.15em; height: 1.15em; border-radius: 
 .prevnext a { text-decoration: none; max-width: 48%; }
 .prevnext a span { display: block; font-family: var(--mono); font-size: 0.75rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
 .prevnext a:hover b { text-decoration: underline; }
-.toc { padding-block: 10px 64px; display: grid; gap: 34px; }
-.toc h2 { font-family: var(--display); font-variation-settings: "SOFT" 100, "opsz" 72; font-weight: 560; font-size: 1.45rem; margin: 0 0 10px; }
-.toc h2 span { display: block; font-family: var(--mono); font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); font-weight: 400; }
-.toc ol { list-style: none; margin: 0; padding: 0; border-top: 2px solid var(--ink); columns: 2; column-gap: 32px; }
-.toc li { break-inside: avoid; border-bottom: 1px solid var(--line); }
-.toc ol a { display: grid; grid-template-columns: 74px minmax(0, 1fr) auto; gap: 10px; padding: 9px 4px; text-decoration: none; border-radius: 10px; align-items: baseline; }
-.toc ol a:hover { background: var(--surface); }
-.toc .n { font-family: var(--mono); font-weight: 500; }
-.toc .c { font-family: var(--mono); font-size: 0.75rem; color: var(--muted); white-space: nowrap; }
+/* Law pages (layout v2): the article large with its name under it, its facts, then numbered sections
+   (the text, the fines, related, about this text). The contents of a law: one numbered row per chapter. */
+.lawpage .titlerow { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 18px; }
+.lawpage .titlerow h1 { margin: 0; }
+.lawpage .atitle { font-family: var(--display); font-variation-settings: "SOFT" 100, "opsz" 72; font-weight: 420; font-size: clamp(1.35rem, 2.8vw, 2rem); line-height: 1.2; margin: 0; max-width: 30em; text-wrap: balance; }
+.lawpage .atitle button.def { text-align: inherit; }   /* a defined word in the title (assets/find.js) keeps the title's alignment */
+.topics li.chg-t { background: var(--soon-bg); color: var(--soon); border-color: var(--soon-bg); }
+.lawpage .sec-body .text { max-width: none; }
+.official-note p { margin: 0 0 10px; font-size: 0.95rem; color: var(--muted); max-width: 46em; }
+.official-note p:last-child { margin-bottom: 0; }
+.official-note .eurlex { margin-top: 6px; }
+.lawpage .stat-lead { margin-bottom: 4px; }
+.law-toc { list-style: none; margin: 0; padding: 0; border-top: 2px solid var(--ink); }
+.law-toc li { border-bottom: 1px solid var(--line); }
+.law-toc a { display: grid; grid-template-columns: 7.2em minmax(0, 1fr) auto; gap: 12px; padding: 10px 4px; text-decoration: none; border-radius: 10px; align-items: baseline; }
+.law-toc a:hover { background: var(--surface); }
+.law-toc .n { font-family: var(--mono); font-weight: 500; white-space: nowrap; }
+.law-toc .c { font-family: var(--mono); font-size: 0.75rem; color: var(--muted); white-space: nowrap; }
+.sec-n.wordy { text-transform: uppercase; letter-spacing: 0.08em; }
 .pre-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: 12px 20px; margin-bottom: 10px; }
 .pre-head h2 { margin: 0; }
 .goto { display: flex; align-items: center; gap: 8px; padding: 8px 8px 8px 16px; border-radius: 999px; box-shadow: 4px 4px 0 var(--pink); }
@@ -354,7 +445,7 @@ img.flag { display: inline-block; width: 1.15em; height: 1.15em; border-radius: 
 .pre-end { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px 16px; margin-top: 14px; }
 .pre-end .legend { margin: 0; }
 /* AI Act: the "Changed 2026" label, headings inside annexes, the one annex table, 10 to the power 25 */
-.toc .chg { font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.06em; text-transform: uppercase; padding: 2px 6px; border-radius: 6px; background: var(--soon-bg); color: var(--soon); }
+.law-toc .chg { font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.06em; text-transform: uppercase; padding: 2px 6px; border-radius: 6px; background: var(--soon-bg); color: var(--soon); }
 .card.changed { box-shadow: 4px 4px 0 var(--pink); }
 .text .sh { font-weight: 700; margin: 22px 0 10px; }
 .text sup { font-size: 0.7em; line-height: 0; }
@@ -371,6 +462,7 @@ img.flag { display: inline-block; width: 1.15em; height: 1.15em; border-radius: 
 .text td:first-child { font-family: var(--mono); font-size: 0.85rem; white-space: nowrap; }
 
 /* ---------- Export sheet ---------- */
+.x-bar.panel { box-shadow: none; }
 .x-bar { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 14px; padding: 16px 20px; margin-block: 24px 14px; }
 .x-bar .btn.primary { background: var(--go-deep); border-color: var(--go-deep); color: #FFFFFF; }
 .x-bar fieldset { border: 0; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px 16px; align-items: center; }
@@ -424,13 +516,9 @@ img.flag { display: inline-block; width: 1.15em; height: 1.15em; border-radius: 
 .sheet .url { font-family: var(--mono); font-size: 10.5px; overflow-wrap: anywhere; }
 .sheet .s-foot { margin-top: 14px; border-top: 2px solid #211915; padding-top: 7px; font-size: 10px; color: #6E6158; display: grid; gap: 3px; }
 .x-note { font-family: var(--mono); font-size: 0.8rem; color: var(--muted); margin: 0; }
-.rules-grid { list-style: none; margin: 0 0 64px; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
-.rules-grid li { border: 2px solid var(--ink); border-radius: 22px; padding: 20px; display: grid; gap: 12px; align-content: start; }
-.rules-grid h2 { font-family: var(--display); font-variation-settings: "SOFT" 100, "opsz" 72; font-weight: 560; font-size: 1.3rem; margin: 0; }
-.rules-grid p { margin: 0; color: var(--muted); }
-.rules-grid .demo { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+.rule-body p { margin: 0 0 14px; }
+.rule-body .demo { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
 .swatch { width: 28px; height: 28px; border-radius: 50%; border: 2px solid var(--ink); flex: none; }
-@media (max-width: 760px) { .rules-grid { grid-template-columns: minmax(0, 1fr); } }
 
 /* Footer: a latte band (espresso in the light look): who Fino is, where to go, how to write */
 footer { background: var(--ink); color: var(--bg); }
@@ -463,20 +551,24 @@ footer .foot-base { border-top: 1.5px solid currentColor; padding-top: 16px; dis
   .results .amt { grid-column: 2; grid-row: 1 / span 2; }
   .results .who { grid-column: 1; }
   .results .cty { grid-column: 1; font-size: 0.85rem; padding: 0; }
+  .r-cols { display: none; }
+  .results { border-top: 2px solid var(--ink); }
 }
 @media (max-width: 860px) {
   .top nav { order: 3; width: 100%; margin-left: -12px; }
   .laws-menu { left: 0; right: auto; }
-  .head { grid-template-columns: minmax(0, 1fr); align-items: start; }
-  .facts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .body, .law { grid-template-columns: minmax(0, 1fr); gap: 44px; }
+  .law { grid-template-columns: minmax(0, 1fr); gap: 44px; }
   .rules a.in, .rules .r { grid-template-columns: 56px minmax(0, 1fr); }
   .rules .go { display: none; }
-  .toc ol { columns: 1; }
+}
+@media (max-width: 760px) {
+  .tally { padding-top: 26px; }
+  .facts-row.tally-facts dd { font-size: 1.2rem; }
+  .law-toc a { grid-template-columns: 6.6em minmax(0, 1fr); gap: 2px 10px; }
+  .law-toc .c { grid-column: 2; }
 }
 @media (max-width: 480px) {
   .filters { grid-template-columns: minmax(0, 1fr); }
-  .facts { grid-template-columns: minmax(0, 1fr); }
   .empty, .empty-list { grid-template-columns: 64px minmax(0, 1fr); }
   .mini { width: 64px; }
 }
@@ -486,7 +578,7 @@ footer .foot-base { border-top: 1.5px solid currentColor; padding-top: 16px; dis
 @media print {
   @page { size: A4; margin: 0; }
   body { background: #FFFFFF; }
-  body > *:not(main), .x-bar, .x-note, .crumbs { display: none !important; }
+  body > *:not(main), .x-bar, .x-note, .crumbs, .x-head { display: none !important; }
   main .wrap { max-width: none !important; padding: 0 !important; margin: 0 !important; }
   .desk { background: none; padding: 0; margin: 0; overflow: visible; border-radius: 0; }
   .pages { display: block; zoom: 1 !important; }
@@ -593,9 +685,9 @@ footer .foot-base { border-top: 1.5px solid currentColor; padding-top: 16px; dis
 @keyframes fade-in { from { opacity: 0; } }
 /* When a filter or the search changes the list (staging): the rows fade in quickly and the count flashes once */
 #results.fresh { animation: fade-in var(--fast) var(--ease); }
-#tally .big b.flash { border-radius: 6px; animation: count-flash var(--slow) var(--ease); }
+#tally b.flash { border-radius: 6px; animation: count-flash var(--slow) var(--ease); }
 @keyframes count-flash { from { background: var(--pink); color: #15141F; box-shadow: 0 0 0 4px var(--pink); } }
-@media (prefers-reduced-motion: reduce) { #results.fresh, #tally .big b.flash { animation: none; } }
+@media (prefers-reduced-motion: reduce) { #results.fresh, #tally b.flash { animation: none; } }
 @media (prefers-reduced-motion: reduce) { .fsheet, .fsheet.open { transition: none; } .fback:not([hidden]) { animation: none; } }
 .top nav .laws-menu a.all-laws { border-top: 1px solid var(--latte-line); border-radius: 0 0 14px 14px; margin-top: 4px; }
 

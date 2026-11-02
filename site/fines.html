@@ -6,11 +6,11 @@
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>GDPR fines and decisions · Fino</title>
-<meta name="description" content="Search 4,967 GDPR fines and decisions from 33 countries, read the GDPR with each article linked to the fines that cite it, and save any decision as a PDF. Free, no sign-up.">
+<meta name="description" content="Search 4,992 GDPR fines and decisions from 33 countries, read the GDPR with each article linked to the fines that cite it, and save any decision as a PDF. Free, no sign-up.">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="canonical" href="https://finoprivacy.com/fines.html">
 <link rel="preload" href="fonts/fraunces-300-800-latin.woff2" as="font" type="font/woff2" crossorigin>
-<script>/* light unless the visitor chose dark */ (() => { let m = null; try { m = localStorage.getItem('mode'); } catch (e) {} if (m !== 'dark') document.documentElement.dataset.mode = 'light'; })();</script>
+<script>/* light unless the visitor chose dark; the corporate look if the visitor chose it */ (() => { let m = null, l = null; try { m = localStorage.getItem('mode'); l = localStorage.getItem('fino-look'); } catch (e) {} if (m !== 'dark') document.documentElement.dataset.mode = 'light'; if (l === 'corporate') document.documentElement.dataset.look = 'corporate'; })();</script>
 <style>
 /* Fonts are served from this site, so no visitor data goes to a font provider. All under the SIL Open Font License. */
 @font-face { font-family: "Fraunces"; font-style: normal; font-weight: 300 800; font-display: swap; src: url("fonts/fraunces-300-800-latin.woff2") format("woff2"); }
@@ -58,6 +58,7 @@
   --official: #9DB8FF;
   --official-bg: #222C45;
   --neutral-bg: #3A2F29;
+  --hl-bg: #6B3A47;   /* the highlighter under light text in the dark look (pink in the light look) */
   color-scheme: dark;
 
   --display: "Fraunces", "Iowan Old Style", Georgia, serif;
@@ -65,6 +66,7 @@
   --mono: "IBM Plex Mono", ui-monospace, "Cascadia Mono", Consolas, monospace;
 }
 :root[data-mode="light"] {
+  --hl-bg: var(--pink);
   --bg: #F1EAE1; --surface: #FBF7F2; --ink: #211915; --muted: #6E6158; --line: #E0D4C6; --dot: #B9A794;
   --accent: #56662A; --accent-ink: #FFFFFF; --pink: #FFC4D3;
   --soon: #A3304F; --soon-bg: #FFE1E8; --live-bg: #E6E9CF; --desk: #E4DACD;
@@ -166,7 +168,7 @@ h1 .tag-person { display: inline-block; vertical-align: 0.4em; margin-left: 12px
   border-radius: 6px; padding: 5px 10px; box-shadow: inset 0 0 0 1.5px var(--latte-line); }
 .sec-h { font-family: var(--display); font-variation-settings: "SOFT" 100, "opsz" 72; font-weight: 560; font-size: 1.7rem; letter-spacing: -0.015em; line-height: 1.1; margin: 0 0 14px; text-wrap: balance; }
 .lede { margin: 0; font-size: 1.2rem; color: var(--muted); max-width: 36em; }
-.lede strong, .hl { color: var(--ink); font-weight: 700; background: linear-gradient(transparent 62%, var(--pink) 62%, var(--pink) 92%, transparent 92%); }
+.lede strong, .hl { color: var(--ink); font-weight: 700; background: linear-gradient(transparent 62%, var(--hl-bg) 62%, var(--hl-bg) 92%, transparent 92%); }
 .note { color: var(--muted); margin: 0; }
 .legend { font-family: var(--mono); font-size: 0.75rem; color: var(--muted); margin: 8px 0 0; }
 .btn { display: inline-flex; align-items: center; gap: 8px; text-decoration: none; font: inherit; font-weight: 700; padding: 11px 20px; border-radius: 999px; border: 2px solid var(--ink); background: transparent; color: var(--ink); cursor: pointer; transition: transform var(--fast) var(--ease), background var(--fast) var(--ease), scale var(--fast) var(--pop); }
@@ -179,6 +181,7 @@ h1 .tag-person { display: inline-block; vertical-align: 0.4em; margin-left: 12px
 .pill { justify-self: start; font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.06em; text-transform: uppercase; padding: 4px 9px; border-radius: 6px; white-space: nowrap; }
 .pill.bad { background: var(--soon-bg); color: var(--soon); }
 .pill.ok { background: var(--neutral-bg); color: var(--muted); }
+:root[data-mode="light"]:not([data-look]) .pill.ok { color: #635750; }   /* the muted brown on this beige is just under 4.5:1 */
 .card { background: var(--surface); border: 2px solid var(--ink); border-radius: 24px; padding: 22px; }
 
 /* ---------- Browse ---------- */
@@ -199,15 +202,25 @@ h1 .tag-person { display: inline-block; vertical-align: 0.4em; margin-left: 12px
 .chip { font: inherit; font-size: 0.88rem; padding: 5px 13px; border-radius: 999px; border: 1.5px solid var(--latte-line); background: var(--field); color: var(--latte-ink); cursor: pointer; }
 .chip:hover { border-color: var(--latte-ink); }
 .chip[aria-pressed="true"] { background: var(--go-deep); border-color: var(--go-deep); color: #FFFFFF; }
-.tally { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: 12px 24px; padding-block: 30px 12px; }
-.tally .big { font-family: var(--display); font-variation-settings: "SOFT" 100, "opsz" 72; font-size: 1.6rem; font-weight: 560; margin: 0; line-height: 1.15; }
-.tally .big b { color: var(--accent); font-weight: 650; }
-.tally .sub { margin: 4px 0 0; color: var(--muted); font-family: var(--mono); font-size: 0.85rem; font-variant-numeric: tabular-nums; }
-.tally .right { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
-.tally select { font: inherit; font-size: 0.92rem; color: var(--ink); background: var(--surface); border: 1.5px solid var(--line); border-radius: 999px; padding: 7px 12px; }
+/* The list (layout v2): the finder without the pink shadow, the selection as a facts row, the sort beside the column names */
+.finder.panel { box-shadow: none; margin-top: 4px; }
+.tally { padding-top: 34px; }
+.facts-row.tally-facts dd { font-family: var(--display); font-variation-settings: "SOFT" 100, "opsz" 72; font-weight: 560; font-size: 1.55rem; line-height: 1.15; font-variant-numeric: tabular-nums; }
+.facts-row.tally-facts dd b { color: var(--accent); font-weight: 650; }
+.facts-row.tally-facts dd small { font-family: var(--body); font-variation-settings: normal; font-weight: 400; font-size: 0.85rem; }
+.tally .legend { margin: 8px 0 0; }
+.r-tools { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 10px 20px; padding-block: 22px 14px; }
+.r-tools .active { margin: 0; }
+.r-tools .right { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; margin-left: auto; }
+.r-tools select { font: inherit; font-size: 0.92rem; color: var(--ink); background: var(--surface); border: 1.5px solid var(--line); border-radius: 999px; padding: 7px 12px; }
+.r-tools .legend { margin: 0; }
 .linkbtn { font: inherit; font-size: 0.92rem; background: none; border: 0; color: var(--muted); text-decoration: underline; cursor: pointer; padding: 4px; }
 .linkbtn:hover { color: var(--ink); }
-.results { list-style: none; margin: 0; padding: 0; border-top: 2px solid var(--ink); }
+/* the column names over the list, as in a table; on a phone each row says it all */
+.r-cols { display: grid; grid-template-columns: 112px minmax(0, 1fr) 130px 150px; gap: 18px; padding: 0 6px 8px; border-bottom: 2px solid var(--ink);
+  font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+.r-cols span:last-child { text-align: right; }
+.results { list-style: none; margin: 0; padding: 0; }
 .results li { border-bottom: 1px solid var(--line); }
 .results a { display: grid; grid-template-columns: 112px minmax(0, 1fr) 130px 150px; gap: 18px; align-items: start; padding: 16px 6px; text-decoration: none; border-radius: 14px; transition: background var(--fast) var(--ease); }
 .results a:hover { background: var(--surface); }
@@ -215,18 +228,103 @@ h1 .tag-person { display: inline-block; vertical-align: 0.4em; margin-left: 12px
 .results .who { min-width: 0; }
 .results .who b { display: block; font-size: 1.05rem; overflow-wrap: anywhere; }
 .results .who b.unnamed { font-style: italic; font-weight: 400; color: var(--muted); }
-.results .who span { display: block; color: var(--muted); font-size: 0.92rem; }
+.results .who > span { display: block; color: var(--muted); font-size: 0.92rem; }
 .results .who small { display: block; font-family: var(--mono); font-size: 0.75rem; color: var(--muted); margin-top: 4px; }
 .results .cty { color: var(--muted); font-size: 0.95rem; padding-top: 2px; }
 img.flag { display: inline-block; width: 1.15em; height: 1.15em; border-radius: 50%; vertical-align: -0.2em; margin-right: 0.45em; box-shadow: 0 0 0 1px var(--line); }
 .results .amt { text-align: right; font-family: var(--mono); font-weight: 500; font-variant-numeric: tabular-nums; padding-top: 2px; }
 .results .amt small { display: block; font-weight: 400; font-size: 0.8rem; color: var(--muted); }
 .results .amt.none { color: var(--muted); font-weight: 400; font-size: 0.85rem; }
+/* what happened next, as a label: square corners, it is not a button */
+.results .amt small.tag { display: inline-block; margin-top: 6px; padding: 2px 6px; border: 1px solid var(--line); border-radius: 4px; font-size: 0.68rem; letter-spacing: 0.06em; text-transform: uppercase; line-height: 1.35; }
 .more { display: flex; justify-content: center; padding-block: 26px 64px; }
 .empty-list { padding: 40px 0; display: grid; grid-template-columns: 92px minmax(0, 1fr); gap: 18px; align-items: center; max-width: 560px; }
 
+/* ---------- Layout v2 (rows 275 and 276, 2 Nov 2026): parts any page can use ----------
+   From the decision page pilot (research/decision-page-pilot/DESIGN.md): one large plain title, topics as chips,
+   a facts row like a project's credits, numbered sections with the label on the left, a chart before the words. */
+/* The shared parts (.pg-head, .topics, .facts-row, .sec-row, .rel-grid, .record) are in assets/find.css, which every
+   page loads, hand-written ones included. These are the parts that work with this page's own classes. */
+.sec-body .rules, .sec-body .sim { margin-top: 0; }
+/* The dot chart: every fine on a scale whose marks are ten or a hundred times apart, one dot each, this one pinned.
+   The dots are one shared drawing per country (assets/dots/), so a page carries only its own pin. */
+.dots-fig { margin: 22px 0 0; max-width: 620px; }
+.dots-fig figcaption { font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); padding-bottom: 6px; border-bottom: 1px solid var(--line); }
+.strip { display: block; width: 100%; height: auto; overflow: visible; }
+.strip text { font-family: var(--mono); font-size: 12px; fill: var(--muted); }
+.strip .tick { stroke: var(--line); stroke-width: 1; }
+.strip use { stroke: var(--muted); stroke-opacity: .5; fill: none; }
+.strip .me { fill: var(--pink); stroke: var(--ink); stroke-width: 2; }
+.strip .pin { stroke: var(--ink); stroke-width: 1; }
+/* the bell: the whole list pale, the part smaller than this fine shaded, a thin line on top */
+.strip .b-all { fill: var(--line); } .strip .b-in { fill: var(--pink); } .strip .b-top { fill: none; stroke: var(--ink); stroke-width: 1.5; stroke-linejoin: round; }
+[data-look="corporate"] .strip .b-in { fill: color-mix(in srgb, var(--brand) 32%, var(--bg)); }
+.strip .melbl { fill: var(--ink); font-weight: 500; }
+.size-big { font-family: var(--display); font-variation-settings: "SOFT" 100, "opsz" 72; font-weight: 500; font-size: 1.6rem; line-height: 1.22; margin: 0 0 6px; text-wrap: balance; }
+.size-big b { font-weight: 650; background: linear-gradient(transparent 58%, var(--hl-bg) 58%, var(--hl-bg) 92%, transparent 92%); }
+.size-big.none { font-size: 1.3rem; }
+.size-sub { font-size: 0.9rem; color: var(--muted); margin: 14px 0 0; max-width: 40em; }
+/* Related: one list alone spreads its items across the row */
+.rel-grid.n1 .sim { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: 28px; }
+.rel-grid .sec-h { font-size: 1.2rem; margin-bottom: 8px; }
+.record-actions .links { margin: 0; gap: 10px; }
+.record-actions #copied { align-self: center; }
+.sec-row .fine-print { font-size: 0.88rem; }
+.sub-h { font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); font-weight: 400; margin: 26px 0 8px; }
+/* "What a DPO could check": prompts drawn from what the regulator found, then the regulator's words */
+.dpo { padding: 20px 22px 16px; border: 2px solid var(--ink); border-radius: 24px; background: var(--surface); }
+.dpo-sub { font-family: var(--mono); font-size: 0.8rem; color: var(--muted); margin: 0 0 14px; }
+.dpo-list { margin: 0 0 16px; padding-left: 1.1em; }
+.dpo-list li { font-size: 1.05rem; line-height: 1.55; margin: 0 0 8px; }
+.dpo-from { font-family: var(--mono); font-size: 0.78rem; color: var(--official); font-weight: 500; margin: 0 0 8px; }
+.dpo-from span { display: block; margin-top: 2px; font-weight: 400; color: var(--muted); }
+.dpo-q { margin: 0 0 10px; padding: 12px 14px; border-radius: 14px; background: var(--official-bg); border-left: 4px solid var(--official); }
+.dpo-q blockquote { margin: 0; }
+.dpo-q blockquote p { margin: 0; font-family: var(--display); font-variation-settings: "SOFT" 50, "opsz" 24; font-size: 1rem; line-height: 1.5; color: var(--ink); }
+.dpo-q .orig { margin: 8px 0 0; font-size: 0.84rem; line-height: 1.45; color: var(--muted); }
+.dpo-q .orig span { font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.06em; text-transform: uppercase; margin-right: 6px; }
+.dpo-q .orig q { font-style: italic; quotes: "\201C" "\201D"; }
+.dpo-status { font-size: 0.9rem; margin: 12px 0 0; }
+.dpo-status b { font-family: var(--mono); font-size: 0.78rem; font-weight: 500; color: var(--muted); margin-right: 6px; }
+@media (max-width: 760px) {
+  .size-big { font-size: 1.3rem; }
+  .strip text { font-size: 17px; }
+  .rel-grid.n1 .sim { grid-template-columns: minmax(0, 1fr); }
+  .dpo { padding: 16px 16px 12px; border-radius: 20px; }
+}
+
 /* ---------- Decision ---------- */
-.head { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 340px); gap: 32px 48px; align-items: end; padding-block: 22px 36px; }
+/* Head: the name large with its topics under it; the fine card on the right at the same height (under the name on a phone) */
+.head { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 24px 56px; align-items: start; padding-block: 26px 30px; }
+.head h1 { font-size: clamp(2.3rem, 5.6vw, 4.6rem); line-height: 0.98; letter-spacing: -0.03em; margin: 0 0 18px; max-width: 14em; }
+.head .legend { margin: -4px 0 14px; }
+.head .lede { margin: 0 0 14px; font-size: 1.1rem; }
+.head .fine { min-width: 270px; max-width: 360px; margin: 6px 7px 7px 0; }
+.summary-row .summary { font-size: 1.28rem; line-height: 1.58; max-width: none; }
+.summary-row .credit { margin-top: 16px; }
+@media (max-width: 760px) {
+  .head { grid-template-columns: minmax(0, 1fr); gap: 20px; padding-block: 18px 24px; }
+  .head .fine { min-width: 0; max-width: none; }
+  .summary-row .summary { font-size: 1.1rem; }
+}
+/* the corporate look (tokens in assets/find.css): plainer type, no pink shadow, square corners */
+[data-look="corporate"] .head h1 { font-size: clamp(2rem, 4.6vw, 3.6rem); line-height: 1.04; letter-spacing: -0.035em; }
+[data-look="corporate"] .sec-lbl h2, [data-look="corporate"] .fine .amt, [data-look="corporate"] .fine .conv, [data-look="corporate"] .dpo-q blockquote p { font-variation-settings: normal; font-weight: 700; letter-spacing: -0.02em; }
+[data-look="corporate"] .dpo-q blockquote p { font-weight: 400; letter-spacing: 0; }
+[data-look="corporate"] .size-big { font-variation-settings: normal; font-weight: 400; letter-spacing: -0.01em; }
+[data-look="corporate"] .size-big b { background: none; color: var(--accent); font-weight: 700; }
+[data-look="corporate"] .fine { box-shadow: none; border: 1px solid var(--line); border-radius: 4px; }
+[data-look="corporate"] .dpo { border-width: 1px; border-color: var(--line); border-radius: 4px; }
+[data-look="corporate"] .dpo-q { border-radius: 2px; border-left-width: 3px; }
+[data-look="corporate"] .strip .me { fill: var(--accent); stroke: var(--bg); stroke-width: 2; }
+[data-look="corporate"] .facts-row.tally-facts dd, [data-look="corporate"] .lawpage .atitle { font-variation-settings: normal; font-weight: 700; letter-spacing: -0.02em; }
+[data-look="corporate"] .lawpage .atitle { font-weight: 400; letter-spacing: -0.01em; }
+[data-look="corporate"] .results a, [data-look="corporate"] .law-toc a, [data-look="corporate"] .preamble > summary, [data-look="corporate"] .sim a,
+[data-look="corporate"] .rules a.in, [data-look="corporate"] .goto input { border-radius: 2px; }
+[data-look="corporate"] .results .amt small.tag, [data-look="corporate"] .law-toc .chg, [data-look="corporate"] .topics li.chg-t { border-radius: 2px; }
+[data-look="corporate"] .desk { border-radius: 4px; }
+[data-look="corporate"] .r-cols, [data-look="corporate"] .law-toc, [data-look="corporate"] .rules, [data-look="corporate"] .sim, [data-look="corporate"] .prevnext { border-top-width: 1px; }
+[data-look="corporate"] .r-cols { border-bottom-width: 1px; }
 .fine { background: var(--surface); border: 2px solid var(--ink); border-radius: 26px; box-shadow: 7px 7px 0 var(--pink); padding: 22px 24px 20px; display: grid; gap: 6px; }
 .fine .lbl { font-family: var(--mono); font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
 .fine .amt { font-family: var(--display); font-variation-settings: "SOFT" 100, "opsz" 96; font-weight: 600; font-size: clamp(2rem, 4.4vw, 2.9rem); line-height: 1.05; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; overflow-wrap: anywhere; }
@@ -237,14 +335,7 @@ img.flag { display: inline-block; width: 1.15em; height: 1.15em; border-radius: 
 .fine .amt .cur { font-size: 0.5em; font-weight: 500; letter-spacing: 0.02em; margin-right: 0.25em; vertical-align: 0.12em; }
 .fine .conv { font-family: var(--display); font-variation-settings: "SOFT" 100; font-weight: 500; font-size: 1.35rem; line-height: 1.1; font-variant-numeric: tabular-nums; }
 .fine .pill { margin-top: 6px; white-space: normal; max-width: 100%; line-height: 1.35; }
-.facts { margin: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 2px solid var(--ink); }
-.facts div { padding: 16px 16px 16px 0; border-bottom: 1px solid var(--line); min-width: 0; }
-.facts dt { font-family: var(--mono); font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-bottom: 4px; }
-.facts dd { margin: 0; overflow-wrap: anywhere; }
-.facts dd small { display: block; color: var(--muted); font-size: 0.85rem; }
-.tools { display: flex; flex-wrap: wrap; gap: 10px; padding-top: 22px; }
-.body { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.75fr); gap: 56px; padding-block: 40px 24px; align-items: start; }
-.body section + section, aside section + section { margin-top: 44px; }
+aside section + section { margin-top: 44px; }
 .summary { font-size: 1.15rem; line-height: 1.6; margin: 0; max-width: 36em; }
 .credit { font-family: var(--mono); font-size: 0.8rem; color: var(--muted); margin: 14px 0 0; }
 .empty { display: grid; grid-template-columns: 92px minmax(0, 1fr); gap: 18px; align-items: center; }
@@ -253,35 +344,25 @@ img.flag { display: inline-block; width: 1.15em; height: 1.15em; border-radius: 
 .mini { width: 92px; height: auto; overflow: visible; }
 .rules { list-style: none; margin: 0; padding: 0; border-top: 2px solid var(--ink); }
 .rules li { border-bottom: 1px solid var(--line); }
-.rules a.in, .rules .r { display: grid; grid-template-columns: 76px minmax(0, 1fr) auto; gap: 14px; align-items: baseline; padding: 14px 4px; text-decoration: none; border-radius: 12px; transition: background var(--fast) var(--ease); }
+.rules a.in, .rules .r { display: grid; grid-template-columns: 84px minmax(0, 1fr) auto; gap: 14px; align-items: baseline; padding: 14px 4px; text-decoration: none; border-radius: 12px; transition: background var(--fast) var(--ease); }
 .rules a.in:hover { background: var(--surface); }
 .rules a.in:hover .no { color: var(--accent); }
-.rules .no { font-family: var(--mono); font-weight: 500; }
+.rules .no { font-family: var(--mono); font-weight: 500; white-space: nowrap; }   /* "Art. 4" on one line, also on a phone */
+@media (max-width: 760px) { .rules a.in, .rules .r { grid-template-columns: 70px minmax(0, 1fr) auto; gap: 10px; } .rules .no { font-size: 0.86rem; } }
 .rules .t { min-width: 0; }
 .rules .t small { display: block; font-family: var(--mono); font-size: 0.78rem; color: var(--muted); margin-top: 2px; }
 .rules .go { font-family: var(--mono); font-size: 0.8rem; color: var(--muted); white-space: nowrap; }
 .chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 18px 0 0; padding: 0; list-style: none; }
 .chips li { font-size: 0.85rem; padding: 3px 9px; border-radius: 6px; background: var(--neutral-bg); color: var(--muted); }
-.ctx .big { font-family: var(--display); font-variation-settings: "SOFT" 100, "opsz" 72; font-weight: 560; font-size: 1.35rem; line-height: 1.2; margin: 0 0 4px; text-wrap: balance; }
-.ctx .big b { color: var(--accent); font-weight: 650; }
-.ctx .sub { color: var(--muted); font-size: 0.92rem; margin: 0 0 12px; }
-.strip { display: block; width: 100%; height: auto; }
-.strip text { font-family: var(--mono); font-size: 10px; fill: var(--muted); }
-.strip .tick { stroke: var(--line); stroke-width: 1; }
-.strip .d { fill: var(--dot); }
-.strip .me { fill: var(--pink); stroke: var(--ink); stroke-width: 2; }
-.strip .pin { stroke: var(--ink); stroke-width: 1; }
-.strip .melbl { fill: var(--ink); font-weight: 500; }
 .sim { list-style: none; margin: 0; padding: 0; border-top: 2px solid var(--ink); }
 .sim li { border-bottom: 1px solid var(--line); }
 .sim a { display: block; padding: 12px 4px; text-decoration: none; border-radius: 12px; }
 .sim a:hover { background: var(--surface); }
 .sim b { display: block; overflow-wrap: anywhere; }
-.sim span { display: block; font-family: var(--mono); font-size: 0.8rem; color: var(--muted); font-variant-numeric: tabular-nums; }
-.sources { padding-block: 24px 64px; }
+.sim a > span { display: block; font-family: var(--mono); font-size: 0.8rem; color: var(--muted); font-variant-numeric: tabular-nums; }
 .orgs { list-style: none; margin: 0 0 14px; padding: 0; border-top: 2px solid var(--ink); }
 .orgs li { border-bottom: 1px solid var(--line); padding: 10px 4px; display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 2px 12px; }
-.orgs li.me b::after { content: "this decision"; margin-left: 8px; font-family: var(--mono); font-size: 0.68rem; letter-spacing: .06em; text-transform: uppercase;
+.orgs li.me b::after { content: "this company"; margin-left: 8px; font-family: var(--mono); font-size: 0.68rem; letter-spacing: .06em; text-transform: uppercase;
   padding: 2px 6px; border-radius: 6px; background: var(--neutral-bg); color: var(--muted); font-weight: 400; vertical-align: 2px; }
 .orgs b { overflow-wrap: anywhere; }
 .orgs span { grid-column: 1; font-family: var(--mono); font-size: 0.78rem; color: var(--muted); }
@@ -323,15 +404,25 @@ img.flag { display: inline-block; width: 1.15em; height: 1.15em; border-radius: 
 .prevnext a { text-decoration: none; max-width: 48%; }
 .prevnext a span { display: block; font-family: var(--mono); font-size: 0.75rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
 .prevnext a:hover b { text-decoration: underline; }
-.toc { padding-block: 10px 64px; display: grid; gap: 34px; }
-.toc h2 { font-family: var(--display); font-variation-settings: "SOFT" 100, "opsz" 72; font-weight: 560; font-size: 1.45rem; margin: 0 0 10px; }
-.toc h2 span { display: block; font-family: var(--mono); font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); font-weight: 400; }
-.toc ol { list-style: none; margin: 0; padding: 0; border-top: 2px solid var(--ink); columns: 2; column-gap: 32px; }
-.toc li { break-inside: avoid; border-bottom: 1px solid var(--line); }
-.toc ol a { display: grid; grid-template-columns: 74px minmax(0, 1fr) auto; gap: 10px; padding: 9px 4px; text-decoration: none; border-radius: 10px; align-items: baseline; }
-.toc ol a:hover { background: var(--surface); }
-.toc .n { font-family: var(--mono); font-weight: 500; }
-.toc .c { font-family: var(--mono); font-size: 0.75rem; color: var(--muted); white-space: nowrap; }
+/* Law pages (layout v2): the article large with its name under it, its facts, then numbered sections
+   (the text, the fines, related, about this text). The contents of a law: one numbered row per chapter. */
+.lawpage .titlerow { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 18px; }
+.lawpage .titlerow h1 { margin: 0; }
+.lawpage .atitle { font-family: var(--display); font-variation-settings: "SOFT" 100, "opsz" 72; font-weight: 420; font-size: clamp(1.35rem, 2.8vw, 2rem); line-height: 1.2; margin: 0; max-width: 30em; text-wrap: balance; }
+.lawpage .atitle button.def { text-align: inherit; }   /* a defined word in the title (assets/find.js) keeps the title's alignment */
+.topics li.chg-t { background: var(--soon-bg); color: var(--soon); border-color: var(--soon-bg); }
+.lawpage .sec-body .text { max-width: none; }
+.official-note p { margin: 0 0 10px; font-size: 0.95rem; color: var(--muted); max-width: 46em; }
+.official-note p:last-child { margin-bottom: 0; }
+.official-note .eurlex { margin-top: 6px; }
+.lawpage .stat-lead { margin-bottom: 4px; }
+.law-toc { list-style: none; margin: 0; padding: 0; border-top: 2px solid var(--ink); }
+.law-toc li { border-bottom: 1px solid var(--line); }
+.law-toc a { display: grid; grid-template-columns: 7.2em minmax(0, 1fr) auto; gap: 12px; padding: 10px 4px; text-decoration: none; border-radius: 10px; align-items: baseline; }
+.law-toc a:hover { background: var(--surface); }
+.law-toc .n { font-family: var(--mono); font-weight: 500; white-space: nowrap; }
+.law-toc .c { font-family: var(--mono); font-size: 0.75rem; color: var(--muted); white-space: nowrap; }
+.sec-n.wordy { text-transform: uppercase; letter-spacing: 0.08em; }
 .pre-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: 12px 20px; margin-bottom: 10px; }
 .pre-head h2 { margin: 0; }
 .goto { display: flex; align-items: center; gap: 8px; padding: 8px 8px 8px 16px; border-radius: 999px; box-shadow: 4px 4px 0 var(--pink); }
@@ -366,7 +457,7 @@ img.flag { display: inline-block; width: 1.15em; height: 1.15em; border-radius: 
 .pre-end { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px 16px; margin-top: 14px; }
 .pre-end .legend { margin: 0; }
 /* AI Act: the "Changed 2026" label, headings inside annexes, the one annex table, 10 to the power 25 */
-.toc .chg { font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.06em; text-transform: uppercase; padding: 2px 6px; border-radius: 6px; background: var(--soon-bg); color: var(--soon); }
+.law-toc .chg { font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.06em; text-transform: uppercase; padding: 2px 6px; border-radius: 6px; background: var(--soon-bg); color: var(--soon); }
 .card.changed { box-shadow: 4px 4px 0 var(--pink); }
 .text .sh { font-weight: 700; margin: 22px 0 10px; }
 .text sup { font-size: 0.7em; line-height: 0; }
@@ -383,6 +474,7 @@ img.flag { display: inline-block; width: 1.15em; height: 1.15em; border-radius: 
 .text td:first-child { font-family: var(--mono); font-size: 0.85rem; white-space: nowrap; }
 
 /* ---------- Export sheet ---------- */
+.x-bar.panel { box-shadow: none; }
 .x-bar { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 14px; padding: 16px 20px; margin-block: 24px 14px; }
 .x-bar .btn.primary { background: var(--go-deep); border-color: var(--go-deep); color: #FFFFFF; }
 .x-bar fieldset { border: 0; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px 16px; align-items: center; }
@@ -436,13 +528,9 @@ img.flag { display: inline-block; width: 1.15em; height: 1.15em; border-radius: 
 .sheet .url { font-family: var(--mono); font-size: 10.5px; overflow-wrap: anywhere; }
 .sheet .s-foot { margin-top: 14px; border-top: 2px solid #211915; padding-top: 7px; font-size: 10px; color: #6E6158; display: grid; gap: 3px; }
 .x-note { font-family: var(--mono); font-size: 0.8rem; color: var(--muted); margin: 0; }
-.rules-grid { list-style: none; margin: 0 0 64px; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
-.rules-grid li { border: 2px solid var(--ink); border-radius: 22px; padding: 20px; display: grid; gap: 12px; align-content: start; }
-.rules-grid h2 { font-family: var(--display); font-variation-settings: "SOFT" 100, "opsz" 72; font-weight: 560; font-size: 1.3rem; margin: 0; }
-.rules-grid p { margin: 0; color: var(--muted); }
-.rules-grid .demo { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+.rule-body p { margin: 0 0 14px; }
+.rule-body .demo { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
 .swatch { width: 28px; height: 28px; border-radius: 50%; border: 2px solid var(--ink); flex: none; }
-@media (max-width: 760px) { .rules-grid { grid-template-columns: minmax(0, 1fr); } }
 
 /* Footer: a latte band (espresso in the light look): who Fino is, where to go, how to write */
 footer { background: var(--ink); color: var(--bg); }
@@ -475,20 +563,24 @@ footer .foot-base { border-top: 1.5px solid currentColor; padding-top: 16px; dis
   .results .amt { grid-column: 2; grid-row: 1 / span 2; }
   .results .who { grid-column: 1; }
   .results .cty { grid-column: 1; font-size: 0.85rem; padding: 0; }
+  .r-cols { display: none; }
+  .results { border-top: 2px solid var(--ink); }
 }
 @media (max-width: 860px) {
   .top nav { order: 3; width: 100%; margin-left: -12px; }
   .laws-menu { left: 0; right: auto; }
-  .head { grid-template-columns: minmax(0, 1fr); align-items: start; }
-  .facts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .body, .law { grid-template-columns: minmax(0, 1fr); gap: 44px; }
+  .law { grid-template-columns: minmax(0, 1fr); gap: 44px; }
   .rules a.in, .rules .r { grid-template-columns: 56px minmax(0, 1fr); }
   .rules .go { display: none; }
-  .toc ol { columns: 1; }
+}
+@media (max-width: 760px) {
+  .tally { padding-top: 26px; }
+  .facts-row.tally-facts dd { font-size: 1.2rem; }
+  .law-toc a { grid-template-columns: 6.6em minmax(0, 1fr); gap: 2px 10px; }
+  .law-toc .c { grid-column: 2; }
 }
 @media (max-width: 480px) {
   .filters { grid-template-columns: minmax(0, 1fr); }
-  .facts { grid-template-columns: minmax(0, 1fr); }
   .empty, .empty-list { grid-template-columns: 64px minmax(0, 1fr); }
   .mini { width: 64px; }
 }
@@ -498,7 +590,7 @@ footer .foot-base { border-top: 1.5px solid currentColor; padding-top: 16px; dis
 @media print {
   @page { size: A4; margin: 0; }
   body { background: #FFFFFF; }
-  body > *:not(main), .x-bar, .x-note, .crumbs { display: none !important; }
+  body > *:not(main), .x-bar, .x-note, .crumbs, .x-head { display: none !important; }
   main .wrap { max-width: none !important; padding: 0 !important; margin: 0 !important; }
   .desk { background: none; padding: 0; margin: 0; overflow: visible; border-radius: 0; }
   .pages { display: block; zoom: 1 !important; }
@@ -605,9 +697,9 @@ footer .foot-base { border-top: 1.5px solid currentColor; padding-top: 16px; dis
 @keyframes fade-in { from { opacity: 0; } }
 /* When a filter or the search changes the list (staging): the rows fade in quickly and the count flashes once */
 #results.fresh { animation: fade-in var(--fast) var(--ease); }
-#tally .big b.flash { border-radius: 6px; animation: count-flash var(--slow) var(--ease); }
+#tally b.flash { border-radius: 6px; animation: count-flash var(--slow) var(--ease); }
 @keyframes count-flash { from { background: var(--pink); color: #15141F; box-shadow: 0 0 0 4px var(--pink); } }
-@media (prefers-reduced-motion: reduce) { #results.fresh, #tally .big b.flash { animation: none; } }
+@media (prefers-reduced-motion: reduce) { #results.fresh, #tally b.flash { animation: none; } }
 @media (prefers-reduced-motion: reduce) { .fsheet, .fsheet.open { transition: none; } .fback:not([hidden]) { animation: none; } }
 .top nav .laws-menu a.all-laws { border-top: 1px solid var(--latte-line); border-radius: 0 0 14px 14px; margin-top: 4px; }
 
@@ -634,13 +726,13 @@ footer .foot-base { border-top: 1.5px solid currentColor; padding-top: 16px; dis
 
 
 
-<link rel="stylesheet" href="/assets/find.css?v=427aca0a8635">
+<link rel="stylesheet" href="/assets/find.css?v=626dc1892e68">
 
 <!-- seo -->
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Fino">
 <meta property="og:title" content="GDPR fines and decisions">
-<meta property="og:description" content="Search 4,967 GDPR fines and decisions from 33 countries, read the GDPR with each article linked to the fines that cite it, and save any decision as a PDF. Free, no sign-up.">
+<meta property="og:description" content="Search 4,992 GDPR fines and decisions from 33 countries, read the GDPR with each article linked to the fines that cite it, and save any decision as a PDF. Free, no sign-up.">
 <meta property="og:url" content="https://finoprivacy.com/fines.html">
 <meta property="og:image" content="https://finoprivacy.com/og/fino.png">
 <meta property="og:image:width" content="1200">
@@ -648,7 +740,7 @@ footer .foot-base { border-top: 1.5px solid currentColor; padding-top: 16px; dis
 <meta property="og:image:alt" content="Fino, the mascot of the site, next to the words: GDPR fines and decisions, in plain English">
 <meta property="og:locale" content="en_GB">
 <meta name="twitter:card" content="summary_large_image">
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Dataset","@id":"https://finoprivacy.com/fines.html#dataset","name":"Fino: GDPR fines and decisions","description":"4,967 GDPR fines and decisions by data protection authorities in 33 countries, from 2018 to today, with the regulator, the date, the fine in euro (other currencies converted at the ECB rate and marked as estimates), the GDPR articles involved, a short summary and links to the original decision. Built from the CMS Enforcement Tracker and GDPRhub (noyb), with duplicates merged.","url":"https://finoprivacy.com/fines.html","license":"https://creativecommons.org/licenses/by-nc-sa/4.0/","isAccessibleForFree":true,"creator":{"@id":"https://finoprivacy.com/#org"},"publisher":{"@id":"https://finoprivacy.com/#org"},"isBasedOn":["https://www.enforcementtracker.com/","https://gdprhub.eu/"],"keywords":["GDPR fines","GDPR enforcement","data protection authority decisions","privacy fines Europe","DPA decisions"],"temporalCoverage":"2018/2026-10-16","spatialCoverage":"Europe","dateModified":"2026-10-27","variableMeasured":["Fine amount in euro","Decision date","Country","Data protection authority","GDPR articles","Outcome","Sector"],"distribution":[{"@type":"DataDownload","encodingFormat":"application/json","contentUrl":"https://finoprivacy.com/data/cases.json"}]},{"@type":"WebPage","@id":"https://finoprivacy.com/fines.html","url":"https://finoprivacy.com/fines.html","name":"GDPR fines and decisions","description":"Search 4,967 GDPR fines and decisions from 33 countries, read the GDPR with each article linked to the fines that cite it, and save any decision as a PDF. Free, no sign-up.","mainEntity":{"@id":"https://finoprivacy.com/fines.html#dataset"}},{"@type":"Organization","@id":"https://finoprivacy.com/#org","name":"Fino","url":"https://finoprivacy.com/","logo":"https://finoprivacy.com/og/fino-logo.png"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Dataset","@id":"https://finoprivacy.com/fines.html#dataset","name":"Fino: GDPR fines and decisions","description":"4,992 GDPR fines and decisions by data protection authorities in 33 countries, from 2018 to today, with the regulator, the date, the fine in euro (other currencies converted at the ECB rate and marked as estimates), the GDPR articles involved, a short summary and links to the decision or its source. Built from the CMS Enforcement Tracker and GDPRhub (noyb), with duplicates merged.","url":"https://finoprivacy.com/fines.html","license":"https://creativecommons.org/licenses/by-nc-sa/4.0/","isAccessibleForFree":true,"creator":{"@id":"https://finoprivacy.com/#org"},"publisher":{"@id":"https://finoprivacy.com/#org"},"isBasedOn":["https://www.enforcementtracker.com/","https://gdprhub.eu/"],"keywords":["GDPR fines","GDPR enforcement","data protection authority decisions","privacy fines Europe","DPA decisions"],"temporalCoverage":"2018/2026-10-28","spatialCoverage":"Europe","dateModified":"2026-11-02","variableMeasured":["Fine amount in euro","Decision date","Country","Data protection authority","GDPR articles","Outcome","Sector"],"distribution":[{"@type":"DataDownload","encodingFormat":"application/json","contentUrl":"https://finoprivacy.com/data/cases.json"}]},{"@type":"WebPage","@id":"https://finoprivacy.com/fines.html","url":"https://finoprivacy.com/fines.html","name":"GDPR fines and decisions","description":"Search 4,992 GDPR fines and decisions from 33 countries, read the GDPR with each article linked to the fines that cite it, and save any decision as a PDF. Free, no sign-up.","mainEntity":{"@id":"https://finoprivacy.com/fines.html#dataset"}},{"@type":"Organization","@id":"https://finoprivacy.com/#org","name":"Fino","url":"https://finoprivacy.com/","logo":"https://finoprivacy.com/og/fino-logo.png"}]}</script>
 <!-- /seo -->
 </head>
 <body>
@@ -689,6 +781,7 @@ footer .foot-base { border-top: 1.5px solid currentColor; padding-top: 16px; dis
       <a href="About.html">About</a>
     </nav>
     <button class="find-btn" id="find-btn" type="button" data-find-open aria-label="Search Fino" title="Search (Ctrl K)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m20 20-4.6-4.6"/></svg></button>
+    <button class="look-btn" id="look-btn" type="button" aria-pressed="false" title="Switch to the corporate look"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2"/></svg><span class="look-txt">Corporate</span></button>
     <button class="mode" id="mode" type="button" aria-label="Switch to light mode" title="Switch to light mode">
       <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
       <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 14.5A8.5 8.5 0 0 1 9.5 3.5a8.5 8.5 0 1 0 11 11z"/></svg>
@@ -764,6 +857,8 @@ for (const e of (DATA.ex && DATA.ex.explainers) || []) {
   for (const id of e.decisions) (EX_BY_CASE.get(id) || EX_BY_CASE.set(id, []).get(id)).push(e);
   for (const n of e.arts) (EX_BY_ART.get(n) || EX_BY_ART.set(n, []).get(n)).push(e);
 }
+/* "What a DPO could check" boxes (data/dpo-checks.json): only the decisions listed there get one */
+const DPO = { checks: {}, languages: {}, ...(DATA.dpo || {}) };
 const explainedBlock = list => !list || !list.length ? '' : `<section><h2 class="sec-h">Explained in</h2>
   <ul class="sim">${list.map(e => `<li><a href="${esc(e.slug)}.html"><b>${esc(e.question)}</b><span>Explainer &middot; ${esc(e.shelf)} &rarr;</span></a></li>`).join('')}</ul></section>`;
 const SOURCE_NAMES = { cms_tracker: 'CMS Enforcement Tracker', gdprhub: 'GDPRhub (noyb)' };
@@ -778,7 +873,15 @@ const SITE = 'finoprivacy.com';
 const $ = id => document.getElementById(id);
 const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 /* 'bigger than X% of the fines': rounded down, and 100% only for the largest (below = fines smaller than this one, n includes it) */
+/* "Art. 5, 6, 32": the word once */
+const artsTxt = a => a.length ? 'Art. ' + a.join(', ') : '';
 const pctBelow = (below, n) => below >= n - 1 ? 100 : Math.floor(below / n * 100);
+/* "Bigger than 75% of the 41 fines in Ireland", or "The biggest of the 51 fines in Croatia" when nothing is bigger */
+/* "among the smallest" when the share rounds down to 0%, never "bigger than 0%" */
+const rank = (below, n, where, bold) => below >= n - 1 ? (n === 1 ? `the only fine ${where}` : `the biggest of the ${num(n)} fines ${where}`)
+  : pctBelow(below, n) === 0 ? `among the smallest of the ${num(n)} fines ${where}`
+  : `bigger than ${bold ? `<b>${pctBelow(below, n)}%</b>` : pctBelow(below, n) + '%'} of the ${num(n)} fines ${where}`;
+const biggerLine = (below, n, where) => { const t = rank(below, n, where, true); return t[0].toUpperCase() + t.slice(1); };
 const eur = n => '€' + Math.round(n).toLocaleString('en-GB');
 const num = n => n.toLocaleString('en-GB');
 /* an estimate is shown to three significant figures: €160,053 becomes ≈ €160,000 */
@@ -813,6 +916,11 @@ const artNo = s => +((s.match(/Art\.\s*(\d+)/) || [])[1] || 0);
 const outcomeKind = o => /reject|dismiss|no violation|not upheld|no further/i.test(o || '') ? 'ok' : 'bad';
 const LINK_BASE = id => id; // stays inside this preview
 
+/* a placeholder is not a reference. The whole text must be one (not just start like one): 'NA-123' and 'N/A-5' are real references.
+   REF_NONE: the bare placeholder, shown as 'Not recorded'; REF_NONE_NOTED: also with a note in brackets ('Not published (the numbers are blanked in the decision)'), which a citation leaves out but a page keeps */
+const REF_WORDS = String.raw`(?:n\/?a|unknown|not (?:published|recorded|given|available))\.?`;
+const DATE_REF = /^(?:decision\s+|provvedimento\s+del\s+)?(?:\d{1,2}[-./]\d{1,2}[-./]\d{2,4}|\d{4}-\d{2}-\d{2}|\d{1,2}°?\s+[a-zàéû]+\s+\d{4})\.?(?:\s*\([^)]*\))?$/i;
+const REF_NONE = new RegExp(`^${REF_WORDS}$`, 'i'), REF_NONE_NOTED = new RegExp(String.raw`^${REF_WORDS}(?:\s*\([^)]*\))?$`, 'i');
 /* ---------- Data, prepared once ---------- */
 const CASES = DATA.rows.map((r, i) => {
   const c = Object.fromEntries(F.map((f, k) => [f, r[k]]));
@@ -821,12 +929,16 @@ const CASES = DATA.rows.map((r, i) => {
   c.cred = DATA.cred[i];
   /* read by Fino in the regulator's own document: 'decision|2026-10-11|SAN-2024-021' */
   [c.own_kind, c.own_date, c.own_ref, c.own_dateflag, c.own_law, c.own_outlet, c.own_scope, c.own_note] = c.own ? c.own.split('|') : [];   /* 1st: the kind of document, or 'news report' / 'law firm article' when the reading was not in the regulator's own document (6th: its outlet); 4th: 'announced' = the date is the press release's, 'reported' = the day an article covered it, 'notified' = the day the decision was notified, 'investigation' = the day the investigation ended, 'yearreport' = an annual report with no date for the decision (only its year), 'unstated' = the regulator's published decision carries no date (Spain's AEPD signs electronically); 5th: a breach of a law that is not a GDPR article */
+  if (!c.own && c.fix_law) c.own_law = c.fix_law;   /* case_fixes.csv law: the breach is of a law that is not a GDPR article (FNAC: Art. 82 of the French law); the title then says 'Fine of', not 'GDPR fine of' */
   if (!c.own && c.date_flag) c.own_dateflag = c.date_flag;   /* case_fixes.csv date_label on a page that is not Fino's own: 'investigation' */
   c.year = (c.decision_date || '').slice(0, 4);
   c.arts = [...new Set(artList(c.articles).map(artNo).filter(Boolean))];
   c.cats = (c.categories || '').split(',').map(s => s.trim()).filter(Boolean);
   /* GDPRhub page titles end with the regulator's own reference, e.g. "CNIL (France) - SAN-2024-021" */
   c.ref = c.own_ref || c.fix_ref || (!c.own && c.source === 'gdprhub' && c.case_id.includes(' - ') ? c.case_id.split(' - ').slice(1).join(' - ') : null);
+  if (REF_NONE.test(String(c.ref || '').trim())) c.ref = null;   /* GDPRhub titles end in 'N/A' or 'Unknown' when the regulator's number is not known: shown as 'Not recorded' */
+  if (DATE_REF.test(String(c.ref || '').trim()) && !c.fix_ref) c.ref = null;   /* a date is not a reference: GDPRhub titles like 'Decision 29-06-2022' or '23.08.2023' (case_fixes.csv ref sets a real one) */
+  if (c.ref && c.controller && !c.fix_ref && !c.own && String(c.ref).toLowerCase().replace(/[^a-z0-9]/g, '') === String(c.controller).toLowerCase().replace(/[^a-z0-9]/g, '')) c.ref = null;   /* GDPRhub titles like 'ICO (UK) - British Airways': the part after the dash is the company, not a reference */
   /* A fine in another currency keeps its own amount as the real figure. The euro value is an estimate from the
      European Central Bank rate of the decision date; it counts in comparisons and totals, always marked with ≈. */
   c.est = !c.fine_eur && !!c.fine_eur_est;
@@ -835,7 +947,7 @@ const CASES = DATA.rows.map((r, i) => {
   [c.red_before, c.red_pct, c.red_flags] = c.reduction ? c.reduction.split('|') : [];
   c.red_before = +c.red_before || 0; c.red_pct = +c.red_pct || 0; c.red_flags = c.red_flags || '';
   c.unconf = c.status === 'reduced' && !!c.fine_before && c.fine_before === c.fine_eur;   /* reduced on appeal, new amount not yet confirmed: kept out of company, group and article totals */
-  c.hay = [c.controller, c.parties_named, c.controller_note, c.authority, c.pharos_id, c.ref, c.violation_type, c.categories, c.summary].filter(Boolean).join(' ').toLowerCase();
+  c.hay = [c.controller, c.parties_named, c.controller_note, c.who, c.who_detail, c.authority, c.pharos_id, c.ref, c.violation_type, c.categories, c.summary].filter(Boolean).join(' ').toLowerCase();
   return c;
 });
 const BY_SLUG = new Map(CASES.map(c => [slug(c.pharos_id), c]));
@@ -869,14 +981,22 @@ const CHAPTER = Object.fromEntries(GDPR.chapters.map(ch => [ch.id, ch]));
    they are shown as named, marked as not yet checked, and never presented as the one fined. */
 /* the country's round flag (site/flags, from flag-icons, MIT licence), shown before its name */
 const flag = c => c.country_code ? `<img class="flag" src="/flags/${esc(c.country_code.toLowerCase())}.svg" alt="" width="18" height="18" loading="lazy">` : '';
+/* A party the source does not name is shown in one form: a general name from a fixed list, then a short detail in brackets
+   ("Company (bank)", "Sole trader (bar owner)", "Private person"); pipeline/party_labels.csv, fields who and who_detail.
+   Whatever is a natural person (Private person, Sole trader, Professional, Politician, Public official) has party_kind 'person' and never a name. */
+const whoName = c => c.who_detail ? `${c.who} (${c.who_detail})` : c.who;
+const whoHtml = c => c.who_detail ? `${esc(c.who)} <span class="who-d">(${esc(c.who_detail)})</span>` : esc(c.who);
+const pHtml = p => p.html || esc(p.name);   /* the name for a heading or a list: a label has its detail in a span */
 const party = c => c.controller ? { name: c.controller, cls: '', sub: c.controller_note ? `Described in the source as: ${c.controller_note}` : '' }
-  : c.party_kind === 'person' ? { name: c.controller_note || 'Private person', cls: 'unnamed', person: true, sub: 'Private person' }
-  : c.party_kind === 'opinion' ? { name: 'General opinion', cls: 'unnamed', sub: 'No party: the regulator gave an opinion or guidance' }
+  : c.who ? { name: whoName(c), html: whoHtml(c), cls: '', person: c.party_kind === 'person', labelled: true, sub: '' }
+  : c.party_kind === 'person' ? { name: c.controller_note || 'Private person', cls: 'unnamed', person: true, sub: 'Private person',
+      tag: /\(name not shown\)$/i.test(c.controller_note || '') ? 'Name not shown' : 'Private person' }   /* 'Member of Parliament (name not shown)': a described person, not "a private person" */
+  : c.party_kind === 'opinion' ? { name: 'General opinion', cls: '', sub: 'No party: the regulator gave an opinion or guidance' }
   : c.parties_named ? { name: c.parties_named.split('; ').join(' · '), cls: 'unnamed', unchecked: true, sub: 'Named in the source, roles not yet checked' }
   : c.controller_note ? { name: c.controller_note, cls: 'unnamed', sub: 'Name not published' }
   : { name: 'Not named in the source', cls: 'unnamed', sub: '' };
 /* " (private person)" after the name of a private person in a title or heading, unless the description already says sole trader ("Online news publisher (sole trader)") */
-const personTag = p => p.person && !/sole (trader|proprietor|entrepreneur)|private (individual|person)|natural person/i.test(p.name) ? ' (private person)' : '';
+const personTag = p => p.person && !p.labelled && p.tag === 'Private person' && !/sole (trader|proprietor|entrepreneur)|private (individual|person)|natural person/i.test(p.name) ? ' (private person)' : '';
 /* the date the sources were last read, not the date of the last export */
 const UPDATED = (() => { const s = (DATA.meta.last_fetch || DATA.meta.generated_at).slice(0, 10).split('-'); return `${+s[2]} ${MONTHS[s[1] - 1]} ${s[0]}`; })();
 
@@ -895,17 +1015,22 @@ const MINI = `<svg class="mini" viewBox="0 0 200 180" role="img" aria-label="Fin
 const HMM = `<svg class="mini hmm" viewBox="0 0 200 180" role="img" aria-label="Fino, the site's mascot, tilting its head, puzzled"><ellipse cx="100" cy="172" rx="62" ry="6" fill="var(--ink)" opacity=".12"/><g class="m-body"><path d="M100 24 C152 24 184 60 186 106 C188 148 152 166 100 166 C48 166 12 148 14 106 C16 60 48 24 100 24 Z" fill="var(--puff)" stroke="var(--ink)" stroke-width="4"/><g class="m-ant"><path d="M98 24 C96 14 102 8 110 9" fill="none" stroke="var(--ink)" stroke-width="4" stroke-linecap="round"/><circle cx="111" cy="9" r="5" fill="var(--accent)" stroke="var(--ink)" stroke-width="2.5"/></g><ellipse cx="54" cy="120" rx="14" ry="8" fill="var(--blush)" opacity=".55"/><ellipse cx="146" cy="120" rx="14" ry="8" fill="var(--blush)" opacity=".55"/><path d="M62 82 Q75 70 89 78 M112 84 H136" fill="none" stroke="var(--eye)" stroke-width="3.5" stroke-linecap="round"/><ellipse cx="78" cy="104" rx="8" ry="11" fill="var(--eye)"/><circle cx="81" cy="99" r="3" fill="#FFFFFF"/><ellipse cx="122" cy="104" rx="8" ry="11" fill="var(--eye)"/><circle cx="125" cy="99" r="3" fill="#FFFFFF"/><path d="M93 129 Q101 125 108 130" fill="none" stroke="var(--eye)" stroke-width="3" stroke-linecap="round"/></g><text class="m-q" x="156" y="48">?</text></svg>`;
 const SHEET_MARK = `<svg viewBox="0 0 200 180" aria-hidden="true"><path d="M100 50 C98 38 102 30 111 28" fill="none" stroke="#211915" stroke-width="9" stroke-linecap="round"/><circle cx="121" cy="25" r="13" fill="#7E9A3A" stroke="#211915" stroke-width="8"/><path d="M100 50 C144 50 172 78 174 117 C176 152 146 168 100 168 C54 168 24 152 26 117 C28 78 56 50 100 50 Z" fill="#FFCDB8" stroke="#211915" stroke-width="9"/><ellipse cx="80" cy="110" rx="9" ry="13" fill="#211915"/><ellipse cx="120" cy="110" rx="9" ry="13" fill="#211915"/><path d="M88 136 Q100 147 112 136" fill="none" stroke="#211915" stroke-width="8" stroke-linecap="round"/></svg>`;
 
-/* What happened next (case_status): an annulled or withdrawn fine shows struck through and counts nowhere; a fine changed
+/* What happened next (case_status): an annulled, removed or withdrawn fine shows struck through and counts nowhere; a fine changed
    or confirmed in court shows the amount that stands, with a short label. */
-const STATUS_LABEL = { annulled: 'Annulled by a court', reduced: 'Reduced on appeal', increased: 'Increased on appeal', confirmed: 'Confirmed in court', appealed: 'Under appeal', appeal_announced: 'Fine issued · appeal announced', reopened: 'Fine set aside · case reopened', final: 'Final', withdrawn: 'Withdrawn by the regulator', objection: 'Reduced after objection' };
+const STATUS_LABEL = { annulled: 'Annulled by a court', removed: 'Removed after a court judgment', reduced: 'Reduced on appeal', increased: 'Increased on appeal', confirmed: 'Confirmed in court', appealed: 'Under appeal', appeal_announced: 'Fine issued · appeal announced', objection_announced: 'Fine issued · objection announced', reopened: 'Fine set aside · case reopened', final: 'Final', withdrawn: 'Withdrawn by the regulator', objection: 'Reduced after objection' };
+/* 'Annulled by a court' only when the note says a court did it; a decision the regulator's own page marks as annulled, with no word on by whom, is just 'Annulled' (the note opens "Annulled by a court" or "Annulled in court" when one did it) */
+const statusLabel = c => c.status === 'annulled' && !/^Annulled (?:by a court|in court)/.test(c.status_note || '') ? 'Annulled' : STATUS_LABEL[c.status];
 function fineInfo(c) {
-  const st = STATUS_LABEL[c.status];
+  const st = statusLabel(c);
   if (c.status === 'reopened') {   /* an appeal body set the fine aside and the regulator took the case up again: shown struck through, counted nowhere, not called 'annulled' (the Board is not a court) */
     const k = fxCur(c), lab = k && c.fine_amount ? `${k} ${c.fine_amount.toLocaleString('en-GB', { maximumFractionDigits: 2 })}` : c.fine_before ? eur(c.fine_before) : '';
     return { label: lab || 'Fine', struck: true, none: true, status: st, title: `${lab ? lab + ' fine' : 'Fine'} set aside, case reopened` };
   }
-  if ((c.status === 'annulled' || c.status === 'withdrawn') && !c.fine_before) return { label: 'No fine recorded', none: true, status: c.status === 'annulled' ? 'Removed after a court judgment' : st };
-  if (c.status === 'annulled' || c.status === 'withdrawn') return { label: eur(c.fine_before), struck: true, status: st };
+  if ((c.status === 'annulled' || c.status === 'withdrawn' || c.status === 'removed') && !c.fine_before) {
+    const k = fxCur(c); if (k && c.fine_amount) return { label: `${k} ${c.fine_amount.toLocaleString('en-GB', { maximumFractionDigits: 2 })}`, struck: true, status: st };   /* a fine in another currency with no euro figure: shown struck through, in its own currency */
+    return { label: 'No fine recorded', none: true, status: st };
+  }
+  if (c.status === 'annulled' || c.status === 'withdrawn' || c.status === 'removed') return { label: eur(c.fine_before), struck: true, status: st };   /* removed = the regulator took the decision off its website after a court judgment; whether the court annulled the fine is not known, so it is not called annulled */
   if (c.status === 'reduced' && c.fine_eur === 0) return { label: 'Warning only', conv: `was ${eur(c.fine_before)}`, none: true, status: st };  /* the court swapped the fine for a warning */
   if (c.status === 'reduced' && c.fine_before && c.fine_before === c.fine_eur) {   /* the appeal result is known, the new amount is not: keep the regulator's amount, labelled */
     const acr = (authority(c.authority).match(/\(([^)]+)\)$/) || [])[1];
@@ -919,7 +1044,7 @@ function fineInfo(c) {
 function reducedNote(c) {
   if (!c.red_before) return '';
   const from = eur(c.red_before), to = eur(c.fine_eur), pay = c.red_flags.includes('p'), adm = c.red_flags.includes('a'), no = c.red_flags.includes('n');
-  const who = party(c).person || /^private (individual|person)/i.test(c.controller || '') ? 'the person fined' : 'the company', Who = who[0].toUpperCase() + who.slice(1);
+  const who = party(c).person ? 'the person fined' : ({ 'Public body': 'the public body', Association: 'the association', Organisation: 'the organisation' })[c.who] || 'the company', Who = who[0].toUpperCase() + who.slice(1);
   const law1 = 'Spanish law (Art. 85 LPACAP) gives at least 20% off for paying before the decision and at least 20% more for admitting the breach';
   const law = law1 + '; the AEPD gave 20% for each';
   if (c.red_pct === 40 && pay && adm) return `${Who} paid early and admitted the breach, so the ${from} fine was cut by 40% to ${to}. ${law}.`;
@@ -1006,12 +1131,11 @@ function median(xs) { if (!xs.length) return 0; const s = [...xs].sort((a, b) =>
 function renderBrowse() {
   $('main').innerHTML = `
   <div class="wrap">
-    <div class="b-head">
-      <p class="eyebrow" style="margin:28px 0 0">Fines database &middot; updated ${UPDATED}</p>
-      <h1 style="margin:0">Every GDPR fine and decision, in one place.</h1>
-      <p class="lede">${num(CASES.length)} decisions from ${[...countBy(c => c.country_code).keys()].filter(k => k !== 'EU').length} countries, collected by CMS and GDPRhub. Search runs in your browser, so nothing you type leaves your device.</p>
-      <p class="legend" style="margin:0">Beta: while I finish checking for duplicates, a few decisions may appear twice.</p>
-    </div>
+    <header class="pg-head">
+      <h1>GDPR fines and decisions</h1>
+      <p class="pg-intro">${num(CASES.length)} decisions from ${[...countBy(c => c.country_code).keys()].filter(k => k !== 'EU').length} countries, collected by CMS and GDPRhub. Search runs in your browser, so nothing you type leaves your device.</p>
+      <p class="legend">Updated ${UPDATED}. Beta: while I finish checking for duplicates, a few decisions may appear twice.</p>
+    </header>
     <form class="finder panel" id="finder" role="search" onsubmit="return false">
       <label class="search" for="q">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg>
@@ -1036,6 +1160,7 @@ function renderBrowse() {
       </div>
     </form>
     <div class="tally" id="tally"></div>
+    <div class="r-cols" aria-hidden="true"><span>Date</span><span>Decision</span><span>Country</span><span>Fine</span></div>
     <ul class="results" id="results"></ul>
     <div class="more" id="more"></div>
   </div>`;
@@ -1081,17 +1206,20 @@ function renderResults() {
   }
   const active = state.org ? ['Company', ORG_NAME[state.org] || state.org, 'org'] : state.group ? ['Group', state.group, 'group']
     : state.reg ? ['Regulator', (DATA.meta.regulators || {})[state.reg] || state.reg, 'reg'] : null;
+  /* the selection as a facts row (layout v2): how many, how much, the typical and the biggest fine */
+  const cells = [[filtered ? (list.length === 1 ? 'Decision that matches' : 'Decisions that match') : 'Decisions', `<b${flash ? ' class="flash"' : ''}>${num(list.length)}</b>`],
+    ...(fines.length ? [['In fines', `${converted ? '≈ ' : ''}${bigEur(total)}<small>in ${num(fines.length)} ${fines.length === 1 ? 'fine' : 'fines'}</small>`],
+      ['Typical fine', eur(median(fines))], ['Biggest', eur(Math.max(...fines))]] : [['Fines', 'No fines in this selection']])];
   $('tally').innerHTML = `
-    <div>
+    <dl class="facts-row tally-facts">${cells.map(([k, v]) => `<div><dt>${k}</dt><dd>${v}</dd></div>`).join('')}</dl>
+    ${scoped ? unconfLegend(list, '') : ''}
+    <div class="r-tools">
       ${active ? `<p class="active"><button type="button" class="chip" id="drop-org" aria-label="Remove the ${active[0].toLowerCase()} filter"><span>${active[0]}</span>${esc(active[1])} &times;</button></p>` : ''}
-      <p class="big"><b${flash ? ' class="flash"' : ''}>${num(list.length)}</b> ${list.length === 1 ? 'decision' : 'decisions'}${filtered ? ' match' : ''}</p>
-      <p class="sub">${fines.length ? `${converted ? '≈ ' : ''}${bigEur(total)} in ${num(fines.length)} ${fines.length === 1 ? 'fine' : 'fines'} &middot; typical fine ${eur(median(fines))} &middot; biggest ${eur(Math.max(...fines))}` : 'No fines in this selection'}</p>
-      ${scoped ? unconfLegend(list, 'margin:2px 0 0') : ''}
-    </div>
-    <div class="right">
-      ${filtered ? '<button type="button" class="linkbtn" id="clear">Clear filters</button>' : ''}
-      <label for="sort" class="legend" style="margin:0">Sort</label>
-      <select id="sort">${options([['new', 'Newest first'], ['old', 'Oldest first'], ['big', 'Biggest fine'], ['small', 'Smallest fine']], state.sort, '').replace('<option value=""></option>', '')}</select>
+      <div class="right">
+        ${filtered ? '<button type="button" class="linkbtn" id="clear">Clear filters</button>' : ''}
+        <label for="sort" class="legend">Sort</label>
+        <select id="sort">${options([['new', 'Newest first'], ['old', 'Oldest first'], ['big', 'Biggest fine'], ['small', 'Smallest fine']], state.sort, '').replace('<option value=""></option>', '')}</select>
+      </div>
     </div>`;
   $('sort').addEventListener('change', e => { state.sort = e.target.value; renderResults(); });
   if ($('drop-org')) $('drop-org').addEventListener('click', () => { state.org = ''; state.group = ''; state.reg = ''; state.shown = 40; renderResults(); });
@@ -1108,9 +1236,9 @@ function renderResults() {
     const about = c.violation_type || c.categories || '';
     return `<li><a href="#d-${slug(c.pharos_id)}">
       <span class="dt">${esc(d.short)}</span>
-      <span class="who"><b class="${party(c).cls}">${esc(party(c).name)}</b>${party(c).sub ? `<small>${esc(party(c).sub)}</small>` : ''}${about ? `<span>${esc(about)}</span>` : ''}${c.arts.length ? `<small>${c.arts.slice(0, 5).map(n => 'Art. ' + n).join(', ')}${c.arts.length > 5 ? ' …' : ''}</small>` : ''}</span>
+      <span class="who"><b class="${party(c).cls}">${pHtml(party(c))}</b>${party(c).sub ? `<small>${esc(party(c).sub)}</small>` : ''}${about ? `<span>${esc(about)}</span>` : ''}${c.arts.length ? `<small>${artsTxt(c.arts.slice(0, 5))}${c.arts.length > 5 ? ' …' : ''}</small>` : ''}</span>
       <span class="cty">${flag(c)}${esc(c.country || '')}</span>
-      <span class="amt ${f.none ? 'none' : ''}">${f.struck ? `<s>${esc(f.label)}</s>` : esc(f.label)}${f.conv ? `<small>${esc(f.conv)}</small>` : ''}${f.sub ? `<small>${esc(f.sub)}</small>` : ''}${f.status ? `<small>${esc(f.status)}</small>` : ''}</span>
+      <span class="amt ${f.none ? 'none' : ''}">${f.struck ? `<s>${esc(f.label)}</s>` : esc(f.label)}${f.conv ? `<small>${esc(f.conv)}</small>` : ''}${f.sub ? `<small>${esc(f.sub)}</small>` : ''}${f.status ? `<small class="tag">${esc(f.status)}</small>` : ''}</span>
     </a></li>`;
   }).join('');
   $('more').innerHTML = list.length > state.shown
@@ -1120,35 +1248,102 @@ function renderResults() {
 }
 
 /* ---------- View: decision ---------- */
-function strip(c) {
-  const list = FINES_BY_CC[c.country_code];
-  if (!c.fine_eur || !list) return '';
-  const W = 320, H = 118, L = 24, Rg = 24, top = 34, bot = 26;
-  const lo = Math.floor(Math.log10(Math.max(1, Math.min(...list, c.fine_eur))));
-  const hi = Math.ceil(Math.log10(Math.max(...list, c.fine_eur)));
+/* How big is it: every fine in a list on a scale whose marks are ten or a hundred times apart, one dot each, this fine pinned.
+   The dots of a list are the same on every page that shows it, so they are drawn once into a shared file,
+   assets/dots/<list>.svg (written by build_seo.mjs from dotsSvg), and a page carries only the scale and its own pin.
+   The list is sorted, and always holds the fine itself, so its first and last values set the scale. */
+const DOT = { W: 480, H: 96, L: 28, R: 28, top: 30, bot: 24 };
+function dotScale(list) {
+  const lo = Math.floor(Math.log10(Math.max(1, list[0]))), hi = Math.ceil(Math.log10(Math.max(1, list[list.length - 1])));
   const span = Math.max(1, hi - lo);
-  const x = v => L + (Math.log10(Math.max(v, 1)) - lo) / span * (W - L - Rg);
+  return { lo, hi, span, x: v => DOT.L + (Math.log10(Math.max(v, 1)) - lo) / span * (DOT.W - DOT.L - DOT.R) };
+}
+/* each dot is a zero-length line with round ends (one path for the whole list keeps the file small); a fixed
+   pseudo-random height keeps the dots apart and stable between visits */
+function dotsSvg(list) {
+  const s = dotScale(list), h = DOT.H - DOT.bot - DOT.top - 4;
+  const d = list.map((v, i) => `M${s.x(v).toFixed(1)} ${(DOT.top + ((Math.sin(i * 12.9898 + v * 0.0001) * 43758.5453) % 1 + 1) % 1 * h + 2).toFixed(1)}h0`).join('');
+  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${DOT.W} ${DOT.H}"><path id="d" d="${d}" stroke-width="6" stroke-linecap="round"/></svg>\n`;
+}
+/* the file's version follows its dots, so a browser never keeps an old drawing */
+const dotsV = list => { let h = 0; for (const v of list) h = (h * 31 + Math.round(v)) % 2147483647; return h.toString(36) + list.length.toString(36); };
+const dotsHref = (key, list) => `/assets/dots/${key}.svg?v=${dotsV(list)}#d`;
+function dotTicks(s) {
+  const { H, top, bot } = DOT;
   let ticks = '';
-  const every = span > 6 ? 2 : 1;
-  for (let p = lo; p <= hi; p += every) {
-    const tx = x(10 ** p);
-    ticks += `<line class="tick" x1="${tx}" x2="${tx}" y1="${top - 6}" y2="${H - bot + 4}"/><text x="${tx}" y="${H - 8}" text-anchor="middle">${short(10 ** p)}</text>`;
+  for (let p = s.lo; p <= s.hi; p += s.span > 6 ? 2 : 1) {
+    const tx = s.x(10 ** p).toFixed(1);
+    ticks += `<line class="tick" x1="${tx}" x2="${tx}" y1="${top - 4}" y2="${H - bot + 4}"/><text x="${tx}" y="${H - 6}" text-anchor="middle">${short(10 ** p)}</text>`;
   }
-  /* each dot is one fine; a fixed pseudo-random height keeps them apart and stable between visits */
-  let dots = '';
-  list.forEach((v, i) => {
-    const jy = top + ((Math.sin(i * 12.9898 + v * 0.0001) * 43758.5453) % 1 + 1) % 1 * (H - bot - top - 4) + 2;
-    dots += `<circle class="d" cx="${x(v).toFixed(1)}" cy="${jy.toFixed(1)}" r="2.2" opacity=".75"/>`;
-  });
-  const mx = x(c.fine_eur), my = (top + H - bot) / 2;
-  const anchor = mx > W * 0.7 ? 'end' : mx < W * 0.3 ? 'start' : 'middle';
-  const lx = anchor === 'end' ? mx + 6 : anchor === 'start' ? mx - 6 : mx;
-  return `<svg class="strip" viewBox="0 0 ${W} ${H}" role="img" aria-label="Every fine in ${esc(c.country)} on a scale from ${short(10 ** lo)} to ${short(10 ** hi)}, with this one highlighted">
-    ${ticks}${dots}
-    <line class="pin" x1="${mx}" x2="${mx}" y1="16" y2="${my - 7}"/>
-    <text class="melbl" x="${lx}" y="12" text-anchor="${anchor}">This fine</text>
-    <circle class="me" cx="${mx}" cy="${my}" r="6.5"/>
-  </svg>`;
+  return ticks;
+}
+/* From BELL_MIN fines up, a decision page shows the list as a bell instead of dots: on the scale
+   whose marks are ten or a hundred times apart the fines form one, and the part left of this fine, shaded, is the "bigger than" share. Fewer
+   fines keep their dots, so a curve never invents a shape. The curve is a smoothed count (Gaussian kernel, Silverman's
+   width) at 96 points, worked out once per list. */
+const BELL_MIN = 50, BELL = new Map();
+function bellPath(list, key) {
+  if (BELL.has(key)) return BELL.get(key);
+  const s = dotScale(list), lv = list.map(v => Math.log10(Math.max(v, 1))), n = lv.length;
+  const mean = lv.reduce((a, b) => a + b, 0) / n, sd = Math.sqrt(lv.reduce((a, b) => a + (b - mean) ** 2, 0) / n) || 0.5;
+  const bw = 1.06 * sd * n ** -0.2, xs = [], ys = [];
+  for (let i = 0; i <= 96; i++) {
+    const u = s.lo + s.span * i / 96;
+    let y = 0;
+    for (const v of lv) y += Math.exp(-0.5 * ((u - v) / bw) ** 2);
+    xs.push(s.x(10 ** u)); ys.push(y);
+  }
+  const max = Math.max(...ys), base = DOT.H - DOT.bot, tall = base - DOT.top + 6;
+  const pts = xs.map((x, i) => [x, base - ys[i] / max * tall]);
+  const top = 'M' + pts.map(([x, y]) => `${x.toFixed(1)} ${y.toFixed(1)}`).join('L');
+  const out = { top, area: `${top}L${pts[96][0].toFixed(1)} ${base}L${pts[0][0].toFixed(1)} ${base}Z`, at: x => pts[Math.max(0, Math.min(96, Math.round((x - pts[0][0]) / (pts[96][0] - pts[0][0]) * 96)))][1] };
+  BELL.set(key, out);
+  return out;
+}
+/* c: the decision to pin, or null for a list shown on its own (the fines citing an article) */
+function strip(c, list, key, label) {
+  const s = dotScale(list), { W, H, top, bot } = DOT;
+  if (c && list.length >= BELL_MIN) {
+    const b = bellPath(list, key), mx = s.x(c.fine_eur), my = b.at(mx);
+    const anchor = mx > W * 0.75 ? 'end' : mx < W * 0.25 ? 'start' : 'middle';
+    const lx = anchor === 'end' ? mx + 8 : anchor === 'start' ? mx - 8 : mx;
+    return `<svg class="strip bell" viewBox="0 0 ${W} ${H}" role="img" aria-label="${esc(label)} as a curve on a scale from ${short(10 ** s.lo)} to ${short(10 ** s.hi)}, the fines smaller than this one shaded">`
+      + `<defs><clipPath id="in-${key}"><rect x="0" y="0" width="${mx.toFixed(1)}" height="${H}"/></clipPath></defs>${dotTicks(s)}`
+      + `<path class="b-all" d="${b.area}"/><path class="b-in" d="${b.area}" clip-path="url(#in-${key})"/><path class="b-top" d="${b.top}"/>`
+      + `<line class="pin" x1="${mx.toFixed(1)}" x2="${mx.toFixed(1)}" y1="16" y2="${(my - 7).toFixed(1)}"/><text class="melbl" x="${lx.toFixed(1)}" y="12" text-anchor="${anchor}">This fine</text>`
+      + `<circle class="me" cx="${mx.toFixed(1)}" cy="${my.toFixed(1)}" r="6"/></svg>`;
+  }
+  if (!c) return `<svg class="strip" viewBox="0 0 ${W} ${H}" role="img" aria-label="${esc(label)} on a scale from ${short(10 ** s.lo)} to ${short(10 ** s.hi)}">${dotTicks(s)}<use href="${dotsHref(key, list)}"/></svg>`;
+  const ticks = dotTicks(s);
+  const mx = s.x(c.fine_eur), my = (top + H - bot) / 2;
+  const anchor = mx > W * 0.75 ? 'end' : mx < W * 0.25 ? 'start' : 'middle';
+  const lx = anchor === 'end' ? mx + 8 : anchor === 'start' ? mx - 8 : mx;
+  return `<svg class="strip" viewBox="0 0 ${W} ${H}" role="img" aria-label="${esc(label)} on a scale from ${short(10 ** s.lo)} to ${short(10 ** s.hi)}, with this one highlighted">${ticks}<use href="${dotsHref(key, list)}"/>`
+    + `<line class="pin" x1="${mx.toFixed(1)}" x2="${mx.toFixed(1)}" y1="16" y2="${(my - 8).toFixed(1)}"/><text class="melbl" x="${lx.toFixed(1)}" y="12" text-anchor="${anchor}">This fine</text>`
+    + `<circle class="me" cx="${mx.toFixed(1)}" cy="${my}" r="8"/></svg>`;
+}
+function sizeBlock(c) {
+  const k = context(c);
+  if (!k) return `<p class="size-big none">No amount to compare.</p><p class="size-sub">This decision has no fine amount we can read, so it isn&rsquo;t placed among the others.</p>`;
+  const cc = c.country_code.toLowerCase();
+  return `<p class="size-big">${biggerLine(k.below, k.n, 'in ' + esc(c.country))}${fxCur(c) ? ' (estimated in euro)' : ''}.</p>
+    <figure class="dots-fig"><figcaption>${esc(c.country)} &middot; ${num(k.n)} ${k.n === 1 ? 'fine' : 'fines'}</figcaption>${strip(c, FINES_BY_CC[c.country_code], cc, `Every fine in ${c.country}`)}</figure>
+    <figure class="dots-fig"><figcaption>All of Europe on Fino &middot; ${num(k.eu_n)} fines &middot; ${k.eu_below >= k.eu_n - 1 ? 'the biggest' : pctBelow(k.eu_below, k.eu_n) === 0 ? 'among the smallest' : `bigger than ${pctBelow(k.eu_below, k.eu_n)}%`}</figcaption>${strip(c, ALL_FINES, 'all', 'Every fine on Fino')}</figure>
+    <p class="size-sub">${[FINES_BY_CC[c.country_code].length < BELL_MIN ? 'Each dot is one fine.' : '', FINES_BY_CC[c.country_code].length >= BELL_MIN || ALL_FINES.length >= BELL_MIN ? 'Shaded: the fines smaller than this one.' : '', 'Each mark on the scale is ten or a hundred times the one before.'].filter(Boolean).join(' ')}</p>`;
+}
+/* "What a DPO could check" (data/dpo-checks.json, from pipeline/dpo_checks.json): prompts for a DPO's own review, drawn
+   from what the regulator found, with the regulator's words. A quote in another language shows Fino's English first and
+   the original under it. build_seo.mjs stops if a quote is not word for word in the page's reading. */
+function dpoBlock(c) {
+  const d = DPO.checks[c.pharos_id];
+  if (!d) return '';
+  const tr = d.lang !== 'en';
+  const quote = q => `<figure class="dpo-q"><blockquote><p>&ldquo;${esc(tr ? q.en : q.text)}&rdquo;</p></blockquote>`
+    + (tr ? `<p class="orig"><span>Original, ${esc(DPO.languages[d.lang] || d.lang)}</span> <q lang="${esc(d.lang)}">${esc(q.text)}</q></p>` : '') + '</figure>';
+  return `<div class="dpo"><p class="dpo-sub">A prompt for your own review, drawn from what this regulator found. Not advice.</p>
+    <ul class="dpo-list">${d.bullets.map(b => `<li>${esc(b)}</li>`).join('')}</ul>
+    <p class="dpo-from">In the regulator&rsquo;s words${tr ? ' <span>translated by Fino; the original wording is the one that counts</span>' : ''}</p>
+    ${d.quotes.map(quote).join('')}<p class="dpo-status"><b>Status</b>${esc(d.status)}</p></div>`;
 }
 /* Spanish laws the AEPD cites by their short names; explained in words wherever the text shows them (row 159) */
 const SHORT_LAWS = [['LSSICE', 'Spain’s e-commerce act (Ley 34/2002, on information society services and electronic commerce)'],
@@ -1171,7 +1366,7 @@ function rulesBlock(c) {
     const detail = parts.filter(p => p !== String(n));
     const head = GDPR.arts[n] ? esc(GDPR.arts[n].t) : '<span class="note">Not a GDPR article number</span>';
     const inner = `<span class="no">Art. ${n}</span><span class="t">${head}${detail.length ? `<small>${detail.map(esc).join(' · ')}</small>` : ''}</span>`;
-    return GDPR.arts[n] ? `<li><a class="in" href="#art-${n}">${inner}<span class="go">Read &rarr;</span></a></li>` : `<li><div class="r">${inner}</div></li>`;
+    return GDPR.arts[n] ? `<li><a class="in" href="#art-${n}">${inner}</a></li>` : `<li><div class="r">${inner}</div></li>`;
   }).join('')}</ul>`;
   return list + (c.own_law ? `<p class="note">${esc(c.own_law)}</p>` : '') + shortLawNote(c.own_law, c);
 }
@@ -1186,7 +1381,10 @@ const DATE_UNSTATED = 'The AEPD’s published decision does not state its date. 
 const dateUnstated = c => c.own_dateflag === 'unstated';
 /* the AEPD page shows a date only when Fino's other data sources have one (the decision itself states none); with none it says 'Date not published' and claims nothing */
 const dateUnstatedNote = c => c.decision_date ? DATE_UNSTATED : 'The AEPD’s published decision does not state its date.';
-const sourceLabel = c => ownThirdParty(c) ? (c.own_kind === 'news report' ? 'News report' : 'Law firm article') + (c.own_outlet ? ` (${c.own_outlet})` : '') : 'The regulator’s ' + ({ 'press release': 'press release', 'notice of intended decision': 'notice of intended decision', summary: 'summary', 'annual report': 'annual report' }[c.own_kind] || (!c.own_kind && c.own_dateflag === 'announced' ? 'announcement' : 'decision'));
+/* the page the source link opens is only the regulator's notice that it took the decision down (status 'removed'): the link says so */
+const docWeb = u => (/docweb\/(\d+)/.exec(u || '') || [])[1];
+const removalNotice = c => !c.own && c.status === 'removed' && !!docWeb(c.source_url) && docWeb(c.source_url) === docWeb(c.status_source);
+const sourceLabel = c => removalNotice(c) ? 'The regulator’s removal notice' : ownThirdParty(c) ? (c.own_kind === 'news report' ? 'News report' : 'Law firm article') + (c.own_outlet ? ` (${c.own_outlet})` : '') : 'The regulator’s ' + ({ 'press release': 'press release', 'notice of intended decision': 'notice of intended decision', summary: 'summary', 'annual report': 'annual report' }[c.own_kind] || (!c.own_kind && c.own_dateflag === 'announced' ? 'announcement' : 'decision'));
 /* How much of the document was read (pipeline/fino.py read_scope): own_scope is 'part' (parts of it), 'list' (one line of the regulator's list of sanctions) or 'whole' (read in full again after an excerpt); empty = all of it.
    A page is only ever credited with 'word for word against it' for the text that was really read. own_note: a sentence added by pipeline/own_corrections.csv (credit_note). */
 function ownCredit(c) {
@@ -1210,7 +1408,7 @@ function ownReadLine(c) {
   return `Read by Fino in ${c.own_scope === 'part' ? 'parts of ' : ''}${doc} on ${c.own_date}; ${how}${dateUnstated(c) && c.decision_date ? ', except the decision date' : ''}.${c.own_note ? ` ${c.own_note}` : ''}`;
 }
 /* a summary that is the source's, or Fino's own, changed by hand in pipeline/case_fixes.csv (summary_credit): the credit says exactly what Fino did */
-const editCredit = c => { const k = c.cred.split(':')[0], d = c.cred.slice(k.length + 1); if (k === 'fino_fix') { const [what, noun] = d.includes('|') ? d.split('|') : ['the amount', d]; return `Summary from GDPRhub (noyb), written by its volunteers; Fino corrected ${esc(what)} against the regulator&rsquo;s own ${esc(noun)}. CC BY-NC-SA 4.0.`; } return k === 'fino_new' ? `Summary by Fino, from the regulator&rsquo;s own decision (${esc(d.split('|')[0])}).${d.includes('|') ? ' ' + esc(d.slice(d.indexOf('|') + 1)) : ''}` : 'Summary from GDPRhub (noyb), written by its volunteers; Fino removed one phrase that called Xfera Móviles a debt recovery company (it is a mobile operator). CC BY-NC-SA 4.0.'; };
+const editCredit = c => { const k = c.cred.split(':')[0], d = c.cred.slice(k.length + 1); if (k === 'fino_fix') { const [what, noun] = d.includes('|') ? d.split('|') : ['the amount', d]; return `Summary from GDPRhub (noyb), written by its volunteers; Fino corrected ${esc(what)} against the regulator&rsquo;s own ${esc(noun)}. CC BY-NC-SA 4.0.`; } return k === 'fino_new' ? `Summary by Fino, from the regulator&rsquo;s own decision (${esc(d.split('|')[0].split(' + ')[0])})${d.split('|')[0].includes(' + ') ? ' and its ' + esc(d.split('|')[0].split(' + ')[1]) : ''}.${d.includes('|') ? ' ' + esc(d.slice(d.indexOf('|') + 1)) : ''}` : `Summary from GDPRhub (noyb), written by its volunteers; Fino removed ${esc(d || 'one phrase')}. CC BY-NC-SA 4.0.`; };
 let SUM_READY = !!DATA.sum;
 function summaryBlock(c) {
   if (!c.summary && !SUM_READY) return `<p class="summary" id="sum-wait" data-id="${esc(c.pharos_id)}">Loading the summary&hellip;</p>`;
@@ -1239,7 +1437,7 @@ function companyBlock(c) {
     <p class="stat" style="font-size:1.15rem">${num(list.length)} decisions against ${esc(ORG_NAME[c.org])}${total ? `, ${bigEur(total)} in fines` : ''}.</p>
     ${unconfLegend(list, 'margin:-6px 0 8px')}
     <p class="legend" style="margin:0 0 8px">Decisions in ${esc(countriesOf(list).join(', '))}.</p>
-    <ul class="sim">${others.slice(0, 3).map(s => `<li><a href="#d-${slug(s.pharos_id)}"><b>${esc(s.country)} &middot; ${esc(when(s.decision_date, s.date_precision).short)}</b><span>${s.fine_eur ? moneyS(s) : 'No fine amount'}${s.arts.length ? ' · ' + s.arts.slice(0, 3).map(n => 'Art. ' + n).join(', ') : ''}</span></a></li>`).join('')}</ul>
+    <ul class="sim">${others.slice(0, 3).map(s => `<li><a href="#d-${slug(s.pharos_id)}"><b>${esc(s.country)} &middot; ${esc(when(s.decision_date, s.date_precision).short)}</b><span>${s.fine_eur ? moneyS(s) : 'No fine'}${s.arts.length ? ' · ' + artsTxt(s.arts.slice(0, 3)) : ''}</span></a></li>`).join('')}</ul>
     <p style="margin:14px 0 0"><a class="btn small latte" href="#fines" data-org="${esc(c.org)}">All ${num(list.length)} decisions &rarr;</a></p>
   </section>`;
 }
@@ -1259,14 +1457,42 @@ function groupBlock(c) {
     <p style="margin:0"><a class="btn small latte" href="#fines" data-group="${esc(c.org_group)}">All ${num(list.length)} decisions in the group &rarr;</a></p>
   </section>`;
 }
+/* A numbered section: the number and label on the left, the content on the right (layout v2) */
+const secRow = (n, id, title, body, cls = '') => `<section class="sec-row${cls ? ' ' + cls : ''}" aria-labelledby="s-${id}"><div class="sec-lbl"><span class="sec-n" aria-hidden="true">${String(n).padStart(2, '0')}</span><h2 id="s-${id}">${title}</h2></div><div class="sec-body${cls.includes('rel-row') ? ' wide' : ''}">${body}</div></section>`;
 function renderDecision(c) {
-  const d = when(c.decision_date, c.date_precision), f = fineInfo(c), k = context(c), sims = similar(c);
-  const about = c.violation_type ? `<span class="hl">${esc(c.violation_type)}</span>` : c.categories ? `About: ${esc(c.categories)}` : '';
+  const d = when(c.decision_date, c.date_precision), f = fineInfo(c), sims = similar(c), p = party(c);
   const pill = f.status ? `<span class="pill ok">${esc(f.status)}</span>`
     : f.early ? `<span class="pill ok">${redLabel(c)}</span>`
-    : c.best_outcome ? `<span class="pill ${outcomeKind(c.best_outcome)}">${esc(c.best_outcome)}</span>` : '';
-  const after = c.status_note ? `<p class="after"><b>What happened next.</b> ${esc(c.status_note).replace(/\b((?:20\d\d|ND)\/[A-Z]{2}\/\d{3})\b/g, (m) => BY_SLUG.has(slug(m)) ? `<a href="#d-${slug(m)}">${m}</a>` : m)}${c.status_source ? ` <a href="${esc(c.status_source)}" target="_blank" rel="noopener">Source &rarr;</a>` : ''}</p>` : '';
-  const pc = k && pctBelow(k.below, k.n), eu = k && pctBelow(k.eu_below, k.eu_n);
+    : c.best_outcome && c.best_outcome !== 'Fine issued' ? `<span class="pill ${outcomeKind(c.best_outcome)}">${esc(c.best_outcome)}</span>` : '';
+  const after = c.status_note ? `${esc(c.status_note).replace(/\b((?:20\d\d|ND)\/[A-Z]{2}\/\d{3})\b/g, (m) => BY_SLUG.has(slug(m)) ? `<a href="#d-${slug(m)}">${m}</a>` : m)}${c.status_source ? ` <a href="${esc(c.status_source)}" target="_blank" rel="noopener">Source &rarr;</a>` : ''}` : '';
+  const facts = [['Country', `${flag(c)}${esc(c.country || 'Not given')}`],
+    [dateLabel(c), `${esc(d.main)}${d.note ? `<small>${esc(d.note)}</small>` : ''}${dateUnstated(c) ? `<small>${esc(dateUnstatedNote(c))}</small>` : ''}`],
+    c.sector_tag ? ['Sector', esc(c.sector_tag)] : null, ['Regulator', esc(authority(c.authority))]].filter(Boolean);
+  const related = [explainedBlock(EX_BY_CASE.get(c.pharos_id)), companyBlock(c), groupBlock(c),
+    `<section><h2 class="sec-h">Similar decisions</h2>
+          ${sims.length ? `<ul class="sim">${sims.map(s => `<li><a href="#d-${slug(s.pharos_id)}"><b>${pHtml(party(s))}</b><span>${[s.year || 'No date', s.fine_eur ? moneyS(s) : 'No fine', artsTxt(s.arts.slice(0, 3))].filter(Boolean).join(' · ')}</span></a></li>`).join('')}</ul>` : '<p class="note">Fino has not linked similar decisions here yet.</p>'}
+        </section>`].filter(Boolean);
+  const links = sourceLinks(c);
+  const record = `<dl class="record">
+      ${after ? `<div class="wide"><dt>What happened next</dt><dd>${after}</dd></div>` : ''}
+      ${reducedNote(c) ? `<div class="wide"><dt>${redLabel(c)}</dt><dd>${esc(reducedNote(c))}</dd></div>` : ''}
+      <div><dt>Regulator&rsquo;s reference</dt><dd class="mono">${esc(c.ref || 'Not recorded')}</dd></div>
+      <div><dt>Fino case number</dt><dd class="mono">${esc(c.pharos_id)}</dd></div>
+    </dl>
+    <div class="record-actions">
+      ${links.length ? `<ul class="links">${links.map(([l, u, pr]) => `<li><a class="btn ${pr ? 'primary' : ''}" href="${esc(u)}" target="_blank" rel="noopener">${esc(l)} &nearr;</a></li>`).join('')}</ul>` : ''}
+      <a class="btn" href="#x-${slug(c.pharos_id)}">Export as PDF</a>
+      <button type="button" class="btn" id="copy-cite">Copy citation</button>
+      <span class="legend" id="copied" aria-live="polite"></span>
+    </div>
+    <p class="fine-print">${dateUnstated(c) && c.decision_date ? 'The facts on this page come from the source above, except the date, which comes from Fino’s other data sources' : 'The facts on this page come from the sources above, as they recorded them'}${c.own && c.status ? ', and what happened next, which comes from the source linked there' : ''}.${c.own_dateflag === 'removed' && !c.own ? ' Fino removed the date the sources above give: the original does not support it.' : ''} ${fxCur(c) && c.status !== 'reopened' ? `The euro figure is Fino’s estimate${fineInfoPlain(c).cur && !c.est ? '' : ' at the European Central Bank’s rate'}; the fine was set in ${esc(curName(fxCur(c)))}.` : 'Nothing has been estimated or filled in.'} Not legal advice.</p>
+    <p class="fine-print">Spotted a mistake? Thank you for telling me: write to <a class="mail" href="mailto:hello@finoprivacy.com">hello@finoprivacy.com</a> and quote ${esc(c.pharos_id)}.</p>`;
+  /* the order: what happened, the rules, what a DPO could check (when Fino has one), how big it is, related, the record */
+  const rows = [['summary', 'Summary', summaryBlock(c), 'summary-row'], ['rules', 'Rules involved', rulesBlock(c)],
+    dpoBlock(c) ? ['dpo', 'What a DPO could check', dpoBlock(c)] : null,
+    c.status === 'reopened' || !context(c) ? null : ['size', 'How big is it?', sizeBlock(c)],   // nothing to compare: no section
+    ['related', 'Related decisions', `<div class="rel-grid n${Math.min(related.length, 3)}">${related.join('')}</div>`, 'rel-row'],
+    ['record', 'Sources and record', record]].filter(Boolean);
   $('main').innerHTML = `
   <div class="wrap">
     <nav class="crumbs" aria-label="Breadcrumb">
@@ -1276,58 +1502,17 @@ function renderDecision(c) {
     </nav>
     <div class="head">
       <div>
-        <p class="eyebrow">${esc(authority(c.authority))} &middot; ${esc(d.main)}${dateUnstated(c) && c.decision_date ? ' (date not in the decision)' : ''}</p>
-        <h1 class="${party(c).cls}">${esc(party(c).name)}${party(c).person ? '<span class="tag-person">Private person</span>' : ''}</h1>
-        ${party(c).unchecked ? '<p class="legend" style="margin:0 0 12px">The source names these parties without saying which one the decision is about. I&rsquo;m checking it.</p>'
-          : party(c).sub && !party(c).person ? `<p class="legend" style="margin:0 0 12px">${esc(party(c).sub)}.</p>` : ''}
-        <p class="lede">${about}</p>
-        ${after}
-        ${reducedNote(c) ? `<p class="after"><b>${redLabel(c)}.</b> ${esc(reducedNote(c))}</p>` : ''}
+        <h1 class="${p.cls}">${pHtml(p)}${p.person && !p.labelled ? `<span class="tag-person">${p.tag}</span>` : ''}</h1>
+        ${p.unchecked ? '<p class="legend">The source names these parties without saying which one the decision is about. I&rsquo;m checking it.</p>'
+          : p.sub && !p.person ? `<p class="legend">${esc(p.sub)}.</p>` : ''}
+        ${c.violation_type ? `<p class="lede"><span class="hl">${esc(c.violation_type)}</span></p>` : ''}
+        ${c.cats.length ? `<ul class="topics" aria-label="Topics">${c.cats.map(t => `<li>${esc(t)}</li>`).join('')}</ul>` : ''}
       </div>
-      <div class="fine"><span class="lbl">Fine</span><span class="amt ${f.none ? 'none' : ''}">${f.conv && (f.cur || c.est) ? `<span class="cur">${esc(f.cur || c.currency)}</span>${esc(f.label.slice((f.cur || c.currency).length + 1))}` : f.struck ? `<s>${esc(f.label)}</s>` : esc(f.label)}</span>${f.conv ? `<span class="conv" title="${esc(f.note)}">${esc(f.conv)}</span>` : ''}${f.sub ? `<span class="conv">${esc(f.sub)}</span>` : ''}${pill}</div>
+      <div class="fine">${f.none ? '' : '<span class="lbl">Fine</span>'}<span class="amt ${f.none ? 'none' : ''}">${f.conv && (f.cur || c.est) ? `<span class="cur">${esc(f.cur || c.currency)}</span>${esc(f.label.slice((f.cur || c.currency).length + 1))}` : f.struck ? `<s>${esc(f.label)}</s>` : esc(f.label)}</span>${f.conv ? `<span class="conv" title="${esc(f.note)}">${esc(f.conv)}</span>` : ''}${f.sub ? `<span class="conv">${esc(f.sub)}</span>` : ''}${pill}</div>
     </div>
-    <dl class="facts">
-      <div><dt>Regulator</dt><dd>${esc(authority(c.authority))}</dd></div>
-      <div><dt>${dateLabel(c)}</dt><dd>${esc(d.main)}${d.note ? `<small>${esc(d.note)}</small>` : ''}${dateUnstated(c) ? `<small>${esc(dateUnstatedNote(c))}</small>` : ''}</dd></div>
-      <div><dt>Country</dt><dd>${flag(c)}${esc(c.country || 'Not given')}</dd></div>
-      <div><dt>Sector</dt><dd>${esc(c.sector_tag || 'Not given')}</dd></div>
-      <div><dt>Regulator&rsquo;s reference</dt><dd class="mono">${esc(c.ref || 'Not recorded')}</dd></div>
-      <div><dt>Fino case number</dt><dd class="mono">${esc(c.pharos_id)}</dd></div>
-    </dl>
-    <div class="tools">
-      <a class="btn primary small" href="#x-${slug(c.pharos_id)}">Export as PDF</a>
-      <button type="button" class="btn small" id="copy-cite">Copy citation</button>
-      <span class="legend" id="copied" aria-live="polite" style="align-self:center"></span>
-    </div>
-    <div class="body">
-      <div>
-        <section><h2 class="sec-h">What happened</h2>${summaryBlock(c)}</section>
-        <section><h2 class="sec-h">Rules involved</h2>${rulesBlock(c)}
-          ${c.cats.length ? `<ul class="chips" aria-label="Topics">${c.cats.map(t => `<li>${esc(t)}</li>`).join('')}</ul>` : ''}</section>
-      </div>
-      <aside>
-        ${c.status === 'reopened' ? '' : `<section class="card ctx"><h2 class="sec-h">How big is it?</h2>
-          ${k ? `<p class="big">Bigger than <b>${pc}%</b> of the ${num(k.n)} fines in ${esc(c.country)}.</p>
-            <p class="sub">Across the whole database, bigger than ${eu}% of ${num(k.eu_n)} fines.</p>${strip(c)}
-            <p class="legend">Each dot is one fine in ${esc(c.country)}. The scale grows tenfold at each line.</p>`
-          : `<p class="big">No amount to compare.</p><p class="sub">This decision has no fine amount we can read, so it isn&rsquo;t placed among the others.</p>`}
-        </section>`}
-        ${explainedBlock(EX_BY_CASE.get(c.pharos_id))}
-        ${companyBlock(c)}
-        ${groupBlock(c)}
-        <section><h2 class="sec-h">Similar decisions</h2>
-          ${sims.length ? `<ul class="sim">${sims.map(s => `<li><a href="#d-${slug(s.pharos_id)}"><b>${esc(party(s).name)}</b><span>${[s.year || 'No date', s.fine_eur ? moneyS(s) : 'No fine amount', s.arts.slice(0, 3).map(n => 'Art. ' + n).join(', ')].filter(Boolean).join(' · ')}</span></a></li>`).join('')}</ul>
-            <p class="legend">Same country, overlapping articles or topics.</p>` : '<p class="note">Fino has not linked similar decisions here yet.</p>'}
-        </section>
-      </aside>
-    </div>
-  </div>
-  <section class="sources"><div class="wrap">
-    <h2 class="sec-h">Sources</h2>
-    <ul class="links">${sourceLinks(c).map(([l, u, p]) => `<li><a class="btn ${p ? 'primary' : ''}" href="${esc(u)}" target="_blank" rel="noopener">${esc(l)} &nearr;</a></li>`).join('')}</ul>
-    <p class="fine-print">${dateUnstated(c) && c.decision_date ? 'The facts on this page come from the source above, except the date, which comes from Fino’s other data sources' : 'The facts on this page come from the sources above, as they recorded them'}${c.own && c.status ? ', and what happened next, which comes from the source linked there' : ''}.${c.own_dateflag === 'removed' && !c.own ? ' Fino removed the date the sources above give: the original does not support it.' : ''} ${fxCur(c) ? `The euro figure is Fino’s estimate${fineInfoPlain(c).cur && !c.est ? '' : ' at the European Central Bank’s rate'}; the fine was set in ${esc(curName(fxCur(c)))}.` : 'Nothing has been estimated or filled in.'} Not legal advice.</p>
-    <p class="fine-print">Spotted a mistake? Thank you for telling me: write to <a class="mail" href="mailto:hello@finoprivacy.com">hello@finoprivacy.com</a> and quote ${esc(c.pharos_id)}.</p>
-  </div></section>`;
+    <dl class="facts-row">${facts.map(([k, v]) => `<div><dt>${k}</dt><dd>${v}</dd></div>`).join('')}</dl>
+    <div class="sec-rows">${rows.map(([id, t, b, cls], i) => secRow(i + 1, id, t, b, cls)).join('')}</div>
+  </div>`;
   document.querySelectorAll('[data-org], [data-group]').forEach(a => a.addEventListener('click', () => {
     Object.assign(state, { q: '', country: '', year: '', sector: '', art: '', outcome: '', band: '', shown: 40,
                            org: a.dataset.org || '', group: a.dataset.group || '' });
@@ -1349,8 +1534,9 @@ const CITE_MONTHS = [['January', 'gennaio', 'januari', 'Januar', 'janvier', 'ene
   ['November', 'novembre', 'noviembre'], ['December', 'dicembre', 'Dezember', 'décembre', 'diciembre']];
 function citeRef(c, kind) {
   let r = String(c.ref || '').trim();
-  if (/^(n\/?a|unknown|not (published|recorded|given))\b/i.test(r)) return '';   /* a placeholder is not a reference */
-  if (kind === 'decision') r = r.replace(/^Decision\s+/i, '');
+  if (REF_NONE_NOTED.test(r)) return '';   /* a placeholder is not a reference */
+  if (kind === 'decision') r = r.replace(REF_LEAD, '');   /* the sentence already says "decision" ("decision Décision quant au fond 11/2019", "decision Délibération n° 3018"); only before a number or a code */
+  r = r.replace(/(\d)\.$/, '$1');   /* a full stop after a reference's last digit is a typo of the source ("NAIH/2020/2546/15.") */
   const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(c.decision_date || '');
   if (r && m) {
     const y = m[1], mo = +m[2], dd = `0?${+m[3]}`, names = CITE_MONTHS[mo - 1].join('|');
@@ -1361,6 +1547,18 @@ function citeRef(c, kind) {
   r = r.replace(/\s*\(decision\)/i, '');
   return /^\([^()]*\)$/.test(r) ? '' : r;   /* a bracketed party name alone is not a reference either */
 }
+/* a fine set in another currency and cut on appeal: both amounts as the status note gives them, each with Fino's euro estimate after it (', fine of NOK 2,500,000 (about €220,000), reduced on appeal to NOK 1,500,000 (about €132,000)'); '' when the note does not give them */
+function nativeStepOf(c) {
+  const k = fxCur(c);
+  if (c.status !== 'reduced' || !c.fine_eur || !c.fine_before || !k || c.est || !c.status_note) return '';
+  const a = c.status_note.match(new RegExp(`from ${k} ([0-9][0-9,.]*[0-9]) to ${k} ([0-9][0-9,.]*[0-9])`)), b = c.status_note.match(new RegExp(`fine stands at ${k} ([0-9][0-9,.]*[0-9])`));
+  return a && b && a[2] === b[1] ? `, fine of ${k} ${a[1]} (about ${eur(approx(c.fine_before))}), reduced on appeal to ${k} ${a[2]} (about ${eur(approx(c.fine_eur))})` : '';
+}
+/* wording that comes from this code and not from the data: build_seo adds these tags to a page's lastmod stamp, so only the pages they touch get a new date */
+const REF_LEAD = /^(Decision|D[ée]cision(?: quant au fond)?|D[ée]lib[ée]ration|Decisi[oó]n|Decisione|Beschluss|Beslissing|Entscheidung)\s+(?=(?:n[°o.]?\s*|nr\.?\s*)?\S*\d)/i;
+const wordingTags = c => [removalNotice(c) ? 'removal-notice' : '', c.status === 'reopened' && fxCur(c) ? 'no-estimate-note' : '',
+  (m => m && !/^decision$/i.test(m[1]) || /\d\.$/.test(c.ref || ''))(REF_LEAD.exec(c.ref || '')) ? 'cite-ref' : '',
+  !c.own && c.source === 'gdprhub' && c.case_id.includes(' - ') && REF_NONE.test(c.case_id.split(' - ').slice(1).join(' - ').trim()) ? 'ref-placeholder' : '', nativeStepOf(c) ? 'cite-native' : ''].filter(Boolean);
 function citation(c) {
   const d = when(c.decision_date, c.date_precision), f = fineInfo(c);
   /* a date that is not the decision's own is cited as what it is: 'press release of ...', 'decision as reported by eldiario.es on ...' */
@@ -1369,20 +1567,21 @@ function citation(c) {
   const when_ = !has ? '' : ({ reported: `as reported${c.own_outlet ? ` by ${c.own_outlet}` : ''} on ${d.main}`, notified: `notified on ${d.main}`,
     investigation: `(investigation finished ${d.main})`, yearreport: `in the annual report for ${d.main}` })[c.own_dateflag] || `of ${d.main}`;
   const ref = citeRef(c, kind);
-  const parts = [authority(c.authority), ref ? `${kind} ${ref}` : kind, when_].filter(Boolean).join(' ');
+  const parts = [c.authority ? authority(c.authority) : '', ref ? `${kind} ${ref}` : kind, when_].filter(Boolean).join(' ');   /* no regulator given: none is cited (not 'Not given decision ...') */
   const who = c.controller ? ` (${c.controller})` : '';
   /* cite the fine the decision imposed, then what a later ruling or objection did to it */
   if (c.status === 'reopened') { const f = fineInfo(c); return `${parts}${who}, ${f.title}. Fino case ${c.pharos_id}, ${SITE}/decisions/${slug(c.pharos_id)}.html, accessed ${today()}.`; }
-  const st = c.status && c.fine_before && c.fine_before !== c.fine_eur ? STATUS_LABEL[c.status] : '';
+  const st = c.status && c.fine_before && c.fine_before !== c.fine_eur ? statusLabel(c) : '';
   const unconf = c.status === 'reduced' && c.fine_before && c.fine_before === c.fine_eur;   /* appeal result known, new amount not */
   const eu = fxCur(c) && !c.est ? (n => '≈ ' + eur(n)) : eur;   /* a converted figure is marked as an estimate */
-  const amt = unconf ? `, fine of ${eur(c.fine_eur)}, reduced on appeal (new amount not yet confirmed)` : st ? (c.status === 'reduced' && c.fine_eur === 0 ? `, fine of ${eur(c.fine_before)}, replaced by a warning on appeal`
+  const nativeStep = st ? nativeStepOf(c) : '';
+  const amt = unconf ? `, fine of ${eur(c.fine_eur)}, reduced on appeal (new amount not yet confirmed)` : nativeStep ? nativeStep : st ? (c.status === 'reduced' && c.fine_eur === 0 ? `, fine of ${eur(c.fine_before)}, replaced by a warning on appeal`
       : c.fine_eur ? `, fine of ${eu(c.fine_before)}, ${st.toLowerCase()} to ${eu(c.fine_eur)}` : `, fine of ${eu(c.fine_before)}, ${st.toLowerCase()}`)
-    : c.status === 'annulled' ? ', decision removed by the regulator after a final court judgment against it' : c.status === 'withdrawn' ? `, ${STATUS_LABEL[c.status].toLowerCase()}`
+    : c.status === 'removed' ? `, decision removed from the regulator’s website after ${/final court judgment/.test(c.status_note || '') ? 'a final' : 'a'} court judgment against it` : c.status === 'annulled' ? (statusLabel(c) === 'Annulled' ? ', decision annulled' : ', decision annulled by a court') : c.status === 'withdrawn' ? `, ${STATUS_LABEL[c.status].toLowerCase()}`
     : c.red_before ? `, fine of ${eur(c.fine_eur)} after ${c.red_flags.includes('p') || c.red_pct === 40 ? 'early-payment reductions' : 'reductions under Spanish law'} (from ${eur(c.red_before)})`
     : c.status === 'reduced' && c.est ? `, fine reduced on appeal to ${native(c)} (about ${eur(approx(c.fine_eur))})`
     : c.est ? `, fine of ${native(c)} (about ${eur(approx(c.fine_eur))})` : c.fine_eur ? `, fine of ${eur(c.fine_eur)}` : '';
-  const pend = !st ? (c.status === 'appealed' ? ', under appeal' : c.status === 'appeal_announced' ? ', appeal announced' : '') : '';
+  const pend = !st ? (c.status === 'appealed' ? ', under appeal' : c.status === 'appeal_announced' ? ', appeal announced' : c.status === 'objection_announced' ? ', objection announced' : '') : '';
   return `${parts}${who}${amt}${pend}. Fino case ${c.pharos_id}, ${SITE}/decisions/${slug(c.pharos_id)}.html, accessed ${today()}.`;
 }
 
@@ -1405,19 +1604,34 @@ function bindGdpr(pre = 'rec-') {
     openRecital(n, pre);
   });
 }
+/* Law pages, layout v2: the title large, a facts row, then numbered sections with the label on the left */
+const factsRow = facts => `<dl class="facts-row">${facts.filter(Boolean).map(([k, v]) => `<div><dt>${k}</dt><dd>${v}</dd></div>`).join('')}</dl>`;
+const secRows = rows => `<div class="sec-rows">${rows.filter(Boolean).map(([id, t, b, cls], i) => secRow(i + 1, id, t, b, cls)).join('')}</div>`;
+/* a chapter row: its number in words on the left ("Chapter II"), its name under it, the articles on the right */
+const tocRow = (id, n, title, body) => `<section class="sec-row" aria-labelledby="s-${id}"><div class="sec-lbl"><span class="sec-n wordy">${n}</span><h2 id="s-${id}">${title}</h2></div><div class="sec-body">${body}</div></section>`;
+/* "Section 1 – Transparency and modalities": the name, with "Section 1" under it */
+const secCell = sec => { const m = sec.match(/^(Section \d+)\s+[–—-]\s+(.+)$/); return m ? ['Section', `${esc(m[2])}<small>${esc(m[1])}</small>`] : ['Section', esc(sec)]; };
+const GDPR_ABOUT = `<div class="official-note"><p>Shown here from the consolidated version on EUR-Lex, which includes the published corrections. Only the version in the Official Journal of the EU is legally binding.</p>
+          <p><a href="${ELI}" target="_blank" rel="noopener">Regulation (EU) 2016/679, OJ L 119, 4.5.2016, p. 1</a></p></div>`;
 function renderGdpr() {
-  $('main').innerHTML = `<div class="wrap">
-    <div class="b-head">
-      <p class="eyebrow" style="margin:28px 0 0">Regulation (EU) 2016/679</p>
-      <h1 style="margin:0">The GDPR, with the fines attached.</h1>
-      <p class="lede">All 99 articles and the 173 recitals in the official English text, each article linked to the decisions that cite it and to the original on EUR-Lex.</p>
-    </div>
-    <div class="toc">
-    ${preamble()}
-    ${GDPR.chapters.map(ch => `<section><h2><span>${esc(ch.num)}</span>${esc(ch.title)}</h2><ol>${ch.arts.map(n => {
+  const cited = CASES.filter(c => c.arts.some(n => GDPR.arts[n])).length;
+  $('main').innerHTML = `<div class="wrap lawpage">
+    <nav class="crumbs" aria-label="Breadcrumb"><span>Laws</span><span aria-hidden="true">/</span><span aria-current="page">GDPR</span></nav>
+    <header class="pg-head">
+      <h1>The GDPR, with the fines attached.</h1>
+      <p class="pg-intro">All 99 articles and the 173 recitals in the official English text, each article linked to the decisions that cite it and to the original on EUR-Lex.</p>
+    </header>
+    ${factsRow([['Law', `General Data Protection Regulation<small>Regulation (EU) 2016/679</small>`],
+      ['Articles', `${num(Object.keys(GDPR.arts).length)}<small>in ${num(GDPR.chapters.length)} chapters</small>`],
+      ['Recitals', num(Object.keys(GDPR.preamble.recitals).length)],
+      cited ? ['Cited on Fino', `<a href="#fines">${num(cited)} decisions</a><small>name at least one article</small>`] : null])}
+    <div class="sec-rows">
+    ${tocRow('pre', 'Preamble', 'Legal bases and recitals', preamble())}
+    ${GDPR.chapters.map(ch => tocRow('ch-' + ch.id, esc(ch.num), esc(ch.title), `<ol class="law-toc">${ch.arts.map(n => {
       const k = (BY_ART[n] || []).length;
-      return `<li><a href="#art-${n}"><span class="n">Art. ${n}</span><span>${esc(GDPR.arts[n].t)}</span><span class="c">${k ? num(k) + ' cases' : ''}</span></a></li>`;
-    }).join('')}</ol></section>`).join('')}</div>
+      return `<li><a href="#art-${n}"><span class="n">Art. ${n}</span><span>${esc(GDPR.arts[n].t)}</span><span class="c">${k ? num(k) + (k === 1 ? ' case' : ' cases') : ''}</span></a></li>`;
+    }).join('')}</ol>`)).join('')}
+    </div>
   </div>`;
 }
 /* The preamble of a law (GDPR or AI Act): the legal bases and the recitals, closed until opened */
@@ -1425,9 +1639,7 @@ const GDPR_PRE = { pre: 'rec-', hint: 71, oj: 'https://eur-lex.europa.eu/legal-c
   fix: n => GDPR.preamble.corrected.includes(n) ? '<span class="fix">As corrected by the corrigendum in OJ L 127, 23.5.2018, p. 2.</span>' : '' };
 function preamble(P = GDPR.preamble, L = GDPR_PRE) {
   const nums = Object.keys(P.recitals).map(Number).sort((a, b) => a - b), max = nums[nums.length - 1];
-  return `<section>
-    <h2><span>Preamble</span>Legal bases and recitals</h2>
-    <details class="preamble" id="preamble">
+  return `<details class="preamble" id="preamble">
       <summary><span class="n">1&ndash;${max}</span><span>The legal bases and the ${max} recitals, which explain why each rule exists and how to read it</span><span class="tw" aria-hidden="true"></span></summary>
       <div class="inner">
         <div class="rec-tools">
@@ -1448,52 +1660,47 @@ function preamble(P = GDPR.preamble, L = GDPR_PRE) {
           ${EURLEX_BADGE(L.oj, 'Official Journal text on EUR-Lex')}
         </div>
       </div>
-    </details>
-  </section>`;
+    </details>`;
 }
 function openRecital(n, pre = 'rec-') {
   const d = $('preamble'); if (!d) return;
   d.open = true;
   const el = $(pre + n); if (el) el.scrollIntoView({ block: 'start' });
 }
+/* the fines citing an article, sorted: drawn once per article into assets/dots/art-<n>.svg by build_seo.mjs */
+const artFines = n => (BY_ART[n] || []).filter(c => c.fine_eur).map(c => c.fine_eur).sort((a, b) => a - b);
 function renderArticle(n) {
   const a = GDPR.arts[n], ch = CHAPTER[a.ch], st = artStats(n);
   const top = [...st.fined].sort((x, y) => y.fine_eur - x.fine_eur).slice(0, 5);
   const prev = GDPR.arts[n - 1] ? n - 1 : null, next = GDPR.arts[n + 1] ? n + 1 : null;
-  $('main').innerHTML = `<div class="wrap">
+  const dots = artFines(n);
+  const fines = st.list.length ? `<p class="size-big">Cited in <b>${num(st.list.length)}</b> decisions${st.fined.length ? `, with ${bigEur(st.total)} in fines` : ''}.</p>
+      ${unconfLegend(st.list, 'margin:0 0 8px')}
+      ${dots.length > 1 ? `<figure class="dots-fig"><figcaption>Article ${n} &middot; ${num(dots.length)} fines</figcaption>${strip(null, dots, 'art-' + n, `Every fine citing Article ${n}`)}</figure>
+      <p class="size-sub">Each dot is one fine that cites this article. Each mark on the scale is ten or a hundred times the one before, so a small fine and a huge one fit on the same line.</p>` : ''}
+      ${top.length ? `<h3 class="sub-h">Biggest fines citing Article ${n}</h3><ul class="sim">${top.map(s => `<li><a href="#d-${slug(s.pharos_id)}"><b>${party(s).name ? pHtml(party(s)) : 'Not named in the source'}</b><span>${esc(s.country)} · ${s.year} · ${moneyS(s)}</span></a></li>`).join('')}</ul>` : ''}
+      <p style="margin:18px 0 0"><a class="btn small latte" href="#fines" data-art="${n}">See all ${num(st.list.length)} decisions &rarr;</a></p>`
+    : '<p class="note">No decision in the database cites this article yet.</p>';
+  const related = [explainedBlock(EX_BY_ART.get(n)), inAiAct(n)].filter(Boolean);
+  $('main').innerHTML = `<div class="wrap lawpage">
     <nav class="crumbs" aria-label="Breadcrumb"><span>Laws</span><span aria-hidden="true">/</span><a href="#gdpr">GDPR</a><span aria-hidden="true">/</span><span>${esc(ch.num)}</span><span aria-hidden="true">/</span><span aria-current="page">Article ${n}</span></nav>
-    <div class="law">
-      <article>
-        <p class="eyebrow">${esc(ch.num)} &middot; ${esc(ch.title)}${a.sec ? ` &middot; ${esc(a.sec)}` : ''}</p>
-        <div class="titlerow"><h1>Article ${n}</h1>${EURLEX_BADGE(EURLEX(n), 'Official text on EUR-Lex')}</div>
-        <p class="atitle">${esc(a.t)}</p>
-        <div class="text">${a.h}</div>
-      </article>
-      <aside>
-        <section class="card">
-          <h2 class="sec-h">In the fines database</h2>
-          ${st.list.length ? `<p class="stat">Cited in <b>${num(st.list.length)}</b> decisions${st.fined.length ? `, with ${bigEur(st.total)} in fines` : ''}.</p>
-            ${unconfLegend(st.list, 'margin:-6px 0 8px')}
-            ${top.length ? `<p class="legend" style="margin:0 0 4px">Biggest fines citing Article ${n}</p><ul class="sim">${top.map(s => `<li><a href="#d-${slug(s.pharos_id)}"><b>${esc(party(s).name || 'Not named in the source')}</b><span>${esc(s.country)} · ${s.year} · ${moneyS(s)}</span></a></li>`).join('')}</ul>` : ''}
-            <p style="margin:16px 0 0"><a class="btn small latte" href="#fines" data-art="${n}">See all ${num(st.list.length)} decisions &rarr;</a></p>`
-          : '<p class="note">No decision in the database cites this article yet.</p>'}
-        </section>
-        ${explainedBlock(EX_BY_ART.get(n))}
-        ${inAiAct(n)}
-        <section class="official">
-          <h2 class="sec-h">About this text</h2>
-          <p>Shown here from the consolidated version on EUR-Lex, which includes the published corrections. Only the version in the Official Journal of the EU is legally binding.</p>
-          <p><a href="${ELI}" target="_blank" rel="noopener">Regulation (EU) 2016/679, OJ L 119, 4.5.2016, p. 1</a></p>
-        </section>
-      </aside>
-    </div>
+    <header class="pg-head">
+      <div class="titlerow"><h1>Article ${n}</h1>${EURLEX_BADGE(EURLEX(n), 'Official text on EUR-Lex')}</div>
+      <p class="atitle">${esc(a.t)}</p>
+    </header>
+    ${factsRow([['Law', 'GDPR<small>Regulation (EU) 2016/679</small>'], ['Chapter', `${esc(ch.title)}<small>${esc(ch.num)}</small>`], a.sec ? secCell(a.sec) : null,
+      ['Cited in', st.list.length ? `<a href="#fines" data-art="${n}">${num(st.list.length)} ${st.list.length === 1 ? 'decision' : 'decisions'}</a>` : 'No decision yet'],
+      st.fined.length ? ['Fines', `${bigEur(st.total)}<small>in ${num(st.fined.length)} ${st.fined.length === 1 ? 'fine' : 'fines'}</small>`] : null])}
+    ${secRows([['text', 'The text', `<div class="text">${a.h}</div>`],
+      ['fines', 'Fines under this article', fines],
+      related.length ? ['related', 'Related', `<div class="rel-grid n${Math.min(related.length, 2)}">${related.join('')}</div>`, 'rel-row'] : null,
+      ['about', 'About this text', GDPR_ABOUT]])}
     <nav class="prevnext" aria-label="Other articles">
       ${prev ? `<a href="#art-${prev}"><span>&larr; Article ${prev}</span><b>${esc(GDPR.arts[prev].t)}</b></a>` : '<span></span>'}
       ${next ? `<a href="#art-${next}" style="text-align:right"><span>Article ${next} &rarr;</span><b>${esc(GDPR.arts[next].t)}</b></a>` : ''}
     </nav>
   </div>`;
-  const all = document.querySelector('[data-art]');
-  if (all) all.addEventListener('click', () => { Object.assign(state, { q: '', country: '', year: '', sector: '', art: String(n), outcome: '', band: '', org: '', group: '', shown: 40 }); });
+  document.querySelectorAll('[data-art]').forEach(el => el.addEventListener('click', () => { Object.assign(state, { q: '', country: '', year: '', sector: '', art: String(n), outcome: '', band: '', org: '', group: '', reg: '', shown: 40 }); }));
 }
 
 /* ---------- GDPR and AI Act side by side ----------
@@ -1545,84 +1752,80 @@ function loadAi() {
     .finally(() => { aiLoading = false; });
 }
 const aiNew = k => /a$/.test(k) || k === 'annex-XIV';
+/* an article or annex the Digital Omnibus on AI added or changed: a square label under the title and a numbered section */
+const aiChangedTitle = k => `${aiNew(k) ? 'Added' : 'Changed'} in July 2026`;
 function aiChanged(k, what) {
   if (!AI.amended.includes(k)) return '';
-  return `<section class="card changed">
-    <h2 class="sec-h">${aiNew(k) ? 'Added' : 'Changed'} in July 2026</h2>
-    <p>${aiNew(k) ? `This ${what} was added` : `Part of this ${what} was changed`} by the Digital Omnibus on AI, Regulation (EU) 2026/1744. The text here already includes the change.</p>
-    <p style="margin:0"><a href="${AI_OMNIBUS}" target="_blank" rel="noopener">Regulation (EU) 2026/1744 on EUR-Lex &nearr;</a></p>
-  </section>`;
+  return `<p>${aiNew(k) ? `This ${what} was added` : `Part of this ${what} was changed`} by the Digital Omnibus on AI, Regulation (EU) 2026/1744. The text here already includes the change.</p>
+    <p style="margin:0"><a href="${AI_OMNIBUS}" target="_blank" rel="noopener">Regulation (EU) 2026/1744 on EUR-Lex &nearr;</a></p>`;
 }
-const aiAside = (k, what, h) => `<aside>
-        ${aiChanged(k, what)}
-        ${inGdpr(what === 'annex' ? 'ai-annex' : 'ai-art', what === 'annex' ? k.slice(6) : k, h)}
-        <section class="card">
-          <h2 class="sec-h">Where does your AI system fit?</h2>
+const AI_ABOUT = `<div class="official-note"><p>Shown here from the consolidated version on EUR-Lex of 27 July 2026, which includes the changes made by Regulation (EU) 2026/1744. Only the version in the Official Journal of the EU is legally binding.</p>
+          <p><a href="${AI_ELI}" target="_blank" rel="noopener">Regulation (EU) 2024/1689, OJ L, 2024/1689, 12.7.2024</a></p></div>`;
+const AI_TRIAGE = `<section><h2 class="sec-h">Where does your AI system fit?</h2>
           <p>Three questions give a first idea of its AI Act category and which articles to read.</p>
           <p style="margin:16px 0 0"><a class="btn small latte" href="Tool.html">Try the AI Act triage &rarr;</a></p>
-        </section>
-        <section class="official">
-          <h2 class="sec-h">About this text</h2>
-          <p>Shown here from the consolidated version on EUR-Lex of 27 July 2026, which includes the changes made by Regulation (EU) 2026/1744. Only the version in the Official Journal of the EU is legally binding.</p>
-          <p><a href="${AI_ELI}" target="_blank" rel="noopener">Regulation (EU) 2024/1689, OJ L, 2024/1689, 12.7.2024</a></p>
-        </section>
-      </aside>`;
+        </section>`;
+/* an AI Act article or annex: the title large, its facts, then the text, what changed in 2026, related and about this text */
+function aiPage({ k, what, crumbs, title, sub, href, facts, h, prevnext }) {
+  const changed = aiChanged(k, what);
+  const related = [inGdpr(what === 'annex' ? 'ai-annex' : 'ai-art', what === 'annex' ? k.slice(6) : k, h), AI_TRIAGE].filter(Boolean);
+  return `<div class="wrap lawpage">
+    <nav class="crumbs" aria-label="Breadcrumb">${crumbs}</nav>
+    <header class="pg-head">
+      <div class="titlerow"><h1>${title}</h1>${EURLEX_BADGE(href, 'Official text on EUR-Lex')}</div>
+      <p class="atitle">${esc(sub)}</p>
+      ${changed ? `<ul class="topics" aria-label="Status"><li class="chg-t">${aiChangedTitle(k)}</li></ul>` : ''}
+    </header>
+    ${factsRow([['Law', 'AI Act<small>Regulation (EU) 2024/1689</small>'], ...facts, ['Text', 'Consolidated<small>as of 27 July 2026</small>']])}
+    ${secRows([['text', 'The text', `<div class="text">${h}</div>`],
+      changed ? ['changed', aiChangedTitle(k), changed] : null,
+      ['related', 'Related', `<div class="rel-grid n${related.length}">${related.join('')}</div>`, 'rel-row'],
+      ['about', 'About this text', AI_ABOUT]])}
+    ${prevnext}
+  </div>`;
+}
 const aiFlag = k => AI.amended.includes(k) ? `<span class="c"><span class="chg">${aiNew(k) ? 'New' : 'Changed'} 2026</span></span>` : '<span class="c"></span>';
 function renderAiAct() {
-  $('main').innerHTML = `<div class="wrap">
-    <div class="b-head">
-      <p class="eyebrow" style="margin:28px 0 0">Regulation (EU) 2024/1689</p>
-      <h1 style="margin:0">The AI Act, as amended in 2026.</h1>
-      <p class="lede">All ${AI.order.length} articles, ${AI.annex_order.length} annexes and ${Object.keys(AI.preamble.recitals).length} recitals in the official English text, including the July 2026 changes (the Digital Omnibus on AI). Each article links to the original on EUR-Lex.</p>
-    </div>
-    <div class="toc">
-    ${preamble(AI.preamble, AI_PRE)}
-    ${AI.chapters.map(ch => `<section><h2><span>${esc(ch.num)}</span>${esc(ch.title)}</h2><ol>${ch.arts.map(k =>
-      `<li><a href="#ai-art-${k}"><span class="n">Art. ${k}</span><span>${esc(AI.arts[k].t)}</span>${aiFlag(k)}</a></li>`).join('')}</ol></section>`).join('')}
-    <section><h2><span>Annexes</span>Lists, forms and technical details</h2><ol>${AI.annex_order.map(r =>
-      `<li><a href="#ai-annex-${r}"><span class="n">Annex ${r}</span><span>${esc(AI.annexes[r].t)}</span>${aiFlag('annex-' + r)}</a></li>`).join('')}</ol></section>
+  $('main').innerHTML = `<div class="wrap lawpage">
+    <nav class="crumbs" aria-label="Breadcrumb"><span>Laws</span><span aria-hidden="true">/</span><span aria-current="page">AI Act</span></nav>
+    <header class="pg-head">
+      <h1>The AI Act, as amended in 2026.</h1>
+      <p class="pg-intro">All ${AI.order.length} articles, ${AI.annex_order.length} annexes and ${Object.keys(AI.preamble.recitals).length} recitals in the official English text, including the July 2026 changes (the Digital Omnibus on AI). Each article links to the original on EUR-Lex.</p>
+    </header>
+    ${factsRow([['Law', 'Artificial Intelligence Act<small>Regulation (EU) 2024/1689</small>'],
+      ['Articles', `${num(AI.order.length)}<small>in ${num(AI.chapters.length)} chapters</small>`],
+      ['Annexes', num(AI.annex_order.length)], ['Recitals', num(Object.keys(AI.preamble.recitals).length)],
+      ['Text', 'Consolidated<small>as of 27 July 2026</small>']])}
+    <div class="sec-rows">
+    ${tocRow('pre', 'Preamble', 'Legal bases and recitals', preamble(AI.preamble, AI_PRE))}
+    ${AI.chapters.map(ch => tocRow('ch-' + ch.id, esc(ch.num), esc(ch.title), `<ol class="law-toc">${ch.arts.map(k =>
+      `<li><a href="#ai-art-${k}"><span class="n">Art. ${k}</span><span>${esc(AI.arts[k].t)}</span>${aiFlag(k)}</a></li>`).join('')}</ol>`)).join('')}
+    ${tocRow('annexes', 'Annexes', 'Lists, forms and technical details', `<ol class="law-toc">${AI.annex_order.map(r =>
+      `<li><a href="#ai-annex-${r}"><span class="n">Annex ${r}</span><span>${esc(AI.annexes[r].t)}</span>${aiFlag('annex-' + r)}</a></li>`).join('')}</ol>`)}
     </div>
   </div>`;
 }
 function renderAiArticle(k) {
   const a = AI.arts[k], ch = AI_CH[a.ch], i = AI.order.indexOf(k);
   const prev = AI.order[i - 1], next = AI.order[i + 1];
-  $('main').innerHTML = `<div class="wrap">
-    <nav class="crumbs" aria-label="Breadcrumb"><span>Laws</span><span aria-hidden="true">/</span><a href="#ai-act">AI Act</a><span aria-hidden="true">/</span><span>${esc(ch.num)}</span><span aria-hidden="true">/</span><span aria-current="page">Article ${k}</span></nav>
-    <div class="law">
-      <article>
-        <p class="eyebrow">${esc(ch.num)} &middot; ${esc(ch.title)}${a.sec ? ` &middot; ${esc(a.sec)}` : ''}</p>
-        <div class="titlerow"><h1>Article ${k}</h1>${EURLEX_BADGE(`${AI_CONS}#art_${k}`, 'Official text on EUR-Lex')}</div>
-        <p class="atitle">${esc(a.t)}</p>
-        <div class="text">${a.h}</div>
-      </article>
-      ${aiAside(k, 'article', a.h)}
-    </div>
-    <nav class="prevnext" aria-label="Other articles">
+  $('main').innerHTML = aiPage({ k, what: 'article', h: a.h, title: `Article ${k}`, sub: a.t, href: `${AI_CONS}#art_${k}`,
+    crumbs: `<span>Laws</span><span aria-hidden="true">/</span><a href="#ai-act">AI Act</a><span aria-hidden="true">/</span><span>${esc(ch.num)}</span><span aria-hidden="true">/</span><span aria-current="page">Article ${k}</span>`,
+    facts: [['Chapter', `${esc(ch.title)}<small>${esc(ch.num)}</small>`], a.sec ? secCell(a.sec) : null],
+    prevnext: `<nav class="prevnext" aria-label="Other articles">
       ${prev ? `<a href="#ai-art-${prev}"><span>&larr; Article ${prev}</span><b>${esc(AI.arts[prev].t)}</b></a>` : '<span></span>'}
       ${next ? `<a href="#ai-art-${next}" style="text-align:right"><span>Article ${next} &rarr;</span><b>${esc(AI.arts[next].t)}</b></a>` : `<a href="#ai-annex-I" style="text-align:right"><span>Annex I &rarr;</span><b>${esc(AI.annexes.I.t)}</b></a>`}
-    </nav>
-  </div>`;
+    </nav>` });
 }
 function renderAiAnnex(r) {
   const a = AI.annexes[r], i = AI.annex_order.indexOf(r);
   const prev = AI.annex_order[i - 1], next = AI.annex_order[i + 1], last = AI.order[AI.order.length - 1];
-  $('main').innerHTML = `<div class="wrap">
-    <nav class="crumbs" aria-label="Breadcrumb"><span>Laws</span><span aria-hidden="true">/</span><a href="#ai-act">AI Act</a><span aria-hidden="true">/</span><span>Annexes</span><span aria-hidden="true">/</span><span aria-current="page">Annex ${r}</span></nav>
-    <div class="law">
-      <article>
-        <p class="eyebrow">AI Act &middot; Annexes</p>
-        <div class="titlerow"><h1>Annex ${r}</h1>${EURLEX_BADGE(`${AI_CONS}#anx_${r}`, 'Official text on EUR-Lex')}</div>
-        <p class="atitle">${esc(a.t)}</p>
-        <div class="text">${a.h}</div>
-      </article>
-      ${aiAside('annex-' + r, 'annex', a.h)}
-    </div>
-    <nav class="prevnext" aria-label="Other annexes">
+  $('main').innerHTML = aiPage({ k: 'annex-' + r, what: 'annex', h: a.h, title: `Annex ${r}`, sub: a.t, href: `${AI_CONS}#anx_${r}`,
+    crumbs: `<span>Laws</span><span aria-hidden="true">/</span><a href="#ai-act">AI Act</a><span aria-hidden="true">/</span><span>Annexes</span><span aria-hidden="true">/</span><span aria-current="page">Annex ${r}</span>`,
+    facts: [['Part', `Annexes<small>${i + 1} of ${AI.annex_order.length}</small>`]],
+    prevnext: `<nav class="prevnext" aria-label="Other annexes">
       ${prev ? `<a href="#ai-annex-${prev}"><span>&larr; Annex ${prev}</span><b>${esc(AI.annexes[prev].t)}</b></a>` : `<a href="#ai-art-${last}"><span>&larr; Article ${last}</span><b>${esc(AI.arts[last].t)}</b></a>`}
       ${next ? `<a href="#ai-annex-${next}" style="text-align:right"><span>Annex ${next} &rarr;</span><b>${esc(AI.annexes[next].t)}</b></a>` : ''}
-    </nav>
-  </div>`;
+    </nav>` });
 }
 
 /* ---------- View: export sheet ---------- */
@@ -1630,6 +1833,10 @@ const include = { summary: true, articles: false, context: true, similar: false 
 function renderExport(c) {
   $('main').innerHTML = `<div class="wrap">
     <nav class="crumbs" aria-label="Breadcrumb"><a href="#d-${slug(c.pharos_id)}">&larr; Back to the decision</a></nav>
+    <header class="pg-head x-head">
+      <h1>Save as PDF</h1>
+      <p class="pg-intro">The decision record for ${esc(party(c).name)}${personTag(party(c))}, ${esc(c.pharos_id)}. Choose what goes in; the pages below are the PDF as it will print.</p>
+    </header>
     <div class="x-bar panel">
       <fieldset><legend>Include</legend>
         <label for="i-summary"><input type="checkbox" id="i-summary" data-inc="summary"${include.summary ? ' checked' : ''}> Summary</label>
@@ -1739,7 +1946,7 @@ function sheet(c) {
       + '<p class="s-small">Article text from the consolidated version on EUR-Lex, corrections included. Only the Official Journal version is legally binding.</p>'
     : `<ul${arts.length > 4 ? ' class="two"' : ''}>${arts.map(n => `<li><b>Article ${n}</b>${GDPR.arts[n] ? ' &middot; ' + esc(GDPR.arts[n].t) : ''}</li>`).join('')}</ul>`)
     : c.own_law ? '' : '<p class="s-small">The source does not list the articles involved.</p>'}${c.own_law ? `<p class="s-small">${esc(c.own_law)}</p>` : ''}`;
-  const ctx = !include.context || !k ? '' : `<h3>How big is it</h3><p>Bigger than ${pctBelow(k.below, k.n)}% of the ${num(k.n)} fines in ${esc(c.country)}, and ${pctBelow(k.eu_below, k.eu_n)}% of the ${num(k.eu_n)} fines in the Fino database (data of ${UPDATED}).</p>`;
+  const ctx = !include.context || !k ? '' : `<h3>How big is it</h3><p>${biggerLine(k.below, k.n, 'in ' + esc(c.country)).replace(/<\/?b>/g, '')}; among all ${num(k.eu_n)} fines in the Fino database it is ${rank(k.eu_below, k.eu_n, '').trim()} (data of ${UPDATED}).</p>`;
   const sims = include.similar ? similar(c) : [];
   const simH = !sims.length ? '' : `<h3>Similar decisions</h3><table>${sims.map(s => `<tr><td>${esc(s.pharos_id)}</td><td>${esc(party(s).name)} &middot; ${s.year || 'no date'} &middot; ${s.fine_eur ? moneyS(s) : 'no fine amount'}</td></tr>`).join('')}</table>`;
   const src = sourceLinks(c).map(s => [s[0], s[1]]);
@@ -1748,7 +1955,7 @@ function sheet(c) {
   const pill = f.status || (f.early ? redLabel(c) : c.best_outcome);
   return `
     <div class="s-top"><div class="s-brand">${SHEET_MARK}Fino</div><div class="s-kind">Decision record<br>${esc(c.pharos_id)}</div></div>
-    <h2 class="s-title">${esc(party(c).name)}${personTag(party(c))}</h2>
+    <h2 class="s-title">${pHtml(party(c))}${personTag(party(c))}</h2>
     ${party(c).unchecked ? '<p class="s-small">Named in the source; which of them the decision is about has not been checked yet.</p>' : ''}
     <div class="s-fine"><b>${f.struck ? `<s>${esc(f.label)}</s>` : esc(f.label)}</b>${f.conv ? `<span>${esc(f.conv)}</span>` : ''}${f.sub ? `<span>${esc(f.sub)}</span>` : ''}${pill ? `<span>${esc(pill)}</span>` : ''}</div>
     ${c.status_note ? `<p class="s-after"><b>What happened next.</b> ${esc(c.status_note)}</p>` : ''}
@@ -1771,35 +1978,28 @@ function renderLawMissing(law = 'the GDPR', eli = ELI) {
   $('main').innerHTML = `<div class="wrap"><p class="lede" style="padding-block:80px">The text of ${law} could not be loaded. Please reload the page. If it keeps happening, a content blocker may be stopping it; the official text is on <a href="${eli}" rel="noopener">EUR-Lex &nearr;</a>.</p></div>`;
 }
 function renderStyle() {
+  /* each rule a numbered row: the rule on the left, what it means and an example on the right */
+  const RULES = [
+    ['green', 'Green: do something', 'var(--accent)', 'Anything green can be clicked. A solid green button is the main action on the page, and there is only one per screen. Green underlined words are links inside text.',
+      `<span class="btn primary small">Export as PDF</span><span class="text" style="font-size:1rem">see <a class="xref" href="#art-6">Article 6</a></span>`],
+    ['pink', 'Pink: look here', 'var(--pink)', 'Emphasis only: the highlighter, the shadow behind a key card, a warning label. Pink is never clickable.',
+      `<span class="hl">Insufficient legal basis</span><span class="pill bad">Fine issued</span>`],
+    ['latte', 'Latte: tools you set', 'var(--latte)', 'A latte panel holds the controls you change, like filters and export options. In the menu, the latte item is the section you are in. A latte button takes you deeper into Fino, such as every decision that cites an article.',
+      `<span class="chip" style="background:var(--latte);color:var(--latte-ink);border-color:var(--latte-line)">Under €10k</span><span class="chip" aria-pressed="true" style="background:var(--go-deep);color:#fff;border-color:var(--go-deep)">€10k–100k</span>`],
+    ['blue', 'Blue §: the official source', 'var(--official)', 'The blue badge always opens the official text on EUR-Lex, in a new tab. It appears only on our law pages, next to the article number: people read our version first, and the original is always one click away.',
+      EURLEX_BADGE(EURLEX(5), 'Official text on EUR-Lex')],
+    ['shape', 'Round means clickable, square means label', '', 'Buttons and filter choices are fully rounded. Labels such as an outcome or a topic have small square corners and do nothing when clicked.',
+      `<span class="btn small">Copy citation</span><span class="btn small latte">See all decisions &rarr;</span><span class="pill ok">Rejected</span><span class="pill bad">Violation found</span>`],
+    ['law', 'A GDPR or AI Act tag: the other law', '', 'A small square tag naming a law means the link takes you to that other law on Fino, for example from an AI Act article to the GDPR article it mentions.',
+      `<span class="text" style="font-size:1rem">see <a class="xref" href="#art-35" title="Article 35 GDPR">Article 35</a></span><span><small class="law-tag">AI Act</small> Article 27</span>`],
+    ['arrows', 'Arrows tell you where you go', '', '&rarr; stays on Fino. &nearr; opens another website in a new tab, such as a regulator, GDPRhub or EUR-Lex.',
+      `<span class="btn small">See all decisions &rarr;</span><span class="btn small">The regulator&rsquo;s decision &nearr;</span>`]];
   $('main').innerHTML = `<div class="wrap">
-    <div class="b-head">
-      <p class="eyebrow" style="margin:28px 0 0">How Fino looks</p>
-      <h1 style="margin:0">Design rules</h1>
-      <p class="lede">Every colour and shape means one thing, everywhere on the site, so people learn it once.</p>
-    </div>
-    <ul class="rules-grid">
-      <li><div class="demo"><span class="swatch" style="background:var(--accent)"></span><h2>Green: do something</h2></div>
-        <p>Anything green can be clicked. A solid green button is the main action on the page, and there is only one per screen. Green underlined words are links inside text.</p>
-        <div class="demo"><span class="btn primary small">Export as PDF</span><span class="text" style="font-size:1rem">see <a class="xref" href="#art-6">Article 6</a></span></div></li>
-      <li><div class="demo"><span class="swatch" style="background:var(--pink)"></span><h2>Pink: look here</h2></div>
-        <p>Emphasis only: the highlighter, the shadow behind a key card, a warning label. Pink is never clickable.</p>
-        <div class="demo"><span class="hl">Insufficient legal basis</span><span class="pill bad">Fine issued</span></div></li>
-      <li><div class="demo"><span class="swatch" style="background:var(--latte)"></span><h2>Latte: tools you set</h2></div>
-        <p>A latte panel holds the controls you change, like filters and export options. In the menu, the latte item is the section you are in. A latte button takes you deeper into Fino, such as every decision that cites an article.</p>
-        <div class="demo"><span class="chip" style="background:var(--latte);color:var(--latte-ink);border-color:var(--latte-line)">Under €10k</span><span class="chip" aria-pressed="true" style="background:var(--go-deep);color:#fff;border-color:var(--go-deep)">€10k–100k</span></div></li>
-      <li><div class="demo"><span class="swatch" style="background:var(--official)"></span><h2>Blue §: the official source</h2></div>
-        <p>The blue badge always opens the official text on EUR-Lex, in a new tab. It appears only on our law pages, next to the article number: people read our version first, and the original is always one click away.</p>
-        <div class="demo">${EURLEX_BADGE(EURLEX(5), 'Official text on EUR-Lex')}</div></li>
-      <li><h2>Round means clickable, square means label</h2>
-        <p>Buttons and filter choices are fully rounded. Labels such as an outcome or a topic have small square corners and do nothing when clicked.</p>
-        <div class="demo"><span class="btn small">Copy citation</span><span class="btn small latte">See all decisions &rarr;</span><span class="pill ok">Rejected</span><span class="pill bad">Violation found</span></div></li>
-      <li><h2>A GDPR or AI Act tag: the other law</h2>
-        <p>A small square tag naming a law means the link takes you to that other law on Fino, for example from an AI Act article to the GDPR article it mentions.</p>
-        <div class="demo"><span class="text" style="font-size:1rem">see <a class="xref" href="#art-35" title="Article 35 GDPR">Article 35</a></span><span><small class="law-tag">AI Act</small> Article 27</span></div></li>
-      <li><h2>Arrows tell you where you go</h2>
-        <p>&rarr; stays on Fino. &nearr; opens another website in a new tab, such as a regulator, GDPRhub or EUR-Lex.</p>
-        <div class="demo"><span class="btn small">See all decisions &rarr;</span><span class="btn small">The regulator&rsquo;s decision &nearr;</span></div></li>
-    </ul>
+    <header class="pg-head">
+      <h1>Design rules</h1>
+      <p class="pg-intro">Every colour and shape means one thing, everywhere on the site, so people learn it once.</p>
+    </header>
+    ${secRows(RULES.map(([id, t, sw, p, demo]) => [id, t, `<div class="rule-body"><p>${p}</p><div class="demo">${sw ? `<span class="swatch" style="background:${sw}"></span>` : ''}${demo}</div></div>`]))}
   </div>`;
 }
 
@@ -1847,14 +2047,23 @@ function draw() {
   else if (h === 'ai-act') { renderAiAct(); bindGdpr('ai-rec-'); window.scrollTo(0, 0); }
   else if ((m = h.match(/^ai-rec-(\d+)$/)) && AI.preamble.recitals[m[1]]) { if (lastView !== 'ai-act' && !lastView.startsWith('ai-rec-')) { renderAiAct(); bindGdpr('ai-rec-'); } openRecital(+m[1], 'ai-rec-'); }
   else if (h === 'style') { renderStyle(); window.scrollTo(0, 0); }
-  /* links from the static pages open the list already filtered: #fines-art-5, #fines-org-<key>, #fines-group-<key>, #fines-reg-<key> */
+  /* links from the static pages open the list already filtered: #fines-art-5, #fines-org-<key>, #fines-group-<key>, #fines-reg-<key>,
+     and several at once joined by '&': #fines-country-Spain&art-32 (the home page sentence). A '&' not followed by a filter
+     name stays part of the value before it, so the single forms read exactly as before. */
   else if ((m = h.match(/^fines-(art|org|group|q|country|reg)-(.+)$/))) {
-    Object.assign(state, { q: '', country: '', year: '', sector: '', art: '', outcome: '', band: '', org: '', group: '', reg: '', shown: 40, [m[1]]: decodeURIComponent(m[2]) });
+    const set = {};
+    let last = '';
+    for (const part of h.slice(6).split('&')) {
+      const k = part.match(/^(art|org|group|q|country|reg)-(.+)$/);
+      if (k) { last = k[1]; set[last] = k[2]; } else set[last] += '&' + part;
+    }
+    for (const k in set) set[k] = decodeURIComponent(set[k]);
+    Object.assign(state, { q: '', country: '', year: '', sector: '', art: '', outcome: '', band: '', org: '', group: '', reg: '', shown: 40, ...set });
     history.replaceState(null, '', '#fines'); renderBrowse(); window.scrollTo(0, 0);
   }
   else { renderBrowse(); window.scrollTo(0, lastView.startsWith('d-') ? state.scroll : 0); }
   document.title = titleFor(h);
-  lastView = h;
+  lastView = /^fines-/.test(h) ? 'fines' : h;   /* a filter link has become #fines: the list is open (so a search re-runs when the summaries land) */
 }
 window.addEventListener('hashchange', route);
 route();
@@ -1916,14 +2125,15 @@ if (DATA.sumP) DATA.sumP.then(sum => {
   try {
     /* cases.json is always checked with the server; the summary files carry its export time, so a cached
        summary file from an older export (rows in a different order) is never paired with newer cases. */
-    const [cases, gdpr, ex, links] = await Promise.all([get('data/cases.json', { cache: 'no-cache' }), get('data/reg-2016-679.json').catch(() => null),
+    const [cases, gdpr, ex, links, dpo] = await Promise.all([get('data/cases.json', { cache: 'no-cache' }), get('data/reg-2016-679.json').catch(() => null),
                                                  get('data/explainers.json', { cache: 'no-cache' }).catch(() => null),
-                                                 get('data/law-links.json', { cache: 'no-cache' }).catch(() => null)]);
+                                                 get('data/law-links.json', { cache: 'no-cache' }).catch(() => null),
+                                                 get('data/dpo-checks.json', { cache: 'no-cache' }).catch(() => null)]);
     const n = Math.ceil(cases.rows.length / cases.meta.summary_shard);
     const v = encodeURIComponent(cases.meta.generated_at || '');
     const sumP = Promise.all(Array.from({ length: n }, (_, i) => get(`data/summaries/${i}.json?v=${v}`))).then(a => a.flat().map(clean));
     const by = cases.meta.fields.indexOf('summary_by');
-    boot({ meta: cases.meta, fields: cases.meta.fields, rows: cases.rows, sumP, gdpr, ex, links,
+    boot({ meta: cases.meta, fields: cases.meta.fields, rows: cases.rows, sumP, gdpr, ex, links, dpo,
            cred: cases.rows.map(r => r[by] === 'cms_tracker' ? 'c' : r[by] === 'fino' ? 'f' : String(r[by] || '').startsWith('fino_') ? r[by] : 'g') });
   } catch (e) {
     main.innerHTML = `<div class="wrap"><p class="lede" style="padding-block:80px">The decisions could not be loaded. Please reload the page; if it keeps happening, write to <a class="mail" href="mailto:hello@finoprivacy.com">hello@finoprivacy.com</a>.</p></div>`;
@@ -1993,6 +2203,29 @@ modeBtn.addEventListener('click', () => {
 let saved = null;
 try { saved = localStorage.getItem('mode'); } catch (e) {}
 setMode(saved === 'dark' ? 'dark' : 'light', false);
+/* Look switch: the Fino look or a quieter corporate look. The choice stays in this browser (localStorage 'fino-look'),
+   nothing is sent; the line in the head applies it before the page paints. A quick cross-fade, none with reduced motion. */
+(() => {
+  const b = document.getElementById('look-btn'), r = document.documentElement;
+  if (!b) return;
+  const t = b.querySelector('.look-txt');
+  const show = () => {
+    const on = r.dataset.look === 'corporate';
+    b.setAttribute('aria-pressed', String(on)); t.textContent = on ? 'Fino look' : 'Corporate';
+    b.title = on ? 'Switch back to the Fino look' : 'Switch to the corporate look';
+  };
+  const set = on => {
+    if (on) r.dataset.look = 'corporate'; else delete r.dataset.look;
+    try { if (on) localStorage.setItem('fino-look', 'corporate'); else localStorage.removeItem('fino-look'); } catch (e) {}
+    show();
+  };
+  show();
+  b.addEventListener('click', () => {
+    const on = r.dataset.look !== 'corporate';
+    if (!document.startViewTransition || matchMedia('(prefers-reduced-motion: reduce)').matches) set(on);
+    else document.startViewTransition(() => set(on));
+  });
+})();
 
 /* Moving between pages: a link to a decision carries its name and amount into the decision page, and back again */
 (() => {
@@ -2017,6 +2250,6 @@ setMode(saved === 'dark' ? 'dark' : 'light', false);
   });
 })();
 </script>
-<script src="/assets/find.js?v=427aca0a8635" defer></script>
+<script src="/assets/find.js?v=626dc1892e68" defer></script>
 </body>
 </html>
