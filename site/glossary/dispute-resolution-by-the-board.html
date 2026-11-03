@@ -21,8 +21,8 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="preload" href="/fonts/fraunces-300-800-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/assets/fino.css?v=e60a521ca421">
-<link rel="stylesheet" href="/assets/find.css?v=626dc1892e68">
+<link rel="stylesheet" href="/assets/fino.css?v=80199dfdb2f8">
+<link rel="stylesheet" href="/assets/find.css?v=0ba5057d907b">
 <script>/* light unless the visitor chose dark; the corporate look if the visitor chose it */ (() => { let m = null, l = null; try { m = localStorage.getItem('mode'); l = localStorage.getItem('fino-look'); } catch (e) {} if (m !== 'dark') document.documentElement.dataset.mode = 'light'; if (l === 'corporate') document.documentElement.dataset.look = 'corporate'; })();</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"DefinedTerm","@id":"https://finoprivacy.com/glossary/dispute-resolution-by-the-board.html","url":"https://finoprivacy.com/glossary/dispute-resolution-by-the-board.html","name":"Dispute resolution by the Board","description":"When data protection authorities disagree on a case, for example over an objection to the lead authority's draft decision, the European Data Protection Board settles it with a binding decision.","inDefinedTermSet":{"@type":"DefinedTermSet","@id":"https://finoprivacy.com/glossary/#set","name":"Fino glossary of EU privacy and AI law","url":"https://finoprivacy.com/glossary/"},"citation":"https://eur-lex.europa.eu/eli/reg/2016/679/oj"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Fino","item":"https://finoprivacy.com/"},{"@type":"ListItem","position":2,"name":"Glossary","item":"https://finoprivacy.com/glossary/"},{"@type":"ListItem","position":3,"name":"Dispute resolution by the Board"}]},{"@type":"Organization","@id":"https://finoprivacy.com/#org","name":"Fino","url":"https://finoprivacy.com/","logo":"https://finoprivacy.com/og/fino-logo.png"}]}</script>
 <style>
@@ -30,7 +30,7 @@
 .gl .pg-head h1 { max-width: 18em; }
 .gl-lab { font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin: 0 0 6px; }
 .gl-plain { font-size: 1.28rem; line-height: 1.55; margin: 0; text-wrap: pretty; }
-.gl-q { margin: 0 0 16px; padding: 18px 22px 16px; border-radius: 18px; background: var(--official-bg); border-left: 4px solid var(--official); }
+.gl-q { margin: 0 0 22px; padding: 2px 0 2px 18px; border-left: 4px solid var(--quote); }
 .gl-q:last-child { margin-bottom: 0; }
 .gl-q blockquote { margin: 0; }
 .gl-q blockquote p { margin: 0; font-family: var(--display); font-variation-settings: "SOFT" 50, "opsz" 24; font-size: 1.12rem; line-height: 1.5; color: var(--ink); }
@@ -73,7 +73,8 @@
 /* each letter (or topic, or court) a row: its name on the left, its terms on the right, as on the law pages */
 .gl-sec { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 9fr); gap: 10px 56px; padding: 30px 0; border-bottom: 1px solid var(--line); }
 .gl-sec:last-child { border-bottom: 0; }
-.gl-sec h2 { font-family: var(--display); font-variation-settings: "SOFT" 100, "opsz" 72; font-weight: 560; font-size: 1.45rem; line-height: 1.12; margin: 0; text-wrap: balance; scroll-margin-top: calc(var(--head-h, 64px) + 140px); }
+.gl-sec h2 { font-family: var(--display); font-variation-settings: "SOFT" 100, "opsz" 72; font-weight: 560; font-size: 1.45rem; line-height: 1.12; margin: 0; text-wrap: balance; scroll-margin-top: calc(var(--head-h, 64px) + 140px);
+  align-self: start; position: sticky; top: calc(var(--head-h, 64px) + 136px); }   /* the left column stays in view under the search bar while its terms scroll */
 .gl-list { list-style: none; margin: 0; padding: 0; border-top: 2px solid var(--ink); min-width: 0; }
 .gl-list li { border-bottom: 1px solid var(--line); scroll-margin-top: calc(var(--head-h, 64px) + 140px); }
 .gl-list a, .gl-list .gl-row { display: grid; grid-template-columns: minmax(0, 13rem) minmax(0, 1fr) auto; gap: 4px 20px; align-items: baseline; padding: 13px 4px; text-decoration: none; color: var(--ink); }
@@ -88,6 +89,7 @@
 .gl > .gl-note { margin-top: 24px; }
 @media (max-width: 760px) {
   .gl-sec { grid-template-columns: minmax(0, 1fr); gap: 12px; padding: 24px 0; }
+  .gl-sec h2 { position: static; }
   .gl-list a, .gl-list .gl-row { grid-template-columns: minmax(0, 1fr) auto; }
   .gl-list span { grid-column: 1 / -1; grid-row: 2; }
   .gl-list i { white-space: normal; text-align: right; max-width: 11rem; }
@@ -169,7 +171,7 @@
           </svg>
           Fino
         </a>
-        <p>What Europe&rsquo;s data protection regulators actually decided, in one place and checked against the source. Free, no ads, no tracking.</p>
+        <p>What Europe&rsquo;s data protection regulators actually decided, in one place. Each page says whether it has been checked.</p>
       </div>
       <nav class="foot-col" aria-label="Explore Fino">
         <p class="foot-lbl">Explore</p>
@@ -190,24 +192,22 @@
           <li><a href="/About.html#method">How it works</a></li>
           <li><a href="/About.html#reuse">Reuse and cite</a></li>
           <li><a href="/Privacy.html">Privacy</a></li>
-          <li><a href="https://www.linkedin.com/company/finoprivacy" target="_blank" rel="noopener">LinkedIn</a></li>
         </ul>
       </nav>
       <div class="foot-write">
         <p class="foot-lbl">Write to Fino</p>
-        <p>Spotted a mistake? A question, an idea, or just want to say hello? Every message is read, and thank you.</p>
-        <a class="foot-mail" href="mailto:hello@finoprivacy.com">hello@finoprivacy.com</a>
-        <p class="foot-follow"><a href="https://www.linkedin.com/company/finoprivacy" target="_blank" rel="noopener">Follow Fino on LinkedIn</a>: one real decision a week.</p>
+        <p>A mistake, a question or an idea? Every message is read, and thank you.</p>
+        <a class="foot-mail" href="mailto:hello@finoprivacy.com">hello@finoprivacy.com</a><a class="foot-in" href="https://www.linkedin.com/company/finoprivacy" target="_blank" rel="noopener" aria-label="Fino on LinkedIn" title="Fino on LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.75h4v11.5H3zM10 9.75h3.8v1.6h.06c.53-1 1.84-2.05 3.8-2.05 4.06 0 4.8 2.67 4.8 6.14v5.8h-4v-5.14c0-1.23-.02-2.8-1.7-2.8-1.7 0-1.97 1.33-1.97 2.7v5.24h-4z"/></svg></a>
       </div>
     </div>
     <div class="foot-base">
       <p>Decisions from the regulators&rsquo; own documents, enforcementtracker.com (provided by CMS) and GDPRhub (noyb), under CC BY-NC-SA 4.0. Law texts from EUR-Lex, &copy; European Union.</p>
-      <p>&copy; 2026 Fino &middot; <a href="/About.html">About</a> &middot; <a href="/Privacy.html">Privacy</a> &middot; Not legal advice</p>
+      <p>&copy; 2026 Fino &middot; Not legal advice</p>
     </div>
   </div>
 </footer>
 
 <script src="/assets/fino.js?v=b7a361a18992" defer></script>
-<script src="/assets/find.js?v=626dc1892e68" defer></script>
+<script src="/assets/find.js?v=0ba5057d907b" defer></script>
 </body>
 </html>

@@ -51,8 +51,9 @@
   --latte-line: #D6C7B6;
   --field: #FFFDF9;
   --go-deep: #56662A;
-  --official: #9DB8FF;
-  --official-bg: #222C45;
+  --official: var(--accent);
+  --official-bg: var(--live-bg);
+  --quote: #F59BB4;
   --neutral-bg: #3A2F29;
   color-scheme: dark;
 
@@ -65,7 +66,7 @@
   --accent: #56662A; --accent-ink: #FFFFFF; --pink: #FFC4D3;
   --soon: #A3304F; --soon-bg: #FFE1E8; --live-bg: #E6E9CF; --desk: #E4DACD;
   --latte: #FFFDF9; --latte-line: #E0D4C6; --field: #FFFFFF;
-  --official: #2D4FA8; --official-bg: #E4EAFA; --neutral-bg: #E7DED3;
+  --official: var(--accent); --official-bg: var(--live-bg); --neutral-bg: #E7DED3;
   color-scheme: light;
 }
 
@@ -280,8 +281,8 @@ a.pill-card:hover { transform: translateY(-3px); }
 .post-link { justify-self: start; font-family: var(--mono); font-size: 0.8rem; color: var(--muted); }
 .post-link:hover { color: var(--ink); }
 /* The reading sheet: latte on the espresso desk (Fino's look); flat in the corporate look */
-.paper { background: var(--latte); color: var(--latte-ink); border: 2px solid var(--latte-ink); border-radius: 28px; box-shadow: 8px 8px 0 var(--pink);
-  padding: 8px 48px; margin: 0 8px 72px 0; color-scheme: light; font-size: 1.125rem; line-height: 1.7; min-width: 0; }
+.paper { background: none; color: var(--ink); border: 0; border-top: 1px solid var(--ink); border-radius: 0; box-shadow: none; padding: 0; margin: 0 0 72px;
+  font-size: 1.125rem; line-height: 1.7; min-width: 0; --latte-ink: var(--ink); --latte-muted: var(--muted); --latte-line: var(--line); --field: var(--surface); --go-deep: var(--accent); }
 .paper :focus-visible { outline-color: var(--go-deep); }
 .paper .sec-row { border-bottom-color: var(--latte-line); }
 .paper .sec-n { color: var(--latte-muted); }
@@ -292,11 +293,11 @@ a.pill-card:hover { transform: translateY(-3px); }
 .paper li { margin-bottom: 6px; }
 .paper li::marker { color: var(--latte-muted); font-family: var(--mono); }
 .a-lead { font-size: 1.28rem; line-height: 1.6; }
-.a-lead strong { background: linear-gradient(transparent 60%, #FFC4D3 60%, #FFC4D3 92%, transparent 92%); }
+.a-lead strong { background: linear-gradient(transparent 60%, var(--hl-bg) 60%, var(--hl-bg) 92%, transparent 92%); }
 .paper blockquote { margin: 6px 0 18px; padding: 4px 0 4px 18px; border-left: 4px solid #F59BB4; font-family: var(--display); font-variation-settings: "SOFT" 100;
   font-style: italic; font-size: 1.3rem; line-height: 1.45; max-width: 34em; }
 .paper a.xref { color: var(--go-deep); font-weight: 700; text-decoration: none; border-bottom: 1.5px solid currentColor; }
-.paper a.xref:hover { background: #E6E9CF; }
+.paper a.xref:hover { background: var(--surface); }
 .paper a.out { color: var(--go-deep); font-family: var(--mono); font-size: 0.85rem; white-space: nowrap; }
 /* The decisions it cites: a related grid, two by two, each with its date and amount on top */
 .a-dec { list-style: none; margin: 8px 0 0; padding: 0; border-top: 2px solid var(--latte-ink); display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 28px; }
@@ -342,7 +343,7 @@ a.pill-card:hover { transform: translateY(-3px); }
   .sec-n { margin: 0; }
   .x-head h1 { margin-bottom: 24px; }
   .x-toc { margin: 24px 0 28px; }
-  .paper { padding: 0 20px; border-radius: 22px; margin-bottom: 56px; font-size: 1.0625rem; }
+  .paper { margin-bottom: 56px; font-size: 1.0625rem; }
   .a-lead { font-size: 1.15rem; }
   .paper blockquote { font-size: 1.15rem; }
   .a-dec { grid-template-columns: minmax(0, 1fr); }
@@ -350,14 +351,11 @@ a.pill-card:hover { transform: translateY(-3px); }
 @media (prefers-reduced-motion: reduce) { a.pill-card, .x-toc ol a, .a-dec a, .a-rel a { transition: none; } .a-rel a:hover { translate: none; } }
 /* The corporate look (tokens in assets/find.css): the sheet goes flat and takes the page's colours; no highlighter, no
    offset shadow, square corners, plain headings */
-[data-look="corporate"] .paper { background: none; color: var(--ink); border: 0; border-top: 1px solid var(--ink); border-radius: 0; box-shadow: none; padding: 0; margin-right: 0;
-  color-scheme: inherit; --latte-ink: var(--ink); --latte-muted: var(--muted); --latte-line: var(--line); --field: var(--surface); --go-deep: var(--accent); }
 [data-look="corporate"] .x-head h1 { font-size: clamp(2rem, 4.4vw, 3.4rem); line-height: 1.06; letter-spacing: -0.035em; }
 [data-look="corporate"] .paper .sec-lbl h2 { font-variation-settings: normal; font-weight: 700; letter-spacing: -0.02em; }
 [data-look="corporate"] .facts-row { border-top-width: 1px; }
 [data-look="corporate"] .a-lead strong { background: none; }
 [data-look="corporate"] .paper blockquote { border-left: 3px solid var(--accent); font-style: normal; font-variation-settings: normal; font-size: 1.15rem; }
-[data-look="corporate"] .paper a.xref:hover { background: var(--surface); }
 [data-look="corporate"] .a-dec { border-top-width: 1px; }
 [data-look="corporate"] .a-dec a, [data-look="corporate"] .x-toc ol a { border-radius: 2px; }
 [data-look="corporate"] .a-rel a { border-width: 1px; border-color: var(--line); border-radius: 4px; }
@@ -438,7 +436,7 @@ a.pill-card:hover { transform: translateY(-3px); }
 .top nav .laws-menu a.all-laws { border-top: 1px solid var(--latte-line); border-radius: 0 0 14px 14px; margin-top: 4px; }
 </style>
 
-<link rel="stylesheet" href="/assets/find.css?v=626dc1892e68">
+<link rel="stylesheet" href="/assets/find.css?v=0ba5057d907b">
 <!-- seo -->
 <link rel="canonical" href="https://finoprivacy.com/data-breach-fines.html">
 <meta property="og:type" content="article">
@@ -592,7 +590,7 @@ no minimum level of seriousness (Österreichische Post, C-300/21), and that fear
           </svg>
           Fino
         </a>
-        <p>What Europe&rsquo;s data protection regulators actually decided, in one place and checked against the source. Free, no ads, no tracking.</p>
+        <p>What Europe&rsquo;s data protection regulators actually decided, in one place. Each page says whether it has been checked.</p>
       </div>
       <nav class="foot-col" aria-label="Explore Fino">
         <p class="foot-lbl">Explore</p>
@@ -613,19 +611,17 @@ no minimum level of seriousness (Österreichische Post, C-300/21), and that fear
           <li><a href="/About.html#method">How it works</a></li>
           <li><a href="/About.html#reuse">Reuse and cite</a></li>
           <li><a href="/Privacy.html">Privacy</a></li>
-          <li><a href="https://www.linkedin.com/company/finoprivacy" target="_blank" rel="noopener">LinkedIn</a></li>
         </ul>
       </nav>
       <div class="foot-write">
         <p class="foot-lbl">Write to Fino</p>
-        <p>Spotted a mistake? A question, an idea, or just want to say hello? Every message is read, and thank you.</p>
-        <a class="foot-mail" href="mailto:hello@finoprivacy.com">hello@finoprivacy.com</a>
-        <p class="foot-follow"><a href="https://www.linkedin.com/company/finoprivacy" target="_blank" rel="noopener">Follow Fino on LinkedIn</a>: one real decision a week.</p>
+        <p>A mistake, a question or an idea? Every message is read, and thank you.</p>
+        <a class="foot-mail" href="mailto:hello@finoprivacy.com">hello@finoprivacy.com</a><a class="foot-in" href="https://www.linkedin.com/company/finoprivacy" target="_blank" rel="noopener" aria-label="Fino on LinkedIn" title="Fino on LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.75h4v11.5H3zM10 9.75h3.8v1.6h.06c.53-1 1.84-2.05 3.8-2.05 4.06 0 4.8 2.67 4.8 6.14v5.8h-4v-5.14c0-1.23-.02-2.8-1.7-2.8-1.7 0-1.97 1.33-1.97 2.7v5.24h-4z"/></svg></a>
       </div>
     </div>
     <div class="foot-base">
       <p>Decisions from the regulators&rsquo; own documents, enforcementtracker.com (provided by CMS) and GDPRhub (noyb), under CC BY-NC-SA 4.0. Law texts from EUR-Lex, &copy; European Union.</p>
-      <p>&copy; 2026 Fino &middot; <a href="/About.html">About</a> &middot; <a href="/Privacy.html">Privacy</a> &middot; Not legal advice</p>
+      <p>&copy; 2026 Fino &middot; Not legal advice</p>
     </div>
   </div>
 </footer>
@@ -742,6 +738,6 @@ setMode(saved === 'dark' ? 'dark' : 'light', false);
 })();
 
 </script>
-<script src="/assets/find.js?v=626dc1892e68" defer></script>
+<script src="/assets/find.js?v=0ba5057d907b" defer></script>
 </body>
 </html>

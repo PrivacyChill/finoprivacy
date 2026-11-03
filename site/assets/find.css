@@ -71,7 +71,7 @@
 @media (prefers-reduced-motion: reduce) { .find-dlg[open] { animation: none; } }
 
 /* ---------- Click-to-define: a dotted word opens a small card (a sheet from the bottom on a phone) ---------- */
-button.def { font: inherit; color: inherit; background: none; border: 0; padding: 0; cursor: help; text-decoration: underline dotted; text-decoration-thickness: 1.5px;
+button.def { font: inherit; color: inherit; text-align: inherit; background: none; border: 0; padding: 0; cursor: help; text-decoration: underline dotted; text-decoration-thickness: 1.5px;
   text-underline-offset: 3px; text-decoration-color: var(--muted); }
 button.def:hover, button.def[aria-expanded="true"] { text-decoration-color: var(--accent); text-decoration-style: solid; }
 .def-card { position: absolute; z-index: 50; width: min(360px, calc(100vw - 24px)); padding: 14px 16px 12px; border: 2px solid var(--latte-ink); border-radius: 16px;
@@ -139,7 +139,7 @@ button.def:hover, button.def[aria-expanded="true"] { text-decoration-color: var(
   --brand: #BFD183; --brand-tint: #33381E; --brand-field: #56662A; --field-ink: #FFFFFF; --field-deep: #44511F;
   --bg: #141110; --surface: #1D1918; --ink: #F3EFEC; --muted: #ABA39E; --line: #322C2A; --dot: #5E5652;
   --pink: #33381E; --accent: var(--brand); --accent-ink: #151A05; --go-deep: var(--brand); --soon: #D9CFC8; --soon-bg: #2A2523;
-  --official: #9DB8FF; --official-bg: #1E2638; --neutral-bg: #262120; --live-bg: #33381E; --desk: #0E0C0B;
+  --official: var(--brand); --official-bg: var(--brand-tint); --neutral-bg: #262120; --live-bg: #33381E; --desk: #0E0C0B;
   --latte: #F3EFEC; --latte-ink: #141110; --latte-muted: #5F5853; --latte-line: #DCD5D0; --field: #FFFFFF;
   --mark: var(--brand-tint); --pc-hl: var(--brand-tint);
   --m1: #576031; --m2: #6E7A3D; --m3: #87944B; --m4: #A0B05C; --m5: #BACB77; --m6: #D7E5A1;
@@ -149,7 +149,7 @@ button.def:hover, button.def[aria-expanded="true"] { text-decoration-color: var(
   --brand: #56662A; --brand-tint: #E6EBD2; --brand-field: #56662A; --field-ink: #FFFFFF; --field-deep: #44511F; --accent: #56662A; --accent-ink: #FFFFFF;
   --bg: #FFFFFF; --surface: #F7F4F1; --ink: #14110F; --muted: #5F5853; --line: #E6E0DB; --dot: #BDB4AD;
   --pink: #E6EBD2; --soon: #5F5853; --soon-bg: #F1ECE8;
-  --official: #2C4A86; --official-bg: #EEF2F9; --neutral-bg: #F1ECE8; --live-bg: #E6EBD2; --desk: #F4F0EC;
+  --official: var(--brand); --official-bg: var(--brand-tint); --neutral-bg: #F1ECE8; --live-bg: #E6EBD2; --desk: #F4F0EC;
   --latte: #F7F4F1; --latte-ink: #14110F; --latte-muted: #5F5853; --latte-line: #E6E0DB; --field: #FFFFFF;
   --m1: #9DAC61; --m2: #869542; --m3: #707F23; --m4: #5B6814; --m5: #475203; --m6: #353D00;
 }
@@ -289,4 +289,28 @@ h1 .who-d { opacity: .75; }
 @media (max-width: 760px) { .facts-row > div:last-child:nth-child(odd) { grid-column: 1 / -1; border-left: 0; padding-left: 0; } }
 .topics li a, .topics li .def, .topics li [data-def] { text-decoration: none; border-bottom: 0; }
 :root[data-look="corporate"] .top.has-menu .menu-btn { border-radius: 4px; }
-:root[data-look="corporate"] { --official: var(--brand); --official-bg: var(--brand-tint); }
+/* Pass 292 (3 Nov 2026) */
+/* No blue: the official-source chip and every box built on --official take the accent (corporate: the brand green, set above) */
+:root, :root[data-mode="light"] { --official: var(--accent); --official-bg: var(--live-bg); --quote: #F59BB4; }
+:root[data-look="corporate"] { --quote: var(--accent); }
+/* One quote style: a rule on the left, no box, no blue. The cookies explainer's, everywhere */
+:root .gl-q, :root .dpo-q, :root .ck-src, :root .rt-q, :root .ai-q2, :root .wr-q2, :root .cl-list blockquote {
+  background: none; border-radius: 0; border-left: 4px solid var(--quote); padding: 2px 0 2px 18px; }
+:root[data-look="corporate"] .gl-q, :root[data-look="corporate"] .dpo-q, :root[data-look="corporate"] .ck-src, :root[data-look="corporate"] .rt-q,
+:root[data-look="corporate"] .ai-q2, :root[data-look="corporate"] .wr-q2, :root[data-look="corporate"] .cl-list blockquote { border-left-width: 3px; }
+/* One H1 scale on every page (the home page's, the explainers' and the 404's included) */
+:root :is(.pg-head, .head, .ex-head, .x-head, .hero, .oops, .law) h1 { font-size: clamp(2.4rem, 6vw, 4.6rem); line-height: .98; letter-spacing: -0.03em; font-weight: 560; }
+:root[data-look="corporate"] :is(.pg-head, .head, .ex-head, .x-head, .hero, .oops, .law) h1 { font-size: clamp(2.2rem, 5vw, 3.6rem); line-height: 1.02; letter-spacing: -0.035em; font-weight: 600; }
+/* The footer's LinkedIn link is an icon; its label is "Fino on LinkedIn" */
+footer .foot-in { display: inline-grid; place-items: center; width: 38px; height: 38px; margin-left: 8px; vertical-align: middle; border-radius: 50%; border: 1.5px solid currentColor; color: inherit; text-decoration: none; transition: background var(--fast) var(--ease); }
+footer .foot-in svg { width: 18px; height: 18px; }
+footer .foot-in:hover { background: rgba(255, 255, 255, .16); }
+footer .foot-in:focus-visible { outline: 3px solid currentColor; outline-offset: 3px; }
+:root[data-look="corporate"] footer .foot-in { border-radius: 2px; }
+@media (prefers-reduced-motion: reduce) { footer .foot-in { transition: none; } }
+:root { --hl-bg: #6B3A47; }
+:root[data-mode="light"] { --hl-bg: var(--pink); }
+/* The record's buttons share one row and never break inside a label ("Copy citation" no longer drops alone to a second line) */
+.record-actions .links { display: contents; }
+.record-actions .btn { white-space: nowrap; }
+.law-toc a { grid-template-columns: 8.6em minmax(0, 1fr) auto; }

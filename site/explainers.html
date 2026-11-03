@@ -51,8 +51,9 @@
   --latte-line: #D6C7B6;
   --field: #FFFDF9;
   --go-deep: #56662A;
-  --official: #9DB8FF;
-  --official-bg: #222C45;
+  --official: var(--accent);
+  --official-bg: var(--live-bg);
+  --quote: #F59BB4;
   --neutral-bg: #3A2F29;
   color-scheme: dark;
 
@@ -65,7 +66,7 @@
   --accent: #56662A; --accent-ink: #FFFFFF; --pink: #FFC4D3;
   --soon: #A3304F; --soon-bg: #FFE1E8; --live-bg: #E6E9CF; --desk: #E4DACD;
   --latte: #FFFDF9; --latte-line: #E0D4C6; --field: #FFFFFF;
-  --official: #2D4FA8; --official-bg: #E4EAFA; --neutral-bg: #E7DED3;
+  --official: var(--accent); --official-bg: var(--live-bg); --neutral-bg: #E7DED3;
   color-scheme: light;
 }
 
@@ -222,13 +223,10 @@ footer .foot-base { border-top: 1.5px solid currentColor; padding-top: 16px; dis
 
 /* ---------- Pill card: the same component on the site and as a 4:5 post image ---------- */
 .pc-wrap { container-type: inline-size; }
-.pill-card { aspect-ratio: 4 / 5; display: flex; flex-direction: column; gap: 2.6cqw; padding: 6.4cqw 6.6cqw 5.6cqw;
+.pill-card { display: flex; flex-direction: column; gap: 2.6cqw; padding: 6.4cqw 6.6cqw 5.6cqw;
   background: var(--bg); color: var(--ink); border: 2px solid var(--ink); border-radius: 6cqw; text-decoration: none; overflow: hidden; }
 a.pill-card { box-shadow: 7px 7px 0 var(--pink); transition: transform var(--fast) var(--ease); overflow: visible; }  /* on the site a card may grow rather than clip */
 a.pill-card:hover { transform: translateY(-3px); }
-.pc-top { display: flex; justify-content: space-between; align-items: center; }
-.pc-eye { font-family: var(--mono); font-size: 3.1cqw; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
-.pc-fino { width: 9cqw; height: auto; }
 .pc-q { font-family: var(--display); font-variation-settings: "SOFT" 100, "opsz" 144; font-weight: 540; font-style: italic;
   font-size: 6.9cqw; line-height: 1.06; letter-spacing: -0.02em; margin: 1cqw 0 0; text-wrap: balance; }
 .pc-a { font-size: 4.7cqw; font-weight: 700; line-height: 1.3; margin: 0; }
@@ -241,10 +239,6 @@ a.pill-card:hover { transform: translateY(-3px); }
 .pc-cap { font-size: 3.6cqw; line-height: 1.4; color: var(--muted); margin: 0; }
 .pc-chips { display: flex; flex-wrap: wrap; gap: 1.6cqw; list-style: none; margin: 0; padding: 0; }
 .pc-chips li { font-family: var(--mono); font-size: 2.6cqw; padding: 0.8cqw 1.6cqw; border-radius: 1.2cqw; background: var(--neutral-bg); color: var(--ink); }
-.pc-foot { display: flex; justify-content: space-between; align-items: flex-end; gap: 4cqw; border-top: 2px solid var(--line); padding-top: 3cqw; }
-.pc-brand { font-family: var(--display); font-variation-settings: "SOFT" 100, "opsz" 48; font-weight: 650; font-size: 5cqw; }
-.pc-foot .pc-url { font-family: var(--mono); font-size: 2.9cqw; color: var(--accent); text-align: right; }
-.pc-src { font-family: var(--mono); font-size: 2.4cqw; line-height: 1.4; color: var(--muted); margin: 0; }
 :root { --pc-hl: #6B3A47; }
 :root[data-mode="light"] { --pc-hl: var(--pink); }
 
@@ -260,8 +254,6 @@ a.pill-card:hover { transform: translateY(-3px); }
 .shelf-bar { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 28px; }
 .shelf-bar .chip span { font-family: var(--mono); font-size: 0.75rem; color: var(--muted); margin-left: 4px; }
 .shelf-bar a.chip { text-decoration: none; }
-.shelf-bar .chip.off { background: none; border-style: dashed; color: var(--muted); cursor: default; }
-.shelf-bar .chip.off:hover { border-color: var(--line); }
 .shelf { scroll-margin-top: 16px; }
 .shelf-h { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 12px; border-top: 2px solid var(--ink); padding-top: 12px; margin-bottom: 18px; }
 .shelf-h h2 { font-family: var(--display); font-variation-settings: "SOFT" 100, "opsz" 72; font-weight: 560; font-size: 1.5rem; line-height: 1.15; margin: 0; }
@@ -293,12 +285,10 @@ a.pill-card:hover { transform: translateY(-3px); }
 [data-look="corporate"] .shelf-h { border-top-width: 1px; }
 [data-look="corporate"] a.pill-card { box-shadow: none; border-width: 1px; border-color: var(--line); border-radius: 4px; background: var(--surface); }
 [data-look="corporate"] a.pill-card:hover { transform: none; border-color: var(--ink); }
-[data-look="corporate"] .pc-fino { display: none; }
 [data-look="corporate"] .pc-q { font-style: normal; font-variation-settings: normal; font-weight: 700; letter-spacing: -0.025em; }
-[data-look="corporate"] .pc-figs b, [data-look="corporate"] .pc-brand { font-variation-settings: normal; font-weight: 700; }
+[data-look="corporate"] .pc-figs b { font-variation-settings: normal; font-weight: 700; }
 [data-look="corporate"] .pc-a mark { background: none; }
 [data-look="corporate"] .pc-chips li { border-radius: 2px; }
-[data-look="corporate"] .pc-foot { border-top-width: 1px; }
 [data-look="corporate"] .sc-card .sc-rule { border-left-color: var(--accent); }
 [data-look="corporate"] .pc-figs { flex-wrap: wrap; column-gap: 5cqw; }
 [data-look="corporate"] .pc-figs b { font-size: 10.5cqw; letter-spacing: -0.035em; }
@@ -377,7 +367,7 @@ a.pill-card:hover { transform: translateY(-3px); }
 .top nav .laws-menu a.all-laws { border-top: 1px solid var(--latte-line); border-radius: 0 0 14px 14px; margin-top: 4px; }
 
 </style>
-<link rel="stylesheet" href="/assets/find.css?v=626dc1892e68">
+<link rel="stylesheet" href="/assets/find.css?v=0ba5057d907b">
 <!-- seo -->
 <link rel="canonical" href="https://finoprivacy.com/explainers.html">
 <meta property="og:type" content="website">
@@ -445,11 +435,11 @@ a.pill-card:hover { transform: translateY(-3px); }
   <p class="eyebrow">Explainers</p>
   <h1>Questions that land on a privacy desk</h1>
   <p class="lede">The answer in thirty seconds on each card. Open a card for the full explainer: the rules, the real decisions and a checklist. Below them are short cases: one real fine and the rule it teaches.</p>
-  <nav class="shelf-bar" aria-label="Go to a shelf"><a class="chip" href="#sh-websites">Websites and marketing <span>1</span></a><a class="chip" href="#sh-staff">Staff <span>1</span></a><a class="chip" href="#sh-security">Security and breaches <span>1</span></a><span class="chip off">Customers’ rights <span>soon</span></span><a class="chip" href="#sh-ai">AI and new tech <span>1</span></a><span class="chip off">Sharing data <span>soon</span></span><a class="chip" href="#sh-short">Short cases <span>9</span></a></nav><div class="ex-list">
-<section class="shelf ex-entry" aria-labelledby="sh-websites"><div class="shelf-h"><span class="ex-no">No. 01</span><h2 id="sh-websites">Websites and marketing</h2><span>1 explainer</span></div><div class="pc-wrap"><a class="pill-card" href="cookies.html"><div class="pc-top"><span class="pc-eye">Explainer No. 1 · Websites</span><svg class="pc-fino" viewBox="0 0 200 180" aria-hidden="true"><path d="M100 50 C98 38 102 30 111 28" fill="none" stroke="var(--ink)" stroke-width="9" stroke-linecap="round"/><circle cx="121" cy="25" r="13" fill="var(--accent)" stroke="var(--ink)" stroke-width="8"/><path d="M100 50 C144 50 172 78 174 117 C176 152 146 168 100 168 C54 168 24 152 26 117 C28 78 56 50 100 50 Z" fill="var(--puff)" stroke="var(--ink)" stroke-width="9"/><ellipse cx="80" cy="110" rx="9" ry="13" fill="var(--eye)"/><ellipse cx="120" cy="110" rx="9" ry="13" fill="var(--eye)"/><path d="M88 136 Q100 147 112 136" fill="none" stroke="var(--eye)" stroke-width="8" stroke-linecap="round"/></svg></div><p class="pc-q">Our cookie banner has no “reject” button. How big are the fines?</p><p class="pc-a">Potentially very big. Refusing must be <mark>as easy as accepting</mark>.</p><div class="pc-figs"><div><b>€150m</b><span>Google</span></div><div><b>€60m</b><span>Facebook</span></div></div><p class="pc-cap">Fined by France’s regulator (CNIL) in Dec 2021: accepting took one click, refusing took several.</p><ul class="pc-chips"><li>French law Art. 82</li><li>ePrivacy Art. 5(3)</li><li>GDPR Art. 4(11) + Recital 42</li></ul><div class="pc-foot"><span class="pc-brand">Fino</span><span class="pc-url">finoprivacy.com</span></div><p class="pc-src">Sources: CNIL decisions SAN-2021-023 and SAN-2021-024 of 31 Dec 2021 (Légifrance). Names: CNIL press release. Checked 30 Oct 2026.</p></a></div></section>
-<section class="shelf ex-entry" aria-labelledby="sh-staff"><div class="shelf-h"><span class="ex-no">No. 02</span><h2 id="sh-staff">Staff</h2><span>1 explainer</span></div><div class="pc-wrap"><a class="pill-card" href="staff-monitoring.html"><div class="pc-top"><span class="pc-eye">Explainer No. 2 · Staff</span><svg class="pc-fino" viewBox="0 0 200 180" aria-hidden="true"><path d="M100 50 C98 38 102 30 111 28" fill="none" stroke="var(--ink)" stroke-width="9" stroke-linecap="round"/><circle cx="121" cy="25" r="13" fill="var(--accent)" stroke="var(--ink)" stroke-width="8"/><path d="M100 50 C144 50 172 78 174 117 C176 152 146 168 100 168 C54 168 24 152 26 117 C28 78 56 50 100 50 Z" fill="var(--puff)" stroke="var(--ink)" stroke-width="9"/><ellipse cx="80" cy="110" rx="9" ry="13" fill="var(--eye)"/><ellipse cx="120" cy="110" rx="9" ry="13" fill="var(--eye)"/><path d="M88 136 Q100 147 112 136" fill="none" stroke="var(--eye)" stroke-width="8" stroke-linecap="round"/></svg></div><p class="pc-q">We want to monitor staff laptops. Has a regulator ruled on this?</p><p class="pc-a">Yes, many times. Limited, announced monitoring can be lawful. <mark>Constant or hidden</mark> monitoring has been fined.</p><div class="pc-figs"><div><b>€35.3m</b><span>H&amp;M, Germany</span></div></div><p class="pc-cap">Fined in 2020 for notes on staff’s private lives. Others: screen recording, reading email, tracking apps.</p><ul class="pc-chips"><li>GDPR Art. 5(1)(c)</li><li>Art. 6(1)(f)</li><li>Art. 88</li></ul><div class="pc-foot"><span class="pc-brand">Fino</span><span class="pc-url">finoprivacy.com</span></div><p class="pc-src">Sources: Hamburg regulator, Oct 2020, via CMS; other decisions via CMS and GDPRhub. Checked 30 Oct 2026.</p></a></div></section>
-<section class="shelf ex-entry" aria-labelledby="sh-security"><div class="shelf-h"><span class="ex-no">No. 03</span><h2 id="sh-security">Security and breaches</h2><span>1 explainer</span></div><div class="pc-wrap"><a class="pill-card" href="data-breach-fines.html"><div class="pc-top"><span class="pc-eye">Explainer No. 3 · Security</span><svg class="pc-fino" viewBox="0 0 200 180" aria-hidden="true"><path d="M100 50 C98 38 102 30 111 28" fill="none" stroke="var(--ink)" stroke-width="9" stroke-linecap="round"/><circle cx="121" cy="25" r="13" fill="var(--accent)" stroke="var(--ink)" stroke-width="8"/><path d="M100 50 C144 50 172 78 174 117 C176 152 146 168 100 168 C54 168 24 152 26 117 C28 78 56 50 100 50 Z" fill="var(--puff)" stroke="var(--ink)" stroke-width="9"/><ellipse cx="80" cy="110" rx="9" ry="13" fill="var(--eye)"/><ellipse cx="120" cy="110" rx="9" ry="13" fill="var(--eye)"/><path d="M88 136 Q100 147 112 136" fill="none" stroke="var(--eye)" stroke-width="8" stroke-linecap="round"/></svg></div><p class="pc-q">The board wants to know our worst-case fine for this data breach.</p><p class="pc-a">Up to <mark>€20 million or 4% of group turnover</mark>, whichever is higher.</p><div class="pc-figs"><div><b>€251m</b><span>Meta, 2024, under appeal</span></div><div><b>£20m</b><span>British Airways</span></div></div><p class="pc-cap">Real fines are usually far lower: the UK regulator announced £183m for British Airways, then fined £20m.</p><ul class="pc-chips"><li>GDPR Art. 32</li><li>Art. 33</li><li>Art. 83</li></ul><div class="pc-foot"><span class="pc-brand">Fino</span><span class="pc-url">finoprivacy.com</span></div><p class="pc-src">Sources: Irish regulator, Dec 2024; UK regulator, Oct 2020; via CMS and GDPRhub. Checked 19 Oct 2026.</p></a></div></section>
-<section class="shelf ex-entry" aria-labelledby="sh-ai"><div class="shelf-h"><span class="ex-no">No. 04</span><h2 id="sh-ai">AI and new tech</h2><span>1 explainer</span></div><div class="pc-wrap"><a class="pill-card" href="ai-training.html"><div class="pc-top"><span class="pc-eye">Explainer No. 4 · AI</span><svg class="pc-fino" viewBox="0 0 200 180" aria-hidden="true"><path d="M100 50 C98 38 102 30 111 28" fill="none" stroke="var(--ink)" stroke-width="9" stroke-linecap="round"/><circle cx="121" cy="25" r="13" fill="var(--accent)" stroke="var(--ink)" stroke-width="8"/><path d="M100 50 C144 50 172 78 174 117 C176 152 146 168 100 168 C54 168 24 152 26 117 C28 78 56 50 100 50 Z" fill="var(--puff)" stroke="var(--ink)" stroke-width="9"/><ellipse cx="80" cy="110" rx="9" ry="13" fill="var(--eye)"/><ellipse cx="120" cy="110" rx="9" ry="13" fill="var(--eye)"/><path d="M88 136 Q100 147 112 136" fill="none" stroke="var(--eye)" stroke-width="8" stroke-linecap="round"/></svg></div><p class="pc-q">We’re training AI on customer data. Has anyone been fined?</p><p class="pc-a">No settled fine yet, in the decisions we found. A new purpose must be <mark>justified and explained</mark>, and people may be able to object.</p><div class="pc-figs"><div><b>€30.5m</b><span>Clearview AI, NL</span></div><div><b>Annulled</b><span>OpenAI, Italy, 2026</span></div></div><p class="pc-cap">The Dutch fine on Clearview AI (web photos, not customer data) is final. Italy’s €15m fine on OpenAI (Nov 2024) was annulled by a court in 2026.</p><ul class="pc-chips"><li>GDPR Art. 5(1)(b)</li><li>Art. 6(4)</li><li>Art. 21</li></ul><div class="pc-foot"><span class="pc-brand">Fino</span><span class="pc-url">finoprivacy.com</span></div><p class="pc-src">Sources: Dutch and Italian regulators; Court of Rome, 2026; via CMS and GDPRhub. Checked 30 Oct 2026.</p></a></div></section>
+  <nav class="shelf-bar" aria-label="Go to a shelf"><a class="chip" href="#sh-websites">Websites and marketing <span>1</span></a><a class="chip" href="#sh-staff">Staff <span>1</span></a><a class="chip" href="#sh-security">Security and breaches <span>1</span></a><a class="chip" href="#sh-ai">AI and new tech <span>1</span></a><a class="chip" href="#sh-short">Short cases <span>9</span></a></nav><div class="ex-list">
+<section class="shelf ex-entry" aria-labelledby="sh-websites"><div class="shelf-h"><span class="ex-no">No. 01</span><h2 id="sh-websites">Websites and marketing</h2><span>1 explainer</span></div><div class="pc-wrap"><a class="pill-card" href="cookies.html"><p class="pc-q">Our cookie banner has no “reject” button. How big are the fines?</p><p class="pc-a">Potentially very big. Refusing must be <mark>as easy as accepting</mark>.</p><div class="pc-figs"><div><b>€150m</b><span>Google</span></div><div><b>€60m</b><span>Facebook</span></div></div><p class="pc-cap">Fined by France’s regulator (CNIL) in Dec 2021: accepting took one click, refusing took several.</p><ul class="pc-chips"><li>French law Art. 82</li><li>ePrivacy Art. 5(3)</li><li>GDPR Art. 4(11) + Recital 42</li></ul></a></div></section>
+<section class="shelf ex-entry" aria-labelledby="sh-staff"><div class="shelf-h"><span class="ex-no">No. 02</span><h2 id="sh-staff">Staff</h2><span>1 explainer</span></div><div class="pc-wrap"><a class="pill-card" href="staff-monitoring.html"><p class="pc-q">We want to monitor staff laptops. Has a regulator ruled on this?</p><p class="pc-a">Yes, many times. Limited, announced monitoring can be lawful. <mark>Constant or hidden</mark> monitoring has been fined.</p><div class="pc-figs"><div><b>€35.3m</b><span>H&amp;M, Germany</span></div></div><p class="pc-cap">Fined in 2020 for notes on staff’s private lives. Others: screen recording, reading email, tracking apps.</p><ul class="pc-chips"><li>GDPR Art. 5(1)(c)</li><li>Art. 6(1)(f)</li><li>Art. 88</li></ul></a></div></section>
+<section class="shelf ex-entry" aria-labelledby="sh-security"><div class="shelf-h"><span class="ex-no">No. 03</span><h2 id="sh-security">Security and breaches</h2><span>1 explainer</span></div><div class="pc-wrap"><a class="pill-card" href="data-breach-fines.html"><p class="pc-q">The board wants to know our worst-case fine for this data breach.</p><p class="pc-a">Up to <mark>€20 million or 4% of group turnover</mark>, whichever is higher.</p><div class="pc-figs"><div><b>€251m</b><span>Meta, 2024, under appeal</span></div><div><b>£20m</b><span>British Airways</span></div></div><p class="pc-cap">Real fines are usually far lower: the UK regulator announced £183m for British Airways, then fined £20m.</p><ul class="pc-chips"><li>GDPR Art. 32</li><li>Art. 33</li><li>Art. 83</li></ul></a></div></section>
+<section class="shelf ex-entry" aria-labelledby="sh-ai"><div class="shelf-h"><span class="ex-no">No. 04</span><h2 id="sh-ai">AI and new tech</h2><span>1 explainer</span></div><div class="pc-wrap"><a class="pill-card" href="ai-training.html"><p class="pc-q">We’re training AI on customer data. Has anyone been fined?</p><p class="pc-a">No settled fine yet, in the decisions we found. A new purpose must be <mark>justified and explained</mark>, and people may be able to object.</p><div class="pc-figs"><div><b>€30.5m</b><span>Clearview AI, NL</span></div><div><b>Annulled</b><span>OpenAI, Italy, 2026</span></div></div><p class="pc-cap">The Dutch fine on Clearview AI (web photos, not customer data) is final. Italy’s €15m fine on OpenAI (Nov 2024) was annulled by a court in 2026.</p><ul class="pc-chips"><li>GDPR Art. 5(1)(b)</li><li>Art. 6(4)</li><li>Art. 21</li></ul></a></div></section>
 </div>
 <section class="shelf sc" aria-labelledby="sh-short"><div class="shelf-h"><h2 id="sh-short">Short cases</h2><span>9 cases</span></div><p class="sc-intro">Each is one real fine and the rule it teaches. <b>Not legal advice.</b></p><div class="sc-grid"><article class="sc-card"><h3>Can you write down why an employee is off sick?</h3><p>In 2019 Dutch maintenance firm CP&amp;A kept its sick-leave list in a Google Drive file that opened with no login. It named illnesses and complaints of 25 sick staff. On 24 March 2020 the Dutch regulator (AP) fined it €15,000, down from €1,035,000 because it could not bear the full sum.</p><p class="sc-rule">The rule: health data has extra protection (GDPR Art. 9). In the Netherlands an employer may record how long someone is off and what work they can do, not what is wrong with them.</p><a class="sc-go" href="decisions/2020-NL-011.html">See the case <span aria-hidden="true">&rarr;</span></a></article><article class="sc-card"><h3>Can everyone on your group email see the others’ addresses?</h3><p>Vodafone Romania emailed business clients’ contacts about a change of account manager, with every address in plain view. After a complaint, Romania’s regulator (ANSPDCP) fined it 24,870.5 lei (€5,000) and ordered it to review its security, especially staff training. It announced this on 28 October 2024.</p><p class="sc-rule">The rule: protect personal data with security that fits the risk (GDPR Art. 32). Here: hide the addresses, for example with BCC.</p><a class="sc-go" href="decisions/2024-RO-004.html">See the case <span aria-hidden="true">&rarr;</span></a></article><article class="sc-card"><h3>A €10,000 GDPR fine, cut to €1. How?</h3><p>In October 2020 Belgium’s railway, SNCB, emailed holders of its free Railpass. Next to Covid-19 advice, it promoted 500+ destinations and never mentioned their right to object. The regulator (APD) fined it €10,000 in May 2022. In June 2023 the Market Court in Brussels left the breaches standing but found the fine out of proportion and cut it to a symbolic €1.</p><p class="sc-rule">The rule: tell people they can object to marketing, by your first message to them (GDPR Art. 21).</p><a class="sc-go" href="decisions/2022-BE-005.html">See the case <span aria-hidden="true">&rarr;</span></a></article><article class="sc-card"><h3>Can a doctor answer a bad online review?</h3><p>A patient posted a critical review of her gynaecologist. He replied in public and revealed her diagnosis. Austria’s data protection authority (DSB) fined him €10,000 in June 2023. He appealed the amount, then withdrew the appeal: the fine is final.</p><p class="sc-rule">The rule: health data is a special category, banned from use unless a listed exception applies (GDPR Art. 9). You can answer a review without the diagnosis.</p><a class="sc-go" href="decisions/2023-AT-020.html">See the case <span aria-hidden="true">&rarr;</span></a></article><article class="sc-card"><h3>Someone left your company. Is their mailbox still open?</h3><p>A Belgian accountancy firm kept a former employee’s work email account active for at least 21 months after he left. Its own policy allowed 3 years. When he asked for it to be shut, he got no answer within a month. Belgium’s regulator (APD) fined the firm €8,500 in April 2026 for keeping it open.</p><p class="sc-rule">Belgium’s APD says: in principle, close a leaver’s mailbox when they go. An automatic reply for a short time (normally one month), then delete it.</p><a class="sc-go" href="decisions/2026-BE-001.html">See the case <span aria-hidden="true">&rarr;</span></a></article><article class="sc-card"><h3>Can a gym film its classes because “the contract says so”?</h3><p>At a gym in Tres Cantos, Spain, staff filmed classes for the Holiday Gym group’s Instagram. The company said members had agreed in their contract. Spain’s regulator (AEPD) found no such clause. Newer terms made filming part of signing up, and spoken consent was never proven. The company admitted this and two other breaches and paid €21,600.</p><p class="sc-rule">The rule: consent must be free and provable; tying it to signing up undermines that (GDPR Art. 7).</p><a class="sc-go" href="decisions/2025-ES-072.html">See the case <span aria-hidden="true">&rarr;</span></a></article><article class="sc-card"><h3>Someone asks for a copy of their data. How long do you have?</h3><p>Romania’s regulator (ANSPDCP) found that Untold SRL did not deal with a person’s request for a copy of their data (an access request), though the person gave full contact details. It also missed the deadline on their request to delete the data. In 2024 it fined Untold €15,000 (€10,000 + €5,000).</p><p class="sc-rule">The rule: answer without undue delay, within one month. Two more months only if needed, and say so in the first month (GDPR Art. 12).</p><a class="sc-go" href="decisions/2024-RO-002.html">See the case <span aria-hidden="true">&rarr;</span></a></article><article class="sc-card"><h3>Can a swimming pool film the lockers in its changing rooms?</h3><p>Trento’s municipal sports company (ASIS) had cameras in a pool’s changing rooms from 2007. It said they filmed only the lockers, to stop thefts. On 3 September 2026 Italy’s regulator, the Garante, fined it €8,000: no valid legal basis, a sign only at the entrance, and 72 hours of footage kept with no check it was needed.</p><p class="sc-rule">The Garante: cameras in changing rooms are, as a rule, too intrusive. Weigh less intrusive fixes first, such as padlocks.</p><a class="sc-go" href="decisions/2026-IT-108.html">See the case <span aria-hidden="true">&rarr;</span></a></article><article class="sc-card"><h3>Can an employer hide cameras in smoke detectors?</h3><p>In August 2023 the Samaritaine department store in Paris put five cameras that looked like smoke detectors in two stockrooms, after a rise in thefts. They also recorded sound, including staff’s private conversations. Staff found and removed them. On 18 September 2025 France’s regulator (CNIL) fined it €100,000.</p><p class="sc-rule">The CNIL: hidden cameras only in exceptional cases, kept temporary and documented. Recording sound is, in principle, not allowed.</p><a class="sc-go" href="decisions/2025-FR-006.html">See the case <span aria-hidden="true">&rarr;</span></a></article></div></section>
 </div>
@@ -468,7 +458,7 @@ a.pill-card:hover { transform: translateY(-3px); }
           </svg>
           Fino
         </a>
-        <p>What Europe&rsquo;s data protection regulators actually decided, in one place and checked against the source. Free, no ads, no tracking.</p>
+        <p>What Europe&rsquo;s data protection regulators actually decided, in one place. Each page says whether it has been checked.</p>
       </div>
       <nav class="foot-col" aria-label="Explore Fino">
         <p class="foot-lbl">Explore</p>
@@ -489,19 +479,17 @@ a.pill-card:hover { transform: translateY(-3px); }
           <li><a href="/About.html#method">How it works</a></li>
           <li><a href="/About.html#reuse">Reuse and cite</a></li>
           <li><a href="/Privacy.html">Privacy</a></li>
-          <li><a href="https://www.linkedin.com/company/finoprivacy" target="_blank" rel="noopener">LinkedIn</a></li>
         </ul>
       </nav>
       <div class="foot-write">
         <p class="foot-lbl">Write to Fino</p>
-        <p>Spotted a mistake? A question, an idea, or just want to say hello? Every message is read, and thank you.</p>
-        <a class="foot-mail" href="mailto:hello@finoprivacy.com">hello@finoprivacy.com</a>
-        <p class="foot-follow"><a href="https://www.linkedin.com/company/finoprivacy" target="_blank" rel="noopener">Follow Fino on LinkedIn</a>: one real decision a week.</p>
+        <p>A mistake, a question or an idea? Every message is read, and thank you.</p>
+        <a class="foot-mail" href="mailto:hello@finoprivacy.com">hello@finoprivacy.com</a><a class="foot-in" href="https://www.linkedin.com/company/finoprivacy" target="_blank" rel="noopener" aria-label="Fino on LinkedIn" title="Fino on LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.75h4v11.5H3zM10 9.75h3.8v1.6h.06c.53-1 1.84-2.05 3.8-2.05 4.06 0 4.8 2.67 4.8 6.14v5.8h-4v-5.14c0-1.23-.02-2.8-1.7-2.8-1.7 0-1.97 1.33-1.97 2.7v5.24h-4z"/></svg></a>
       </div>
     </div>
     <div class="foot-base">
       <p>Decisions from the regulators&rsquo; own documents, enforcementtracker.com (provided by CMS) and GDPRhub (noyb), under CC BY-NC-SA 4.0. Law texts from EUR-Lex, &copy; European Union.</p>
-      <p>&copy; 2026 Fino &middot; <a href="/About.html">About</a> &middot; <a href="/Privacy.html">Privacy</a> &middot; Not legal advice</p>
+      <p>&copy; 2026 Fino &middot; Not legal advice</p>
     </div>
   </div>
 </footer>
@@ -627,6 +615,6 @@ if (bar) bar.addEventListener('click', e => {
 });
 
 </script>
-<script src="/assets/find.js?v=626dc1892e68" defer></script>
+<script src="/assets/find.js?v=0ba5057d907b" defer></script>
 </body>
 </html>

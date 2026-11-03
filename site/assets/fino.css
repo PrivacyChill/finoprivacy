@@ -36,15 +36,16 @@
      green  = you can do something here (solid = the main action, underlined = a link)
      pink   = look here; emphasis only, never clickable
      latte  = a panel of tools you set (filters, export options) and where you are in the menu
-     blue   = the official EU source; it always opens EUR-Lex */
+     the § badge = the official EU source, in the same green; it always opens EUR-Lex */
   --latte: #F1EAE1;
   --latte-ink: #211915;
   --latte-muted: #6E6158;
   --latte-line: #D6C7B6;
   --field: #FFFDF9;
   --go-deep: #56662A;
-  --official: #9DB8FF;
-  --official-bg: #222C45;
+  --official: var(--accent);
+  --official-bg: var(--live-bg);
+  --quote: #F59BB4;
   --neutral-bg: #3A2F29;
   --hl-bg: #6B3A47;   /* the highlighter under light text in the dark look (pink in the light look) */
   color-scheme: dark;
@@ -59,7 +60,7 @@
   --accent: #56662A; --accent-ink: #FFFFFF; --pink: #FFC4D3;
   --soon: #A3304F; --soon-bg: #FFE1E8; --live-bg: #E6E9CF; --desk: #E4DACD;
   --latte: #FFFDF9; --latte-line: #E0D4C6; --field: #FFFFFF;
-  --official: #2D4FA8; --official-bg: #E4EAFA; --neutral-bg: #E7DED3;
+  --official: var(--accent); --official-bg: var(--live-bg); --neutral-bg: #E7DED3;
   color-scheme: light;
 }
 
@@ -245,7 +246,7 @@ img.flag { display: inline-block; width: 1.15em; height: 1.15em; border-radius: 
 .strip .me { fill: var(--pink); stroke: var(--ink); stroke-width: 2; }
 .strip .pin { stroke: var(--ink); stroke-width: 1; }
 /* the bell: the whole list pale, the part smaller than this fine shaded, a thin line on top */
-.strip .b-all { fill: var(--line); } .strip .b-in { fill: var(--pink); } .strip .b-top { fill: none; stroke: var(--ink); stroke-width: 1.5; stroke-linejoin: round; }
+.strip .b-all { fill: var(--line); stroke: none; } .strip .b-in { fill: var(--pink); stroke: none; } .strip .b-top { fill: none; stroke: var(--ink); stroke-opacity: 1; stroke-width: 1.5; stroke-linejoin: round; }
 [data-look="corporate"] .strip .b-in { fill: color-mix(in srgb, var(--brand) 32%, var(--bg)); }
 .strip .melbl { fill: var(--ink); font-weight: 500; }
 .size-big { font-family: var(--display); font-variation-settings: "SOFT" 100, "opsz" 72; font-weight: 500; font-size: 1.6rem; line-height: 1.22; margin: 0 0 6px; text-wrap: balance; }
@@ -266,7 +267,7 @@ img.flag { display: inline-block; width: 1.15em; height: 1.15em; border-radius: 
 .dpo-list li { font-size: 1.05rem; line-height: 1.55; margin: 0 0 8px; }
 .dpo-from { font-family: var(--mono); font-size: 0.78rem; color: var(--official); font-weight: 500; margin: 0 0 8px; }
 .dpo-from span { display: block; margin-top: 2px; font-weight: 400; color: var(--muted); }
-.dpo-q { margin: 0 0 10px; padding: 12px 14px; border-radius: 14px; background: var(--official-bg); border-left: 4px solid var(--official); }
+.dpo-q { margin: 0 0 14px; padding: 2px 0 2px 18px; border-left: 4px solid var(--quote); }
 .dpo-q blockquote { margin: 0; }
 .dpo-q blockquote p { margin: 0; font-family: var(--display); font-variation-settings: "SOFT" 50, "opsz" 24; font-size: 1rem; line-height: 1.5; color: var(--ink); }
 .dpo-q .orig { margin: 8px 0 0; font-size: 0.84rem; line-height: 1.45; color: var(--muted); }
