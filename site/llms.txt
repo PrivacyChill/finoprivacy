@@ -57,6 +57,31 @@ Facts about the data:
 - [Codice privacy: Personal Data Protection Code](https://finoprivacy.com/codice-privacy/): 221 articles in the original Italian, consolidated 2026-02-20, each with a one-line English label (not an official English version)
 - [L. 132/2025: Italian AI law (provisions and delegations to the Government on artificial intelligence)](https://finoprivacy.com/l-132-2025/): 28 articles in the original Italian, consolidated 2026-06-27, each with a one-line English label (not an official English version)
 
+## EU and UK law (English)
+
+- [ePrivacy Directive: Directive on privacy and electronic communications](https://finoprivacy.com/eprivacy/): 23 articles, 49 recitals, the official English text word for word, consolidated version of 2009-12-19
+- [LED: Data protection in police and criminal justice](https://finoprivacy.com/led/): 65 articles, 107 recitals, the official English text word for word, consolidated version of 2016-05-04
+- [EUDPR: Data protection rules for the EU institutions](https://finoprivacy.com/eudpr/): 101 articles, 89 recitals, the official English text word for word, as published in the Official Journal
+- [GDPR Procedural Regulation: Additional procedural rules for GDPR cross-border enforcement](https://finoprivacy.com/gdpr-procedural/): 37 articles, 68 recitals, the official English text word for word, as published in the Official Journal
+- [SCCs: Standard contractual clauses for transfers of personal data to third countries](https://finoprivacy.com/scc/): 4 articles, 5 annex pages, 26 recitals, the official English text word for word, as published in the Official Journal
+- [EU-US DPF: Adequacy decision for the EU-US Data Privacy Framework](https://finoprivacy.com/dpf/): 4 articles, 10 annex pages, 223 recitals, the official English text word for word, as published in the Official Journal
+- [NIS2 Directive: Cybersecurity across the Union](https://finoprivacy.com/nis2/): 46 articles, 3 annexes, 144 recitals, the official English text word for word, consolidated version of 2022-12-27
+- [DORA: Digital operational resilience for the financial sector](https://finoprivacy.com/dora/): 64 articles, 106 recitals, the official English text word for word, as published in the Official Journal
+- [Data Act: Fair access to and use of data](https://finoprivacy.com/data-act/): 50 articles, 119 recitals, the official English text word for word, as published in the Official Journal
+- [DGA: European data governance](https://finoprivacy.com/dga/): 38 articles, 63 recitals, the official English text word for word, as published in the Official Journal
+- [DSA: Single market for digital services](https://finoprivacy.com/dsa/): 93 articles, 156 recitals, the official English text word for word, as published in the Official Journal
+- [DMA: Contestable and fair markets in the digital sector](https://finoprivacy.com/dma/): 54 articles, 1 annex, 109 recitals, the official English text word for word, consolidated version of 2022-10-12
+- [CRA: Cybersecurity requirements for products with digital elements](https://finoprivacy.com/cra/): 71 articles, 8 annexes, 130 recitals, the official English text word for word, consolidated version of 2024-11-20
+- [EHDS: European Health Data Space](https://finoprivacy.com/ehds/): 105 articles, 4 annexes, 115 recitals, the official English text word for word, as published in the Official Journal
+- [eIDAS: Electronic identification and trust services (as amended by eIDAS 2)](https://finoprivacy.com/eidas/): 85 articles, 7 annexes, 77 recitals, the official English text word for word, consolidated version of 2024-10-18
+- [Whistleblower Directive: Protection of persons who report breaches of Union law](https://finoprivacy.com/whistleblower-directive/): 29 articles, 1 annex, 110 recitals, the official English text word for word, consolidated version of 2024-12-30
+- [Platform Work Directive: Improving working conditions in platform work](https://finoprivacy.com/platform-work/): 32 articles, 73 recitals, the official English text word for word, consolidated version of 2024-11-11
+- [Product Liability Directive: Liability for defective products](https://finoprivacy.com/product-liability/): 24 articles, 1 annex, 64 recitals, the official English text word for word, consolidated version of 2024-11-18
+- [e-Commerce Directive: Information society services, in particular electronic commerce](https://finoprivacy.com/ecommerce/): 24 articles, 1 annex, 65 recitals, the official English text word for word, consolidated version of 2024-02-17
+- [UK GDPR: United Kingdom General Data Protection Regulation (retained Regulation (EU) 2016/679, as amended)](https://finoprivacy.com/uk-gdpr/): 120 articles, 2 annexes, 173 recitals, the official English text word for word, revised version valid 2026-09-30
+- [DPA 2018: Data Protection Act 2018](https://finoprivacy.com/dpa-2018/): 261 sections, 23 schedules, the official English text word for word, revised version valid 2026-09-30
+- [PECR: Privacy and Electronic Communications (EC Directive) Regulations 2003](https://finoprivacy.com/pecr/): 50 regulations, 3 schedules, the official English text word for word, revised version valid 2026-09-30
+
 ## Glossary and key cases
 
 - [Glossary](https://finoprivacy.com/glossary/): 250 terms of EU privacy and AI law; where a law defines the word, the definition is quoted word for word with its article
