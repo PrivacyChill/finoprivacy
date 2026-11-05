@@ -1,0 +1,21 @@
+{
+ "meta": {
+  "name": "Fino corrections",
+  "purpose": "Every correction made to a published Fino page after it was published, so a reader can see what changed and why. The Fino connector's corrections() tool returns this list unchanged.",
+  "version": 1,
+  "updated": "2026-11-03",
+  "status": "No corrections have been published yet. An empty list does not mean there are no errors; it means none has been recorded here.",
+  "fields": {
+   "id": "Running number, C-0001 and up",
+   "date": "Day the correction went live (YYYY-MM-DD)",
+   "fino_id": "Decision number the correction concerns (YEAR/CC/NNN), or null if it concerns another page",
+   "page_url": "Public address of the corrected page",
+   "what_was_wrong": "The wrong statement, as it stood",
+   "what_it_says_now": "The statement now",
+   "evidence_url": "Where the right fact comes from (the regulator's original or an official text)",
+   "reported_by": "'reader' or 'Fino check'. Readers are named only if they agree",
+   "credit": "Name of the reader, only with their agreement, otherwise null"
+  }
+ },
+ "corrections": []
+}

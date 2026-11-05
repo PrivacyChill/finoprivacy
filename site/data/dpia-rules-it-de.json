@@ -1,0 +1,1832 @@
+{
+ "meta": {
+  "name": "Fino DPIA rules, Italy and Germany",
+  "version": 2,
+  "generated": "2026-11-05",
+  "built_by": "Fino connector build script",
+  "status": "Quoted unchanged, source named.",
+  "not_legal_advice": "Not legal advice. These DPIA results apply rules taken from the GDPR, EDPB/WP 248 guidance and national lists to the answers you gave; a DPO checks them against the originals and adopts or rejects them.",
+  "caveat": "These lists are not exhaustive. A \"not indicated\" outcome is not \"no DPIA needed\". Fino reviews and never authors: the controller writes and signs the DPIA.",
+  "credit": "Decisions linked from these rules come from enforcementtracker.com, provided by CMS, and GDPRhub, noyb, under CC BY-NC-SA 4.0. Anything adapted from them keeps the credit and the same licence.",
+  "outcomes": {
+   "applies": "Every condition of the rule is answered yes. The rule says a DPIA is required.",
+   "likely": "Only for the WP 248 rule: two or more of its nine criteria are met. This is soft law (\"in most cases\"), so it is never \"applies\".",
+   "not indicated": "At least one condition of the rule is answered no, so this rule does not apply on the answers given. This is not the same as \"no DPIA needed\".",
+   "open": "The answers given do not settle the rule, or Fino has not built the list the rule would use. The questions still open say who to ask."
+  },
+  "outcomes_by_country": {
+   "IT": {
+    "applies": "Every condition of the rule is answered yes. The rule says a DPIA is required.",
+    "likely": "The Garante treats two or more WP 248 criteria as requiring a DPIA; Fino returns 'likely' because WP 248 itself says 'in most cases'.",
+    "not indicated": "At least one condition of the rule is answered no, so this rule does not apply on the answers given. This is not the same as \"no DPIA needed\".",
+    "open": "The answers given do not settle the rule. The Garante's own list (Allegato 1) has not been built, so that rule is always open: Italy's overall result is never lower than open. The questions still open say who to ask."
+   },
+   "DE": {
+    "applies": "Every condition of the rule is answered yes. The rule says a DPIA is required.",
+    "likely": "Only for the WP 248 rule: two or more of its nine criteria are met. This is soft law (\"in most cases\"), so it is never \"applies\".",
+    "not indicated": "At least one condition of the rule is answered no, so this rule does not apply on the answers given. This is not the same as \"no DPIA needed\".",
+    "open": "The answers given do not settle the rule (a condition, or the controller's sector, is not answered), or the controller is a public body, for which the DSK list does not apply and Fino has not built the competent lists. Whether the Land authority adds items for non-public bodies (DE-LAND-SUPPLEMENTS) has not been checked, so that rule is always open: Germany's overall result is never lower than open. The questions still open say who to ask."
+   }
+  },
+  "overall_explained": "overall is the strongest single outcome: applies > likely > open > not indicated",
+  "not_exhaustive": "These lists are not exhaustive. A \"not indicated\" outcome is not \"no DPIA needed\": Art. 35(1) applies to any processing likely to result in a high risk, whether or not a list names it.",
+  "not_exhaustive_quotes": [
+   {
+    "wording": "Diese Liste ist nicht abschließend, sondern ergänzt die in den Absätzen 1 und 3 des Artikels 35 DSGVO enthaltenen allgemeinen Regelungen.",
+    "language": "de",
+    "source": {
+     "name": "DSK Liste für den nicht-öffentlichen Bereich, Version 1.1 (file dated 17.10.2018)",
+     "url": "https://www.datenschutzkonferenz-online.de/media/ah/20181017_ah_DSK_DSFA_Muss-Liste_Version_1.1_Deutsch.pdf",
+     "version": "Version 1.1 vom 17.10.2018",
+     "doc_date": "2018-10-17",
+     "location": "page 4, Hinweise 1"
+    }
+   },
+   {
+    "wording": "tale elenco è riferito esclusivamente a tipologie di trattamento soggette al meccanismo di coerenza e che non è esaustivo",
+    "language": "it",
+    "source": {
+     "name": "Elenco delle tipologie di trattamenti soggetti a valutazione d'impatto, provv. n. 467 dell'11 ottobre 2018, doc. web 9058979",
+     "url": "https://www.garanteprivacy.it/home/docweb/-/docweb-display/docweb/9058979",
+     "version": null,
+     "doc_date": "2018-10-11",
+     "location": "premesse"
+    }
+   }
+  ],
+  "wp248_rule": "Included. The two-or-more-criteria rule is cited from the Garante's provv. 467/2018 and from WP 248 rev. 01, p. 11. The Garante states it more firmly than WP 248 itself (\"in most cases ... can consider\"), so Fino returns \"likely\", not \"applies\". WP 248 also says that in some cases one criterion is enough; that sentence is quoted with the rule.",
+  "decisions_citing_art_35": {
+   "IT": {
+    "basis": "decisions in this country that cite Art. 35 (48 in all; the 5 shown are read-in-the-original first, then newest)",
+    "count": 48,
+    "fino_ids": [
+     "2026/IT/154",
+     "2026/IT/158",
+     "2026/IT/146",
+     "2026/IT/098",
+     "2026/IT/074"
+    ]
+   },
+   "DE": {
+    "basis": "decisions in this country that cite Art. 35 (2 in all; the 2 shown are read-in-the-original first, then newest)",
+    "count": 2,
+    "fino_ids": [
+     "2022/DE/050",
+     "2021/DE/015"
+    ]
+   }
+  },
+  "dsk_scope": {
+   "wording": "Die vorliegende unter den Mitgliedern der Konferenz der unabhängigen Datenschutz-Aufsichtsbehörden des Bundes und der Länder (DSK) abgestimmte Liste beinhaltet ausschließlich Verarbeitungsvorgänge aus dem nicht-öffentlichen Bereich…",
+   "language": "de",
+   "source": {
+    "name": "Liste von Verarbeitungsvorgängen nach Art. 35 Abs. 4 DS-GVO, Stand 17.10.2018, Version 1.1 (copy published by the Hamburg authority, HmbBfDI)",
+    "url": "https://datenschutz-hamburg.de/fileadmin/user_upload/HmbBfDI/Datenschutz/Informationen/DSFA_Muss-Liste_fuer_den_nicht-oeffentlicher_Bereich_-_Stand_17.10.2018.pdf",
+    "location": "page 2",
+    "version": "Version 1.1 vom 17.10.2018"
+   },
+   "checked": "2026-11-03",
+   "checked_note": "Checked by hand against the downloaded copy (the sentence continues after the quoted words). The 17 items quoted in these rules were also found word for word in this copy."
+  },
+  "bdsg_note": {
+   "text": "§ 38 BDSG covers non-public bodies. § 38(1) sentence 2: where the controller or processor carries out processing that requires a DPIA (Art. 35), it must designate a DPO regardless of the number of people involved in the processing.",
+   "url": "https://www.gesetze-im-internet.de/bdsg_2018/__38.html",
+   "caution": "Check the current text at the link; checked 2026-11-03."
+  },
+  "glossary": {
+   "DSK": "Datenschutzkonferenz: the conference of the independent German federal and Land data protection authorities.",
+   "Muss-Liste": "A \"must list\": the list of processing operations for which a DPIA must be carried out.",
+   "WP 248": "The Article 29 Working Party guidelines on data protection impact assessments (revision 01), endorsed by the EDPB.",
+   "BfDI": "Der oder die Bundesbeauftragte für den Datenschutz und die Informationsfreiheit: the Federal Commissioner for Data Protection and Freedom of Information.",
+   "Land": "A German federal state. Each Land has its own data protection authority.",
+   "consistency mechanism": "The procedure in Art. 63 GDPR by which supervisory authorities cooperate (with each other and, where relevant, with the Commission) to apply the GDPR consistently. Art. 35(6) requires it for a DPIA list that involves processing related to offering goods or services to, or monitoring the behaviour of, people in several Member States, or that may substantially affect the free movement of personal data in the Union.",
+   "BDSG": "Bundesdatenschutzgesetz: the German Federal Data Protection Act.",
+   "DS-GVO": "Datenschutz-Grundverordnung (also written DSGVO): the German name for the GDPR.",
+   "Garante": "The Italian data protection authority (Garante per la protezione dei dati personali).",
+   "Allegato 1": "Annex 1 to the Garante's provv. 467/2018: its list of processing that needs a DPIA.",
+   "provv.": "provvedimento: a decision or measure of the Garante.",
+   "docweb": "The number of a document on the Garante's website (doc. web n.).",
+   "chiarimento interpretativo": "The Garante's interpretative clarification of how its DPIA list is to be read."
+  },
+  "answer_dependencies": [
+   {
+    "key": "large_scale_special_category",
+    "needs_one_of": [
+     "special_category_data",
+     "criminal_offence_data"
+    ]
+   },
+   {
+    "key": "large_scale_public_area_monitoring",
+    "needs_one_of": [
+     "public_area_systematic_monitoring"
+    ]
+   },
+   {
+    "key": "large_scale_secrecy_data",
+    "needs_one_of": [
+     "secrecy_protected_data"
+    ]
+   },
+   {
+    "key": "large_scale_location_data",
+    "needs_one_of": [
+     "location_or_stay_data"
+    ]
+   },
+   {
+    "key": "large_scale_data_combination",
+    "needs_one_of": [
+     "personal_data_from_different_sources_brought_together"
+    ]
+   },
+   {
+    "key": "large_scale_central_merge",
+    "needs_one_of": [
+     "mobile_optical_capture_public_areas_central"
+    ]
+   },
+   {
+    "key": "large_scale_collection_publication",
+    "needs_one_of": [
+     "publishes_or_passes_on_behaviour_assessments"
+    ]
+   },
+   {
+    "key": "large_scale_employee_behaviour",
+    "needs_one_of": [
+     "employee_behaviour_data"
+    ]
+   },
+   {
+    "key": "large_scale_special_category",
+    "needs_one_of": [
+     "large_scale"
+    ]
+   },
+   {
+    "key": "large_scale_public_area_monitoring",
+    "needs_one_of": [
+     "large_scale"
+    ]
+   },
+   {
+    "key": "large_scale_secrecy_data",
+    "needs_one_of": [
+     "large_scale"
+    ]
+   },
+   {
+    "key": "large_scale_location_data",
+    "needs_one_of": [
+     "large_scale"
+    ]
+   },
+   {
+    "key": "large_scale_data_combination",
+    "needs_one_of": [
+     "large_scale"
+    ]
+   },
+   {
+    "key": "large_scale_central_merge",
+    "needs_one_of": [
+     "large_scale"
+    ]
+   },
+   {
+    "key": "large_scale_collection_publication",
+    "needs_one_of": [
+     "large_scale"
+    ]
+   },
+   {
+    "key": "large_scale_employee_behaviour",
+    "needs_one_of": [
+     "large_scale"
+    ]
+   },
+   {
+    "key": "special_category_data",
+    "needs_one_of": [
+     "sensitive_or_highly_personal_data"
+    ]
+   },
+   {
+    "key": "criminal_offence_data",
+    "needs_one_of": [
+     "sensitive_or_highly_personal_data"
+    ]
+   },
+   {
+    "key": "biometric_identification",
+    "needs_one_of": [
+     "special_category_data"
+    ]
+   },
+   {
+    "key": "genetic_data",
+    "needs_one_of": [
+     "special_category_data"
+    ]
+   },
+   {
+    "key": "anonymising_art9_data_for_third_parties",
+    "needs_one_of": [
+     "special_category_data"
+    ]
+   },
+   {
+    "key": "sensor_or_app_collection_central",
+    "needs_one_of": [
+     "special_category_data",
+     "criminal_offence_data"
+    ]
+   },
+   {
+    "key": "providers_assess_performance",
+    "needs_one_of": [
+     "special_category_data",
+     "criminal_offence_data"
+    ]
+   },
+   {
+    "key": "sensor_or_app_collection_central",
+    "needs_one_of": [
+     "innovative_technology"
+    ]
+   },
+   {
+    "key": "systematic_extensive_evaluation",
+    "needs_one_of": [
+     "evaluation_or_scoring"
+    ]
+   },
+   {
+    "key": "decisions_based_on_it_with_legal_effect",
+    "needs_one_of": [
+     "systematic_extensive_evaluation"
+    ]
+   },
+   {
+    "key": "automated_av_personality_assessment",
+    "needs_one_of": [
+     "evaluation_or_scoring"
+    ]
+   },
+   {
+    "key": "comprehensive_interest_relationship_profiles",
+    "needs_one_of": [
+     "evaluation_or_scoring"
+    ]
+   },
+   {
+    "key": "public_area_systematic_monitoring",
+    "needs_one_of": [
+     "systematic_monitoring"
+    ]
+   },
+   {
+    "key": "device_signals_used_to_locate",
+    "needs_one_of": [
+     "location_or_stay_data"
+    ]
+   },
+   {
+    "key": "usable_to_evaluate_work_with_consequences",
+    "needs_one_of": [
+     "employee_behaviour_data"
+    ]
+   },
+   {
+    "key": "third_parties_may_use_for_decisions_with_legal_effect",
+    "needs_one_of": [
+     "publishes_or_passes_on_behaviour_assessments"
+    ]
+   }
+  ],
+  "answer_implications": [
+   {
+    "if_any_yes": [
+     "biometric_identification",
+     "genetic_data"
+    ],
+    "then_yes": "special_category_data",
+    "because": "Art. 9(1): genetic data, and biometric data for uniquely identifying a person, are special categories of data"
+   },
+   {
+    "if_any_yes": [
+     "special_category_data",
+     "criminal_offence_data"
+    ],
+    "then_yes": "sensitive_or_highly_personal_data",
+    "quote": "wp248_criterion_4"
+   }
+  ],
+  "wp248_criterion_4": {
+   "wording": "Sensitive data or data of a highly personal nature: this includes special categories of personal data as defined in Article 9 (for example information about individuals’ political opinions), as well as personal data relating to criminal convictions or offences as defined in Article 10.",
+   "language": "en",
+   "used_for": "special-category or criminal-offence data = yes is counted as sensitive_or_highly_personal_data = yes in the WP 248 criteria",
+   "source": {
+    "name": "WP248 rev.01, DPIA",
+    "url": "https://ec.europa.eu/newsroom/article29/items/611236",
+    "version": null,
+    "doc_date": "2017-10-04",
+    "location": "p. 9, criterion 4"
+   }
+  },
+  "not_modelled": [
+   "Art. 35(10) is not modelled. It lifts the duty only where the processing rests on Art. 6(1)(c) or (e) with a legal basis in EU or national law, that law regulates the specific processing operation or set of operations, and a DPIA was already done as part of a general impact assessment when that law was adopted; and even then \"unless Member States deem it to be necessary\" to carry out one before processing. Fino does not test those conditions.",
+   "Art. 35(5) lists of processing that need no DPIA are not modelled.",
+   "Whether an existing DPIA is still current (Art. 35(11)) is not modelled."
+  ],
+  "known_gaps": [
+   {
+    "country": "IT",
+    "gap": "The Garante's own list of processing that needs a DPIA (Allegato 1 to provv. 467 of 11 October 2018) is not built. The annex (docweb 9059358) is not saved in Fino's library. Fino has not built the Italian list items. The Garante's \"chiarimento interpretativo\" (https://www.garanteprivacy.it/regolamentoue/DPIA) would be needed as well to build them."
+   },
+   {
+    "country": "DE",
+    "gap": "The lists for public bodies (Land authorities, BfDI) are not built; Fino has not checked whether any Land adds items for non-public bodies. The DSK Muss-Liste built here is for non-public bodies only; for a public body the outcome is \"open\"."
+   },
+   {
+    "country": "DE",
+    "gap": "Only Version 1.1 of the DSK list (17.10.2018) is encoded. Fino has not checked whether a later version exists."
+   }
+  ],
+  "answer_values": [
+   "yes",
+   "no",
+   "unknown"
+  ],
+  "unknown_rule": "A missing or \"unknown\" answer is never read as \"no\". It leaves the rule open and names who to ask."
+ },
+ "answer_keys": {
+  "evaluation_or_scoring": {
+   "label": "The processing evaluates or scores people, including profiling or prediction",
+   "who_to_ask": "the business process owner"
+  },
+  "automated_decisions_with_legal_effect": {
+   "label": "Decisions are made automatically with a legal or similarly significant effect on people",
+   "who_to_ask": "the business process owner"
+  },
+  "systematic_monitoring": {
+   "label": "People are monitored systematically",
+   "who_to_ask": "the system owner"
+  },
+  "sensitive_or_highly_personal_data": {
+   "label": "Sensitive or highly personal data are involved",
+   "who_to_ask": "the DPO (your own assessment)"
+  },
+  "large_scale": {
+   "label": "The processing is on a large scale",
+   "who_to_ask": "the DPO (your own assessment)"
+  },
+  "large_scale_special_category": {
+   "label": "The processing of special-category data (Art. 9(1)) or criminal-offence data (Art. 10) is on a large scale",
+   "who_to_ask": "the DPO (your own assessment)"
+  },
+  "large_scale_public_area_monitoring": {
+   "label": "The monitoring of that publicly accessible area is on a large scale",
+   "who_to_ask": "the system owner"
+  },
+  "large_scale_secrecy_data": {
+   "label": "The processing of data covered by social, professional or special official secrecy is on a large scale",
+   "who_to_ask": "the DPO (your own assessment)"
+  },
+  "large_scale_location_data": {
+   "label": "The processing of data about where people are or stay is on a large scale",
+   "who_to_ask": "the DPO (your own assessment)"
+  },
+  "large_scale_data_combination": {
+   "label": "The bringing together, or the processing of the data brought together, is on a large scale",
+   "who_to_ask": "the DPO (your own assessment)"
+  },
+  "large_scale_central_merge": {
+   "label": "The data from one or more capture systems are brought together centrally on a large scale",
+   "who_to_ask": "the system owner"
+  },
+  "large_scale_collection_publication": {
+   "label": "The collection, and the publication or passing on, of these data is on a large scale",
+   "who_to_ask": "the business process owner"
+  },
+  "large_scale_employee_behaviour": {
+   "label": "The processing of data about employees' behaviour is on a large scale",
+   "who_to_ask": "HR"
+  },
+  "matching_or_combining_datasets": {
+   "label": "Data sets are matched or combined (for example from processing for different purposes or by different controllers) in a way that would exceed the reasonable expectations of the people concerned",
+   "who_to_ask": "the system owner"
+  },
+  "vulnerable_data_subjects": {
+   "label": "The data concern vulnerable people",
+   "who_to_ask": "the business process owner"
+  },
+  "innovative_technology": {
+   "label": "New technological or organisational solutions, or an innovative use of them",
+   "who_to_ask": "the system owner"
+  },
+  "prevents_exercise_of_right_or_service": {
+   "label": "The processing stops people exercising a right or using a service or contract",
+   "who_to_ask": "the business process owner"
+  },
+  "systematic_extensive_evaluation": {
+   "label": "People are evaluated systematically and extensively by automated means, including profiling",
+   "who_to_ask": "the business process owner"
+  },
+  "decisions_based_on_it_with_legal_effect": {
+   "label": "Decisions are based on that evaluation that produce legal effects for the person or similarly significantly affect them",
+   "who_to_ask": "the business process owner"
+  },
+  "biometric_identification": {
+   "label": "Biometric data are used to identify people uniquely",
+   "who_to_ask": "the system owner"
+  },
+  "genetic_data": {
+   "label": "Genetic data (Art. 4(13)) are processed",
+   "who_to_ask": "the system owner"
+  },
+  "special_category_data": {
+   "label": "Special categories of data (Art. 9(1)) are processed",
+   "who_to_ask": "the DPO (your own assessment)"
+  },
+  "criminal_offence_data": {
+   "label": "Data on criminal convictions and offences (Art. 10) are processed",
+   "who_to_ask": "the DPO (your own assessment)"
+  },
+  "public_area_systematic_monitoring": {
+   "label": "A publicly accessible area is monitored systematically",
+   "who_to_ask": "the system owner"
+  },
+  "secrecy_protected_data": {
+   "label": "Data covered by social, professional or special official secrecy are processed",
+   "who_to_ask": "the DPO (your own assessment)"
+  },
+  "location_or_stay_data": {
+   "label": "Data about where people are or stay are processed",
+   "who_to_ask": "the system owner"
+  },
+  "not_all_data_collected_from_the_person": {
+   "label": "Not all the data are collected directly from the people concerned, for the purposes of this processing",
+   "who_to_ask": "the business process owner"
+  },
+  "opaque_algorithms": {
+   "label": "Algorithms are used that the people concerned cannot follow",
+   "who_to_ask": "the system owner"
+  },
+  "output_feeds_decisions_with_legal_effect": {
+   "label": "The data or results can be used to make decisions with a legal or similarly significant effect on the people concerned",
+   "who_to_ask": "the business process owner"
+  },
+  "discovers_unknown_links": {
+   "label": "The purpose is to find previously unknown links between the data, for purposes not set in advance",
+   "who_to_ask": "the business process owner"
+  },
+  "mobile_optical_capture_public_areas_central": {
+   "label": "Personal data are captured by mobile cameras (such as on vehicles) in public areas",
+   "who_to_ask": "the system owner"
+  },
+  "publishes_or_passes_on_behaviour_assessments": {
+   "label": "Data that serve to assess people's behaviour and other personal aspects are collected and published or passed on",
+   "who_to_ask": "the business process owner"
+  },
+  "third_parties_may_use_for_decisions_with_legal_effect": {
+   "label": "Third parties can use the data to make decisions with a legal or similarly significant effect on the people assessed",
+   "who_to_ask": "the business process owner"
+  },
+  "personal_data_from_different_sources_brought_together": {
+   "label": "Personal data from different sources are brought together",
+   "who_to_ask": "the system owner"
+  },
+  "employee_behaviour_data": {
+   "label": "Personal data about employees' behaviour are processed",
+   "who_to_ask": "HR"
+  },
+  "usable_to_evaluate_work_with_consequences": {
+   "label": "The data can be used to evaluate employees' work in a way that has legal consequences or significantly affects them",
+   "who_to_ask": "HR"
+  },
+  "comprehensive_interest_relationship_profiles": {
+   "label": "Comprehensive profiles are built of people's interests, personal relationships or personality",
+   "who_to_ask": "the business process owner"
+  },
+  "ai_steers_interaction_or_assesses_person": {
+   "label": "AI is used to steer the interaction with people or to assess personal aspects of them",
+   "who_to_ask": "the system owner"
+  },
+  "device_signals_used_to_locate": {
+   "label": "Sensors or radio signals of people's own mobile phones are used, beyond their intended use, to find where people are or how they move over a substantial period",
+   "who_to_ask": "the system owner"
+  },
+  "automated_av_personality_assessment": {
+   "label": "Video or audio recordings are analysed automatically to assess people's personality",
+   "who_to_ask": "the system owner"
+  },
+  "movement_and_purchase_profiles": {
+   "label": "Comprehensive profiles are built of people's movements and buying behaviour",
+   "who_to_ask": "the business process owner"
+  },
+  "anonymising_art9_data_for_third_parties": {
+   "label": "Special-category data are anonymised, other than in individual cases, to pass them to third parties",
+   "who_to_ask": "the DPO (your own assessment)"
+  },
+  "sensor_or_app_collection_central": {
+   "label": "Special-category or criminal-offence data are collected repeatedly through innovative use of sensors or mobile apps, and received and processed by a central body",
+   "who_to_ask": "the system owner"
+  },
+  "providers_assess_performance": {
+   "label": "Providers of new technologies use special-category or criminal-offence data to determine people's performance",
+   "who_to_ask": "the system owner"
+  },
+  "controller_is_private_sector": {
+   "label": "The controller is a natural or legal person or association under private law (except where, and to the extent that, it carries out public-authority tasks), or a public-law company competing on the market (§ 2(4)-(5) BDSG), and not a private-law association of public bodies carrying out public administration tasks (§ 2(3) BDSG); for Land bodies, check the Land law",
+   "who_to_ask": "the legal team"
+  }
+ },
+ "rules": [
+  {
+   "id": "IT-35-3-a",
+   "country": "IT",
+   "kind": "statute",
+   "list_item": "Art. 35(3)(a)",
+   "item_number": null,
+   "original_wording": "a systematic and extensive evaluation of personal aspects relating to natural persons which is based on automated processing, including profiling, and on which decisions are based that produce legal effects concerning the natural person or similarly significantly affect the natural person;",
+   "original_language": "en",
+   "plain_label": "Systematic and extensive evaluation of people by automated means, including profiling, on which decisions with legal or similar effects are based",
+   "gdpr_article": "Art. 35(3)",
+   "logic": {
+    "core": [
+     "systematic_extensive_evaluation",
+     "decisions_based_on_it_with_legal_effect"
+    ],
+    "qualifier": null,
+    "gate": null
+   },
+   "related_decisions": [],
+   "related_decisions_basis": "none: Fino's data has no decision in this country that cites Art. 35(3)(a)",
+   "source": {
+    "name": "GDPR, Regulation (EU) 2016/679, Article 35(3)",
+    "url": "https://finoprivacy.com/gdpr/article-35.html",
+    "version": "as on Fino (EUR-Lex text)",
+    "doc_date": null,
+    "location": "Article 35(3)(a)"
+   },
+   "supporting_quotes": []
+  },
+  {
+   "id": "IT-35-3-b",
+   "country": "IT",
+   "kind": "statute",
+   "list_item": "Art. 35(3)(b)",
+   "item_number": null,
+   "original_wording": "processing on a large scale of special categories of data referred to in Article 9(1), or of personal data relating to criminal convictions and offences referred to in Article 10; or",
+   "original_language": "en",
+   "plain_label": "Large-scale processing of special categories of data (Art. 9(1)) or of criminal-conviction and offence data (Art. 10)",
+   "gdpr_article": "Art. 35(3)",
+   "logic": {
+    "core": [
+     {
+      "any": [
+       "special_category_data",
+       "criminal_offence_data"
+      ]
+     },
+     "large_scale_special_category"
+    ],
+    "qualifier": null,
+    "gate": null
+   },
+   "related_decisions": [],
+   "related_decisions_basis": "none: Fino's data has no decision in this country that cites Art. 35(3)(b)",
+   "source": {
+    "name": "GDPR, Regulation (EU) 2016/679, Article 35(3)",
+    "url": "https://finoprivacy.com/gdpr/article-35.html",
+    "version": "as on Fino (EUR-Lex text)",
+    "doc_date": null,
+    "location": "Article 35(3)(b)"
+   },
+   "supporting_quotes": []
+  },
+  {
+   "id": "IT-35-3-c",
+   "country": "IT",
+   "kind": "statute",
+   "list_item": "Art. 35(3)(c)",
+   "item_number": null,
+   "original_wording": "a systematic monitoring of a publicly accessible area on a large scale.",
+   "original_language": "en",
+   "plain_label": "Systematic monitoring of a publicly accessible area on a large scale",
+   "gdpr_article": "Art. 35(3)",
+   "logic": {
+    "core": [
+     "public_area_systematic_monitoring",
+     "large_scale_public_area_monitoring"
+    ],
+    "qualifier": null,
+    "gate": null
+   },
+   "related_decisions": [],
+   "related_decisions_basis": "none: Fino's data has no decision in this country that cites Art. 35(3)(c)",
+   "source": {
+    "name": "GDPR, Regulation (EU) 2016/679, Article 35(3)",
+    "url": "https://finoprivacy.com/gdpr/article-35.html",
+    "version": "as on Fino (EUR-Lex text)",
+    "doc_date": null,
+    "location": "Article 35(3)(c)"
+   },
+   "supporting_quotes": []
+  },
+  {
+   "id": "IT-GARANTE-ALL1",
+   "country": "IT",
+   "kind": "national_list_not_built",
+   "list_item": "Garante's list under Art. 35(4) (Allegato 1 to provv. 467/2018): not built",
+   "item_number": null,
+   "original_wording": "individua l’elenco delle tipologie di trattamenti, soggetti al meccanismo di coerenza, da sottoporre a valutazione d’impatto, riportate nell’allegato 1 facente parte integrante del presente provvedimento",
+   "original_language": "it",
+   "plain_label": "The Garante's own list of processing that needs a DPIA (Allegato 1) has not been tested: Fino has not built it",
+   "gdpr_article": "Art. 35(4)",
+   "logic": {
+    "core": [],
+    "qualifier": null,
+    "gate": null,
+    "always_open": true
+   },
+   "open_question": {
+    "key": "garante_allegato_1_check",
+    "question": "Check the processing against Allegato 1 to provv. 467/2018 (docweb 9059358) and the Garante's chiarimento interpretativo",
+    "who_to_ask": "the DPO (your own assessment)"
+   },
+   "related_decisions": [],
+   "related_decisions_basis": "not matched: Fino has not compared decisions with this list's items",
+   "source": {
+    "name": "Elenco delle tipologie di trattamenti soggetti a valutazione d'impatto, provv. n. 467 dell'11 ottobre 2018, doc. web 9058979",
+    "url": "https://www.garanteprivacy.it/home/docweb/-/docweb-display/docweb/9058979",
+    "version": null,
+    "doc_date": "2018-10-11",
+    "location": "dispositivo, point a)"
+   },
+   "supporting_quotes": []
+  },
+  {
+   "id": "IT-WP248-2",
+   "country": "IT",
+   "kind": "wp248_two_criteria",
+   "list_item": "WP 248 rev. 01, p. 11: two or more of the nine criteria",
+   "item_number": null,
+   "original_wording": "il ricorrere di due o più dei predetti criteri è indice di un trattamento che presenta un rischio elevato per i diritti e le libertà degli interessati e per il quale è quindi richiesta una valutazione d’impatto sulla protezione dei dati (cfr. WP 248, rev. 01, pag. 11)",
+   "original_language": "it",
+   "plain_label": "The Garante treats two or more WP 248 criteria as requiring a DPIA (provv. 467/2018, recitals (premesse)); WP 248 itself says 'in most cases'",
+   "gdpr_article": "Art. 35(1)",
+   "criteria": [
+    {
+     "answer_key": "evaluation_or_scoring",
+     "number": 1,
+     "original_wording": "valutazione o assegnazione di un punteggio, inclusiva di profilazione e previsione, in particolare in considerazione di “aspetti riguardanti il rendimento professionale, la situazione economica, la salute, le preferenze o gli interessi personali, l'affidabilità o il comportamento, l'ubicazione o gli spostamenti dell'interessato”",
+     "original_language": "it",
+     "source": {
+      "name": "Elenco delle tipologie di trattamenti soggetti a valutazione d'impatto, provv. n. 467 dell'11 ottobre 2018, doc. web 9058979",
+      "url": "https://www.garanteprivacy.it/home/docweb/-/docweb-display/docweb/9058979",
+      "version": null,
+      "doc_date": "2018-10-11",
+      "location": "premesse (VISTE le Linee guida … nove criteri)"
+     }
+    },
+    {
+     "answer_key": "automated_decisions_with_legal_effect",
+     "number": 2,
+     "original_wording": "processo decisionale automatizzato che ha effetto giuridico o incide in modo analogo significativamente sulle persone",
+     "original_language": "it",
+     "source": {
+      "name": "Elenco delle tipologie di trattamenti soggetti a valutazione d'impatto, provv. n. 467 dell'11 ottobre 2018, doc. web 9058979",
+      "url": "https://www.garanteprivacy.it/home/docweb/-/docweb-display/docweb/9058979",
+      "version": null,
+      "doc_date": "2018-10-11",
+      "location": "premesse (VISTE le Linee guida … nove criteri)"
+     }
+    },
+    {
+     "answer_key": "systematic_monitoring",
+     "number": 3,
+     "original_wording": "monitoraggio sistematico degli interessati",
+     "original_language": "it",
+     "source": {
+      "name": "Elenco delle tipologie di trattamenti soggetti a valutazione d'impatto, provv. n. 467 dell'11 ottobre 2018, doc. web 9058979",
+      "url": "https://www.garanteprivacy.it/home/docweb/-/docweb-display/docweb/9058979",
+      "version": null,
+      "doc_date": "2018-10-11",
+      "location": "premesse (VISTE le Linee guida … nove criteri)"
+     }
+    },
+    {
+     "answer_key": "sensitive_or_highly_personal_data",
+     "number": 4,
+     "original_wording": "dati sensibili o dati aventi carattere altamente personale",
+     "original_language": "it",
+     "source": {
+      "name": "Elenco delle tipologie di trattamenti soggetti a valutazione d'impatto, provv. n. 467 dell'11 ottobre 2018, doc. web 9058979",
+      "url": "https://www.garanteprivacy.it/home/docweb/-/docweb-display/docweb/9058979",
+      "version": null,
+      "doc_date": "2018-10-11",
+      "location": "premesse (VISTE le Linee guida … nove criteri)"
+     }
+    },
+    {
+     "answer_key": "large_scale",
+     "number": 5,
+     "original_wording": "trattamento di dati su larga scala",
+     "original_language": "it",
+     "source": {
+      "name": "Elenco delle tipologie di trattamenti soggetti a valutazione d'impatto, provv. n. 467 dell'11 ottobre 2018, doc. web 9058979",
+      "url": "https://www.garanteprivacy.it/home/docweb/-/docweb-display/docweb/9058979",
+      "version": null,
+      "doc_date": "2018-10-11",
+      "location": "premesse (VISTE le Linee guida … nove criteri)"
+     }
+    },
+    {
+     "answer_key": "matching_or_combining_datasets",
+     "number": 6,
+     "original_wording": "creazione di corrispondenze o combinazione di insiemi di dati",
+     "original_language": "it",
+     "source": {
+      "name": "Elenco delle tipologie di trattamenti soggetti a valutazione d'impatto, provv. n. 467 dell'11 ottobre 2018, doc. web 9058979",
+      "url": "https://www.garanteprivacy.it/home/docweb/-/docweb-display/docweb/9058979",
+      "version": null,
+      "doc_date": "2018-10-11",
+      "location": "premesse (VISTE le Linee guida … nove criteri)"
+     }
+    },
+    {
+     "answer_key": "vulnerable_data_subjects",
+     "number": 7,
+     "original_wording": "dati relativi a interessati vulnerabili",
+     "original_language": "it",
+     "source": {
+      "name": "Elenco delle tipologie di trattamenti soggetti a valutazione d'impatto, provv. n. 467 dell'11 ottobre 2018, doc. web 9058979",
+      "url": "https://www.garanteprivacy.it/home/docweb/-/docweb-display/docweb/9058979",
+      "version": null,
+      "doc_date": "2018-10-11",
+      "location": "premesse (VISTE le Linee guida … nove criteri)"
+     }
+    },
+    {
+     "answer_key": "innovative_technology",
+     "number": 8,
+     "original_wording": "uso innovativo o applicazione di nuove soluzioni tecnologiche od organizzative",
+     "original_language": "it",
+     "source": {
+      "name": "Elenco delle tipologie di trattamenti soggetti a valutazione d'impatto, provv. n. 467 dell'11 ottobre 2018, doc. web 9058979",
+      "url": "https://www.garanteprivacy.it/home/docweb/-/docweb-display/docweb/9058979",
+      "version": null,
+      "doc_date": "2018-10-11",
+      "location": "premesse (VISTE le Linee guida … nove criteri)"
+     }
+    },
+    {
+     "answer_key": "prevents_exercise_of_right_or_service",
+     "number": 9,
+     "original_wording": "quando il trattamento in sé \"impedisce agli interessati di esercitare un diritto o di avvalersi di un servizio o di un contratto\"",
+     "original_language": "it",
+     "source": {
+      "name": "Elenco delle tipologie di trattamenti soggetti a valutazione d'impatto, provv. n. 467 dell'11 ottobre 2018, doc. web 9058979",
+      "url": "https://www.garanteprivacy.it/home/docweb/-/docweb-display/docweb/9058979",
+      "version": null,
+      "doc_date": "2018-10-11",
+      "location": "premesse (VISTE le Linee guida … nove criteri)"
+     }
+    }
+   ],
+   "logic": {
+    "core": [],
+    "qualifier": {
+     "min_yes": 2,
+     "of": [
+      "evaluation_or_scoring",
+      "automated_decisions_with_legal_effect",
+      "systematic_monitoring",
+      "sensitive_or_highly_personal_data",
+      "large_scale",
+      "matching_or_combining_datasets",
+      "vulnerable_data_subjects",
+      "innovative_technology",
+      "prevents_exercise_of_right_or_service"
+     ]
+    },
+    "gate": null,
+    "outcome_when_met": "likely"
+   },
+   "related_decisions": [
+    "2026/IT/098",
+    "2024/IT/092",
+    "2023/IT/046"
+   ],
+   "related_decisions_basis": "decisions in this country that cite Art. 35(1) (3 in all; the 3 shown are read-in-the-original first, then newest)",
+   "source": {
+    "name": "Elenco delle tipologie di trattamenti soggetti a valutazione d'impatto, provv. n. 467 dell'11 ottobre 2018, doc. web 9058979",
+    "url": "https://www.garanteprivacy.it/home/docweb/-/docweb-display/docweb/9058979",
+    "version": null,
+    "doc_date": "2018-10-11",
+    "location": "premesse (RILEVATO che il ricorrere di due o più...), citing WP 248 rev. 01, p. 11"
+   },
+   "supporting_quotes": [
+    {
+     "wording": "In most cases, a data controller can consider that a processing meeting two criteria would require a DPIA to be carried out.",
+     "language": "en",
+     "location": "p. 11",
+     "source": {
+      "name": "WP248 rev.01, DPIA",
+      "url": "https://ec.europa.eu/newsroom/article29/items/611236",
+      "version": null,
+      "doc_date": "2017-10-04",
+      "location": "p. 11"
+     }
+    },
+    {
+     "wording": "However, in some cases, a data controller can consider that a processing meeting only one of these criteria requires a DPIA.",
+     "language": "en",
+     "location": "p. 11",
+     "source": {
+      "name": "WP248 rev.01, DPIA",
+      "url": "https://ec.europa.eu/newsroom/article29/items/611236",
+      "version": null,
+      "doc_date": "2017-10-04",
+      "location": "p. 11"
+     }
+    }
+   ]
+  },
+  {
+   "id": "DE-35-3-a",
+   "country": "DE",
+   "kind": "statute",
+   "list_item": "Art. 35(3)(a)",
+   "item_number": null,
+   "original_wording": "a systematic and extensive evaluation of personal aspects relating to natural persons which is based on automated processing, including profiling, and on which decisions are based that produce legal effects concerning the natural person or similarly significantly affect the natural person;",
+   "original_language": "en",
+   "plain_label": "Systematic and extensive evaluation of people by automated means, including profiling, on which decisions with legal or similar effects are based",
+   "gdpr_article": "Art. 35(3)",
+   "logic": {
+    "core": [
+     "systematic_extensive_evaluation",
+     "decisions_based_on_it_with_legal_effect"
+    ],
+    "qualifier": null,
+    "gate": null
+   },
+   "related_decisions": [],
+   "related_decisions_basis": "none: Fino's data has no decision in this country that cites Art. 35(3)(a)",
+   "source": {
+    "name": "GDPR, Regulation (EU) 2016/679, Article 35(3)",
+    "url": "https://finoprivacy.com/gdpr/article-35.html",
+    "version": "as on Fino (EUR-Lex text)",
+    "doc_date": null,
+    "location": "Article 35(3)(a)"
+   },
+   "supporting_quotes": []
+  },
+  {
+   "id": "DE-35-3-b",
+   "country": "DE",
+   "kind": "statute",
+   "list_item": "Art. 35(3)(b)",
+   "item_number": null,
+   "original_wording": "processing on a large scale of special categories of data referred to in Article 9(1), or of personal data relating to criminal convictions and offences referred to in Article 10; or",
+   "original_language": "en",
+   "plain_label": "Large-scale processing of special categories of data (Art. 9(1)) or of criminal-conviction and offence data (Art. 10)",
+   "gdpr_article": "Art. 35(3)",
+   "logic": {
+    "core": [
+     {
+      "any": [
+       "special_category_data",
+       "criminal_offence_data"
+      ]
+     },
+     "large_scale_special_category"
+    ],
+    "qualifier": null,
+    "gate": null
+   },
+   "related_decisions": [],
+   "related_decisions_basis": "none: Fino's data has no decision in this country that cites Art. 35(3)(b)",
+   "source": {
+    "name": "GDPR, Regulation (EU) 2016/679, Article 35(3)",
+    "url": "https://finoprivacy.com/gdpr/article-35.html",
+    "version": "as on Fino (EUR-Lex text)",
+    "doc_date": null,
+    "location": "Article 35(3)(b)"
+   },
+   "supporting_quotes": []
+  },
+  {
+   "id": "DE-35-3-c",
+   "country": "DE",
+   "kind": "statute",
+   "list_item": "Art. 35(3)(c)",
+   "item_number": null,
+   "original_wording": "a systematic monitoring of a publicly accessible area on a large scale.",
+   "original_language": "en",
+   "plain_label": "Systematic monitoring of a publicly accessible area on a large scale",
+   "gdpr_article": "Art. 35(3)",
+   "logic": {
+    "core": [
+     "public_area_systematic_monitoring",
+     "large_scale_public_area_monitoring"
+    ],
+    "qualifier": null,
+    "gate": null
+   },
+   "related_decisions": [],
+   "related_decisions_basis": "none: Fino's data has no decision in this country that cites Art. 35(3)(c)",
+   "source": {
+    "name": "GDPR, Regulation (EU) 2016/679, Article 35(3)",
+    "url": "https://finoprivacy.com/gdpr/article-35.html",
+    "version": "as on Fino (EUR-Lex text)",
+    "doc_date": null,
+    "location": "Article 35(3)(c)"
+   },
+   "supporting_quotes": []
+  },
+  {
+   "id": "DE-WP248-2",
+   "country": "DE",
+   "kind": "wp248_two_criteria",
+   "list_item": "WP 248 rev. 01, p. 11: two or more of the nine criteria",
+   "item_number": null,
+   "original_wording": "In most cases, a data controller can consider that a processing meeting two criteria would require a DPIA to be carried out.",
+   "original_language": "en",
+   "plain_label": "WP 248 says that 'in most cases' two or more of its nine criteria mean a DPIA is needed",
+   "gdpr_article": "Art. 35(1)",
+   "criteria": [
+    {
+     "answer_key": "sensitive_or_highly_personal_data",
+     "letter": "a",
+     "original_wording": "Vertrauliche oder höchst persönliche Daten",
+     "original_language": "de",
+     "source": {
+      "name": "DSK Liste für den nicht-öffentlichen Bereich, Version 1.1 (file dated 17.10.2018)",
+      "url": "https://www.datenschutzkonferenz-online.de/media/ah/20181017_ah_DSK_DSFA_Muss-Liste_Version_1.1_Deutsch.pdf",
+      "version": "Version 1.1 vom 17.10.2018",
+      "doc_date": "2018-10-17",
+      "location": "page 5, criterion a)"
+     }
+    },
+    {
+     "answer_key": "vulnerable_data_subjects",
+     "letter": "b",
+     "original_wording": "Daten zu schutzbedürftigen Betroffenen",
+     "original_language": "de",
+     "source": {
+      "name": "DSK Liste für den nicht-öffentlichen Bereich, Version 1.1 (file dated 17.10.2018)",
+      "url": "https://www.datenschutzkonferenz-online.de/media/ah/20181017_ah_DSK_DSFA_Muss-Liste_Version_1.1_Deutsch.pdf",
+      "version": "Version 1.1 vom 17.10.2018",
+      "doc_date": "2018-10-17",
+      "location": "page 5, criterion b)"
+     }
+    },
+    {
+     "answer_key": "large_scale",
+     "letter": "c",
+     "original_wording": "Datenverarbeitung in großem Umfang",
+     "original_language": "de",
+     "source": {
+      "name": "DSK Liste für den nicht-öffentlichen Bereich, Version 1.1 (file dated 17.10.2018)",
+      "url": "https://www.datenschutzkonferenz-online.de/media/ah/20181017_ah_DSK_DSFA_Muss-Liste_Version_1.1_Deutsch.pdf",
+      "version": "Version 1.1 vom 17.10.2018",
+      "doc_date": "2018-10-17",
+      "location": "page 5, criterion c)"
+     }
+    },
+    {
+     "answer_key": "systematic_monitoring",
+     "letter": "d",
+     "original_wording": "Systematische Überwachung",
+     "original_language": "de",
+     "source": {
+      "name": "DSK Liste für den nicht-öffentlichen Bereich, Version 1.1 (file dated 17.10.2018)",
+      "url": "https://www.datenschutzkonferenz-online.de/media/ah/20181017_ah_DSK_DSFA_Muss-Liste_Version_1.1_Deutsch.pdf",
+      "version": "Version 1.1 vom 17.10.2018",
+      "doc_date": "2018-10-17",
+      "location": "page 5, criterion d)"
+     }
+    },
+    {
+     "answer_key": "innovative_technology",
+     "letter": "e",
+     "original_wording": "Innovative Nutzung oder Anwendung neuer technologischer oder organisatorischer Lösungen",
+     "original_language": "de",
+     "source": {
+      "name": "DSK Liste für den nicht-öffentlichen Bereich, Version 1.1 (file dated 17.10.2018)",
+      "url": "https://www.datenschutzkonferenz-online.de/media/ah/20181017_ah_DSK_DSFA_Muss-Liste_Version_1.1_Deutsch.pdf",
+      "version": "Version 1.1 vom 17.10.2018",
+      "doc_date": "2018-10-17",
+      "location": "page 5, criterion e)"
+     }
+    },
+    {
+     "answer_key": "evaluation_or_scoring",
+     "letter": "f",
+     "original_wording": "Bewerten oder Einstufen (Scoring)",
+     "original_language": "de",
+     "source": {
+      "name": "DSK Liste für den nicht-öffentlichen Bereich, Version 1.1 (file dated 17.10.2018)",
+      "url": "https://www.datenschutzkonferenz-online.de/media/ah/20181017_ah_DSK_DSFA_Muss-Liste_Version_1.1_Deutsch.pdf",
+      "version": "Version 1.1 vom 17.10.2018",
+      "doc_date": "2018-10-17",
+      "location": "page 5, criterion f)"
+     }
+    },
+    {
+     "answer_key": "matching_or_combining_datasets",
+     "letter": "g",
+     "original_wording": "Abgleichen oder Zusammenführen von Datensätzen",
+     "original_language": "de",
+     "source": {
+      "name": "DSK Liste für den nicht-öffentlichen Bereich, Version 1.1 (file dated 17.10.2018)",
+      "url": "https://www.datenschutzkonferenz-online.de/media/ah/20181017_ah_DSK_DSFA_Muss-Liste_Version_1.1_Deutsch.pdf",
+      "version": "Version 1.1 vom 17.10.2018",
+      "doc_date": "2018-10-17",
+      "location": "page 5, criterion g)"
+     }
+    },
+    {
+     "answer_key": "automated_decisions_with_legal_effect",
+     "letter": "h",
+     "original_wording": "Automatisierte Entscheidungsfindung mit Rechtswirkung oder ähnlich bedeutsamer Wirkung",
+     "original_language": "de",
+     "source": {
+      "name": "DSK Liste für den nicht-öffentlichen Bereich, Version 1.1 (file dated 17.10.2018)",
+      "url": "https://www.datenschutzkonferenz-online.de/media/ah/20181017_ah_DSK_DSFA_Muss-Liste_Version_1.1_Deutsch.pdf",
+      "version": "Version 1.1 vom 17.10.2018",
+      "doc_date": "2018-10-17",
+      "location": "page 5, criterion h)"
+     }
+    },
+    {
+     "answer_key": "prevents_exercise_of_right_or_service",
+     "letter": "i",
+     "original_wording": "Betroffene werden an der Ausübung eines Rechts oder der Nutzung einer Dienstleistung bzw. Durchführung eines Vertrags gehindert",
+     "original_language": "de",
+     "source": {
+      "name": "DSK Liste für den nicht-öffentlichen Bereich, Version 1.1 (file dated 17.10.2018)",
+      "url": "https://www.datenschutzkonferenz-online.de/media/ah/20181017_ah_DSK_DSFA_Muss-Liste_Version_1.1_Deutsch.pdf",
+      "version": "Version 1.1 vom 17.10.2018",
+      "doc_date": "2018-10-17",
+      "location": "page 5, criterion i)"
+     }
+    }
+   ],
+   "logic": {
+    "core": [],
+    "qualifier": {
+     "min_yes": 2,
+     "of": [
+      "evaluation_or_scoring",
+      "automated_decisions_with_legal_effect",
+      "systematic_monitoring",
+      "sensitive_or_highly_personal_data",
+      "large_scale",
+      "matching_or_combining_datasets",
+      "vulnerable_data_subjects",
+      "innovative_technology",
+      "prevents_exercise_of_right_or_service"
+     ]
+    },
+    "gate": null,
+    "outcome_when_met": "likely"
+   },
+   "related_decisions": [],
+   "related_decisions_basis": "none: Fino's data has no decision in this country that cites Art. 35(1)",
+   "source": {
+    "name": "WP248 rev.01, DPIA",
+    "url": "https://ec.europa.eu/newsroom/article29/items/611236",
+    "version": null,
+    "doc_date": "2017-10-04",
+    "location": "p. 11"
+   },
+   "supporting_quotes": [
+    {
+     "wording": "However, in some cases, a data controller can consider that a processing meeting only one of these criteria requires a DPIA.",
+     "language": "en",
+     "location": "p. 11",
+     "source": {
+      "name": "WP248 rev.01, DPIA",
+      "url": "https://ec.europa.eu/newsroom/article29/items/611236",
+      "version": null,
+      "doc_date": "2017-10-04",
+      "location": "p. 11"
+     }
+    }
+   ]
+  },
+  {
+   "id": "DE-DSK-01",
+   "country": "DE",
+   "kind": "national_list",
+   "list_item": "DSK Muss-Liste (non-public sector), item 1",
+   "item_number": 1,
+   "original_wording": "Verarbeitung von biometrischen Daten zur eindeutigen Identifizierung natürlicher Personen, wenn mindestens ein weiteres folgendes Kriterium aus WP 248 Rev. 01 zutrifft: • Daten zu schutzbedürftigen Betroffenen • Systematische Überwachung • Innovative Nutzung oder Anwendung neuer technologischer oder organisatorischer Lösungen • Bewerten oder Einstufen (Scoring) • Abgleichen oder Zusammenführen von Datensätzen • Automatisierte Entscheidungsfindung mit Rechtswirkung oder ähnlich bedeutsamer Wirkung • Betroffene werden an der Ausübung eines Rechts oder der Nutzung einer Dienstleistung bzw. Durchführung eines Vertrags gehindert",
+   "original_language": "de",
+   "plain_label": "Biometric data used to identify people uniquely, together with at least one of seven named WP 248 criteria (sensitive data and large scale do not count)",
+   "gdpr_article": "Art. 35(4)",
+   "logic": {
+    "core": [
+     "biometric_identification"
+    ],
+    "qualifier": {
+     "min_yes": 1,
+     "of": [
+      "vulnerable_data_subjects",
+      "systematic_monitoring",
+      "innovative_technology",
+      "evaluation_or_scoring",
+      "matching_or_combining_datasets",
+      "automated_decisions_with_legal_effect",
+      "prevents_exercise_of_right_or_service"
+     ]
+    },
+    "gate": "controller_is_private_sector"
+   },
+   "examples": {
+    "typical_fields": [
+     "Verwendung von biometrischen Systemen zur Zutrittskontrolle oder für Abrechnungszwecke."
+    ],
+    "examples": [
+     "Ein Unternehmen setzt flächendeckend Fingerabdrucksensoren zur Zutrittskontrolle für bestimmte Bereiche ein.",
+     "Eine Schulkantine bietet den Schülern das „Bezahlen per Fingerabdruck“ an."
+    ]
+   },
+   "related_decisions": [],
+   "related_decisions_basis": "not matched: Fino has not compared decisions with this item's facts",
+   "source": {
+    "name": "DSK Liste für den nicht-öffentlichen Bereich, Version 1.1 (file dated 17.10.2018)",
+    "url": "https://www.datenschutzkonferenz-online.de/media/ah/20181017_ah_DSK_DSFA_Muss-Liste_Version_1.1_Deutsch.pdf",
+    "version": "Version 1.1 vom 17.10.2018",
+    "doc_date": "2018-10-17",
+    "location": "page 1, item 1"
+   },
+   "supporting_quotes": []
+  },
+  {
+   "id": "DE-DSK-02",
+   "country": "DE",
+   "kind": "national_list",
+   "list_item": "DSK Muss-Liste (non-public sector), item 2",
+   "item_number": 2,
+   "original_wording": "Verarbeitung von genetischen Daten im Sinne von Artikel 4 Nr. 13 DSGVO, , wenn mindestens ein weiteres folgendes Kriterium aus WP 248 Rev. 01 zutrifft: • Daten zu schutzbedürftigen Betroffenen • Systematische Überwachung • Innovative Nutzung oder Anwendung neuer technologischer oder organisatorischer Lösungen • Bewerten oder Einstufen (Scoring) • Abgleichen oder Zusammenführen von Datensätzen • Automatisierte Entscheidungsfindung mit Rechtswirkung oder ähnlich bedeutsamer Wirkung • Betroffene werden an der Ausübung eines Rechts oder der Nutzung einer Dienstleistung bzw. Durchführung eines Vertrags gehindert",
+   "original_language": "de",
+   "plain_label": "Genetic data, together with at least one of seven named WP 248 criteria (sensitive data and large scale do not count)",
+   "gdpr_article": "Art. 35(4)",
+   "logic": {
+    "core": [
+     "genetic_data"
+    ],
+    "qualifier": {
+     "min_yes": 1,
+     "of": [
+      "vulnerable_data_subjects",
+      "systematic_monitoring",
+      "innovative_technology",
+      "evaluation_or_scoring",
+      "matching_or_combining_datasets",
+      "automated_decisions_with_legal_effect",
+      "prevents_exercise_of_right_or_service"
+     ]
+    },
+    "gate": "controller_is_private_sector"
+   },
+   "examples": {
+    "typical_fields": [
+     "Früherkennung von Erbkrankheiten",
+     "Genetische Datenbanken zur Abstammungsforschung"
+    ],
+    "examples": [
+     "Eine Klinik setzt DNA-Tests zur Früherkennung vererblicher Krankheiten bei Neugeborenen ein.",
+     "Ein Unternehmen bietet einen Dienst an, über den Kunden die eigenen genetischen Daten mit denen Dritter abgleichen können, um mehr über die eigene Abstammung zu erfahren. Dazu pflegt das Unternehmen eine Datenbank mit genetischen Daten einer Vielzahl von Personen."
+    ]
+   },
+   "related_decisions": [],
+   "related_decisions_basis": "not matched: Fino has not compared decisions with this item's facts",
+   "source": {
+    "name": "DSK Liste für den nicht-öffentlichen Bereich, Version 1.1 (file dated 17.10.2018)",
+    "url": "https://www.datenschutzkonferenz-online.de/media/ah/20181017_ah_DSK_DSFA_Muss-Liste_Version_1.1_Deutsch.pdf",
+    "version": "Version 1.1 vom 17.10.2018",
+    "doc_date": "2018-10-17",
+    "location": "page 1, item 2"
+   },
+   "supporting_quotes": []
+  },
+  {
+   "id": "DE-DSK-03",
+   "country": "DE",
+   "kind": "national_list",
+   "list_item": "DSK Muss-Liste (non-public sector), item 3",
+   "item_number": 3,
+   "original_wording": "Umfangreiche Verarbeitung von Daten, die dem Sozial-, einem Berufs- oder besonderen Amtsgeheimnis unterliegen, auch wenn es sich nicht um Daten gemäß Art. 9 Abs. 1 und 10 DS-GVO handelt",
+   "original_language": "de",
+   "plain_label": "Large-scale processing of data covered by social, professional or special official secrecy",
+   "gdpr_article": "Art. 35(4)",
+   "logic": {
+    "core": [
+     "secrecy_protected_data",
+     "large_scale_secrecy_data"
+    ],
+    "qualifier": null,
+    "gate": "controller_is_private_sector"
+   },
+   "examples": {
+    "typical_fields": [
+     "Betrieb eines Insolvenzverzeichnisses",
+     "Träger von großen sozialen Einrichtungen",
+     "Große Anwaltssozietät"
+    ],
+    "examples": [
+     "Ein Unternehmen bietet ein umfassendes Verzeichnis über Privatinsolvenzen an.",
+     "Große Rechtsanwaltskanzlei, die im Schwerpunkt familienrechtliche Mandate betreut."
+    ]
+   },
+   "related_decisions": [],
+   "related_decisions_basis": "not matched: Fino has not compared decisions with this item's facts",
+   "source": {
+    "name": "DSK Liste für den nicht-öffentlichen Bereich, Version 1.1 (file dated 17.10.2018)",
+    "url": "https://www.datenschutzkonferenz-online.de/media/ah/20181017_ah_DSK_DSFA_Muss-Liste_Version_1.1_Deutsch.pdf",
+    "version": "Version 1.1 vom 17.10.2018",
+    "doc_date": "2018-10-17",
+    "location": "page 1, item 3"
+   },
+   "supporting_quotes": []
+  },
+  {
+   "id": "DE-DSK-04",
+   "country": "DE",
+   "kind": "national_list",
+   "list_item": "DSK Muss-Liste (non-public sector), item 4",
+   "item_number": 4,
+   "original_wording": "Umfangreiche Verarbeitung von personenbezogenen Daten über den Aufenthalt von natürlichen Personen",
+   "original_language": "de",
+   "plain_label": "Large-scale processing of data about where people are or stay",
+   "gdpr_article": "Art. 35(4)",
+   "logic": {
+    "core": [
+     "location_or_stay_data",
+     "large_scale_location_data"
+    ],
+    "qualifier": null,
+    "gate": "controller_is_private_sector"
+   },
+   "examples": {
+    "typical_fields": [
+     "Fahrzeugdatenverarbeitung – Car Sharing / Mobilitätsdienste",
+     "Fahrzeugdatenverarbeitung – Zentralisierte Verarbeitung der Messwerte oder Bilderzeugnisse von Umgebungssensoren",
+     "Offline-Tracking von Kundenbewegungen in Warenhäusern, Einkaufszentren o. ä.",
+     "Verkehrsstromanalyse auf der Grundlage von Standortdaten des öffentlichen Mobilfunknetzes"
+    ],
+    "examples": [
+     "Ein Unternehmen bietet einen Car-Sharing-Dienst oder andere Mobilitätsdienstleistungen an und verarbeitet hierfür insbesondere umfangreich Positions- und Abrechnungsdaten.",
+     "Ein Unternehmen erhebt personenbezogene Daten, die Fahrzeuge über ihre Umgebung generieren und ermittelt daraus beispielsweise freie Parkplätze oder verbessert Algorithmen zum automatisierten Fahren.",
+     "Ein Unternehmen verarbeitet die GPS-, Bluetooth- und/oder Mobilfunksignale von Passanten und Kunden, um die Laufwege und das Einkaufsverhalten nachverfolgen zu können."
+    ]
+   },
+   "related_decisions": [],
+   "related_decisions_basis": "not matched: Fino has not compared decisions with this item's facts",
+   "source": {
+    "name": "DSK Liste für den nicht-öffentlichen Bereich, Version 1.1 (file dated 17.10.2018)",
+    "url": "https://www.datenschutzkonferenz-online.de/media/ah/20181017_ah_DSK_DSFA_Muss-Liste_Version_1.1_Deutsch.pdf",
+    "version": "Version 1.1 vom 17.10.2018",
+    "doc_date": "2018-10-17",
+    "location": "pages 1-2, item 4"
+   },
+   "supporting_quotes": []
+  },
+  {
+   "id": "DE-DSK-05",
+   "country": "DE",
+   "kind": "national_list",
+   "list_item": "DSK Muss-Liste (non-public sector), item 5",
+   "item_number": 5,
+   "original_wording": "Zusammenführung von personenbezogenen Daten aus verschiedenen Quellen und Verarbeitung der so zusammengeführten Daten, sofern • die Zusammenführung oder Verarbeitung in großem Umfang vorgenommen werden, • für Zwecke erfolgen, für welche nicht alle der zu verarbeitenden Daten direkt bei den betroffenen Personen erhoben wurden, • die Anwendung von Algorithmen einschließen, die für die betroffenen Personen nicht nachvollziehbar sind, und der Erzeugung von Datengrundlagen dienen, die dazu genutzt werden können, Entscheidungen zu treffen, die Rechtswirkung gegenüber den betroffenen Personen entfalten, oder diese in ähnlich erheblicher Weise beeinträchtigen können",
+   "original_language": "de",
+   "plain_label": "Bringing together personal data from different sources on a large scale, for purposes for which not all the data were collected from the people themselves, with algorithms people cannot follow, to build a basis for decisions with legal or similar effects",
+   "gdpr_article": "Art. 35(4)",
+   "logic": {
+    "core": [
+     "personal_data_from_different_sources_brought_together",
+     "large_scale_data_combination",
+     "not_all_data_collected_from_the_person",
+     "opaque_algorithms",
+     "output_feeds_decisions_with_legal_effect"
+    ],
+    "qualifier": null,
+    "gate": "controller_is_private_sector"
+   },
+   "examples": {
+    "typical_fields": [
+     "Fraud-Prevention-Systeme",
+     "Scoring durch Auskunfteien, Banken oder Versicherungen"
+    ],
+    "examples": [
+     "Zur Prävention von Betrugsfällen verarbeitet der Betreiber eines Online-Shops umfassende Datenmengen. Das Ergebnis der Prüfung ist ein Risikowert, der darüber entscheidet, ob einem Käufer der Rechnungskauf als Zahlungsart angeboten wird oder nicht.",
+     "Eine Auskunftei führt ein Scoring im Hinblick auf die Vertrauenswürdigkeit von Personen durch. Eine Bank führt Scoring durch, um das Ausfallrisiko der Rückzahlungen von Personen zu bestimmen. Eine Versicherung führt ein Scoring durch, um das Risiko einer Person im Hinblick auf bestimmte Eigenschaften oder Aktivitäten der Person zur Bestimmung der Höhe einer Versicherungspolice zu bestimmen."
+    ]
+   },
+   "related_decisions": [],
+   "related_decisions_basis": "not matched: Fino has not compared decisions with this item's facts",
+   "source": {
+    "name": "DSK Liste für den nicht-öffentlichen Bereich, Version 1.1 (file dated 17.10.2018)",
+    "url": "https://www.datenschutzkonferenz-online.de/media/ah/20181017_ah_DSK_DSFA_Muss-Liste_Version_1.1_Deutsch.pdf",
+    "version": "Version 1.1 vom 17.10.2018",
+    "doc_date": "2018-10-17",
+    "location": "page 2, item 5"
+   },
+   "supporting_quotes": []
+  },
+  {
+   "id": "DE-DSK-06",
+   "country": "DE",
+   "kind": "national_list",
+   "list_item": "DSK Muss-Liste (non-public sector), item 6",
+   "item_number": 6,
+   "original_wording": "Mobile optisch-elektronische Erfassung personenbezogener Daten in öffentlichen Bereichen, sofern die Daten aus ein oder mehreren Erfassungssystemen in großem Umfang zentral zusammengeführt werden.",
+   "original_language": "de",
+   "plain_label": "Mobile capture of personal data by cameras, such as on vehicles, in public areas, brought together centrally on a large scale",
+   "gdpr_article": "Art. 35(4)",
+   "logic": {
+    "core": [
+     "mobile_optical_capture_public_areas_central",
+     "large_scale_central_merge"
+    ],
+    "qualifier": null,
+    "gate": "controller_is_private_sector"
+   },
+   "examples": {
+    "typical_fields": [
+     "Fahrzeugdatenverarbeitung – Umgebungssensoren"
+    ],
+    "examples": [
+     "Ein Unternehmen erhebt personenbezogene Daten, die Fahrzeuge über ihre Umgebung generieren und ermittelt daraus beispielsweise freie Parkplätze oder verbessert Algorithmen zum automatisierten Fahren."
+    ]
+   },
+   "related_decisions": [],
+   "related_decisions_basis": "not matched: Fino has not compared decisions with this item's facts",
+   "source": {
+    "name": "DSK Liste für den nicht-öffentlichen Bereich, Version 1.1 (file dated 17.10.2018)",
+    "url": "https://www.datenschutzkonferenz-online.de/media/ah/20181017_ah_DSK_DSFA_Muss-Liste_Version_1.1_Deutsch.pdf",
+    "version": "Version 1.1 vom 17.10.2018",
+    "doc_date": "2018-10-17",
+    "location": "page 2, item 6"
+   },
+   "supporting_quotes": []
+  },
+  {
+   "id": "DE-DSK-07",
+   "country": "DE",
+   "kind": "national_list",
+   "list_item": "DSK Muss-Liste (non-public sector), item 7",
+   "item_number": 7,
+   "original_wording": "Umfangreiche Erhebung und Veröffentlichung oder Übermittlung von personenbezogenen Daten, die zur Bewertung des Verhaltens und anderer persönlicher Aspekte von Personen dienen und von Dritten dazu genutzt werden können, Entscheidungen zu treffen, die Rechtswirkung gegenüber den bewerteten Personen entfalten, oder diese in ähnlich erheblicher Weise beeinträchtigen",
+   "original_language": "de",
+   "plain_label": "Large-scale collection and publication or passing on of data used to assess people's behaviour and other personal aspects, which third parties can use for decisions with legal or similar effects",
+   "gdpr_article": "Art. 35(4)",
+   "logic": {
+    "core": [
+     "publishes_or_passes_on_behaviour_assessments",
+     "large_scale_collection_publication",
+     "third_parties_may_use_for_decisions_with_legal_effect"
+    ],
+    "qualifier": null,
+    "gate": "controller_is_private_sector"
+   },
+   "examples": {
+    "typical_fields": [
+     "Betrieb von Bewertungsportalen",
+     "Inkassodienstleistungen – Forderungsmanagement",
+     "Inkassodienstleistungen – Factoring"
+    ],
+    "examples": [
+     "Ein Online-Portal bietet Nutzern die Möglichkeit an, Leistungen von Selbstständigen öffentlich feingranular zu bewerten. Online-Bewertungsportal bspw. für Ärzte, Selbstständige oder Lehrer.",
+     "Ein Unternehmen verarbeitet für seine Kunden in großem Umfang personenbezogene Daten von Schuldnern, insbesondere Vertragsdaten, Rechnungsdaten und Daten über Vermögensverhältnisse von Schuldnern zur Geltendmachung von Forderungen. Ggf. werden Daten an Auskunfteien übermittelt.",
+     "Ein Unternehmen lässt sich in großem Umfang Forderungen übertragen um diese auf eigenes Risiko geltend zu machen. Es verbarbeitet hierfür insbesondere Vertragsdaten, Rechnungsdaten, Scoringdaten und Informationen über Vermögensverhältnisse von Schuldnern. Ggf. werden Daten an Auskunfteien übermittelt."
+    ]
+   },
+   "related_decisions": [],
+   "related_decisions_basis": "not matched: Fino has not compared decisions with this item's facts",
+   "source": {
+    "name": "DSK Liste für den nicht-öffentlichen Bereich, Version 1.1 (file dated 17.10.2018)",
+    "url": "https://www.datenschutzkonferenz-online.de/media/ah/20181017_ah_DSK_DSFA_Muss-Liste_Version_1.1_Deutsch.pdf",
+    "version": "Version 1.1 vom 17.10.2018",
+    "doc_date": "2018-10-17",
+    "location": "pages 2-3, item 7"
+   },
+   "supporting_quotes": []
+  },
+  {
+   "id": "DE-DSK-08",
+   "country": "DE",
+   "kind": "national_list",
+   "list_item": "DSK Muss-Liste (non-public sector), item 8",
+   "item_number": 8,
+   "original_wording": "Umfangreiche Verarbeitung von personenbezogenen Daten über das Verhalten von Beschäftigten, die zur Bewertung ihrer Arbeitstätigkeit derart eingesetzt werden können, dass sich Rechtsfolgen für die Betroffenen ergeben oder diese Betroffenen in anderer Weise erheblich beeinträchtigt werden",
+   "original_language": "de",
+   "plain_label": "Large-scale processing of data about employees' behaviour that can be used to assess their work with legal or other significant consequences",
+   "gdpr_article": "Art. 35(4)",
+   "logic": {
+    "core": [
+     "employee_behaviour_data",
+     "large_scale_employee_behaviour",
+     "usable_to_evaluate_work_with_consequences"
+    ],
+    "qualifier": null,
+    "gate": "controller_is_private_sector"
+   },
+   "examples": {
+    "typical_fields": [
+     "Einsatz von Data-Loss-Prevention Systemen, die systematische Profile der Mitarbeiter erzeugen",
+     "Geolokalisierung von Beschäftigten"
+    ],
+    "examples": [
+     "Zentrale Aufzeichnung der Aktivitäten (z.B. Internetverkehr, Mailverkehr und die Nutzung von Wechselmedien) am Arbeitsplatz mit dem Ziel, von Seiten des Verantwortlichen unerwünschtes Verhalten (z.B. Versand interner Dokumente) zu erkennen.",
+     "Ein Unternehmen lässt Bewegungsprofile von Beschäftigen erstellen (per RFID, Handy-Ortung oder GPS) zur Sicherung des Personals (Wachpersonal, Feuerwehrleute), zum Schutz von wertvollem Eigentum des Arbeitgebers oder eines Dritten (LKW mit Ladung, Geldtransport) oder zur Koordination von Arbeitseinsätzen im Außendienst."
+    ]
+   },
+   "related_decisions": [],
+   "related_decisions_basis": "not matched: Fino has not compared decisions with this item's facts",
+   "source": {
+    "name": "DSK Liste für den nicht-öffentlichen Bereich, Version 1.1 (file dated 17.10.2018)",
+    "url": "https://www.datenschutzkonferenz-online.de/media/ah/20181017_ah_DSK_DSFA_Muss-Liste_Version_1.1_Deutsch.pdf",
+    "version": "Version 1.1 vom 17.10.2018",
+    "doc_date": "2018-10-17",
+    "location": "page 3, item 8"
+   },
+   "supporting_quotes": []
+  },
+  {
+   "id": "DE-DSK-09",
+   "country": "DE",
+   "kind": "national_list",
+   "list_item": "DSK Muss-Liste (non-public sector), item 9",
+   "item_number": 9,
+   "original_wording": "Erstellung umfassender Profile über die Interessen, das Netz persönlicher Beziehungen oder die Persönlichkeit der Betroffenen",
+   "original_language": "de",
+   "plain_label": "Comprehensive profiles of people's interests, personal relationships or personality",
+   "gdpr_article": "Art. 35(4)",
+   "logic": {
+    "core": [
+     "comprehensive_interest_relationship_profiles"
+    ],
+    "qualifier": null,
+    "gate": "controller_is_private_sector"
+   },
+   "examples": {
+    "typical_fields": [
+     "Betrieb von Dating- und Kontaktportalen",
+     "Betrieb von großen Sozialen Netzwerken"
+    ],
+    "examples": [
+     "Ein Webportal erstellt Profile der Nutzer um möglichst passende Kontaktvorschläge zu generieren."
+    ]
+   },
+   "related_decisions": [],
+   "related_decisions_basis": "not matched: Fino has not compared decisions with this item's facts",
+   "source": {
+    "name": "DSK Liste für den nicht-öffentlichen Bereich, Version 1.1 (file dated 17.10.2018)",
+    "url": "https://www.datenschutzkonferenz-online.de/media/ah/20181017_ah_DSK_DSFA_Muss-Liste_Version_1.1_Deutsch.pdf",
+    "version": "Version 1.1 vom 17.10.2018",
+    "doc_date": "2018-10-17",
+    "location": "page 3, item 9"
+   },
+   "supporting_quotes": []
+  },
+  {
+   "id": "DE-DSK-10",
+   "country": "DE",
+   "kind": "national_list",
+   "list_item": "DSK Muss-Liste (non-public sector), item 10",
+   "item_number": 10,
+   "original_wording": "Zusammenführung von personenbezogenen Daten aus verschiedenen Quellen und der Verarbeitung der so zusammengeführten Daten, sofern • die Zusammenführung oder Verarbeitung in großem Umfang vorgenommen werden, • für Zwecke erfolgen, für welche nicht alle der zu verarbeitenden Daten direkt bei den betroffenen Personen erhoben wurden, • die Anwendung von Algorithmen einschließen, die für die betroffenen Personen nicht nachvollziehbar sind, und • der Entdeckung vorher unbekannter Zusammenhänge zwischen den Daten für nicht im Vorhinein bestimmte Zwecke dienen",
+   "original_language": "de",
+   "plain_label": "Bringing together personal data from different sources on a large scale, for purposes for which not all the data were collected from the people themselves, with algorithms people cannot follow, to discover previously unknown links",
+   "gdpr_article": "Art. 35(4)",
+   "logic": {
+    "core": [
+     "personal_data_from_different_sources_brought_together",
+     "large_scale_data_combination",
+     "not_all_data_collected_from_the_person",
+     "opaque_algorithms",
+     "discovers_unknown_links"
+    ],
+    "qualifier": null,
+    "gate": "controller_is_private_sector"
+   },
+   "examples": {
+    "typical_fields": [
+     "Big-Data-Analyse von Kundendaten, die mit Angaben aus Drittquellen angereichert wurden"
+    ],
+    "examples": [
+     "Eine Unternehmen mit umfangreichem Stamm an natürlichen Personen als Kunden, analysiert Daten über das Kaufverhalten der Kunden und die Nutzung der eigenen Webangebote einschließlich des eigenen Webshops, verknüpft mit Bonitätsdaten von dritter Seite und Daten aus der Werbeansprache über soziale Medien einschließlich der vom Betreiber des sozialen Medium bereitgestellten Daten über die angesprochenen Mitglieder, um Informationen zu gewinnen, die zur Steigerung des Umsatzes eingesetzt werden können."
+    ]
+   },
+   "related_decisions": [],
+   "related_decisions_basis": "not matched: Fino has not compared decisions with this item's facts",
+   "source": {
+    "name": "DSK Liste für den nicht-öffentlichen Bereich, Version 1.1 (file dated 17.10.2018)",
+    "url": "https://www.datenschutzkonferenz-online.de/media/ah/20181017_ah_DSK_DSFA_Muss-Liste_Version_1.1_Deutsch.pdf",
+    "version": "Version 1.1 vom 17.10.2018",
+    "doc_date": "2018-10-17",
+    "location": "page 3, item 10"
+   },
+   "supporting_quotes": []
+  },
+  {
+   "id": "DE-DSK-11",
+   "country": "DE",
+   "kind": "national_list",
+   "list_item": "DSK Muss-Liste (non-public sector), item 11",
+   "item_number": 11,
+   "original_wording": "Einsatz von künstlicher Intelligenz zur Verarbeitung personenbezogener Daten zur Steuerung der Interaktion mit den Betroffenen oder zur Bewertung persönlicher Aspekte der betroffenen Person",
+   "original_language": "de",
+   "plain_label": "AI used to steer the interaction with people or to assess personal aspects of them",
+   "gdpr_article": "Art. 35(4)",
+   "logic": {
+    "core": [
+     "ai_steers_interaction_or_assesses_person"
+    ],
+    "qualifier": null,
+    "gate": "controller_is_private_sector"
+   },
+   "examples": {
+    "typical_fields": [
+     "Kundensupport mittels künstlicher Intelligenz"
+    ],
+    "examples": [
+     "Ein Callcenter wertet automatisiert die Stimmungslage der Anrufer aus. Ein Unternehmen setzt ein System ein, welches mit Kunden durch Konversation interagiert und für deren Beratung personenbezogene Daten durch eine künstliche Intelligenz verarbeitet werden"
+    ]
+   },
+   "related_decisions": [],
+   "related_decisions_basis": "not matched: Fino has not compared decisions with this item's facts",
+   "source": {
+    "name": "DSK Liste für den nicht-öffentlichen Bereich, Version 1.1 (file dated 17.10.2018)",
+    "url": "https://www.datenschutzkonferenz-online.de/media/ah/20181017_ah_DSK_DSFA_Muss-Liste_Version_1.1_Deutsch.pdf",
+    "version": "Version 1.1 vom 17.10.2018",
+    "doc_date": "2018-10-17",
+    "location": "page 3, item 11"
+   },
+   "supporting_quotes": []
+  },
+  {
+   "id": "DE-DSK-12",
+   "country": "DE",
+   "kind": "national_list",
+   "list_item": "DSK Muss-Liste (non-public sector), item 12",
+   "item_number": 12,
+   "original_wording": "Nicht bestimmungsgemäße Nutzung von Sensoren eines Mobilfunkgeräts im Besitz der betroffenen Personen oder von Funksignalen, die von solchen Geräten versandt werden, zur Bestimmung des Aufenthaltsorts oder der Bewegung von Personen über einen substantiellen Zeitraum",
+   "original_language": "de",
+   "plain_label": "Sensors or radio signals of people's own mobile devices used, beyond their intended use, to find where people are or how they move over a substantial period",
+   "gdpr_article": "Art. 35(4)",
+   "logic": {
+    "core": [
+     "device_signals_used_to_locate"
+    ],
+    "qualifier": null,
+    "gate": "controller_is_private_sector"
+   },
+   "examples": {
+    "typical_fields": [
+     "Offline-Tracking von Kundenbewegungen in Warenhäusern, Einkaufszentren o. ä.",
+     "Verkehrsstromanalyse auf der Grundlage von Standortdaten des öffentlichen Mobilfunknetzes"
+    ],
+    "examples": [
+     "Ein Unternehmen verarbeitet die WLAN-, Bluetooth- oder Mobilfunksignale von Passanten und Kunden, um die Laufwege und das Einkaufsverhalten nachverfolgen zu können."
+    ]
+   },
+   "related_decisions": [],
+   "related_decisions_basis": "not matched: Fino has not compared decisions with this item's facts",
+   "source": {
+    "name": "DSK Liste für den nicht-öffentlichen Bereich, Version 1.1 (file dated 17.10.2018)",
+    "url": "https://www.datenschutzkonferenz-online.de/media/ah/20181017_ah_DSK_DSFA_Muss-Liste_Version_1.1_Deutsch.pdf",
+    "version": "Version 1.1 vom 17.10.2018",
+    "doc_date": "2018-10-17",
+    "location": "page 4, item 12"
+   },
+   "supporting_quotes": []
+  },
+  {
+   "id": "DE-DSK-13",
+   "country": "DE",
+   "kind": "national_list",
+   "list_item": "DSK Muss-Liste (non-public sector), item 13",
+   "item_number": 13,
+   "original_wording": "Automatisierte Auswertung von Video- oder Audio-Aufnahmen zur Bewertung der Persönlichkeit der Betroffenen",
+   "original_language": "de",
+   "plain_label": "Automated analysis of video or audio recordings to assess people's personality",
+   "gdpr_article": "Art. 35(4)",
+   "logic": {
+    "core": [
+     "automated_av_personality_assessment"
+    ],
+    "qualifier": null,
+    "gate": "controller_is_private_sector"
+   },
+   "examples": {
+    "typical_fields": [
+     "Telefongespräch-Auswertung mittels Algorithmen"
+    ],
+    "examples": [
+     "Ein Callcenter wertet automatisiert die Stimmungslage der Anrufer aus."
+    ]
+   },
+   "related_decisions": [],
+   "related_decisions_basis": "not matched: Fino has not compared decisions with this item's facts",
+   "source": {
+    "name": "DSK Liste für den nicht-öffentlichen Bereich, Version 1.1 (file dated 17.10.2018)",
+    "url": "https://www.datenschutzkonferenz-online.de/media/ah/20181017_ah_DSK_DSFA_Muss-Liste_Version_1.1_Deutsch.pdf",
+    "version": "Version 1.1 vom 17.10.2018",
+    "doc_date": "2018-10-17",
+    "location": "page 4, item 13"
+   },
+   "supporting_quotes": []
+  },
+  {
+   "id": "DE-DSK-14",
+   "country": "DE",
+   "kind": "national_list",
+   "list_item": "DSK Muss-Liste (non-public sector), item 14",
+   "item_number": 14,
+   "original_wording": "Erstellung umfassender Profile über die Bewegung und das Kaufverhalten von Betroffenen",
+   "original_language": "de",
+   "plain_label": "Comprehensive profiles of people's movements and buying behaviour",
+   "gdpr_article": "Art. 35(4)",
+   "logic": {
+    "core": [
+     "movement_and_purchase_profiles"
+    ],
+    "qualifier": null,
+    "gate": "controller_is_private_sector"
+   },
+   "examples": {
+    "typical_fields": [
+     "Erfassung des Kaufverhaltens unterschiedlicher Personenkreise zur Profilbildung und Kundenbindung unter Zuhilfenahme von Preisen, Preisnachlässen und Rabatten."
+    ],
+    "examples": [
+     "Ein Unternehmen verwendet Kundenkarten, welche das Einkaufsverhalten der Kunden erfassen. Als Anreiz zur Verwendung der Kundenkarte erhält der Kunde mit jedem Einkauf Treuepunkte. Mithilfe der gewonnenen Daten erstellt der Anbieter umfassende Kundenprofile."
+    ]
+   },
+   "related_decisions": [],
+   "related_decisions_basis": "not matched: Fino has not compared decisions with this item's facts",
+   "source": {
+    "name": "DSK Liste für den nicht-öffentlichen Bereich, Version 1.1 (file dated 17.10.2018)",
+    "url": "https://www.datenschutzkonferenz-online.de/media/ah/20181017_ah_DSK_DSFA_Muss-Liste_Version_1.1_Deutsch.pdf",
+    "version": "Version 1.1 vom 17.10.2018",
+    "doc_date": "2018-10-17",
+    "location": "page 4, item 14"
+   },
+   "supporting_quotes": []
+  },
+  {
+   "id": "DE-DSK-15",
+   "country": "DE",
+   "kind": "national_list",
+   "list_item": "DSK Muss-Liste (non-public sector), item 15",
+   "item_number": 15,
+   "original_wording": "Anonymisierung von besonderen personenbezogenen Daten nach Artikel 9 DS-GVO nicht nur in Einzelfällen (in Bezug auf die Zahl der betroffenen Personen und die Angaben je betroffener Person) zum Zweck der Übermittlung an Dritte",
+   "original_language": "de",
+   "plain_label": "Anonymising special-category data (Art. 9), other than in individual cases, to pass it to third parties",
+   "gdpr_article": "Art. 35(4)",
+   "logic": {
+    "core": [
+     "anonymising_art9_data_for_third_parties"
+    ],
+    "qualifier": null,
+    "gate": "controller_is_private_sector"
+   },
+   "examples": {
+    "typical_fields": [
+     "Anonymisierung von besonderen Arten personenbezogener Daten nach Artikel 9"
+    ],
+    "examples": [
+     "Umfangreiche besondere personenbezogene Daten werden durch ein Apothekenrechenzentrum oder eine Versicherung anonymisiert und zu anderen Zwecken selbst verarbeitet oder an Dritte weitergegeben."
+    ]
+   },
+   "related_decisions": [],
+   "related_decisions_basis": "not matched: Fino has not compared decisions with this item's facts",
+   "source": {
+    "name": "DSK Liste für den nicht-öffentlichen Bereich, Version 1.1 (file dated 17.10.2018)",
+    "url": "https://www.datenschutzkonferenz-online.de/media/ah/20181017_ah_DSK_DSFA_Muss-Liste_Version_1.1_Deutsch.pdf",
+    "version": "Version 1.1 vom 17.10.2018",
+    "doc_date": "2018-10-17",
+    "location": "page 4, item 15"
+   },
+   "supporting_quotes": []
+  },
+  {
+   "id": "DE-DSK-16",
+   "country": "DE",
+   "kind": "national_list",
+   "list_item": "DSK Muss-Liste (non-public sector), item 16",
+   "item_number": 16,
+   "original_wording": "Verarbeitung von personenbezogenen Daten gemäß Art. 9 Abs. 1 und Art. 10 DS-GVO - auch wenn sie nicht als „umfangreich“ im Sinne des Art 35 Abs. 3 lit. b) anzusehen ist - sofern eine nicht einmalige Datenerhebung mittels der innovativen Nutzung von Sensoren oder mobilen Anwendungen stattfindet und diese Daten von einer zentralen Stelle empfangen und aufbereitet werden.",
+   "original_language": "de",
+   "plain_label": "Special-category or criminal-offence data collected repeatedly through innovative use of sensors or mobile applications and processed by a central body, even if not large scale",
+   "gdpr_article": "Art. 35(4)",
+   "logic": {
+    "core": [
+     {
+      "any": [
+       "special_category_data",
+       "criminal_offence_data"
+      ]
+     },
+     "sensor_or_app_collection_central"
+    ],
+    "qualifier": null,
+    "gate": "controller_is_private_sector"
+   },
+   "examples": {
+    "typical_fields": [
+     "Einsatz von Telemedizin-Lösungen zur detaillierten Bearbeitung von Krankheitsdaten"
+    ],
+    "examples": [
+     "Ein Arzt nutzt ein Webportal oder setzt eine App an, um mit Patienten mittels Videotelefonie zu kommunizieren und Gesundheitsdaten durch Sensoren beim Patienten (z.B. Blutzucker, Sauerstoffmaske,…) detailliert und systematisch zu erheben und zu verarbeiten."
+    ]
+   },
+   "related_decisions": [],
+   "related_decisions_basis": "not matched: Fino has not compared decisions with this item's facts",
+   "source": {
+    "name": "DSK Liste für den nicht-öffentlichen Bereich, Version 1.1 (file dated 17.10.2018)",
+    "url": "https://www.datenschutzkonferenz-online.de/media/ah/20181017_ah_DSK_DSFA_Muss-Liste_Version_1.1_Deutsch.pdf",
+    "version": "Version 1.1 vom 17.10.2018",
+    "doc_date": "2018-10-17",
+    "location": "page 4, item 16"
+   },
+   "supporting_quotes": []
+  },
+  {
+   "id": "DE-DSK-17",
+   "country": "DE",
+   "kind": "national_list",
+   "list_item": "DSK Muss-Liste (non-public sector), item 17",
+   "item_number": 17,
+   "original_wording": "Verarbeitung von Daten gemäß Art. 9 Abs. 1 und Art. 10 DS-GVO - auch wenn sie nicht als „umfangreich“ im Sinne des Art 35 Abs. 3 lit. b) anzusehen ist – sofern die Daten durch die Anbieter neuer Technologien dazu verwendet werden, die Leistungsfähigkeit der Personen zu bestimmen.",
+   "original_language": "de",
+   "plain_label": "Special-category or criminal-offence data used by providers of new technologies to determine people's performance, even if not large scale",
+   "gdpr_article": "Art. 35(4)",
+   "logic": {
+    "core": [
+     {
+      "any": [
+       "special_category_data",
+       "criminal_offence_data"
+      ]
+     },
+     "providers_assess_performance"
+    ],
+    "qualifier": null,
+    "gate": "controller_is_private_sector"
+   },
+   "examples": {
+    "typical_fields": [
+     "Zentrale Speicherung der Messdaten von Sensoren, die in Fitnessarmbändern oder Smartphones verbaut sind"
+    ],
+    "examples": [
+     "Ein Unternehmen bietet einen Dienst an, mit dem Daten aus Fitnessarmbändern zur Verbesserung des Trainings verarbeitet werden."
+    ]
+   },
+   "related_decisions": [],
+   "related_decisions_basis": "not matched: Fino has not compared decisions with this item's facts",
+   "source": {
+    "name": "DSK Liste für den nicht-öffentlichen Bereich, Version 1.1 (file dated 17.10.2018)",
+    "url": "https://www.datenschutzkonferenz-online.de/media/ah/20181017_ah_DSK_DSFA_Muss-Liste_Version_1.1_Deutsch.pdf",
+    "version": "Version 1.1 vom 17.10.2018",
+    "doc_date": "2018-10-17",
+    "location": "page 4, item 17"
+   },
+   "supporting_quotes": []
+  },
+  {
+   "id": "DE-LAND-SUPPLEMENTS",
+   "country": "DE",
+   "kind": "national_list_not_built",
+   "list_item": "Land supplements to the DSK list: not checked",
+   "item_number": null,
+   "original_wording": null,
+   "original_language": null,
+   "plain_label": "Whether the competent Land supervisory authority adds items to the DSK list for non-public bodies has not been checked",
+   "gdpr_article": "Art. 35(4)",
+   "logic": {
+    "core": [],
+    "qualifier": null,
+    "gate": null,
+    "always_open": true
+   },
+   "open_question": {
+    "key": "land_supplements_check",
+    "who_to_ask": "the DPO (your own assessment)",
+    "question": "Check whether the competent Land supervisory authority adds items to the DSK list for non-public bodies"
+   },
+   "related_decisions": [],
+   "related_decisions_basis": "not matched: Fino has not compared decisions with this list's items",
+   "source": null,
+   "supporting_quotes": []
+  }
+ ]
+}

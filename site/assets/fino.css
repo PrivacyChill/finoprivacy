@@ -257,6 +257,7 @@ img.flag { display: inline-block; width: 1.15em; height: 1.15em; border-radius: 
 .rel-grid.n1 .sim { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: 28px; }
 .rel-grid .sec-h { font-size: 1.2rem; margin-bottom: 8px; }
 .record-actions .links { margin: 0; gap: 10px; }
+.record-actions .links .btn { white-space: normal; max-width: 100%; }   /* a long source label ("The regulator’s annual report (Internet Archive copy)") wraps on a phone instead of running off the page */
 .record-actions #copied { align-self: center; }
 .sec-row .fine-print { font-size: 0.88rem; }
 .sub-h { font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); font-weight: 400; margin: 26px 0 8px; }
