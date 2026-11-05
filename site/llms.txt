@@ -50,10 +50,13 @@ Facts about the data:
 - [Article 50: Transparency obligations for providers and deployers of certain AI systems](https://finoprivacy.com/ai-act/article-50.html)
 - [Annex III: High-risk AI systems referred to in Article 6(2)](https://finoprivacy.com/ai-act/annex-iii.html)
 
-## National laws (original language)
+## Germany (in German)
 
 - [BDSG: Federal Data Protection Act](https://finoprivacy.com/bdsg/): 86 sections in the original German, consolidated 2026-07-13, each with a one-line English label (not an official English version)
 - [TDDDG: Telecommunications and Digital Services Data Protection Act](https://finoprivacy.com/tdddg/): 32 sections in the original German, consolidated 2026-08-17, each with a one-line English label (not an official English version)
+
+## Italy (in Italian)
+
 - [Codice privacy: Personal Data Protection Code](https://finoprivacy.com/codice-privacy/): 221 articles in the original Italian, consolidated 2026-02-20, each with a one-line English label (not an official English version)
 - [L. 132/2025: Italian AI law (provisions and delegations to the Government on artificial intelligence)](https://finoprivacy.com/l-132-2025/): 28 articles in the original Italian, consolidated 2026-06-27, each with a one-line English label (not an official English version)
 
