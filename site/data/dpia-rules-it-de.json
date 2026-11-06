@@ -2,7 +2,7 @@
  "meta": {
   "name": "Fino DPIA rules, Italy and Germany",
   "version": 2,
-  "generated": "2026-11-05",
+  "generated": "2026-11-06",
   "built_by": "Fino connector build script",
   "status": "Quoted unchanged, source named.",
   "not_legal_advice": "Not legal advice. These DPIA results apply rules taken from the GDPR, EDPB/WP 248 guidance and national lists to the answers you gave; a DPO checks them against the originals and adopts or rejects them.",
@@ -16,10 +16,10 @@
   },
   "outcomes_by_country": {
    "IT": {
-    "applies": "Every condition of the rule is answered yes. The rule says a DPIA is required.",
+    "applies": "Every condition of the rule is answered yes. The rule says a DPIA is required. For the items of the Garante list, the Garante says the list refers only to processing subject to the consistency mechanism; Fino does not test this.",
     "likely": "The Garante treats two or more WP 248 criteria as requiring a DPIA; Fino returns 'likely' because WP 248 itself says 'in most cases'.",
     "not indicated": "At least one condition of the rule is answered no, so this rule does not apply on the answers given. This is not the same as \"no DPIA needed\".",
-    "open": "The answers given do not settle the rule. The Garante's own list (Allegato 1) has not been built, so that rule is always open: Italy's overall result is never lower than open. The questions still open say who to ask."
+    "open": "The answers given do not settle the rule. The questions still open say who to ask."
    },
    "DE": {
     "applies": "Every condition of the rule is answered yes. The rule says a DPIA is required.",
@@ -207,6 +207,103 @@
     ]
    },
    {
+    "key": "large_scale_scoring",
+    "needs_one_of": [
+     "large_scale"
+    ]
+   },
+   {
+    "key": "large_scale_highly_personal_data",
+    "needs_one_of": [
+     "large_scale"
+    ]
+   },
+   {
+    "key": "large_scale_vulnerable_data",
+    "needs_one_of": [
+     "large_scale"
+    ]
+   },
+   {
+    "key": "large_scale_exchange_between_controllers",
+    "needs_one_of": [
+     "large_scale"
+    ]
+   },
+   {
+    "key": "large_scale_biometric",
+    "needs_one_of": [
+     "large_scale"
+    ]
+   },
+   {
+    "key": "large_scale_genetic",
+    "needs_one_of": [
+     "large_scale"
+    ]
+   },
+   {
+    "key": "large_scale_scoring",
+    "needs_one_of": [
+     "evaluation_or_scoring"
+    ]
+   },
+   {
+    "key": "profiling_or_prediction",
+    "needs_one_of": [
+     "evaluation_or_scoring"
+    ]
+   },
+   {
+    "key": "large_scale_highly_personal_data",
+    "needs_one_of": [
+     "sensitive_or_highly_personal_data"
+    ]
+   },
+   {
+    "key": "large_scale_vulnerable_data",
+    "needs_one_of": [
+     "vulnerable_group_listed_by_garante"
+    ]
+   },
+   {
+    "key": "vulnerable_group_listed_by_garante",
+    "needs_one_of": [
+     "vulnerable_data_subjects"
+    ]
+   },
+   {
+    "key": "automated_decisions_preventing_right_or_service",
+    "needs_one_of": [
+     "automated_decisions_with_legal_effect"
+    ]
+   },
+   {
+    "key": "large_scale_exchange_between_controllers",
+    "needs_one_of": [
+     "exchange_between_controllers_electronic"
+    ]
+   },
+   {
+    "key": "interconnected_with_data_from_other_purposes",
+    "needs_one_of": [
+     "special_category_data",
+     "criminal_offence_data"
+    ]
+   },
+   {
+    "key": "large_scale_biometric",
+    "needs_one_of": [
+     "biometric_identification"
+    ]
+   },
+   {
+    "key": "large_scale_genetic",
+    "needs_one_of": [
+     "genetic_data"
+    ]
+   },
+   {
     "key": "special_category_data",
     "needs_one_of": [
      "sensitive_or_highly_personal_data"
@@ -308,6 +405,22 @@
   "answer_implications": [
    {
     "if_any_yes": [
+     "vulnerable_group_listed_by_garante"
+    ],
+    "then_yes": "vulnerable_data_subjects",
+    "because": "Item 6 of the Garante list names these groups as vulnerable data subjects (WP 248 criterion 7)",
+    "note": "vulnerable_data_subjects is treated as yes because vulnerable_group_listed_by_garante is yes: item 6 of the Garante list names these six groups as vulnerable people (WP 248 criterion 7)."
+   },
+   {
+    "if_any_yes": [
+     "automated_decisions_preventing_right_or_service"
+    ],
+    "then_yes": "automated_decisions_with_legal_effect",
+    "because": "Item 2 of the Garante list includes (\"comprese\") decisions that stop people exercising a right or using a good or service among the automated decisions with legal or similarly significant effect",
+    "note": "automated_decisions_with_legal_effect is treated as yes because automated_decisions_preventing_right_or_service is yes: item 2 of the Garante list includes decisions that stop a person exercising a right or using a good or service among the automated decisions with legal or similarly significant effect."
+   },
+   {
+    "if_any_yes": [
      "biometric_identification",
      "genetic_data"
     ],
@@ -343,7 +456,7 @@
   "known_gaps": [
    {
     "country": "IT",
-    "gap": "The Garante's own list of processing that needs a DPIA (Allegato 1 to provv. 467 of 11 October 2018) is not built. The annex (docweb 9059358) is not saved in Fino's library. Fino has not built the Italian list items. The Garante's \"chiarimento interpretativo\" (https://www.garanteprivacy.it/regolamentoue/DPIA) would be needed as well to build them."
+    "gap": "The Garante's list (Allegato 1 to provv. 467 of 11 October 2018, docweb 9059358, 12 items) is built from the PDF, with the Garante's \"chiarimento interpretativo\" (https://www.garanteprivacy.it/regolamentoue/DPIA) for items 6, 11 and 12. Fino does not test the scope the Garante gives the list (\"riferito esclusivamente a tipologie di trattamento soggette al meccanismo di coerenza\"): it does not ask whether the processing is subject to the consistency mechanism. The annex has no examples column, so no examples are given. Item 1 is encoded on Fino's reading of its sentence (see its reading_note)."
    },
    {
     "country": "DE",
@@ -538,6 +651,66 @@
    "label": "Providers of new technologies use special-category or criminal-offence data to determine people's performance",
    "who_to_ask": "the system owner"
   },
+  "large_scale_scoring": {
+   "label": "Scoring or evaluation of people is done on a large scale",
+   "who_to_ask": "the business process owner"
+  },
+  "profiling_or_prediction": {
+   "label": "The processing profiles people or makes predictions about them (about work performance, economic situation, health, preferences, interests, reliability, behaviour, location or movements)",
+   "who_to_ask": "the business process owner"
+  },
+  "large_scale_highly_personal_data": {
+   "label": "The processing of data of an extremely personal nature (WP 248, criterion 4) is on a large scale",
+   "who_to_ask": "the DPO (your own assessment)"
+  },
+  "workplace_technology_remote_control": {
+   "label": "Technology systems at work (including video surveillance and geolocation) make it possible to monitor employees' activity remotely",
+   "who_to_ask": "HR"
+  },
+  "vulnerable_group_listed_by_garante": {
+   "label": "The data concern minors, disabled people, elderly people, people with mental illness, patients or asylum seekers (the six groups named in item 6 of the Garante list)",
+   "who_to_ask": "the business process owner"
+  },
+  "large_scale_vulnerable_data": {
+   "label": "The processing of data about those people is on a large scale (the Garante reads \"non occasionali\" as WP 248 criterion 5: number of people, volume or types of data, duration, geographic extent)",
+   "who_to_ask": "the business process owner"
+  },
+  "unique_identifier_tracking_long_period": {
+   "label": "Unique identifiers that identify users of information-society services (web, interactive TV and the like) are processed to follow their usage habits or viewing data over long periods",
+   "who_to_ask": "the system owner"
+  },
+  "metadata_processing_for_organisational_purposes": {
+   "label": "Metadata (for example in telecommunications or banking) are processed, whether for profiling or, more generally, for organisational reasons, budget forecasts, technology upgrades, network improvement, anti-fraud, anti-spam or security services",
+   "who_to_ask": "the system owner"
+  },
+  "automated_decisions_preventing_right_or_service": {
+   "label": "Automated processing is used to take decisions that stop people exercising a right, using a good or service, or staying in a contract",
+   "who_to_ask": "the business process owner"
+  },
+  "exchange_between_controllers_electronic": {
+   "label": "Data are exchanged between different controllers by electronic means",
+   "who_to_ask": "the system owner"
+  },
+  "large_scale_exchange_between_controllers": {
+   "label": "That exchange of data between different controllers is on a large scale",
+   "who_to_ask": "the system owner"
+  },
+  "interconnecting_or_comparing_information": {
+   "label": "Information is interconnected, combined or compared (for example data on the consumption of digital goods with payment data)",
+   "who_to_ask": "the system owner"
+  },
+  "interconnected_with_data_from_other_purposes": {
+   "label": "Special-category or criminal-offence data are interconnected with other personal data collected for different purposes",
+   "who_to_ask": "the DPO (your own assessment)"
+  },
+  "large_scale_biometric": {
+   "label": "The biometric processing is on a large scale (the Garante reads \"sistematici\" as WP 248 criterion 5: number of people, volume or types of data, duration, geographic extent)",
+   "who_to_ask": "the system owner"
+  },
+  "large_scale_genetic": {
+   "label": "The genetic data processing is on a large scale (the Garante reads \"sistematici\" as WP 248 criterion 5: number of people, volume or types of data, duration, geographic extent)",
+   "who_to_ask": "the system owner"
+  },
   "controller_is_private_sector": {
    "label": "The controller is a natural or legal person or association under private law (except where, and to the extent that, it carries out public-authority tasks), or a public-law company competing on the market (§ 2(4)-(5) BDSG), and not a private-law association of public bodies carrying out public administration tasks (§ 2(3) BDSG); for Land bodies, check the Land law",
    "who_to_ask": "the legal team"
@@ -637,36 +810,447 @@
    "supporting_quotes": []
   },
   {
-   "id": "IT-GARANTE-ALL1",
+   "id": "IT-GARANTE-01",
    "country": "IT",
-   "kind": "national_list_not_built",
-   "list_item": "Garante's list under Art. 35(4) (Allegato 1 to provv. 467/2018): not built",
-   "item_number": null,
-   "original_wording": "individua l’elenco delle tipologie di trattamenti, soggetti al meccanismo di coerenza, da sottoporre a valutazione d’impatto, riportate nell’allegato 1 facente parte integrante del presente provvedimento",
+   "kind": "national_list",
+   "list_item": "Garante list (Allegato 1 to provv. 467/2018), item 1",
+   "item_number": 1,
+   "original_wording": "Trattamenti valutativi o di scoring su larga scala, nonché trattamenti che comportano la profilazione degli interessati nonché lo svolgimento di attività predittive effettuate anche on-line o attraverso app, relativi ad “aspetti riguardanti il rendimento professionale, la situazione economica, la salute, le preferenze o gli interessi personali, l'affidabilità o il comportamento, l'ubicazione o gli spostamenti dell'interessato”.",
    "original_language": "it",
-   "plain_label": "The Garante's own list of processing that needs a DPIA (Allegato 1) has not been tested: Fino has not built it",
+   "plain_label": "Evaluation or scoring of people on a large scale; or processing that profiles people or makes predictions about them, about aspects such as work performance, economic situation, health, preferences, reliability, behaviour, location or movements",
    "gdpr_article": "Art. 35(4)",
    "logic": {
-    "core": [],
+    "core": [
+     {
+      "any": [
+       "large_scale_scoring",
+       "profiling_or_prediction"
+      ]
+     }
+    ],
     "qualifier": null,
-    "gate": null,
-    "always_open": true
-   },
-   "open_question": {
-    "key": "garante_allegato_1_check",
-    "question": "Check the processing against Allegato 1 to provv. 467/2018 (docweb 9059358) and the Garante's chiarimento interpretativo",
-    "who_to_ask": "the DPO (your own assessment)"
+    "gate": null
    },
    "related_decisions": [],
-   "related_decisions_basis": "not matched: Fino has not compared decisions with this list's items",
+   "related_decisions_basis": "not matched: Fino has not compared decisions with this item's facts",
    "source": {
-    "name": "Elenco delle tipologie di trattamenti soggetti a valutazione d'impatto, provv. n. 467 dell'11 ottobre 2018, doc. web 9058979",
-    "url": "https://www.garanteprivacy.it/home/docweb/-/docweb-display/docweb/9058979",
-    "version": null,
+    "name": "Garante, Allegato 1 to provv. n. 467 of 11 October 2018 (doc. web n. 9059358): Elenco delle tipologie di trattamenti, soggetti al meccanismo di coerenza, da sottoporre a valutazione d’impatto",
+    "url": "https://www.garanteprivacy.it/home/docweb/-/docweb-display/docweb/9059358",
+    "version": "published in Gazzetta Ufficiale n. 269 of 19 November 2018",
     "doc_date": "2018-10-11",
-    "location": "dispositivo, point a)"
+    "location": "item 1"
+   },
+   "supporting_quotes": [],
+   "reading_note": "The Italian sentence joins scoring on a large scale, profiling and predictive activity with \"nonché\". Fino makes two reading choices: that \"su larga scala\" qualifies the scoring only, and that profiling and predictive activity are alternatives to each other. Large-scale scoring alone, or profiling or prediction alone, meets the item here. These are Fino's readings of the sentence: a DPO should confirm them."
+  },
+  {
+   "id": "IT-GARANTE-02",
+   "country": "IT",
+   "kind": "national_list",
+   "list_item": "Garante list (Allegato 1 to provv. 467/2018), item 2",
+   "item_number": 2,
+   "original_wording": "Trattamenti automatizzati finalizzati ad assumere decisioni che producono “effetti giuridici” oppure che incidono “in modo analogo significativamente” sull’interessato, comprese le decisioni che impediscono di esercitare un diritto o di avvalersi di un bene o di un servizio o di continuare ad esser parte di un contratto in essere (ad es. screening dei clienti di una banca attraverso l’utilizzo di dati registrati in una centrale rischi).",
+   "original_language": "it",
+   "plain_label": "Automated processing to take decisions that produce legal effects or similarly significantly affect the person, including decisions that stop a person exercising a right or using a good or service or staying in a contract",
+   "gdpr_article": "Art. 35(4)",
+   "logic": {
+    "core": [
+     {
+      "any": [
+       "automated_decisions_with_legal_effect",
+       "automated_decisions_preventing_right_or_service"
+      ]
+     }
+    ],
+    "qualifier": null,
+    "gate": null
+   },
+   "related_decisions": [],
+   "related_decisions_basis": "not matched: Fino has not compared decisions with this item's facts",
+   "source": {
+    "name": "Garante, Allegato 1 to provv. n. 467 of 11 October 2018 (doc. web n. 9059358): Elenco delle tipologie di trattamenti, soggetti al meccanismo di coerenza, da sottoporre a valutazione d’impatto",
+    "url": "https://www.garanteprivacy.it/home/docweb/-/docweb-display/docweb/9059358",
+    "version": "published in Gazzetta Ufficiale n. 269 of 19 November 2018",
+    "doc_date": "2018-10-11",
+    "location": "item 2"
    },
    "supporting_quotes": []
+  },
+  {
+   "id": "IT-GARANTE-03",
+   "country": "IT",
+   "kind": "national_list",
+   "list_item": "Garante list (Allegato 1 to provv. 467/2018), item 3",
+   "item_number": 3,
+   "original_wording": "Trattamenti che prevedono un utilizzo sistematico di dati per l’osservazione, il monitoraggio o il controllo degli interessati, compresa la raccolta di dati attraverso reti, effettuati anche on-line o attraverso app, nonché il trattamento di identificativi univoci in grado di identificare gli utenti di servizi della società dell’informazione inclusi servizi web, tv interattiva, ecc. rispetto alle abitudini d’uso e ai dati di visione per periodi prolungati. Rientrano in tale previsione anche i trattamenti di metadati ad es. in ambito telecomunicazioni, banche, ecc. effettuati non soltanto per profilazione, ma più in generale per ragioni organizzative, di previsioni di budget, di upgrade tecnologico, miglioramento reti, offerta di servizi antifrode, antispam, sicurezza etc.",
+   "original_language": "it",
+   "plain_label": "Systematic use of data to observe, monitor or control people, including data collected over networks, on-line or through apps, unique identifiers of users of information-society services over long periods, and metadata processing for organisational, budget, technology, network, anti-fraud, anti-spam or security reasons",
+   "gdpr_article": "Art. 35(4)",
+   "logic": {
+    "core": [
+     {
+      "any": [
+       "systematic_monitoring",
+       "unique_identifier_tracking_long_period",
+       "metadata_processing_for_organisational_purposes"
+      ]
+     }
+    ],
+    "qualifier": null,
+    "gate": null
+   },
+   "related_decisions": [],
+   "related_decisions_basis": "not matched: Fino has not compared decisions with this item's facts",
+   "source": {
+    "name": "Garante, Allegato 1 to provv. n. 467 of 11 October 2018 (doc. web n. 9059358): Elenco delle tipologie di trattamenti, soggetti al meccanismo di coerenza, da sottoporre a valutazione d’impatto",
+    "url": "https://www.garanteprivacy.it/home/docweb/-/docweb-display/docweb/9059358",
+    "version": "published in Gazzetta Ufficiale n. 269 of 19 November 2018",
+    "doc_date": "2018-10-11",
+    "location": "item 3"
+   },
+   "supporting_quotes": [],
+   "reading_note": "Item 3 names three kinds of processing: systematic use of data to observe, monitor or control people; unique identifiers of users of information-society services over long periods; and metadata processing, whether for profiling or, more generally, for organisational reasons, budget forecasts, technology upgrades, network improvement, anti-fraud, anti-spam or security services. Meeting any one of them meets the item. The annex carries a label \"*CHIARIMENTO INTERPRETATIVO\" at the top of page 1; the Garante's clarification on its DPIA page speaks of items 6, 11 and 12 only."
+  },
+  {
+   "id": "IT-GARANTE-04",
+   "country": "IT",
+   "kind": "national_list",
+   "list_item": "Garante list (Allegato 1 to provv. 467/2018), item 4",
+   "item_number": 4,
+   "original_wording": "Trattamenti su larga scala di dati aventi carattere estremamente personale (v. WP 248, rev. 01): si fa riferimento, fra gli altri, ai dati connessi alla vita familiare o privata (quali i dati relativi alle comunicazioni elettroniche dei quali occorre tutelare la riservatezza), o che incidono sull’esercizio di un diritto fondamentale (quali i dati sull’ubicazione, la cui raccolta mette in gioco la libertà di circolazione) oppure la cui violazione comporta un grave impatto sulla vita quotidiana dell’interessato (quali i dati finanziari che potrebbero essere utilizzati per commettere frodi in materia di pagamenti).",
+   "original_language": "it",
+   "plain_label": "Large-scale processing of data of an extremely personal nature (WP 248, rev. 01): for example data tied to family or private life, data that affect the exercise of a fundamental right, or data whose breach has a serious impact on daily life",
+   "gdpr_article": "Art. 35(4)",
+   "logic": {
+    "core": [
+     "sensitive_or_highly_personal_data",
+     "large_scale_highly_personal_data"
+    ],
+    "qualifier": null,
+    "gate": null
+   },
+   "related_decisions": [],
+   "related_decisions_basis": "not matched: Fino has not compared decisions with this item's facts",
+   "source": {
+    "name": "Garante, Allegato 1 to provv. n. 467 of 11 October 2018 (doc. web n. 9059358): Elenco delle tipologie di trattamenti, soggetti al meccanismo di coerenza, da sottoporre a valutazione d’impatto",
+    "url": "https://www.garanteprivacy.it/home/docweb/-/docweb-display/docweb/9059358",
+    "version": "published in Gazzetta Ufficiale n. 269 of 19 November 2018",
+    "doc_date": "2018-10-11",
+    "location": "item 4"
+   },
+   "supporting_quotes": []
+  },
+  {
+   "id": "IT-GARANTE-05",
+   "country": "IT",
+   "kind": "national_list",
+   "list_item": "Garante list (Allegato 1 to provv. 467/2018), item 5",
+   "item_number": 5,
+   "original_wording": "Trattamenti effettuati nell’ambito del rapporto di lavoro mediante sistemi tecnologici (anche con riguardo ai sistemi di videosorveglianza e di geolocalizzazione) dai quali derivi la possibilità di effettuare un controllo a distanza dell’attività dei dipendenti (si veda quanto stabilito dal WP 248, rev. 01, in relazione ai criteri nn. 3, 7 e 8).",
+   "original_language": "it",
+   "plain_label": "Processing in employment through technology systems (including video surveillance and geolocation) that makes it possible to monitor employees' activity remotely",
+   "gdpr_article": "Art. 35(4)",
+   "logic": {
+    "core": [
+     "workplace_technology_remote_control"
+    ],
+    "qualifier": null,
+    "gate": null
+   },
+   "related_decisions": [],
+   "related_decisions_basis": "not matched: Fino has not compared decisions with this item's facts",
+   "source": {
+    "name": "Garante, Allegato 1 to provv. n. 467 of 11 October 2018 (doc. web n. 9059358): Elenco delle tipologie di trattamenti, soggetti al meccanismo di coerenza, da sottoporre a valutazione d’impatto",
+    "url": "https://www.garanteprivacy.it/home/docweb/-/docweb-display/docweb/9059358",
+    "version": "published in Gazzetta Ufficiale n. 269 of 19 November 2018",
+    "doc_date": "2018-10-11",
+    "location": "item 5"
+   },
+   "supporting_quotes": []
+  },
+  {
+   "id": "IT-GARANTE-06",
+   "country": "IT",
+   "kind": "national_list",
+   "list_item": "Garante list (Allegato 1 to provv. 467/2018), item 6",
+   "item_number": 6,
+   "original_wording": "Trattamenti non occasionali di dati relativi a soggetti vulnerabili (minori, disabili, anziani, infermi di mente, pazienti, richiedenti asilo).",
+   "original_language": "it",
+   "plain_label": "Non-occasional processing of data about vulnerable people (minors, disabled people, elderly people, people with mental illness, patients, asylum seekers)",
+   "gdpr_article": "Art. 35(4)",
+   "logic": {
+    "core": [
+     "vulnerable_group_listed_by_garante",
+     "large_scale_vulnerable_data"
+    ],
+    "qualifier": null,
+    "gate": null
+   },
+   "related_decisions": [],
+   "related_decisions_basis": "not matched: Fino has not compared decisions with this item's facts",
+   "source": {
+    "name": "Garante, Allegato 1 to provv. n. 467 of 11 October 2018 (doc. web n. 9059358): Elenco delle tipologie di trattamenti, soggetti al meccanismo di coerenza, da sottoporre a valutazione d’impatto",
+    "url": "https://www.garanteprivacy.it/home/docweb/-/docweb-display/docweb/9059358",
+    "version": "published in Gazzetta Ufficiale n. 269 of 19 November 2018",
+    "doc_date": "2018-10-11",
+    "location": "item 6"
+   },
+   "supporting_quotes": [
+    {
+     "wording": "sono riconducibili al criterio della \"larga scala\" così come espressamente illustrato al quinto criterio del WP 248 (pag. 11)",
+     "language": "it",
+     "location": "chiarimento interpretativo (items 6, 11 and 12)",
+     "source": {
+      "name": "Garante, DPIA page: chiarimento interpretativo on the list (items 6, 11 and 12)",
+      "url": "https://www.garanteprivacy.it/regolamentoue/DPIA",
+      "version": "page as fetched on 5 November 2026",
+      "doc_date": null,
+      "location": "Documenti"
+     }
+    }
+   ],
+   "reading_note": "The Garante's clarification says that \"non occasionali\" here is to be read as the WP 248 large-scale criterion. Fino reads the six groups in brackets as the complete list (unlike item 2, the item has no \"ad es.\"): a DPO should confirm. Other vulnerable people, such as employees, still count under WP 248 criterion 7 (rule IT-WP248-2)."
+  },
+  {
+   "id": "IT-GARANTE-07",
+   "country": "IT",
+   "kind": "national_list",
+   "list_item": "Garante list (Allegato 1 to provv. 467/2018), item 7",
+   "item_number": 7,
+   "original_wording": "Trattamenti effettuati attraverso l’uso di tecnologie innovative, anche con particolari misure di carattere organizzativo (es. IoT; sistemi di intelligenza artificiale; utilizzo di assistenti vocali on-line attraverso lo scanning vocale e testuale; monitoraggi effettuati da dispositivi wearable; tracciamenti di prossimità come ad es. il wi-fi tracking) ogniqualvolta ricorra anche almeno un altro dei criteri individuati nel WP 248, rev. 01 .",
+   "original_language": "it",
+   "plain_label": "Processing through innovative technologies (for example IoT, artificial intelligence, online voice assistants, wearable devices, proximity tracking such as wi-fi tracking), whenever at least one other WP 248 criterion also applies",
+   "gdpr_article": "Art. 35(4)",
+   "logic": {
+    "core": [
+     "innovative_technology"
+    ],
+    "qualifier": {
+     "min_yes": 1,
+     "of": [
+      "evaluation_or_scoring",
+      "automated_decisions_with_legal_effect",
+      "systematic_monitoring",
+      "sensitive_or_highly_personal_data",
+      "large_scale",
+      "matching_or_combining_datasets",
+      "vulnerable_data_subjects",
+      "prevents_exercise_of_right_or_service"
+     ]
+    },
+    "gate": null
+   },
+   "related_decisions": [],
+   "related_decisions_basis": "not matched: Fino has not compared decisions with this item's facts",
+   "source": {
+    "name": "Garante, Allegato 1 to provv. n. 467 of 11 October 2018 (doc. web n. 9059358): Elenco delle tipologie di trattamenti, soggetti al meccanismo di coerenza, da sottoporre a valutazione d’impatto",
+    "url": "https://www.garanteprivacy.it/home/docweb/-/docweb-display/docweb/9059358",
+    "version": "published in Gazzetta Ufficiale n. 269 of 19 November 2018",
+    "doc_date": "2018-10-11",
+    "location": "item 7"
+   },
+   "supporting_quotes": []
+  },
+  {
+   "id": "IT-GARANTE-08",
+   "country": "IT",
+   "kind": "national_list",
+   "list_item": "Garante list (Allegato 1 to provv. 467/2018), item 8",
+   "item_number": 8,
+   "original_wording": "Trattamenti che comportano lo scambio tra diversi titolari di dati su larga scala con modalità telematiche.",
+   "original_language": "it",
+   "plain_label": "Processing that involves the exchange of data on a large scale between different controllers by electronic means",
+   "gdpr_article": "Art. 35(4)",
+   "logic": {
+    "core": [
+     "exchange_between_controllers_electronic",
+     "large_scale_exchange_between_controllers"
+    ],
+    "qualifier": null,
+    "gate": null
+   },
+   "related_decisions": [],
+   "related_decisions_basis": "not matched: Fino has not compared decisions with this item's facts",
+   "source": {
+    "name": "Garante, Allegato 1 to provv. n. 467 of 11 October 2018 (doc. web n. 9059358): Elenco delle tipologie di trattamenti, soggetti al meccanismo di coerenza, da sottoporre a valutazione d’impatto",
+    "url": "https://www.garanteprivacy.it/home/docweb/-/docweb-display/docweb/9059358",
+    "version": "published in Gazzetta Ufficiale n. 269 of 19 November 2018",
+    "doc_date": "2018-10-11",
+    "location": "item 8"
+   },
+   "supporting_quotes": []
+  },
+  {
+   "id": "IT-GARANTE-09",
+   "country": "IT",
+   "kind": "national_list",
+   "list_item": "Garante list (Allegato 1 to provv. 467/2018), item 9",
+   "item_number": 9,
+   "original_wording": "Trattamenti di dati personali effettuati mediante interconnessione, combinazione o raffronto di informazioni, compresi i trattamenti che prevedono l’incrocio dei dati di consumo di beni digitali con dati di pagamento (es. mobile payment).",
+   "original_language": "it",
+   "plain_label": "Processing through interconnection, combination or comparison of information, including combining consumption data on digital goods with payment data (for example mobile payment)",
+   "gdpr_article": "Art. 35(4)",
+   "logic": {
+    "core": [
+     "interconnecting_or_comparing_information"
+    ],
+    "qualifier": null,
+    "gate": null
+   },
+   "related_decisions": [],
+   "related_decisions_basis": "not matched: Fino has not compared decisions with this item's facts",
+   "source": {
+    "name": "Garante, Allegato 1 to provv. n. 467 of 11 October 2018 (doc. web n. 9059358): Elenco delle tipologie di trattamenti, soggetti al meccanismo di coerenza, da sottoporre a valutazione d’impatto",
+    "url": "https://www.garanteprivacy.it/home/docweb/-/docweb-display/docweb/9059358",
+    "version": "published in Gazzetta Ufficiale n. 269 of 19 November 2018",
+    "doc_date": "2018-10-11",
+    "location": "item 9"
+   },
+   "supporting_quotes": []
+  },
+  {
+   "id": "IT-GARANTE-10",
+   "country": "IT",
+   "kind": "national_list",
+   "list_item": "Garante list (Allegato 1 to provv. 467/2018), item 10",
+   "item_number": 10,
+   "original_wording": "Trattamenti di categorie particolari di dati ai sensi dell’art. 9 oppure di dati relativi a condanne penali e a reati di cui all’art. 10 interconnessi con altri dati personali raccolti per finalità diverse.",
+   "original_language": "it",
+   "plain_label": "Processing of special-category data (Art. 9) or of criminal-conviction and offence data (Art. 10) interconnected with other personal data collected for different purposes",
+   "gdpr_article": "Art. 35(4)",
+   "logic": {
+    "core": [
+     {
+      "any": [
+       "special_category_data",
+       "criminal_offence_data"
+      ]
+     },
+     "interconnected_with_data_from_other_purposes"
+    ],
+    "qualifier": null,
+    "gate": null
+   },
+   "related_decisions": [],
+   "related_decisions_basis": "not matched: Fino has not compared decisions with this item's facts",
+   "source": {
+    "name": "Garante, Allegato 1 to provv. n. 467 of 11 October 2018 (doc. web n. 9059358): Elenco delle tipologie di trattamenti, soggetti al meccanismo di coerenza, da sottoporre a valutazione d’impatto",
+    "url": "https://www.garanteprivacy.it/home/docweb/-/docweb-display/docweb/9059358",
+    "version": "published in Gazzetta Ufficiale n. 269 of 19 November 2018",
+    "doc_date": "2018-10-11",
+    "location": "item 10"
+   },
+   "supporting_quotes": []
+  },
+  {
+   "id": "IT-GARANTE-11",
+   "country": "IT",
+   "kind": "national_list",
+   "list_item": "Garante list (Allegato 1 to provv. 467/2018), item 11",
+   "item_number": 11,
+   "original_wording": "Trattamenti sistematici di dati biometrici, tenendo conto, in particolare, del volume dei dati, della durata, ovvero della persistenza, dell’attività di trattamento.",
+   "original_language": "it",
+   "plain_label": "Systematic processing of biometric data, taking account of the volume of data and the duration or persistence of the processing",
+   "gdpr_article": "Art. 35(4)",
+   "logic": {
+    "core": [
+     "biometric_identification",
+     "large_scale_biometric"
+    ],
+    "qualifier": null,
+    "gate": null
+   },
+   "related_decisions": [],
+   "related_decisions_basis": "not matched: Fino has not compared decisions with this item's facts",
+   "source": {
+    "name": "Garante, Allegato 1 to provv. n. 467 of 11 October 2018 (doc. web n. 9059358): Elenco delle tipologie di trattamenti, soggetti al meccanismo di coerenza, da sottoporre a valutazione d’impatto",
+    "url": "https://www.garanteprivacy.it/home/docweb/-/docweb-display/docweb/9059358",
+    "version": "published in Gazzetta Ufficiale n. 269 of 19 November 2018",
+    "doc_date": "2018-10-11",
+    "location": "item 11"
+   },
+   "supporting_quotes": [
+    {
+     "wording": "sono riconducibili al criterio della \"larga scala\" così come espressamente illustrato al quinto criterio del WP 248 (pag. 11)",
+     "language": "it",
+     "location": "chiarimento interpretativo (items 6, 11 and 12)",
+     "source": {
+      "name": "Garante, DPIA page: chiarimento interpretativo on the list (items 6, 11 and 12)",
+      "url": "https://www.garanteprivacy.it/regolamentoue/DPIA",
+      "version": "page as fetched on 5 November 2026",
+      "doc_date": null,
+      "location": "Documenti"
+     }
+    },
+    {
+     "wording": "il termine “dati biometrici” di cui al punto 11",
+     "language": "it",
+     "location": "chiarimento interpretativo (items 6, 11 and 12)",
+     "source": {
+      "name": "Garante, DPIA page: chiarimento interpretativo on the list (items 6, 11 and 12)",
+      "url": "https://www.garanteprivacy.it/regolamentoue/DPIA",
+      "version": "page as fetched on 5 November 2026",
+      "doc_date": null,
+      "location": "Documenti"
+     }
+    },
+    {
+     "wording": "va inteso come “dati biometrici, trattati per identificare univocamente una persona fisica”",
+     "language": "it",
+     "location": "chiarimento interpretativo (items 6, 11 and 12)",
+     "source": {
+      "name": "Garante, DPIA page: chiarimento interpretativo on the list (items 6, 11 and 12)",
+      "url": "https://www.garanteprivacy.it/regolamentoue/DPIA",
+      "version": "page as fetched on 5 November 2026",
+      "doc_date": null,
+      "location": "Documenti"
+     }
+    }
+   ],
+   "reading_note": "The Garante's clarification says that \"sistematici\" is to be read as the WP 248 large-scale criterion and that \"dati biometrici\" means biometric data processed to identify a natural person uniquely."
+  },
+  {
+   "id": "IT-GARANTE-12",
+   "country": "IT",
+   "kind": "national_list",
+   "list_item": "Garante list (Allegato 1 to provv. 467/2018), item 12",
+   "item_number": 12,
+   "original_wording": "Trattamenti sistematici di dati genetici, tenendo conto, in particolare, del volume dei dati, della durata, ovvero della persistenza, dell’attività di trattamento.",
+   "original_language": "it",
+   "plain_label": "Systematic processing of genetic data, taking account of the volume of data and the duration or persistence of the processing",
+   "gdpr_article": "Art. 35(4)",
+   "logic": {
+    "core": [
+     "genetic_data",
+     "large_scale_genetic"
+    ],
+    "qualifier": null,
+    "gate": null
+   },
+   "related_decisions": [],
+   "related_decisions_basis": "not matched: Fino has not compared decisions with this item's facts",
+   "source": {
+    "name": "Garante, Allegato 1 to provv. n. 467 of 11 October 2018 (doc. web n. 9059358): Elenco delle tipologie di trattamenti, soggetti al meccanismo di coerenza, da sottoporre a valutazione d’impatto",
+    "url": "https://www.garanteprivacy.it/home/docweb/-/docweb-display/docweb/9059358",
+    "version": "published in Gazzetta Ufficiale n. 269 of 19 November 2018",
+    "doc_date": "2018-10-11",
+    "location": "item 12"
+   },
+   "supporting_quotes": [
+    {
+     "wording": "sono riconducibili al criterio della \"larga scala\" così come espressamente illustrato al quinto criterio del WP 248 (pag. 11)",
+     "language": "it",
+     "location": "chiarimento interpretativo (items 6, 11 and 12)",
+     "source": {
+      "name": "Garante, DPIA page: chiarimento interpretativo on the list (items 6, 11 and 12)",
+      "url": "https://www.garanteprivacy.it/regolamentoue/DPIA",
+      "version": "page as fetched on 5 November 2026",
+      "doc_date": null,
+      "location": "Documenti"
+     }
+    }
+   ],
+   "reading_note": "The Garante's clarification says that \"sistematici\" is to be read as the WP 248 large-scale criterion."
   },
   {
    "id": "IT-WP248-2",

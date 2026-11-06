@@ -3,8 +3,8 @@
   "name": "Fino corrections",
   "purpose": "Corrections recorded since 5 November 2026, so a reader can see what changed and why. The list says nothing about errors that have not been found or recorded. The Fino connector's corrections() tool returns this list unchanged.",
   "version": 2,
-  "updated": "2026-11-05",
-  "status": "64 corrections are recorded. The list shows only the errors Fino found or was told about, so a page that is not on it is not proven correct: write to hello@finoprivacy.com and quote the decision number.",
+  "updated": "2026-11-06",
+  "status": "71 corrections are recorded. The list shows only the errors Fino found or was told about, so a page that is not on it is not proven correct: write to hello@finoprivacy.com and quote the decision number.",
   "fields": {
    "id": "Running number, C-0001 and up",
    "date": "Day the correction went live (YYYY-MM-DD)",
@@ -719,6 +719,83 @@
    "what_was_wrong": "Romanian pages whose date was the day the regulator's press release came out said \"Decided <day>\".",
    "what_it_says_now": "They now say \"Announced <day>\": the press release gives no decision day. 230 pages: 2020/RO/002, 2020/RO/005, 2020/RO/009, 2021/RO/001, 2021/RO/002, 2021/RO/003, 2021/RO/008, 2021/RO/009, 2021/RO/011, 2021/RO/012, 2021/RO/029, 2022/RO/001, 2022/RO/002, 2022/RO/003, 2022/RO/004, 2022/RO/005, 2022/RO/006, 2022/RO/007, 2022/RO/008, 2022/RO/009, 2022/RO/010, 2022/RO/011, 2022/RO/012, 2022/RO/013, 2022/RO/014, 2022/RO/015, 2022/RO/016, 2022/RO/017, 2022/RO/018, 2022/RO/019, 2022/RO/020, 2022/RO/021, 2022/RO/022, 2022/RO/023, 2022/RO/024, 2022/RO/025, 2022/RO/026, 2022/RO/027, 2022/RO/029, 2022/RO/030, 2022/RO/031, 2022/RO/032, 2022/RO/033, 2022/RO/034, 2022/RO/035, 2022/RO/036, 2022/RO/037, 2022/RO/038, 2022/RO/039, 2022/RO/040, 2022/RO/041, 2022/RO/042, 2022/RO/044, 2022/RO/045, 2022/RO/047, 2023/RO/001, 2023/RO/002, 2023/RO/003, 2023/RO/004, 2023/RO/005, 2023/RO/006, 2023/RO/007, 2023/RO/008, 2023/RO/009, 2023/RO/010, 2023/RO/011, 2023/RO/012, 2023/RO/013, 2023/RO/014, 2023/RO/015, 2023/RO/016, 2023/RO/017, 2023/RO/018, 2023/RO/019, 2023/RO/020, 2023/RO/021, 2023/RO/023, 2023/RO/024, 2023/RO/025, 2023/RO/026, 2023/RO/027, 2023/RO/028, 2023/RO/029, 2023/RO/030, 2023/RO/031, 2023/RO/032, 2023/RO/033, 2023/RO/034, 2023/RO/035, 2023/RO/036, 2023/RO/037, 2023/RO/038, 2023/RO/039, 2023/RO/040, 2023/RO/041, 2023/RO/042, 2023/RO/043, 2023/RO/044, 2023/RO/045, 2023/RO/046, 2023/RO/047, 2023/RO/048, 2023/RO/050, 2023/RO/051, 2024/RO/001, 2024/RO/002, 2024/RO/003, 2024/RO/004, 2024/RO/005, 2024/RO/006, 2024/RO/007, 2024/RO/008, 2024/RO/009, 2024/RO/010, 2024/RO/011, 2024/RO/014, 2024/RO/015, 2024/RO/016, 2024/RO/017, 2024/RO/018, 2024/RO/019, 2024/RO/020, 2024/RO/021, 2024/RO/022, 2024/RO/023, 2024/RO/025, 2024/RO/026, 2024/RO/027, 2024/RO/029, 2025/RO/001, 2025/RO/002, 2025/RO/003, 2025/RO/004, 2025/RO/005, 2025/RO/006, 2025/RO/007, 2025/RO/008, 2025/RO/009, 2025/RO/010, 2025/RO/011, 2025/RO/012, 2025/RO/013, 2025/RO/014, 2025/RO/015, 2025/RO/016, 2025/RO/017, 2025/RO/018, 2025/RO/019, 2025/RO/020, 2025/RO/021, 2025/RO/022, 2025/RO/023, 2025/RO/024, 2025/RO/025, 2025/RO/029, 2025/RO/030, 2025/RO/031, 2025/RO/032, 2025/RO/033, 2025/RO/034, 2025/RO/035, 2025/RO/036, 2025/RO/037, 2025/RO/038, 2025/RO/039, 2025/RO/040, 2025/RO/041, 2025/RO/042, 2025/RO/043, 2025/RO/044, 2025/RO/045, 2025/RO/046, 2025/RO/047, 2025/RO/048, 2025/RO/049, 2025/RO/050, 2025/RO/051, 2025/RO/052, 2025/RO/053, 2025/RO/054, 2025/RO/055, 2025/RO/056, 2025/RO/057, 2025/RO/058, 2025/RO/059, 2025/RO/060, 2025/RO/061, 2025/RO/062, 2025/RO/063, 2025/RO/064, 2025/RO/065, 2025/RO/066, 2025/RO/067, 2025/RO/070, 2025/RO/071, 2025/RO/072, 2025/RO/073, 2025/RO/074, 2026/RO/001, 2026/RO/002, 2026/RO/003, 2026/RO/004, 2026/RO/005, 2026/RO/006, 2026/RO/007, 2026/RO/008, 2026/RO/009, 2026/RO/011, 2026/RO/013, 2026/RO/014, 2026/RO/015, 2026/RO/016, 2026/RO/017, 2026/RO/018, 2026/RO/019, 2026/RO/020, 2026/RO/021, 2026/RO/022, 2026/RO/023, 2026/RO/024, 2026/RO/025, 2026/RO/026, 2026/RO/027, 2026/RO/028, 2026/RO/029, 2026/RO/033, 2026/RO/034, 2026/RO/035, 2026/RO/036, 2026/RO/037.",
    "evidence_url": "https://www.dataprotection.ro/",
+   "reported_by": "Fino check",
+   "credit": null
+  },
+  {
+   "id": "C-0065",
+   "date": "2026-11-06",
+   "fino_id": "2022/DE/048",
+   "page_url": "https://finoprivacy.com/decisions/2022-DE-048.html",
+   "what_was_wrong": "The page said the source does not list which GDPR articles were involved.",
+   "what_it_says_now": "The Berlin press release of 20 September 2022 names Art. 38(6) sentence 2 GDPR (the controller must ensure that the data protection officer's other tasks do not cause a conflict of interests). The page now lists Art. 38(6).",
+   "evidence_url": "https://www.datenschutz-berlin.de/fileadmin/user_upload/pdf/pressemitteilungen/2022/20220920-BlnBDI-PM-Bussgeld-DSB.pdf",
+   "reported_by": "Fino check",
+   "credit": null
+  },
+  {
+   "id": "C-0066",
+   "date": "2026-11-06",
+   "fino_id": null,
+   "page_url": "https://finoprivacy.com/fines.html",
+   "what_was_wrong": "Eleven Hamburg decisions from 2020 showed amounts such as EUR 300,400, EUR 400,600, EUR 50,100, EUR 400 and EUR 300. These were two figures run together or one end of a range: the Hamburg commissioner's 2020 annual report gives fines of 50 to 100 euro (restaurants) and 300 to 400 or 400 to 600 euro (police officers).",
+   "what_it_says_now": "The pages now say \"Amount not published\": the report gives only a range for each group of cases, not each fine. 2020/DE/002, 2020/DE/003, 2020/DE/004, 2020/DE/008, 2020/DE/009, 2020/DE/010, 2020/DE/011, 2020/DE/012, 2020/DE/013, 2020/DE/014, 2020/DE/015.",
+   "evidence_url": "https://datenschutz-hamburg.de/fileadmin/user_upload/HmbBfDI/Datenschutz/Taetigkeitsberichte_Datenschutz/Taetigkeitsberichte_PDF/29._Taetigkeitsbericht_Datenschutz_2020.PDF",
+   "reported_by": "Fino check",
+   "credit": null
+  },
+  {
+   "id": "C-0067",
+   "date": "2026-11-06",
+   "fino_id": "2021/DE/048",
+   "page_url": "https://finoprivacy.com/decisions/2021-DE-048.html",
+   "what_was_wrong": "The page showed a fine of EUR 900,000 for Vattenfall Europe Sales GmbH, dated as decided on 24 September 2021, and a second page (ND/DE/001) listed the same fine again.",
+   "what_it_says_now": "The fine is EUR 901,388.84, as the Hamburg authority's press release of 24 September 2021 says; the page shows whole euros (901,388) and says \"Announced\" because the press release gives no day for the fine notice. The duplicate page forwards to this one.",
+   "evidence_url": "https://datenschutz-hamburg.de/fileadmin/user_upload/HmbBfDI/Pressemitteilungen/2021/2021-09-24-Vattenfall.pdf",
+   "reported_by": "Fino check",
+   "credit": null
+  },
+  {
+   "id": "C-0068",
+   "date": "2026-11-06",
+   "fino_id": "2020/DE/023",
+   "page_url": "https://finoprivacy.com/decisions/2020-DE-023.html",
+   "what_was_wrong": "The page showed a fine of EUR 65,000.",
+   "what_it_says_now": "The fine is EUR 65,500, as the Lower Saxony data protection commissioner's annual report for 2020 says.",
+   "evidence_url": "https://lfd.niedersachsen.de/download/169169,",
+   "reported_by": "Fino check",
+   "credit": null
+  },
+  {
+   "id": "C-0069",
+   "date": "2026-11-06",
+   "fino_id": "2024/DE/004",
+   "page_url": "https://finoprivacy.com/decisions/2024-DE-004.html",
+   "what_was_wrong": "The page showed a fine of EUR 16,000.",
+   "what_it_says_now": "The fine is EUR 10,000. The Hessen commissioner's annual report for 2024 gives EUR 10,000 as the fine, in addition to penalty payments of EUR 6,000 that are not part of the fine.",
+   "evidence_url": "https://datenschutz.hessen.de/sites/datenschutz.hessen.de/files/2025-05/53-tb-online.pdf",
+   "reported_by": "Fino check",
+   "credit": null
+  },
+  {
+   "id": "C-0070",
+   "date": "2026-11-06",
+   "fino_id": "2020/DE/016",
+   "page_url": "https://finoprivacy.com/decisions/2020-DE-016.html",
+   "what_was_wrong": "The page showed a fine of EUR 10,000 for Clearview AI Inc.",
+   "what_it_says_now": "No fine was imposed. The EUR 10,000 was a penalty payment that the information order of 14 August 2020 threatened for each unanswered question; the Hamburg report says the company has since answered. The page now shows the outcome as an order.",
+   "evidence_url": "https://datenschutz-hamburg.de/fileadmin/user_upload/HmbBfDI/Datenschutz/Taetigkeitsberichte_Datenschutz/Taetigkeitsberichte_PDF/29._Taetigkeitsbericht_Datenschutz_2020.PDF",
+   "reported_by": "Fino check",
+   "credit": null
+  },
+  {
+   "id": "C-0071",
+   "date": "2026-11-06",
+   "fino_id": "2019/DE/009",
+   "page_url": "https://finoprivacy.com/decisions/2019-DE-009.html",
+   "what_was_wrong": "The Hamburg EUR 20,000 fine for a late breach notification was listed twice: as 2018/DE/002 and as 2019/DE/009 (Hamburger Verkehrsverbund).",
+   "what_it_says_now": "The two are very likely the same fine (the Hamburg report for 2018 lists EUR 20,000 for the same Articles without naming the company; the report for 2019 names it). The old number 2018/DE/002 forwards to this page, 2019/DE/009.",
+   "evidence_url": "https://datenschutz-hamburg.de/fileadmin/user_upload/HmbBfDI/Datenschutz/Taetigkeitsberichte_Datenschutz/Taetigkeitsberichte_PDF/28._Taetigkeitsbericht_Datenschutz_2019_HmbBfDI.pdf",
    "reported_by": "Fino check",
    "credit": null
   }
