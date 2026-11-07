@@ -1,6 +1,6 @@
 # Fino
 
-> Fino is a free, independent website about EU privacy law. It has a searchable database of 5,044 GDPR fines and decisions from data protection authorities in 33 countries (€7.88 billion in fines), the full GDPR text with every article linked to the decisions that cite it, the full EU AI Act as amended in 2026, and plain-English explainers that answer common compliance questions with the rules and real decisions. Not legal advice.
+> Fino is a free, independent website about EU privacy law. It has a searchable database of 5,045 GDPR fines and decisions from data protection authorities in 33 countries (€7.88 billion in fines), the full GDPR text with every article linked to the decisions that cite it, the full EU AI Act as amended in 2026, and plain-English explainers that answer common compliance questions with the rules and real decisions. Not legal advice.
 
 Facts about the data:
 
@@ -27,8 +27,8 @@ Facts about the data:
 
 - [The full text, 99 articles and 173 recitals](https://finoprivacy.com/gdpr/)
 - [Article 4: Definitions](https://finoprivacy.com/gdpr/article-4.html): 190 decisions cite it
-- [Article 5: Principles relating to processing of personal data](https://finoprivacy.com/gdpr/article-5.html): 2,359 decisions cite it
-- [Article 6: Lawfulness of processing](https://finoprivacy.com/gdpr/article-6.html): 1,661 decisions cite it
+- [Article 5: Principles relating to processing of personal data](https://finoprivacy.com/gdpr/article-5.html): 2,357 decisions cite it
+- [Article 6: Lawfulness of processing](https://finoprivacy.com/gdpr/article-6.html): 1,659 decisions cite it
 - [Article 7: Conditions for consent](https://finoprivacy.com/gdpr/article-7.html): 173 decisions cite it
 - [Article 9: Processing of special categories of personal data](https://finoprivacy.com/gdpr/article-9.html): 391 decisions cite it
 - [Article 12: Transparent information, communication and modalities for the exercise of the rights of the data subject](https://finoprivacy.com/gdpr/article-12.html): 757 decisions cite it

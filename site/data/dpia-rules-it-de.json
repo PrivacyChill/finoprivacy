@@ -6,7 +6,7 @@
   "built_by": "Fino connector build script",
   "status": "Quoted unchanged, source named.",
   "not_legal_advice": "Not legal advice. These DPIA results apply rules taken from the GDPR, EDPB/WP 248 guidance and national lists to the answers you gave; a DPO checks them against the originals and adopts or rejects them.",
-  "caveat": "These lists are not exhaustive. A \"not indicated\" outcome is not \"no DPIA needed\". Fino reviews and never authors: the controller writes and signs the DPIA.",
+  "caveat": "These lists are not exhaustive. A \"not indicated\" outcome is not \"no DPIA needed\". The DPIA is the controller's own: the controller carries it out (Art. 35(1)), seeking the DPO's advice where one is designated (Art. 35(2)). Fino's outputs are drafts for a professional to check and adopt or reject.",
   "credit": "Decisions linked from these rules come from enforcementtracker.com, provided by CMS, and GDPRhub, noyb, under CC BY-NC-SA 4.0. Anything adapted from them keeps the credit and the same licence.",
   "outcomes": {
    "applies": "Every condition of the rule is answered yes. The rule says a DPIA is required.",

@@ -319,6 +319,10 @@ img.flag { display: inline-block; width: 1.15em; height: 1.15em; border-radius: 
 .fine .lbl { font-family: var(--mono); font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
 .fine .amt { font-family: var(--display); font-variation-settings: "SOFT" 100, "opsz" 96; font-weight: 600; font-size: clamp(2rem, 4.4vw, 2.9rem); line-height: 1.05; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; overflow-wrap: anywhere; }
 .fine .amt.none { font-size: 1.6rem; font-weight: 500; }
+.fine .amt.stmt { font-size: 1.5rem; font-weight: 500; line-height: 1.2; }
+.fine .conv.stmt-q, [data-look="corporate"] .fine .conv.stmt-q { display: block; margin-top: 8px; font-family: var(--body); font-variation-settings: normal; font-size: 0.9rem; line-height: 1.45; font-weight: 400; font-style: italic; letter-spacing: 0; color: var(--muted); }
+.results .amt.stmt { font-family: var(--body); font-weight: 400; font-size: 0.85rem; line-height: 1.3; max-width: 9.5rem; margin-left: auto; overflow-wrap: break-word; }   /* a long statement wraps under its width, so the name keeps its room on a phone */
+.results .amt.stmt small.tag { display: block; width: max-content; margin-left: auto; }
 .amt s { text-decoration-thickness: 2px; color: var(--muted); }
 .after { margin: 14px 0 0; padding: 10px 14px; border-left: 3px solid var(--latte-line); background: var(--neutral-bg); font-size: 0.92rem; max-width: 62ch; }
 .after a { white-space: nowrap; }
