@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-13 13:56:11",
+  "generated_at": "2026-11-13 22:28:43",
   "licence": "CC BY-NC-SA 4.0 — https://creativecommons.org/licenses/by-nc-sa/4.0/",
   "sources": [
     "enforcementtracker.com, provided by CMS (CC BY-NC-SA 4.0)",
@@ -11,7 +11,7 @@
     "countries": 33,
     "total_fines_eur": 7667036889,
     "latest_decision": "2026-11-05",
-    "last_run": "2026-11-13 13:56:07",
+    "last_run": "2026-11-13 22:28:42",
     "total_fines_eur_converted": 213681195
   },
   "last_fetch": "2026-11-09 03:33:38",
