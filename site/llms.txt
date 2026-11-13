@@ -1,0 +1,213 @@
+# Fino
+
+> Fino is a free, independent website about EU privacy law. It has a searchable database of 5,064 fines and data protection decisions from data protection authorities in 33 countries (about €7.88 billion in fines; the decisions of Switzerland are under its own national act, not the GDPR), the full GDPR text with every article linked to the decisions that cite it, the full EU AI Act as amended in 2026, and plain-English explainers that answer common compliance questions with the rules and real decisions. Not legal advice.
+
+Facts about the data:
+
+- Sources: the CMS Enforcement Tracker and GDPRhub (noyb), both CC BY-NC-SA 4.0, and Fino's own readings of the regulators' documents (1,273 decisions read, 593 in part), with duplicates merged. Nearly every decision links to the regulator's original.
+- Each decision has a permanent page at https://finoprivacy.com/decisions/<case number>.html, for example https://finoprivacy.com/decisions/2026-RO-040.html. The case number (e.g. 2026/RO/040) is Fino's own: year / country code / number.
+- Fines in other currencies are converted to euro at the European Central Bank rate of the decision date and marked as estimates (≈).
+- Private individuals are never named; they are described (for example "Doctor").
+- The data files were built on 13 Nov 2026; the CMS Enforcement Tracker and GDPRhub were last read on 9 Nov 2026.
+
+## Connector
+
+- [Fino with your AI](https://finoprivacy.com/ai/): a free, read-only connector (an MCP server) that lets an AI app look things up in Fino. It works with Claude today, in four steps; ChatGPT, Gemini and Microsoft Copilot are marked "coming soon" (Fino has not tested them yet). What it holds: decisions from every country Fino holds (5,064 from 33 countries), 28 laws, 53 Court of Justice judgments, 27 EDPB documents and Fino's 17 documents (each in English, Italian and German). Each decision, law article, document, key case, Court of Justice judgment and EDPB guidance document in its answers links to its Fino page. In Claude, add it as a custom connector with this address (no login, no key): https://fino-mcp-grafvxvlzq-ey.a.run.app/mcp
+- No account or login on Fino's side; nothing is uploaded and no search text is kept. Drafts are for a professional to check. Not legal advice. What it records: https://finoprivacy.com/Privacy.html#connector (section 04).
+
+## Explainers
+
+- [Our cookie banner has no “reject” button. How big are the fines?](https://finoprivacy.com/cookies.html): the rules (GDPR Articles 4, 7) and 8 real decisions
+- [We want to monitor staff laptops. Has a regulator ruled on this?](https://finoprivacy.com/staff-monitoring.html): the rules (GDPR Articles 5, 6, 13, 35, 88) and 6 real decisions
+- [The board wants to know our worst-case fine for this data breach.](https://finoprivacy.com/data-breach-fines.html): the rules (GDPR Articles 83, 5, 32, 33, 34, 82) and 8 real decisions
+- [We’re training AI on customer data. Has anyone been fined?](https://finoprivacy.com/ai-training.html): the rules (GDPR Articles 5, 6, 13, 21, 9, 35) and 8 real decisions
+- ["A recruiter makes the final call, so our CV screening is not automated." Is that enough?](https://finoprivacy.com/adm-in-hiring.html): the rules (GDPR Articles 22, 4, 15, 13, 35) and 1 real decision
+- [Questions a DPO is asked](https://finoprivacy.com/questions.html): every card of Fino's LinkedIn page, each with the decision or explainer behind it
+
+## GDPR fines and decisions
+
+- [Search all decisions](https://finoprivacy.com/fines.html): filter by country, year, sector, article, outcome and fine size
+- [Sitemap with every decision page](https://finoprivacy.com/sitemap.xml)
+
+## The GDPR
+
+- [The full text, 99 articles and 173 recitals](https://finoprivacy.com/gdpr/)
+- [Article 4: Definitions](https://finoprivacy.com/gdpr/article-4.html): 193 decisions cite it
+- [Article 5: Principles relating to processing of personal data](https://finoprivacy.com/gdpr/article-5.html): 2,367 decisions cite it
+- [Article 6: Lawfulness of processing](https://finoprivacy.com/gdpr/article-6.html): 1,672 decisions cite it
+- [Article 7: Conditions for consent](https://finoprivacy.com/gdpr/article-7.html): 173 decisions cite it
+- [Article 9: Processing of special categories of personal data](https://finoprivacy.com/gdpr/article-9.html): 391 decisions cite it
+- [Article 12: Transparent information, communication and modalities for the exercise of the rights of the data subject](https://finoprivacy.com/gdpr/article-12.html): 760 decisions cite it
+- [Article 13: Information to be provided where personal data are collected from the data subject](https://finoprivacy.com/gdpr/article-13.html): 832 decisions cite it
+- [Article 14: Information to be provided where personal data have not been obtained from the data subject](https://finoprivacy.com/gdpr/article-14.html): 217 decisions cite it
+- [Article 15: Right of access by the data subject](https://finoprivacy.com/gdpr/article-15.html): 492 decisions cite it
+- [Article 17: Right to erasure (‘right to be forgotten’)](https://finoprivacy.com/gdpr/article-17.html): 302 decisions cite it
+- [Article 24: Responsibility of the controller](https://finoprivacy.com/gdpr/article-24.html): 264 decisions cite it
+- [Article 25: Data protection by design and by default](https://finoprivacy.com/gdpr/article-25.html): 315 decisions cite it
+- [Article 28: Processor](https://finoprivacy.com/gdpr/article-28.html): 207 decisions cite it
+- [Article 32: Security of processing](https://finoprivacy.com/gdpr/article-32.html): 967 decisions cite it
+- [Article 58: Powers](https://finoprivacy.com/gdpr/article-58.html): 409 decisions cite it
+
+## The AI Act
+
+- [The full text as amended in July 2026: 116 articles, 14 annexes and 180 recitals](https://finoprivacy.com/ai-act/)
+- [Article 5: Prohibited AI practices](https://finoprivacy.com/ai-act/article-5.html)
+- [Article 6: Classification rules for high-risk AI systems](https://finoprivacy.com/ai-act/article-6.html)
+- [Article 50: Transparency obligations for providers and deployers of certain AI systems](https://finoprivacy.com/ai-act/article-50.html)
+- [Annex III: High-risk AI systems referred to in Article 6(2)](https://finoprivacy.com/ai-act/annex-iii.html)
+
+## Germany (in German)
+
+- [BDSG: Federal Data Protection Act](https://finoprivacy.com/bdsg/): 86 sections in the original German, consolidated 2026-07-13, each with a one-line English label (not an official English version)
+- [TDDDG: Telecommunications and Digital Services Data Protection Act](https://finoprivacy.com/tdddg/): 32 sections in the original German, consolidated 2026-08-17, each with a one-line English label (not an official English version)
+
+## Italy (in Italian)
+
+- [Codice privacy: Personal Data Protection Code](https://finoprivacy.com/codice-privacy/): 221 articles in the original Italian, consolidated 2026-02-20, each with a one-line English label (not an official English version)
+- [L. 132/2025: Italian AI law (provisions and delegations to the Government on artificial intelligence)](https://finoprivacy.com/l-132-2025/): 28 articles in the original Italian, consolidated 2026-06-27, each with a one-line English label (not an official English version)
+
+## EU and UK law (English)
+
+- [ePrivacy Directive: Directive on privacy and electronic communications](https://finoprivacy.com/eprivacy/): 23 articles, 49 recitals, the official English text word for word, consolidated version of 2009-12-19
+- [LED: Data protection in police and criminal justice](https://finoprivacy.com/led/): 65 articles, 107 recitals, the official English text word for word, consolidated version of 2016-05-04
+- [EUDPR: Data protection rules for the EU institutions](https://finoprivacy.com/eudpr/): 101 articles, 89 recitals, the official English text word for word, as published in the Official Journal
+- [GDPR Procedural Regulation: Additional procedural rules for GDPR cross-border enforcement](https://finoprivacy.com/gdpr-procedural/): 37 articles, 68 recitals, the official English text word for word, as published in the Official Journal
+- [SCCs: Standard contractual clauses for transfers of personal data to third countries](https://finoprivacy.com/scc/): 4 articles, 5 annex pages, 26 recitals, the official English text word for word, as published in the Official Journal
+- [EU-US DPF: Adequacy decision for the EU-US Data Privacy Framework](https://finoprivacy.com/dpf/): 4 articles, 10 annex pages, 223 recitals, the official English text word for word, as published in the Official Journal
+- [NIS2 Directive: Cybersecurity across the Union](https://finoprivacy.com/nis2/): 46 articles, 3 annexes, 144 recitals, the official English text word for word, consolidated version of 2022-12-27
+- [DORA: Digital operational resilience for the financial sector](https://finoprivacy.com/dora/): 64 articles, 106 recitals, the official English text word for word, as published in the Official Journal
+- [Data Act: Fair access to and use of data](https://finoprivacy.com/data-act/): 50 articles, 119 recitals, the official English text word for word, as published in the Official Journal
+- [DGA: European data governance](https://finoprivacy.com/dga/): 38 articles, 63 recitals, the official English text word for word, as published in the Official Journal
+- [DSA: Single market for digital services](https://finoprivacy.com/dsa/): 93 articles, 156 recitals, the official English text word for word, as published in the Official Journal
+- [DMA: Contestable and fair markets in the digital sector](https://finoprivacy.com/dma/): 54 articles, 1 annex, 109 recitals, the official English text word for word, consolidated version of 2022-10-12
+- [CRA: Cybersecurity requirements for products with digital elements](https://finoprivacy.com/cra/): 71 articles, 8 annexes, 130 recitals, the official English text word for word, consolidated version of 2024-11-20
+- [EHDS: European Health Data Space](https://finoprivacy.com/ehds/): 105 articles, 4 annexes, 115 recitals, the official English text word for word, as published in the Official Journal
+- [eIDAS: Electronic identification and trust services (as amended by eIDAS 2)](https://finoprivacy.com/eidas/): 85 articles, 7 annexes, 77 recitals, the official English text word for word, consolidated version of 2024-10-18
+- [Whistleblower Directive: Protection of persons who report breaches of Union law](https://finoprivacy.com/whistleblower-directive/): 29 articles, 1 annex, 110 recitals, the official English text word for word, consolidated version of 2024-12-30
+- [Platform Work Directive: Improving working conditions in platform work](https://finoprivacy.com/platform-work/): 32 articles, 73 recitals, the official English text word for word, consolidated version of 2024-11-11
+- [Product Liability Directive: Liability for defective products](https://finoprivacy.com/product-liability/): 24 articles, 1 annex, 64 recitals, the official English text word for word, consolidated version of 2024-11-18
+- [e-Commerce Directive: Information society services, in particular electronic commerce](https://finoprivacy.com/ecommerce/): 24 articles, 1 annex, 65 recitals, the official English text word for word, consolidated version of 2024-02-17
+- [UK GDPR: United Kingdom General Data Protection Regulation (retained Regulation (EU) 2016/679, as amended)](https://finoprivacy.com/uk-gdpr/): 120 articles, 2 annexes, 173 recitals, the official English text word for word, revised version valid 2026-09-30
+- [DPA 2018: Data Protection Act 2018](https://finoprivacy.com/dpa-2018/): 261 sections, 23 schedules, the official English text word for word, revised version valid 2026-09-30
+- [PECR: Privacy and Electronic Communications (EC Directive) Regulations 2003](https://finoprivacy.com/pecr/): 50 regulations, 3 schedules, the official English text word for word, revised version valid 2026-09-30
+
+## Court rulings and EDPB guidance
+
+- [Court of Justice rulings](https://finoprivacy.com/rulings/): 53 judgments on EU data protection law (the GDPR and, for the very famous cases, the earlier Directive), each with the operative part and the questions referred word for word, with paragraph numbers, read by Fino in the original
+- [EDPB guidance](https://finoprivacy.com/guidance/): 27 guidelines, opinions and binding decisions of the European Data Protection Board and Article 29 Working Party guidelines it endorsed, each with passages word for word, its version and whether it is final or a draft
+
+## Glossary and key cases
+
+- [Glossary](https://finoprivacy.com/glossary/): 250 terms of EU privacy and AI law; where a law defines the word, the definition is quoted word for word with its article
+- [Key cases](https://finoprivacy.com/key-cases/): 39 landmark rulings of the EU Court of Justice and the European Court of Human Rights, each quoted from the official judgment
+
+## Countries
+
+- [All countries](https://finoprivacy.com/countries/): one page for each of the 33 countries on Fino and for the EU bodies: regulators, fines, biggest fines, decisions by year, most cited articles and every decision
+- [Austria](https://finoprivacy.com/countries/austria/): 143 decisions, €28.6 million in 45 fines with a published amount, and 1 more fine with no published amount
+- [Belgium](https://finoprivacy.com/countries/belgium/): 267 decisions, €1.8 million in 54 fines with a published amount, and 1 more fine with no published amount
+- [Bulgaria](https://finoprivacy.com/countries/bulgaria/): 36 decisions, about €3.8 million in 33 fines with a published amount
+- [Croatia](https://finoprivacy.com/countries/croatia/): 66 decisions, about €18.7 million in 50 fines with a published amount, and 2 more fines with no published amount
+- [Cyprus](https://finoprivacy.com/countries/cyprus/): 68 decisions, €1.5 million in 51 fines with a published amount
+- [Czech Republic](https://finoprivacy.com/countries/czech-republic/): 84 decisions, about €14.5 million in 74 fines with a published amount, and 8 more fines with no published amount
+- [Denmark](https://finoprivacy.com/countries/denmark/): 119 decisions, about €2.6 million in 28 fines with a published amount
+- [Estonia](https://finoprivacy.com/countries/estonia/): 39 decisions, €3.3 million in 9 fines with a published amount, and 1 more fine with no published amount
+- [EU bodies](https://finoprivacy.com/countries/european-union/): 13 decisions, no fine amount
+- [Finland](https://finoprivacy.com/countries/finland/): 105 decisions, €9.6 million in 29 fines with a published amount
+- [France](https://finoprivacy.com/countries/france/): 119 decisions, €1.17 billion in 92 fines with a published amount, and 8 more fines with no published amount
+- [Germany](https://finoprivacy.com/countries/germany/): 286 decisions, €96.4 million in 125 fines with a published amount, and 146 more fines with no published amount
+- [Greece](https://finoprivacy.com/countries/greece/): 193 decisions, €38.3 million in 146 fines with a published amount
+- [Hungary](https://finoprivacy.com/countries/hungary/): 122 decisions, about €3.6 million in 104 fines with a published amount
+- [Iceland](https://finoprivacy.com/countries/iceland/): 122 decisions, about €749,742 in 23 fines with a published amount
+- [Ireland](https://finoprivacy.com/countries/ireland/): 58 decisions, €4.44 billion in 41 fines with a published amount, and 1 more fine with no published amount
+- [Isle of Man](https://finoprivacy.com/countries/isle-of-man/): 3 decisions, €218,750 in 3 fines with a published amount
+- [Italy](https://finoprivacy.com/countries/italy/): 783 decisions, €372.7 million in 678 fines with a published amount
+- [Latvia](https://finoprivacy.com/countries/latvia/): 27 decisions, €632,895 in 18 fines with a published amount, and 3 more fines with no published amount
+- [Liechtenstein](https://finoprivacy.com/countries/liechtenstein/): 1 decision, €4,100 in 1 fine with a published amount
+- [Lithuania](https://finoprivacy.com/countries/lithuania/): 34 decisions, €3.2 million in 19 fines with a published amount
+- [Luxembourg](https://finoprivacy.com/countries/luxembourg/): 48 decisions, €518,064 in 39 fines with a published amount
+- [Malta](https://finoprivacy.com/countries/malta/): 24 decisions, €462,500 in 17 fines with a published amount
+- [Netherlands](https://finoprivacy.com/countries/netherlands/): 52 decisions, €1.28 billion in 45 fines with a published amount
+- [Norway](https://finoprivacy.com/countries/norway/): 105 decisions, about €23.0 million in 69 fines with a published amount, and 5 more fines with no published amount
+- [Poland](https://finoprivacy.com/countries/poland/): 150 decisions, about €23.0 million in 128 fines with a published amount
+- [Portugal](https://finoprivacy.com/countries/portugal/): 14 decisions, €6.7 million in 10 fines with a published amount
+- [Romania](https://finoprivacy.com/countries/romania/): 321 decisions, about €2.4 million in 315 fines with a published amount, and 4 more fines with no published amount
+- [Slovakia](https://finoprivacy.com/countries/slovakia/): 13 decisions, €139,800 in 8 fines with a published amount, and 4 more fines with no published amount
+- [Slovenia](https://finoprivacy.com/countries/slovenia/): 107 decisions, €217,630 in 23 fines with a published amount
+- [Spain](https://finoprivacy.com/countries/spain/): 1,337 decisions, €170.0 million in 1,225 fines with a published amount
+- [Sweden](https://finoprivacy.com/countries/sweden/): 88 decisions, about €35.9 million in 51 fines with a published amount
+- [Switzerland](https://finoprivacy.com/countries/switzerland/): 4 decisions, no fine amount
+- [United Kingdom](https://finoprivacy.com/countries/united-kingdom/): 113 decisions, about €123.6 million in 74 fines with a published amount
+
+## Documents to download
+
+- [Documents and checklists](https://finoprivacy.com/documents/): five GDPR checklists to tick on the page, and privacy notices, contract clauses and data-subject letters, each readable on its page and downloadable as PDF and Word. Drafts for a professional to check. Not legal advice.
+- [CCTV at work: privacy notice for employees and visitors](https://finoprivacy.com/documents/cctv-employee-notice.html): A two-layer draft for workplace CCTV: the sign at the entrance and the full privacy notice, with what to check first in Italy and in Germany. For a DPO, HR… PDF and Word
+- [Do you need a DPIA?](https://finoprivacy.com/documents/dpia-screening.html): A screening checklist for a data protection impact assessment. For each line tick yes, no or unknown. Write who you asked. PDF and Word
+- [Ask an organisation what data it holds about you (right of access)](https://finoprivacy.com/documents/dsr-access.html): A letter to ask an organisation whether it uses your personal data, for a copy, and for the facts about how it uses it, with the time limits and what to do… PDF and Word
+- [Ask for a person to review a computer's decision about you (automated decisions)](https://finoprivacy.com/documents/dsr-automated-decision.html): A letter to ask whether a decision about you was made by a computer alone, how it was reached, and for a person to review it. PDF and Word
+- [Ask an organisation to delete your data (right to erasure)](https://finoprivacy.com/documents/dsr-erasure.html): A letter to have your personal data deleted, with the grounds and the exceptions as Article 17 states them, the time limits and what to do if no answer comes. PDF and Word
+- [Tell an organisation to stop using your data (right to object)](https://finoprivacy.com/documents/dsr-objection.html): A letter to object to direct marketing, which must stop, or to a use based on the organisation's legitimate interest, which it must justify, with the… PDF and Word
+- [Ask for your data in a reusable file (right to data portability)](https://finoprivacy.com/documents/dsr-portability.html): A letter to receive the data you gave an organisation in a machine-readable file, or to have it sent to another organisation. PDF and Word
+- [Handling data requests: procedure and register](https://finoprivacy.com/documents/dsr-procedure.html): A short procedure for an organisation that receives requests from people about their data: who receives them, the register, how to count the deadline… PDF and Word
+- [Ask an organisation to correct your data (right to rectification)](https://finoprivacy.com/documents/dsr-rectification.html): A letter to have wrong personal data corrected or missing data completed, with the time limits and what to do if no answer comes. PDF and Word
+- [Reply to a data request: confirm receipt](https://finoprivacy.com/documents/dsr-reply-acknowledge.html): A short reply that confirms a request has arrived, gives a reference and the date the answer is due, and says what happens next. PDF and Word
+- [Reply to a data request: extend the time limit](https://finoprivacy.com/documents/dsr-reply-extension.html): A notice that the answer will take up to two more months, with the reasons, sent within the first month as Article 12(3) requires. PDF and Word
+- [Reply to a data request: the answer](https://finoprivacy.com/documents/dsr-reply-fulfilled.html): Two replies: the answer to an access request, item by item as Article 15 lists them, and the confirmation that data has been corrected, erased, restricted… PDF and Word
+- [Reply to a data request: ask the person to confirm their identity](https://finoprivacy.com/documents/dsr-reply-identity.html): A reply that asks only for what is needed to confirm who is asking, when there is a real doubt, and explains what happens to the information. PDF and Word
+- [Reply to a data request: refuse, or charge a fee](https://finoprivacy.com/documents/dsr-reply-refusal.html): Two replies for the cases where an organisation will not act on a request, or considers it excessive: what the law requires them to say, and the narrow… PDF and Word
+- [Ask an organisation to stop using your data but keep it (right to restriction)](https://finoprivacy.com/documents/dsr-restriction.html): A letter to have your personal data kept but not used, for example while its accuracy is checked or because you need it for a legal claim. PDF and Word
+- [GPS tracking of company vehicles: privacy notice for drivers](https://finoprivacy.com/documents/gps-vehicle-notice.html): A draft privacy notice for drivers of tracked company vans and cars, with a one-page driver sheet, an in-vehicle notice, and what to check first in Italy… PDF and Word
+- [Processor agreement (Article 28 GDPR)](https://finoprivacy.com/documents/processor-agreement.html): A model agreement between a controller and a processor under Article 28 GDPR, with four annexes to fill in and a line-by-line check for an agreement already… PDF and Word
+
+### Italiano (Italian edition)
+
+- [All documents in Italian](https://finoprivacy.com/documents/it/)
+- [Videosorveglianza sul luogo di lavoro: informativa per dipendenti e visitatori](https://finoprivacy.com/documents/it/cctv-employee-notice.html): Una bozza su due livelli per la videosorveglianza sul luogo di lavoro: il cartello all'ingresso e l'informativa completa, con che cosa verificare prima in… PDF and Word
+- [Serve una valutazione d'impatto sulla protezione dei dati (DPIA)?](https://finoprivacy.com/documents/it/dpia-screening.html): Una checklist per capire se un trattamento richiede una valutazione d'impatto sulla protezione dei dati. Per ogni riga spunta sì, no o non so. Scrivi a chi… PDF and Word
+- [Chiedere a un'organizzazione quali dati ha su di te (diritto di accesso)](https://finoprivacy.com/documents/it/dsr-access.html): Una lettera per chiedere a un'organizzazione se usa i tuoi dati personali, per averne una copia e per sapere come li usa, con i termini di risposta e che… PDF and Word
+- [Chiedere che una persona riesamini una decisione presa solo da un sistema automatico (decisioni automatizzate)](https://finoprivacy.com/documents/it/dsr-automated-decision.html): Una lettera per chiedere se una decisione che ti riguarda è stata presa soltanto da un computer, come si è arrivati al risultato, e per ottenere il riesame… PDF and Word
+- [Chiedere a un'organizzazione di cancellare i tuoi dati (diritto alla cancellazione)](https://finoprivacy.com/documents/it/dsr-erasure.html): Una lettera per far cancellare i tuoi dati personali, con i motivi e le eccezioni come li indica l'art. 17, i termini di risposta e che cosa fare se la… PDF and Word
+- [Chiedere a un'organizzazione di smettere di usare i tuoi dati (diritto di opposizione)](https://finoprivacy.com/documents/it/dsr-objection.html): Una lettera per opporti al marketing diretto, che deve cessare, o a un trattamento basato sul legittimo interesse dell'organizzazione, che questa deve… PDF and Word
+- [Ricevere i tuoi dati in un file riutilizzabile (diritto alla portabilità dei dati)](https://finoprivacy.com/documents/it/dsr-portability.html): Una lettera per ricevere in un file leggibile da dispositivo automatico i dati che hai fornito a un'organizzazione, o per farli trasmettere a un'altra… PDF and Word
+- [Gestire le richieste sui dati: procedura e registro](https://finoprivacy.com/documents/it/dsr-procedure.html): Una procedura breve per l'organizzazione che riceve richieste dalle persone sui loro dati: chi le riceve, il registro, come calcolare il termine, i… PDF and Word
+- [Chiedere a un'organizzazione di correggere i tuoi dati (diritto di rettifica)](https://finoprivacy.com/documents/it/dsr-rectification.html): Una lettera per far correggere dati personali sbagliati o completare quelli incompleti, con i termini di risposta e che cosa fare se la risposta non arriva. PDF and Word
+- [Rispondere a una richiesta di esercizio dei diritti: conferma di ricezione](https://finoprivacy.com/documents/it/dsr-reply-acknowledge.html): Una breve risposta che conferma l'arrivo di una richiesta, indica un riferimento e la data entro cui arriverà la risposta, e spiega i passi successivi. PDF and Word
+- [Rispondere a una richiesta di esercizio dei diritti: prorogare il termine](https://finoprivacy.com/documents/it/dsr-reply-extension.html): Una comunicazione che la risposta richiederà fino a due mesi in più, con i motivi, inviata entro il primo mese come richiede l'art. 12, par. 3. PDF and Word
+- [Rispondere a una richiesta di esercizio dei diritti: la risposta](https://finoprivacy.com/documents/it/dsr-reply-fulfilled.html): Due risposte: la risposta a una richiesta di accesso, voce per voce come le elenca l'art. 15, e la conferma che i dati sono stati rettificati, cancellati… PDF and Word
+- [Rispondere a una richiesta di esercizio dei diritti: chiedere alla persona di confermare la propria identità](https://finoprivacy.com/documents/it/dsr-reply-identity.html): Una risposta che chiede solo quanto serve per confermare chi sta facendo la richiesta, quando c'è un dubbio reale, e spiega che fine fanno le informazioni. PDF and Word
+- [Rispondere a una richiesta di esercizio dei diritti: rifiuto o contributo spese](https://finoprivacy.com/documents/it/dsr-reply-refusal.html): Due risposte per i casi in cui un'organizzazione non dà seguito a una richiesta o la ritiene eccessiva: che cosa la legge impone di dire, e la lettura… PDF and Word
+- [Chiedere a un'organizzazione di conservare i tuoi dati senza usarli (diritto di limitazione del trattamento)](https://finoprivacy.com/documents/it/dsr-restriction.html): Una lettera per far conservare i tuoi dati personali senza che siano usati, per esempio mentre se ne verifica l'esattezza o perché ti servono per far valere… PDF and Word
+- [Localizzazione GPS dei veicoli aziendali: informativa per i conducenti](https://finoprivacy.com/documents/it/gps-vehicle-notice.html): Una bozza di informativa per i conducenti di furgoni e auto aziendali localizzati, con una scheda di una pagina per i conducenti, l'avviso da collocare nel… PDF and Word
+- [Accordo con il responsabile del trattamento (art. 28 GDPR)](https://finoprivacy.com/documents/it/processor-agreement.html): Un modello di accordo tra titolare e responsabile del trattamento ai sensi dell'art. 28 del GDPR, con quattro allegati da compilare e un controllo riga per… PDF and Word
+
+### Deutsch (German edition)
+
+- [All documents in German](https://finoprivacy.com/documents/de/)
+- [Videoüberwachung am Arbeitsplatz: Datenschutzhinweise für Beschäftigte und Besucher](https://finoprivacy.com/documents/de/cctv-employee-notice.html): Ein Entwurf in zwei Ebenen für die Videoüberwachung am Arbeitsplatz: das Hinweisschild am Eingang und die vollständigen Datenschutzhinweise, mit dem, was in… PDF and Word
+- [Ist eine Datenschutz-Folgenabschätzung nötig?](https://finoprivacy.com/documents/de/dpia-screening.html): Eine Prüfliste für die Frage, ob eine Datenschutz-Folgenabschätzung (DSFA) durchzuführen ist. Kreuzen Sie für jede Zeile Ja, Nein oder „?“ (unbekannt) an… PDF and Word
+- [Auskunft über die eigenen Daten verlangen (Auskunftsrecht)](https://finoprivacy.com/documents/de/dsr-access.html): Ein Schreiben, mit dem Sie von einem Unternehmen oder einer Behörde erfahren, ob diese Stelle Ihre personenbezogenen Daten verarbeitet, eine Kopie erhalten… PDF and Word
+- [Verlangen, dass ein Mensch eine Computerentscheidung über Sie überprüft (automatisierte Entscheidungen)](https://finoprivacy.com/documents/de/dsr-automated-decision.html): Ein Schreiben, mit dem Sie fragen, ob eine Entscheidung über Sie allein von einem Computer getroffen wurde und wie sie zustande kam, und mit dem Sie die… PDF and Word
+- [Löschung der eigenen Daten verlangen (Recht auf Löschung)](https://finoprivacy.com/documents/de/dsr-erasure.html): Ein Schreiben, mit dem Sie die Löschung Ihrer personenbezogenen Daten verlangen, mit den Gründen und Ausnahmen im Wortlaut von Art. 17 DSGVO, den Fristen… PDF and Word
+- [Der Verwendung der eigenen Daten widersprechen (Widerspruchsrecht)](https://finoprivacy.com/documents/de/dsr-objection.html): Ein Schreiben, mit dem Sie der Direktwerbung widersprechen, die dann enden muss, oder einer Verarbeitung auf Grundlage berechtigter Interessen des… PDF and Word
+- [Die eigenen Daten in einer wiederverwendbaren Datei verlangen (Recht auf Datenübertragbarkeit)](https://finoprivacy.com/documents/de/dsr-portability.html): Ein Schreiben, mit dem Sie die Daten, die Sie einer Stelle bereitgestellt haben, in einer maschinenlesbaren Datei erhalten oder an eine andere Stelle… PDF and Word
+- [Umgang mit Anträgen betroffener Personen: Verfahren und Register](https://finoprivacy.com/documents/de/dsr-procedure.html): Ein kurzes Verfahren für Stellen, die Anträge von Personen zu ihren Daten erhalten: wer sie entgegennimmt, das Register, die Fristberechnung… PDF and Word
+- [Berichtigung der eigenen Daten verlangen (Recht auf Berichtigung)](https://finoprivacy.com/documents/de/dsr-rectification.html): Ein Schreiben, mit dem Sie falsche personenbezogene Daten berichtigen oder fehlende vervollständigen lassen, mit den Fristen und den nächsten Schritten… PDF and Word
+- [Antwort auf einen Antrag einer betroffenen Person: Eingang bestätigen](https://finoprivacy.com/documents/de/dsr-reply-acknowledge.html): Eine kurze Antwort, die den Eingang eines Antrags bestätigt, ein Aktenzeichen und das Datum nennt, bis zu dem die Antwort fällig ist, und die nächsten… PDF and Word
+- [Antwort auf einen Antrag einer betroffenen Person: Frist verlängern](https://finoprivacy.com/documents/de/dsr-reply-extension.html): Eine Mitteilung, dass die Antwort bis zu zwei weitere Monate dauert, mit den Gründen, versandt innerhalb des ersten Monats, wie es Art. 12 Abs. 3 DSGVO… PDF and Word
+- [Antwort auf einen Antrag einer betroffenen Person: die Antwort](https://finoprivacy.com/documents/de/dsr-reply-fulfilled.html): Zwei Antworten: die Antwort auf einen Auskunftsantrag, Punkt für Punkt wie in Art. 15 DSGVO aufgeführt, und die Bestätigung, dass Daten berichtigt… PDF and Word
+- [Antwort auf einen Antrag einer betroffenen Person: um Bestätigung der Identität bitten](https://finoprivacy.com/documents/de/dsr-reply-identity.html): Eine Antwort, die bei einem echten Zweifel nur das anfordert, was zur Bestätigung der Identität nötig ist, und erklärt, was mit den Angaben geschieht. PDF and Word
+- [Antwort auf einen Antrag einer betroffenen Person: ablehnen oder ein Entgelt verlangen](https://finoprivacy.com/documents/de/dsr-reply-refusal.html): Zwei Antworten für die Fälle, in denen eine Stelle auf einen Antrag hin nicht tätig wird oder ihn für exzessiv hält: was sie nach dem Gesetz mitteilen muss… PDF and Word
+- [Verlangen, dass Ihre Daten aufbewahrt, aber nicht mehr verwendet werden (Recht auf Einschränkung der Verarbeitung)](https://finoprivacy.com/documents/de/dsr-restriction.html): Ein Schreiben, mit dem Sie erreichen, dass Ihre personenbezogenen Daten gespeichert, aber nicht weiter verwendet werden, etwa während ihre Richtigkeit… PDF and Word
+- [GPS-Ortung von Firmenfahrzeugen: Datenschutzhinweise für Fahrerinnen und Fahrer](https://finoprivacy.com/documents/de/gps-vehicle-notice.html): Ein Entwurf von Datenschutzhinweisen für Beschäftigte, die geortete Firmenfahrzeuge fahren, mit einem einseitigen Merkblatt, einem Hinweis im Fahrzeug und… PDF and Word
+- [Vertrag zur Auftragsverarbeitung (Art. 28 DSGVO)](https://finoprivacy.com/documents/de/processor-agreement.html): Ein Mustervertrag zwischen einem Verantwortlichen und einem Auftragsverarbeiter nach Art. 28 DSGVO, mit vier auszufüllenden Anlagen und einer zeilenweisen… PDF and Word
+
+## About
+
+- [Who made Fino and how it works](https://finoprivacy.com/About.html): sources, duplicates, who the decision is against, private people, currency conversion, case numbers, the review process and known limits
+- [Privacy](https://finoprivacy.com/Privacy.html)
+- [Tools](https://finoprivacy.com/Tool.html): [Similar fines](https://finoprivacy.com/tools/similar-fines.html) (the real range of GDPR fines in cases like yours, the closest decisions and the Article 83 maximum) , [Response timeline](https://finoprivacy.com/tools/response-timeline.html) (72-hour breach and one-month request deadlines), [Cookie banner check](https://finoprivacy.com/tools/cookie-check.html), [Documents and checklists](https://finoprivacy.com/documents/#checklists) (the five checklists: privacy notice, processor contract, records, breach report, DPIA), [Which regulator?](https://finoprivacy.com/tools/which-regulator.html) and the [AI Act check](https://finoprivacy.com/tools/ai-act-triage.html) (text as amended in July 2026)
+
+## Optional
+
+- [All decisions as JSON](https://finoprivacy.com/data/cases.json): one row per decision (field names in meta.fields); summaries are in https://finoprivacy.com/data/summaries/0.json and onwards, 250 per file, in the same order. CC BY-NC-SA 4.0.

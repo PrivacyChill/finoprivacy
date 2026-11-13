@@ -1,0 +1,149 @@
+/* Built from fines.html by pipeline/build_seo.mjs. Do not edit here. */
+const byId = id => document.getElementById(id);
+/* Phone menu: the three-line button opens the links full screen; a link, Escape or a wider screen closes it */
+(() => {
+  const top = document.querySelector('.top'), btn = document.getElementById('menu-btn'), nav = document.getElementById('main-nav');
+  if (!top || !btn || !nav) return;
+  top.classList.add('has-menu');
+  const set = open => {
+    top.classList.toggle('open', open); document.documentElement.classList.toggle('menu-open', open);
+    btn.setAttribute('aria-expanded', String(open)); btn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+  };
+  /* keyboard: opening moves focus into the menu, Tab stays among the menu and the header buttons until it is closed, Escape closes and returns focus to the button */
+  const shown = el => el.getClientRects().length > 0;
+  const ring = () => [...top.querySelectorAll('nav a[href], nav button, .ai-btn, .find-btn, .look-btn, .mode, .menu-btn')].filter(shown);
+  btn.addEventListener('click', () => {
+    const open = !top.classList.contains('open');
+    set(open);
+    document.querySelectorAll('main, footer').forEach(el => { el.inert = open; });
+    if (open) { const first = ring()[0]; if (first) first.focus(); }
+  });
+  nav.addEventListener('click', e => { if (e.target.closest('a')) { set(false); document.querySelectorAll('main, footer').forEach(el => { el.inert = false; }); } });
+  document.addEventListener('keydown', e => {
+    if (!top.classList.contains('open')) return;
+    if (e.key === 'Escape') { set(false); document.querySelectorAll('main, footer').forEach(el => { el.inert = false; }); btn.focus(); }
+    else if (e.key === 'Tab') {
+      const r = ring(), a = document.activeElement;
+      if (e.shiftKey && a === r[0]) { e.preventDefault(); r[r.length - 1].focus(); }
+      else if (!e.shiftKey && a === r[r.length - 1]) { e.preventDefault(); r[0].focus(); }
+    }
+  });
+  matchMedia('(min-width: 761px)').addEventListener('change', e => { if (e.matches) { set(false); document.querySelectorAll('main, footer').forEach(el => { el.inert = false; }); } });
+})();
+/* Sticky header: remember its height (for links to headings and the side contents) and show a soft edge once scrolled */
+(() => {
+  const head = document.querySelector('header.top');
+  if (!head) return;
+  const height = () => document.documentElement.style.setProperty('--head-h', head.offsetHeight + 'px');
+  height();
+  if (window.ResizeObserver) new ResizeObserver(height).observe(head);
+  const edge = () => head.classList.toggle('scrolled', window.scrollY > 4);
+  edge();
+  addEventListener('scroll', edge, { passive: true });
+})();
+
+/* Light / dark button, as on the homepage */
+const root = document.documentElement, modeBtn = byId('mode');
+function setMode(v, save) {
+  if (v === 'light') root.dataset.mode = 'light'; else delete root.dataset.mode;
+  const label = v === 'light' ? 'Switch to dark mode' : 'Switch to light mode';
+  modeBtn.setAttribute('aria-label', label); modeBtn.title = label;
+  if (save) { try { localStorage.setItem('mode', v); } catch (e) {} }
+}
+modeBtn.addEventListener('click', () => {
+    const next = root.dataset.mode === 'light' ? 'dark' : 'light';
+    const calm = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!document.startViewTransition) { setMode(next, true); return; }
+    if (!calm) root.dataset.switch = next;
+    const t = document.startViewTransition(() => setMode(next, true));
+    t.finished.finally(() => { delete root.dataset.switch; });
+    if (calm) return;
+    const b = modeBtn.getBoundingClientRect(), x = b.left + b.width / 2, y = b.top + b.height / 2;
+    const far = Math.hypot(Math.max(x, innerWidth - x), Math.max(y, innerHeight - y));
+    const dot = `circle(0px at ${x}px ${y}px)`, all = `circle(${far}px at ${x}px ${y}px)`;
+    /* the time follows the distance the light travels: about 0.45s on a phone, up to 0.7s on a big screen; going dark is a little quicker */
+    const up = Math.min(700, Math.max(450, far * .42)), dur = next === 'light' ? up : Math.round(up * .8);
+    document.dispatchEvent(new CustomEvent('fino:light', { detail: { next, x, y, far, dur } }));   // the homepage Fino reacts
+    t.ready.then(() => next === 'light'
+      ? root.animate({ clipPath: [dot, all] }, { duration: dur, easing: 'cubic-bezier(.25,.7,.25,1)', pseudoElement: '::view-transition-new(root)' })
+      : root.animate({ clipPath: [all, dot] }, { duration: dur, easing: 'cubic-bezier(.5,0,.75,.4)', pseudoElement: '::view-transition-old(root)' }));
+  });
+let saved = null;
+try { saved = localStorage.getItem('mode'); } catch (e) {}
+setMode(saved === 'dark' ? 'dark' : 'light', false);
+/* Look switch: the Fino look or a quieter corporate look. The choice stays in this browser (localStorage 'fino-look'),
+   nothing is sent; the line in the head applies it before the page paints. A quick cross-fade, none with reduced motion. */
+(() => {
+  const b = document.getElementById('look-btn'), r = document.documentElement;
+  if (!b) return;
+  const t = b.querySelector('.look-txt');
+  const show = () => {
+    const on = r.dataset.look === 'corporate';
+    b.setAttribute('aria-pressed', String(on)); t.textContent = on ? 'Fino look' : 'Corporate';
+    b.title = on ? 'Switch back to the Fino look' : 'Switch to the corporate look';
+  };
+  const set = on => {
+    if (on) r.dataset.look = 'corporate'; else delete r.dataset.look;
+    try { if (on) localStorage.setItem('fino-look', 'corporate'); else localStorage.removeItem('fino-look'); } catch (e) {}
+    show();
+  };
+  show();
+  b.addEventListener('click', () => {
+    const on = r.dataset.look !== 'corporate';
+    if (!document.startViewTransition || matchMedia('(prefers-reduced-motion: reduce)').matches) set(on);
+    else document.startViewTransition(() => set(on));
+  });
+})();
+
+/* Moving between pages: a link to a decision carries its name and amount into the decision page, and back again */
+(() => {
+  if (!('onpageswap' in window)) return;
+  const pathOf = u => { try { return new URL(u, location.href).pathname.replace(/\.html$/, ''); } catch (e) { return ''; } };
+  const linkTo = p => [...document.querySelectorAll('a[href*="decisions/"]')].find(a => pathOf(a.href) === p);
+  const mark = (a, on) => {
+    document.querySelectorAll('.head h1, .head .fine .amt').forEach(x => { x.style.viewTransitionName = on ? 'none' : ''; });
+    const n = a.querySelector('b'), m = a.querySelector('.amt, .pk-amt');
+    if (n) n.style.viewTransitionName = on ? 'm-name' : '';
+    if (m) m.style.viewTransitionName = on ? 'm-amt' : '';
+  };
+  addEventListener('pageswap', e => {
+    if (!e.viewTransition || !e.activation || !e.activation.entry) return;
+    const a = linkTo(pathOf(e.activation.entry.url)); if (!a) return;
+    mark(a, true); addEventListener('pageshow', () => mark(a, false), { once: true });
+  });
+  addEventListener('pagereveal', e => {
+    const from = e.viewTransition && window.navigation && navigation.activation && navigation.activation.from;
+    const a = from && linkTo(pathOf(from.url)); if (!a) return;
+    mark(a, true); e.viewTransition.finished.finally(() => mark(a, false));
+  });
+})();
+
+/* Copy citation (decision pages): the date of access is today's */
+(() => {
+  const b = byId('copy-cite'); if (!b || !b.dataset.cite) return;
+  const M = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+  b.addEventListener('click', () => {
+    const d = new Date(), t = `${b.dataset.cite}, accessed ${d.getDate()} ${M[d.getMonth()]} ${d.getFullYear()}.`;
+    const done = m => { byId('copied').textContent = m; };
+    const tick = () => { b.classList.remove('done'); void b.offsetWidth; b.classList.add('done'); clearTimeout(b.t); b.t = setTimeout(() => b.classList.remove('done'), 2000); done('Copied.'); };
+    try { navigator.clipboard.writeText(t).then(tick, () => done(t)); } catch (e) { done(t); }
+  });
+})();
+
+/* Recitals (GDPR and AI Act pages): "Go to recital", and links straight to #rec-12 or #ai-rec-12 open the preamble */
+(() => {
+  const pre = byId('preamble'); if (!pre) return;
+  const p = (pre.querySelector('.rec') || { id: 'rec-1' }).id.replace(/\d+$/, ''), max = +(byId('goto-rec') || {}).max;
+  const re = new RegExp('^#' + p + '(\\d+)$');
+  const open = n => { const el = byId(p + n); if (!el) return; pre.open = true; el.scrollIntoView({ block: 'start' }); };
+  const m = location.hash.match(re); if (m) open(+m[1]);
+  addEventListener('hashchange', () => { const k = location.hash.match(re); if (k) open(+k[1]); });
+  const f = byId('goto-form'); if (!f) return;
+  f.addEventListener('submit', e => {
+    e.preventDefault();
+    const n = +byId('goto-rec').value;
+    if (!(n >= 1 && n <= max)) { byId('goto-msg').textContent = 'Choose a number from 1 to ' + max + '.'; return; }
+    byId('goto-msg').textContent = '';
+    history.replaceState(null, '', '#' + p + n); open(n);
+  });
+})();

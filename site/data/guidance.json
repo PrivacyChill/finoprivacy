@@ -1,0 +1,1732 @@
+{
+ "meta": {
+  "generated": "2026-11-06",
+  "version": 1,
+  "count": 27,
+  "body": "European Data Protection Board",
+  "credit": "European Data Protection Board",
+  "extract_note": "Each extract is copied word for word from the document named in read_by_fino, with the paragraph or section it comes from. Only spacing is normalised: footnotes, footnote numbers, headings and page feet are left out, a bullet sign set in the PDF's symbol font is written as a bullet, and where an extract starts or stops inside a sentence, or leaves a passage out, [...] says so.",
+  "note": "Guidelines, opinions and binding decisions of the European Data Protection Board, and the Article 29 Working Party guidelines the Board endorsed. Not a complete list: see known_gaps.",
+  "known_gaps": [
+   "Fino holds 27 EDPB and Working Party documents. The Board has published many more guidelines, recommendations and opinions; the others are not yet in Fino.",
+   "Guidelines 05/2022 on facial recognition in law enforcement and Binding Decision 1/2026 (Belgian authority) were not built: their numbered paragraphs or their title and date could not be read reliably from the PDF.",
+   "Documents the Board adopted for public consultation only (draft guidelines) are not in Fino, except Guidelines 01/2025 on pseudonymisation, which is marked as a draft.",
+   "Opinions under Article 64 other than Opinions 22/2024 and 28/2024, and binding decisions other than the five that Fino's decisions cite, are not in Fino.",
+   "Where the Board has published a corrected version later than the copy Fino read, status_note says so; Fino has not compared the texts."
+  ],
+  "reuse": {
+   "basis": "The reuse of any information of the EDPB website is authorised, with the source acknowledged and without distorting its meaning (EDPB copyright page). Checked in Fino's library/reuse-terms.csv.",
+   "terms_url": "https://www.edpb.europa.eu/copyright_en",
+   "credit": "European Data Protection Board"
+  }
+ },
+ "guidance": [
+  {
+   "id": "EDPB-G-1-2025",
+   "kind": "guidelines",
+   "kind_label": "Guidelines",
+   "body": "European Data Protection Board",
+   "issued_by": "European Data Protection Board",
+   "number": "Guidelines 01/2025",
+   "version": "1.0 (for public consultation)",
+   "date": "2025-01-16",
+   "date_is": "date of adoption, as the document states it",
+   "cover_line": "Adopted on 16 January 2025",
+   "title": "Guidelines 01/2025 on Pseudonymisation",
+   "status": "draft for public consultation",
+   "status_note": "Adopted for public consultation. On 6 November 2026 the EDPB's page for it shows the consultation closed and no final version. It may change.",
+   "source_url": "https://www.edpb.europa.eu/documents/guideline/guidelines-012025-on-pseudonymisation_en",
+   "pdf_url": "https://www.edpb.europa.eu/system/files/2025-01/edpb_guidelines_202501_pseudonymisation_en.pdf",
+   "gdpr_articles": [
+    4
+   ],
+   "other_provisions": [],
+   "topics": [
+    "Pseudonymisation"
+   ],
+   "scope": {
+    "ref": "paragraph 1",
+    "text": "These guidelines intend to clarify the use and benefits of pseudonymisation for controllers and processors."
+   },
+   "extracts": [
+    {
+     "kind": "key_passage",
+     "ref": "paragraph 3",
+     "text": "Art. 4(5) GDPR defines pseudonymisation as a manner of processing with prescribed effects and calls for certain measures by which those effects are to be achieved."
+    },
+    {
+     "kind": "key_passage",
+     "ref": "paragraph 5",
+     "text": "There are three actions controllers should take to achieve the desired effect. First, they need to modify or transform the data."
+    },
+    {
+     "kind": "key_passage",
+     "ref": "paragraph 7",
+     "text": "First, the legal definition takes a more comprehensive view of the effect of pseudonymisation. It shall no longer be possible to attribute the personal data to a specific data subject without the use of additional information."
+    }
+   ],
+   "fino_line": "European Data Protection Board, Guidelines 01/2025, version 1.0 (for public consultation), adopted 16 January 2025, paragraph 3: “Art. 4(5) GDPR defines pseudonymisation as a manner of processing with prescribed effects and calls for certain measures by which those effects are to be achieved.”",
+   "read_by_fino": {
+    "document": "PDF, English text, as published on the EDPB website",
+    "scope": "whole document",
+    "date": "2026-11-06",
+    "sha256": "db1b9931b3403fab8bab846cb5868df776c415589ad925477117bc6b062bd085"
+   },
+   "reuse": {
+    "basis": "The reuse of any information of the EDPB website is authorised, with the source acknowledged and without distorting its meaning (EDPB copyright page). Checked in Fino's library/reuse-terms.csv.",
+    "terms_url": "https://www.edpb.europa.eu/copyright_en",
+    "credit": "European Data Protection Board"
+   },
+   "credit": "European Data Protection Board"
+  },
+  {
+   "id": "EDPB-O-28-2024",
+   "kind": "opinion",
+   "kind_label": "Opinion of the Board (Article 64)",
+   "body": "European Data Protection Board",
+   "issued_by": "European Data Protection Board",
+   "number": "Opinion 28/2024",
+   "version": "1.0",
+   "date": "2024-12-17",
+   "date_is": "date of adoption, as the document states it",
+   "cover_line": "Adopted on 17 December 2024",
+   "title": "Opinion 28/2024 on certain data protection aspects related to the processing of personal data in the context of AI models",
+   "status": "final",
+   "status_note": "An opinion of the Board under Article 64(2) GDPR.",
+   "source_url": "https://www.edpb.europa.eu/documents/opinion-of-the-board-art-64/opinion-282024-on-certain-data-protection-aspects-related-to_en",
+   "pdf_url": "https://www.edpb.europa.eu/system/files/documents/2024-12/edpb_opinion_202428_ai-models_en.pdf",
+   "gdpr_articles": [
+    4,
+    6,
+    64
+   ],
+   "other_provisions": [],
+   "topics": [
+    "Artificial intelligence",
+    "Pseudonymisation",
+    "Legitimate interest"
+   ],
+   "scope": {
+    "ref": "paragraph 7",
+    "text": "The Request raises, in essence, questions on (i) the application of the concept of personal data; (ii) the principle of lawfulness, with specific regard to the legal basis of legitimate interest, in the context of AI models; as well as, on (iii) the consequences of unlawful processing of personal data in the development phase of AI models, on the subsequent processing or operation of the model."
+   },
+   "extracts": [
+    {
+     "kind": "key_passage",
+     "ref": "paragraph 34",
+     "text": "Based on the above considerations, the EDPB considers that AI models trained on personal data cannot, in all cases, be considered anonymous. Instead, the determination of whether an AI model is anonymous should be assessed, based on specific criteria, on a case-by-case basis."
+    },
+    {
+     "kind": "key_passage",
+     "ref": "paragraph 43",
+     "text": "In sum, the EDPB considers that, for an AI model to be considered anonymous, using reasonable means, both (i) the likelihood of direct (including probabilistic) extraction of personal data regarding individuals whose personal data were used to train the model; as well as (ii) the likelihood of obtaining, intentionally or not, such personal data from queries, should be insignificant for any data subject."
+    },
+    {
+     "kind": "key_passage",
+     "ref": "paragraph 57",
+     "text": "The EDPB considers that SAs should take into account the documentation whenever a claim of anonymity regarding a given AI model needs to be evaluated."
+    },
+    {
+     "kind": "key_passage",
+     "ref": "paragraph 92",
+     "text": "Reasonable expectations play a key role in the balancing test, not least due to the complexity of the technology used in AI models and the fact that it may be difficult for data subjects to understand the variety of potential uses of an AI model and the data processing involved."
+    },
+    {
+     "kind": "key_passage",
+     "ref": "paragraph 134",
+     "text": "If it can be demonstrated that the subsequent operation of the AI model does not entail the processing of personal data, the EDPB considers that the GDPR would not apply."
+    }
+   ],
+   "fino_line": "European Data Protection Board, Opinion 28/2024, version 1.0, adopted 17 December 2024, paragraph 43: “In sum, the EDPB considers that, for an AI model to be considered anonymous, using reasonable means, both (i) the likelihood of direct (including probabilistic) extraction of personal data regarding individuals whose personal data were used to train the model; as well as (ii) the likelihood of obtaining, intentionally or not, such personal data from queries, should be insignificant for any data subject.”",
+   "read_by_fino": {
+    "document": "PDF, English text, as published on the EDPB website",
+    "scope": "whole document",
+    "date": "2026-11-06",
+    "sha256": "addcafb4e28028fa87d13a15f91d593ac4b38c4d897be901e38556b5f816a50e"
+   },
+   "reuse": {
+    "basis": "The reuse of any information of the EDPB website is authorised, with the source acknowledged and without distorting its meaning (EDPB copyright page). Checked in Fino's library/reuse-terms.csv.",
+    "terms_url": "https://www.edpb.europa.eu/copyright_en",
+    "credit": "European Data Protection Board"
+   },
+   "credit": "European Data Protection Board"
+  },
+  {
+   "id": "EDPB-O-22-2024",
+   "kind": "opinion",
+   "kind_label": "Opinion of the Board (Article 64)",
+   "body": "European Data Protection Board",
+   "issued_by": "European Data Protection Board",
+   "number": "Opinion 22/2024",
+   "version": "1.0",
+   "date": "2024-10-07",
+   "date_is": "date of adoption, as the document states it",
+   "cover_line": "Adopted on 7 October 2024",
+   "title": "Opinion 22/2024 on certain obligations following from the reliance on processor(s) and sub-processor(s)",
+   "status": "final",
+   "status_note": "An opinion of the Board under Article 64(2) GDPR.",
+   "source_url": "https://www.edpb.europa.eu/documents/opinion-of-the-board-art-64/opinion-222024-on-certain-obligations-following-from-the_en",
+   "pdf_url": "https://www.edpb.europa.eu/system/files/documents/2024-10/edpb_opinion_202422_relianceonprocessors-sub-processors_en.pdf",
+   "gdpr_articles": [
+    5,
+    24,
+    28
+   ],
+   "other_provisions": [],
+   "topics": [
+    "Processors and sub-processors",
+    "Controller and processor"
+   ],
+   "scope": {
+    "ref": "paragraph 4",
+    "text": "Question 1.1: Taking into account Articles 5(2) and 24(1) GDPR, where engaging a processor to carry out processing on behalf of the controller, in order to document compliance with inter alia Article 28(1) and Article 28(2) (including when presenting documentation to the SA upon inspection): a. Must the controller identify all of the processor’s sub-processors, their sub-processors, etc. throughout the processing chain, or only identify the first line of sub-processors engaged by the processor? b. to what extent and in which level of detail must the controller verify and document: i. the sufficiency of the safeguards provided by processors, their sub-processors etc., ii. the content of the contracts between the initial processor and the additional processors to ascertain whether the same obligations have been imposed on the additional processors pursuant to Article 28(4) GDPR, and iii. whether the processors, their sub-processors etc. meet the controller’s requirements under Article 28(1)?"
+   },
+   "extracts": [
+    {
+     "kind": "key_passage",
+     "ref": "paragraph 30",
+     "text": "In order to comply with transparency requirements under Articles 13(1)(e) and 14(1)(e) GDPR, controllers should inform data subjects about the data recipients or categories of data recipients, being as specific and concrete as possible [...]"
+    },
+    {
+     "kind": "key_passage",
+     "ref": "paragraph 44",
+     "text": "It is important to highlight that the reference to ‘risk’ in Article 24(1) and Recital 74 GDPR should not be interpreted as meaning that the controller can neglect or deviate from its obligations in the GDPR based on the mere fact that it considers the risk to data subjects’ rights and freedoms as ‘low’."
+    },
+    {
+     "kind": "key_passage",
+     "ref": "paragraph 132",
+     "text": "On this basis, the EDPB concludes that “unless required to do so by law or binding order of a governmental body” (either verbatim or in very similar terms) cannot be construed as a documented instruction by the controller. The controller remains responsible where it has not ensured that the (sub-)processor processes personal data only on its documented instructions."
+    }
+   ],
+   "fino_line": "European Data Protection Board, Opinion 22/2024, version 1.0, adopted 7 October 2024, paragraph 30: “In order to comply with transparency requirements under Articles 13(1)(e) and 14(1)(e) GDPR, controllers should inform data subjects about the data recipients or categories of data recipients, being as specific and concrete as possible [...]”",
+   "read_by_fino": {
+    "document": "PDF, English text, as published on the EDPB website",
+    "scope": "whole document",
+    "date": "2026-11-06",
+    "sha256": "67a993d023ebbe59daaf8a307eb8fe31bf2412a2497fa33c8f896684111fccea"
+   },
+   "reuse": {
+    "basis": "The reuse of any information of the EDPB website is authorised, with the source acknowledged and without distorting its meaning (EDPB copyright page). Checked in Fino's library/reuse-terms.csv.",
+    "terms_url": "https://www.edpb.europa.eu/copyright_en",
+    "credit": "European Data Protection Board"
+   },
+   "credit": "European Data Protection Board"
+  },
+  {
+   "id": "EDPB-G-2-2023",
+   "kind": "guidelines",
+   "kind_label": "Guidelines",
+   "body": "European Data Protection Board",
+   "issued_by": "European Data Protection Board",
+   "number": "Guidelines 2/2023",
+   "version": "2.0",
+   "date": "2024-10-07",
+   "date_is": "date of adoption, as the document states it",
+   "cover_line": "Version 2.0 Adopted on 7 October 2024",
+   "title": "Guidelines 2/2023 on Technical Scope of Art. 5(3) of ePrivacy Directive",
+   "status": "final",
+   "status_note": "Version 2.0 was adopted after public consultation on version 1.0 (14 November 2023).",
+   "source_url": "https://www.edpb.europa.eu/documents/guideline/guidelines-22023-on-technical-scope-of-art-53-of-eprivacy-directive_en",
+   "pdf_url": "https://www.edpb.europa.eu/system/files/documents/2024-10/edpb_guidelines_202302_technical_scope_art_53_eprivacydirective_v2_en_0.pdf",
+   "gdpr_articles": [],
+   "other_provisions": [
+    "ePrivacy Directive 2002/58/EC, Article 5(3)"
+   ],
+   "topics": [
+    "ePrivacy and cookies",
+    "Targeting and tracking"
+   ],
+   "scope": {
+    "ref": "paragraph 4",
+    "text": "The aim of these Guidelines is to conduct a technical analysis on the scope of application of Article 5(3) ePD, namely to clarify what is technically covered by the phrase ‘to store information or to gain access to information stored in the terminal equipment of a subscriber or user’."
+   },
+   "extracts": [
+    {
+     "kind": "key_passage",
+     "ref": "paragraph 1",
+     "text": "According to Article 5(3) ePD, ‘the storing of information, or the gaining of access to information already stored, in the terminal equipment of a subscriber or user’ is only allowed on the basis of consent or necessity for specific purposes set out in that Article."
+    },
+    {
+     "kind": "key_passage",
+     "ref": "paragraph 47",
+     "text": "A tracking pixel is a hyperlink to a resource, usually an image file, embedded into a piece of content like a website or an email. This pixel usually fulfils no purpose related to the requested content itself; its sole purpose is to automatically establish a communication by the client to the host of the pixel, which would otherwise not have occurred."
+    },
+    {
+     "kind": "key_passage",
+     "ref": "paragraph 61",
+     "text": "A common tool used by companies is the notion of ’unique identifiers‘ or ’persistent identifiers‘. Such identifiers can be derived from persistent personal data (name and surname, email, phone number, etc.), that is hashed on the user’s device, collected and shared amongst several controllers to uniquely identify a person over different datasets (usage data collected through the use of website or application, customer relation management (CRM) data related to online or offline purchase or subscription, etc.)."
+    }
+   ],
+   "fino_line": "European Data Protection Board, Guidelines 2/2023, version 2.0, adopted 7 October 2024, paragraph 1: “According to Article 5(3) ePD, ‘the storing of information, or the gaining of access to information already stored, in the terminal equipment of a subscriber or user’ is only allowed on the basis of consent or necessity for specific purposes set out in that Article.”",
+   "read_by_fino": {
+    "document": "PDF, English text, as published on the EDPB website",
+    "scope": "whole document",
+    "date": "2026-11-06",
+    "sha256": "dbc1d37783e35ae8668925f92a590ae282eec24c98381a5a8f91b5c2048b5b03"
+   },
+   "reuse": {
+    "basis": "The reuse of any information of the EDPB website is authorised, with the source acknowledged and without distorting its meaning (EDPB copyright page). Checked in Fino's library/reuse-terms.csv.",
+    "terms_url": "https://www.edpb.europa.eu/copyright_en",
+    "credit": "European Data Protection Board"
+   },
+   "credit": "European Data Protection Board"
+  },
+  {
+   "id": "EDPB-G-4-2022",
+   "kind": "guidelines",
+   "kind_label": "Guidelines",
+   "body": "European Data Protection Board",
+   "issued_by": "European Data Protection Board",
+   "number": "Guidelines 04/2022",
+   "version": "2.1",
+   "date": "2023-05-24",
+   "date_is": "date of adoption, as the document states it",
+   "cover_line": "Version 2.1 Adopted on 24 May 2023",
+   "title": "Guidelines 04/2022 on the calculation of administrative fines under the GDPR",
+   "status": "final",
+   "status_note": "Version 2.0 (24 May 2023) was adopted after public consultation; version 2.1 of 29 June 2023 made minor corrections.",
+   "source_url": "https://www.edpb.europa.eu/documents/guideline/guidelines-042022-on-the-calculation-of-administrative-fines-under-the-gdpr_en",
+   "pdf_url": "https://www.edpb.europa.eu/system/files/documents/2023-06/edpb_guidelines_042022_calculationofadministrativefines_en.pdf",
+   "gdpr_articles": [
+    83
+   ],
+   "other_provisions": [],
+   "topics": [
+    "Fines",
+    "Supervisory authorities"
+   ],
+   "scope": {
+    "ref": "paragraph 4",
+    "text": "These Guidelines are intended for use by the supervisory authorities to ensure a consistent application and enforcement of the GDPR and express the EDPB’s common understanding of the provisions of Article 83 GDPR."
+   },
+   "extracts": [
+    {
+     "kind": "key_passage",
+     "ref": "paragraph 5",
+     "text": "The aim of these Guidelines is to create harmonised starting points as a common orientation, on the basis of which the calculation of administrative fines in individual cases can take place. However, it is settled case law that any such guidance need not be as specific as to allow a controller or processor to make a precise mathematical calculation of the expected fine."
+    },
+    {
+     "kind": "key_passage",
+     "ref": "paragraph 6",
+     "text": "These Guidelines can be seen as following a step-by-step approach, though supervisory authorities are not obliged to follow all steps if they are not applicable in a given case, nor to provide reasoning surrounding aspects of the Guidelines that are not applicable."
+    },
+    {
+     "kind": "key_passage",
+     "ref": "paragraph 17",
+     "text": "Taking into account these parameters, the EDPB has devised the following methodology for calculating administrative fines for infringements of the GDPR."
+    },
+    {
+     "kind": "key_passage",
+     "ref": "paragraph 48",
+     "text": "The EDPB considers three elements to form the starting point for further calculation: the categorisation of infringements by nature under Articles 83(4)–(6) GDPR, the seriousness of the infringement (as discussed in section 4.2 below) and the turnover of the undertaking as one relevant element to take into consideration with a view to imposing an effective, dissuasive and proportionate fine, pursuant to Article 83(1) GDPR. These are outlined in Chapter 4.1, 4.2 and 4.3 below."
+    }
+   ],
+   "fino_line": "European Data Protection Board, Guidelines 04/2022, version 2.1, adopted 24 May 2023, paragraph 48: “The EDPB considers three elements to form the starting point for further calculation: the categorisation of infringements by nature under Articles 83(4)–(6) GDPR, the seriousness of the infringement (as discussed in section 4.2 below) and the turnover of the undertaking as one relevant element to take into consideration with a view to imposing an effective, dissuasive and proportionate fine, pursuant to Article 83(1) GDPR.”",
+   "read_by_fino": {
+    "document": "PDF, English text, as published on the EDPB website",
+    "scope": "whole document",
+    "date": "2026-11-06",
+    "sha256": "9e1ce64002f26700db89084cb1734ff5cb6fe54dec5c9203ea0dc27a3871d72a"
+   },
+   "reuse": {
+    "basis": "The reuse of any information of the EDPB website is authorised, with the source acknowledged and without distorting its meaning (EDPB copyright page). Checked in Fino's library/reuse-terms.csv.",
+    "terms_url": "https://www.edpb.europa.eu/copyright_en",
+    "credit": "European Data Protection Board"
+   },
+   "credit": "European Data Protection Board"
+  },
+  {
+   "id": "EDPB-G-9-2022",
+   "kind": "guidelines",
+   "kind_label": "Guidelines",
+   "body": "European Data Protection Board",
+   "issued_by": "European Data Protection Board",
+   "number": "Guidelines 9/2022",
+   "version": "2.0",
+   "date": "2023-03-28",
+   "date_is": "date of adoption, as the document states it",
+   "cover_line": "Version 2.0 Adopted 28 March 2023",
+   "title": "Guidelines 9/2022 on personal data breach notification under GDPR",
+   "status": "final",
+   "status_note": "Version 2.0 replaces version 1.0 of 10 October 2022, itself an update of the Article 29 Working Party guidelines WP250 rev.01.",
+   "source_url": "https://www.edpb.europa.eu/documents/guideline/guidelines-92022-on-personal-data-breach-notification-under-gdpr_en",
+   "pdf_url": "https://www.edpb.europa.eu/system/files/documents/2023-04/edpb_guidelines_202209_personal_data_breach_notification_v2.0_en.pdf",
+   "gdpr_articles": [
+    33,
+    34
+   ],
+   "other_provisions": [],
+   "topics": [
+    "Personal data breach"
+   ],
+   "scope": {
+    "ref": "paragraph 7",
+    "text": "The GDPR contains provisions on when a breach needs to be notified, and to whom, as well as what information should be provided as part of the notification."
+   },
+   "extracts": [
+    {
+     "kind": "key_passage",
+     "ref": "paragraph 29",
+     "text": "Article 33(1) GDPR provides that: “In the case of a personal data breach, the controller shall without undue delay and, where feasible, not later than 72 hours after having become aware of it, notify the personal data breach to the supervisory authority competent in accordance with Article 55, unless the personal data breach is unlikely to result in a risk to the rights and freedoms of natural persons. Where the notification to the supervisory authority is not made within 72 hours, it shall be accompanied by reasons for the delay.”"
+    },
+    {
+     "kind": "key_passage",
+     "ref": "paragraph 31",
+     "text": "As detailed above, the GDPR requires that, in the case of a breach, the controller shall notify the breach without undue delay and, where feasible, not later than 72 hours after having become aware of it. This may raise the question of when a controller can be considered to have become “aware” of a breach. The EDPB considers that a controller should be regarded as having become “aware” when that controller has a reasonable degree of certainty that a security incident has occurred that has led to personal data being compromised."
+    },
+    {
+     "kind": "key_passage",
+     "ref": "paragraph 44",
+     "text": "Article 33(2) GDPR makes it clear that if a processor is used by a controller and the processor becomes aware of a breach of the personal data it is processing on behalf of the controller, it must notify the controller “without undue delay”. It should be noted that the processor does not need to first assess the likelihood of risk arising from a breach before notifying the controller; it is the controller that must make this assessment on becoming aware of the breach."
+    },
+    {
+     "kind": "key_passage",
+     "ref": "paragraph 57",
+     "text": "This means that the GDPR recognises that controllers will not always have all of the necessary information concerning a breach within 72 hours of becoming aware of it, as full and comprehensive details of the incident may not always be available during this initial period."
+    }
+   ],
+   "fino_line": "European Data Protection Board, Guidelines 9/2022, version 2.0, adopted 28 March 2023, paragraph 29: “Article 33(1) GDPR provides that: “In the case of a personal data breach, the controller shall without undue delay and, where feasible, not later than 72 hours after having become aware of it, notify the personal data breach to the supervisory authority competent in accordance with Article 55, unless the personal data breach is unlikely to result in a risk to the rights and freedoms of natural persons. Where the notification to the supervisory authority is not made within 72 hours, it shall be accompanied by reasons for the delay.””",
+   "read_by_fino": {
+    "document": "PDF, English text, as published on the EDPB website",
+    "scope": "whole document",
+    "date": "2026-11-06",
+    "sha256": "063f63d2b78a669b9af4b45fec2e16c7e6e1442989bf7d70c756361824306e6e"
+   },
+   "reuse": {
+    "basis": "The reuse of any information of the EDPB website is authorised, with the source acknowledged and without distorting its meaning (EDPB copyright page). Checked in Fino's library/reuse-terms.csv.",
+    "terms_url": "https://www.edpb.europa.eu/copyright_en",
+    "credit": "European Data Protection Board"
+   },
+   "credit": "European Data Protection Board"
+  },
+  {
+   "id": "EDPB-G-8-2022",
+   "kind": "guidelines",
+   "kind_label": "Guidelines",
+   "body": "European Data Protection Board",
+   "issued_by": "European Data Protection Board",
+   "number": "Guidelines 8/2022",
+   "version": "2.1",
+   "date": "2023-03-28",
+   "date_is": "date of adoption, as the document states it",
+   "cover_line": "Version 2.1 Adopted on 28 March 2023",
+   "title": "Guidelines 8/2022 on identifying a controller or processor’s lead supervisory authority",
+   "status": "final",
+   "status_note": "An updated version of the Article 29 Working Party guidelines WP244 rev.01; version 1.0 was adopted on 10 October 2022.",
+   "source_url": "https://www.edpb.europa.eu/documents/guideline/guidelines-82022-on-identifying-a-controller-or-processors-lead-supervisory_en",
+   "pdf_url": "https://www.edpb.europa.eu/system/files/documents/2023-04/edpb_guidelines_202208_identifying_lsa_targeted_update_v2_en.pdf",
+   "gdpr_articles": [
+    4,
+    56
+   ],
+   "other_provisions": [],
+   "topics": [
+    "Supervisory authorities",
+    "Consistency mechanism (Article 65)"
+   ],
+   "scope": {
+    "ref": "paragraph 4",
+    "text": "Identifying a lead supervisory authority is only relevant where a controller or processor is carrying out the cross-border processing of personal data. Article 4(23) GDPR defines ‘cross-border processing’ as either the: - processing of personal data which takes place in the context of the activities of establishments in more than one Member State of a controller or processor in the Union where the controller or processor is established in more than one Member State; or the - processing of personal data which takes place in the context of the activities of a single establishment of a controller or processor in the Union but which substantially affects or is likely to substantially affect data subjects in more than one Member State."
+   },
+   "extracts": [
+    {
+     "kind": "key_passage",
+     "ref": "paragraph 16",
+     "text": "Identifying the lead supervisory authority depends on determining the location of the controller’s ‘main establishment’ or ‘single establishment’ in the EU. Article 56 GDPR says that: - the supervisory authority of the main establishment or of the single establishment of the controller or processor shall be competent to act as lead supervisory authority for the cross-border processing carried out by that controller or processor in accordance with the [cooperation] procedure provided in Article 60."
+    },
+    {
+     "kind": "key_passage",
+     "ref": "paragraph 19",
+     "text": "The essence of the lead supervisory authority principle in the GDPR is that the supervision of cross-border processing should be led by only one supervisory authority in the EU."
+    },
+    {
+     "kind": "key_passage",
+     "ref": "paragraph 27",
+     "text": "Where processing is carried out by a group of undertakings that has its headquarters in the EEA, the establishment of the undertaking with overall control is presumed to be the decision-making centre relating to the processing of personal data, and will therefore be considered to be the main establishment for the group, except where decisions about the purposes and means of processing are taken by another establishment. The parent, or operational headquarters of the group of undertakings in the EEA, is likely to be the main establishment, because that would be the place of its central administration."
+    }
+   ],
+   "fino_line": "European Data Protection Board, Guidelines 8/2022, version 2.1, adopted 28 March 2023, paragraph 27: “Where processing is carried out by a group of undertakings that has its headquarters in the EEA, the establishment of the undertaking with overall control is presumed to be the decision-making centre relating to the processing of personal data, and will therefore be considered to be the main establishment for the group, except where decisions about the purposes and means of processing are taken by another establishment.”",
+   "read_by_fino": {
+    "document": "PDF, English text, as published on the EDPB website",
+    "scope": "whole document",
+    "date": "2026-11-06",
+    "sha256": "6fd69a68b5b1dc1055bd07cfaf6a000044cade01e2908a3d07a90a67e34b1a18"
+   },
+   "reuse": {
+    "basis": "The reuse of any information of the EDPB website is authorised, with the source acknowledged and without distorting its meaning (EDPB copyright page). Checked in Fino's library/reuse-terms.csv.",
+    "terms_url": "https://www.edpb.europa.eu/copyright_en",
+    "credit": "European Data Protection Board"
+   },
+   "credit": "European Data Protection Board"
+  },
+  {
+   "id": "EDPB-G-1-2022",
+   "kind": "guidelines",
+   "kind_label": "Guidelines",
+   "body": "European Data Protection Board",
+   "issued_by": "European Data Protection Board",
+   "number": "Guidelines 01/2022",
+   "version": "2.1",
+   "date": "2023-03-28",
+   "date_is": "date of adoption, as the document states it",
+   "cover_line": "Version 2.1 Adopted on 28 March 2023",
+   "title": "Guidelines 01/2022 on data subject rights - Right of access",
+   "status": "final",
+   "status_note": "Version 2.0 (28 March 2023) was adopted after public consultation; version 2.1 of 30 May 2024 made minor corrections.",
+   "source_url": "https://www.edpb.europa.eu/documents/guideline/guidelines-012022-on-data-subject-rights-right-of-access_en",
+   "pdf_url": "https://www.edpb.europa.eu/system/files/documents/2023-04/edpb_guidelines_202201_data_subject_rights_access_v2_en.pdf",
+   "gdpr_articles": [
+    12,
+    15
+   ],
+   "other_provisions": [],
+   "topics": [
+    "Access request"
+   ],
+   "scope": {
+    "ref": "paragraph 3",
+    "text": "Under the GDPR, the right of access consists of three components i.e. confirmation of whether or not personal data are processed, access to it, and information about the processing itself."
+   },
+   "extracts": [
+    {
+     "kind": "key_passage",
+     "ref": "paragraph 22",
+     "text": "Under the first sentence of Art. 15(3) GDPR, the controller shall provide a free copy of the personal data which the processing relates to. The copy therefore refers only to the second component of the right of access («access to the personal data processed», see above)."
+    },
+    {
+     "kind": "key_passage",
+     "ref": "paragraph 117",
+     "text": "Concerning the question, if the controller is free to choose between information on recipients or on categories of recipients, it has to be noted that “unlike Art. 13 and 14 of the GDPR, which lay down an obligation on the part of the controller (…), Article 15 of the GDPR lays down a genuine right of access for the data subject, with the result that the data subject must have the option of obtaining either information about the specific recipients to whom the data have been or will be disclosed, where possible, or information about the categories of recipients.”"
+    },
+    {
+     "kind": "key_passage",
+     "ref": "paragraph 157",
+     "text": "Art. 12(3) GDPR requires that the controller provides information to the data subject regarding action taken in respect of a request under Art. 15 without undue delay and in any event within one month of receipt of the request. This deadline can be extended by a maximum of two months taking into account the complexity and the number of the requests, provided that the data subject has been informed about the reasons for such delay within one month of the receipt of the request."
+    },
+    {
+     "kind": "key_passage",
+     "ref": "paragraph 175",
+     "text": "Art. 12(5) GDPR enables controllers to override requests for the right of access that are manifestly unfounded or excessive. These concepts have to be interpreted narrowly, as the principles of transparency and cost free data subjects rights must not be undermined."
+    }
+   ],
+   "fino_line": "European Data Protection Board, Guidelines 01/2022, version 2.1, adopted 28 March 2023, paragraph 157: “Art. 12(3) GDPR requires that the controller provides information to the data subject regarding action taken in respect of a request under Art. 15 without undue delay and in any event within one month of receipt of the request. This deadline can be extended by a maximum of two months taking into account the complexity and the number of the requests, provided that the data subject has been informed about the reasons for such delay within one month of the receipt of the request.”",
+   "read_by_fino": {
+    "document": "PDF, English text, as published on the EDPB website",
+    "scope": "whole document",
+    "date": "2026-11-06",
+    "sha256": "b399b25634b379576378d725284d5ed2b1a81c93c34ade9ee8eb48ef5eb75032"
+   },
+   "reuse": {
+    "basis": "The reuse of any information of the EDPB website is authorised, with the source acknowledged and without distorting its meaning (EDPB copyright page). Checked in Fino's library/reuse-terms.csv.",
+    "terms_url": "https://www.edpb.europa.eu/copyright_en",
+    "credit": "European Data Protection Board"
+   },
+   "credit": "European Data Protection Board"
+  },
+  {
+   "id": "EDPB-G-5-2021",
+   "kind": "guidelines",
+   "kind_label": "Guidelines",
+   "body": "European Data Protection Board",
+   "issued_by": "European Data Protection Board",
+   "number": "Guidelines 05/2021",
+   "version": "2.0",
+   "date": "2023-02-14",
+   "date_is": "date of adoption, as the document states it",
+   "cover_line": "Version 2.0 Adopted on 14 February 2023",
+   "title": "Guidelines 05/2021 on the Interplay between the application of Article 3 and the provisions on international transfers as per Chapter V of the GDPR",
+   "status": "final",
+   "status_note": "Version 2.0 was adopted after public consultation on version 1.0 (18 November 2021).",
+   "source_url": "https://www.edpb.europa.eu/documents/guideline/guidelines-052021-on-the-interplay-between-the-application-of-article-3-and-the_en",
+   "pdf_url": "https://www.edpb.europa.eu/system/files/documents/2023-02/edpb_guidelines_05-2021_interplay_between_the_application_of_art3-chapter_v_of_the_gdpr_v2_en_0.pdf",
+   "gdpr_articles": [
+    3,
+    44
+   ],
+   "other_provisions": [
+    "GDPR Chapter V"
+   ],
+   "topics": [
+    "International transfers"
+   ],
+   "scope": {
+    "ref": "executive summary",
+    "text": "[...] it has identified three cumulative criteria to qualify a processing operation as a transfer: 1) A controller or a processor (“exporter”) is subject to the GDPR for the given processing. 2) The exporter discloses by transmission or otherwise makes personal data, subject to this processing, available to another controller, joint controller or processor (“importer”). 3) The importer is in a third country, irrespective of whether or not this importer is subject to the GDPR for the given processing in accordance with Article 3, or is an international organisation."
+   },
+   "extracts": [
+    {
+     "kind": "key_passage",
+     "ref": "executive summary",
+     "text": "If the three criteria as identified by the EDPB are met, there is a transfer and Chapter V of the GDPR is applicable."
+    },
+    {
+     "kind": "key_passage",
+     "ref": "executive summary",
+     "text": "1) A controller or a processor (“exporter”) is subject to the GDPR for the given processing. 2) The exporter discloses by transmission or otherwise makes personal data, subject to this processing, available to another controller, joint controller or processor (“importer”). 3) The importer is in a third country, irrespective of whether or not this importer is subject to the GDPR for the given processing in accordance with Article 3, or is an international organisation."
+    },
+    {
+     "kind": "key_passage",
+     "ref": "section 3, \"Consequences in case a transfer of personal data takes place\"",
+     "text": "If all of the criteria as identified by the EDPB are met, there is a “transfer to a third country or to an international organisation”. Thus, a transfer implies that personal data are sent or made available by a controller or processor (exporter) which, regarding the given processing, is subject to the GDPR pursuant to Article 3, to a different controller or processor (importer) in a third country, regardless of whether or not this importer is subject to the GDPR in respect of the given processing, or to an international organisation."
+    }
+   ],
+   "fino_line": "European Data Protection Board, Guidelines 05/2021, version 2.0, adopted 14 February 2023, executive summary: “If the three criteria as identified by the EDPB are met, there is a transfer and Chapter V of the GDPR is applicable.”",
+   "read_by_fino": {
+    "document": "PDF, English text, as published on the EDPB website",
+    "scope": "whole document",
+    "date": "2026-11-06",
+    "sha256": "ad8f627202ea9c4f12ce33093754db304a7a6f1611a771bb872489daacbda562"
+   },
+   "reuse": {
+    "basis": "The reuse of any information of the EDPB website is authorised, with the source acknowledged and without distorting its meaning (EDPB copyright page). Checked in Fino's library/reuse-terms.csv.",
+    "terms_url": "https://www.edpb.europa.eu/copyright_en",
+    "credit": "European Data Protection Board"
+   },
+   "credit": "European Data Protection Board"
+  },
+  {
+   "id": "EDPB-BD-5-2022",
+   "kind": "binding_decision",
+   "kind_label": "Binding decision of the Board (Article 65)",
+   "body": "European Data Protection Board",
+   "issued_by": "European Data Protection Board",
+   "number": "Binding Decision 5/2022",
+   "version": "adopted",
+   "date": "2022-12-05",
+   "date_is": "date of adoption, as the document states it",
+   "cover_line": "Adopted on 5 December 2022",
+   "title": "Binding Decision 5/2022 on the dispute submitted by the Irish SA regarding WhatsApp Ireland Limited (Art. 65 GDPR)",
+   "status": "final",
+   "status_note": "A binding decision of the Board under Article 65 GDPR.",
+   "source_url": "https://www.edpb.europa.eu/documents/edpb-binding-decisions/binding-decision-52022-on-the-dispute-submitted-by-the-irish-sa_en",
+   "pdf_url": "https://www.edpb.europa.eu/system/files/documents/2023-01/edpb_bindingdecision_202205_ie_sa_whatsapp_en.pdf",
+   "gdpr_articles": [
+    5,
+    6,
+    65
+   ],
+   "other_provisions": [],
+   "topics": [
+    "Consistency mechanism (Article 65)",
+    "Contract as a legal basis"
+   ],
+   "scope": {
+    "ref": "paragraph 1",
+    "text": "This document contains a binding decision adopted by the EDPB in accordance with Article 65(1)(a) GDPR."
+   },
+   "extracts": [
+    {
+     "kind": "key_passage",
+     "ref": "paragraph 323",
+     "text": "The EDPB decides that WhatsApp IE has inappropriately relied on Article 6(1)(b) GDPR to process the Complainant’s personal data for the purpose of service improvement and security in the context of its Terms of Service and therefore lacks a legal basis to process these data. WhatsApp IE has consequently infringed Article 6(1) GDPR by unlawfully processing personal data."
+    },
+    {
+     "kind": "key_passage",
+     "ref": "paragraph 324",
+     "text": "The EDPB instructs the IE SA to find in its final decision an additional infringement of the principle of fairness under Article 5(1)(a) GDPR by WhatsApp IE."
+    },
+    {
+     "kind": "key_passage",
+     "ref": "paragraph 320",
+     "text": "Therefore, the EDPB instructs the IE SA to take into account the infringement by WhatsApp IE of the fairness principle enshrined in Article 5(1)(a) GDPR as established above when determining the fine for the violation of Article 6(1) GDPR as instructed above."
+    }
+   ],
+   "fino_line": "European Data Protection Board, Binding Decision 5/2022, adopted 5 December 2022, paragraph 323: “The EDPB decides that WhatsApp IE has inappropriately relied on Article 6(1)(b) GDPR to process the Complainant’s personal data for the purpose of service improvement and security in the context of its Terms of Service and therefore lacks a legal basis to process these data.”",
+   "read_by_fino": {
+    "document": "PDF, English text, as published on the EDPB website",
+    "scope": "whole document",
+    "date": "2026-11-06",
+    "sha256": "80e44940bd3dfab5462ed3967f30fbf011852343eb656fb73c9a61308009de2c"
+   },
+   "reuse": {
+    "basis": "The reuse of any information of the EDPB website is authorised, with the source acknowledged and without distorting its meaning (EDPB copyright page). Checked in Fino's library/reuse-terms.csv.",
+    "terms_url": "https://www.edpb.europa.eu/copyright_en",
+    "credit": "European Data Protection Board"
+   },
+   "credit": "European Data Protection Board"
+  },
+  {
+   "id": "EDPB-BD-4-2022",
+   "kind": "binding_decision",
+   "kind_label": "Binding decision of the Board (Article 65)",
+   "body": "European Data Protection Board",
+   "issued_by": "European Data Protection Board",
+   "number": "Binding Decision 4/2022",
+   "version": "adopted",
+   "date": "2022-12-05",
+   "date_is": "date of adoption, as the document states it",
+   "cover_line": "Adopted on 5 December 2022",
+   "title": "Binding Decision 4/2022 on the dispute submitted by the Irish SA on Meta Platforms Ireland Limited and its Instagram service (Art. 65 GDPR)",
+   "status": "final",
+   "status_note": "A binding decision of the Board under Article 65 GDPR.",
+   "source_url": "https://www.edpb.europa.eu/documents/edpb-binding-decisions/binding-decision-42022-on-the-dispute-submitted-by-the-irish-sa-on_en",
+   "pdf_url": "https://www.edpb.europa.eu/system/files/2026-04/edpb_binding_decision_202204_ie_sa_meta_instagramservice_redacted_en.pdf",
+   "gdpr_articles": [
+    5,
+    6,
+    65
+   ],
+   "other_provisions": [],
+   "topics": [
+    "Consistency mechanism (Article 65)",
+    "Contract as a legal basis",
+    "Consent"
+   ],
+   "scope": {
+    "ref": "paragraph 1",
+    "text": "This document contains a Binding Decision adopted by the EDPB in accordance with Article 65(1)(a) GDPR."
+   },
+   "extracts": [
+    {
+     "kind": "key_passage",
+     "ref": "paragraph 449",
+     "text": "The EDPB decides that the objections of the AT, DE, ES, FI, FR, HU , NL, NO, and SE SAs regarding Meta IE’s reliance on Article 6(1)(b) GDPR in the context of its offering of the Instagram Terms of Use meet the requirements of Article 4(24) GDPR."
+    },
+    {
+     "kind": "key_passage",
+     "ref": "paragraph 451",
+     "text": "The EDPB instructs the IE SA to alter its Finding 2 of its Draft Decision, which concludes that Meta IE may rely on Article 6(1)(b) GDPR in the context of its offering of Instagram Terms of Use, and to include an infringement of Article 6(1) GDPR, based on the shortcomings that the EDPB has identified in this Binding Decision."
+    },
+    {
+     "kind": "key_passage",
+     "ref": "paragraph 446",
+     "text": "Therefore, the EDPB instructs the IE SA to take into account the infringement by Meta IE of the fairness principle enshrined in Article 5(1)(a) GDPR as established above when re-assessing the administrative fines for the transparency infringements and the determination of the fine for the lack of legal basis."
+    }
+   ],
+   "fino_line": "European Data Protection Board, Binding Decision 4/2022, adopted 5 December 2022, paragraph 451: “The EDPB instructs the IE SA to alter its Finding 2 of its Draft Decision, which concludes that Meta IE may rely on Article 6(1)(b) GDPR in the context of its offering of Instagram Terms of Use, and to include an infringement of Article 6(1) GDPR, based on the shortcomings that the EDPB has identified in this Binding Decision.”",
+   "read_by_fino": {
+    "document": "PDF, English text, as published on the EDPB website",
+    "scope": "whole document",
+    "date": "2026-11-06",
+    "sha256": "396ef027ecb9642aa6c2b3955f31ba3eb25a8cd539dad64f079c19d05ea53810"
+   },
+   "reuse": {
+    "basis": "The reuse of any information of the EDPB website is authorised, with the source acknowledged and without distorting its meaning (EDPB copyright page). Checked in Fino's library/reuse-terms.csv.",
+    "terms_url": "https://www.edpb.europa.eu/copyright_en",
+    "credit": "European Data Protection Board"
+   },
+   "credit": "European Data Protection Board"
+  },
+  {
+   "id": "EDPB-BD-3-2022",
+   "kind": "binding_decision",
+   "kind_label": "Binding decision of the Board (Article 65)",
+   "body": "European Data Protection Board",
+   "issued_by": "European Data Protection Board",
+   "number": "Binding Decision 3/2022",
+   "version": "adopted",
+   "date": "2022-12-05",
+   "date_is": "date of adoption, as the document states it",
+   "cover_line": "Adopted on 5 December 2022",
+   "title": "Binding Decision 3/2022 on the dispute submitted by the Irish SA on Meta Platforms Ireland Limited and its Facebook service (Art. 65 GDPR)",
+   "status": "final",
+   "status_note": "A binding decision of the Board under Article 65 GDPR.",
+   "source_url": "https://www.edpb.europa.eu/documents/edpb-binding-decisions/binding-decision-32022-on-the-dispute-submitted-by-the-irish-sa-on_en",
+   "pdf_url": "https://www.edpb.europa.eu/system/files/2026-04/edpb_bindingdecision_202203_ie_sa_meta_facebookservice_redacted_en.pdf",
+   "gdpr_articles": [
+    5,
+    6,
+    65
+   ],
+   "other_provisions": [],
+   "topics": [
+    "Consistency mechanism (Article 65)",
+    "Contract as a legal basis",
+    "Consent"
+   ],
+   "scope": {
+    "ref": "paragraph 1",
+    "text": "This document contains a binding decision adopted by the EDPB in accordance with Article 65(1)(a) GDPR."
+   },
+   "extracts": [
+    {
+     "kind": "key_passage",
+     "ref": "paragraph 482",
+     "text": "The EDPB decides that the objections of the AT, DE, FR, IT, NL, NO, PL, PT and SE SAs regarding Meta IE’s reliance on Article 6(1)(b) GDPR in the context of its offering of the Facebook Terms of Service meet the requirements of Article 4(24) GDPR."
+    },
+    {
+     "kind": "key_passage",
+     "ref": "paragraph 484",
+     "text": "The EDPB instructs the IE SA to alter its Finding 2 of its Draft Decision, which concludes that Meta IE may rely on Article 6(1)(b) GDPR in the context of its offering of the Facebook Terms of Service, and to include an infringement of Article 6(1) GDPR, on the basis of the conclusion reached by the EDPB in this Binding Decision."
+    },
+    {
+     "kind": "key_passage",
+     "ref": "paragraph 479",
+     "text": "Therefore, the EDPB instructs the IE SA to take into account the infringement by Meta IE of the fairness principle enshrined in Article 5(1)(a) GDPR as established above when, re-assessing the administrative fines for the transparency infringements and the determination of the fine for the lack of legal basis."
+    }
+   ],
+   "fino_line": "European Data Protection Board, Binding Decision 3/2022, adopted 5 December 2022, paragraph 484: “The EDPB instructs the IE SA to alter its Finding 2 of its Draft Decision, which concludes that Meta IE may rely on Article 6(1)(b) GDPR in the context of its offering of the Facebook Terms of Service, and to include an infringement of Article 6(1) GDPR, on the basis of the conclusion reached by the EDPB in this Binding Decision.”",
+   "read_by_fino": {
+    "document": "PDF, English text, as published on the EDPB website",
+    "scope": "whole document",
+    "date": "2026-11-06",
+    "sha256": "0ede72f96d7dc052671997243bd5bf162eb1239c3d90511573724d7391641e8a"
+   },
+   "reuse": {
+    "basis": "The reuse of any information of the EDPB website is authorised, with the source acknowledged and without distorting its meaning (EDPB copyright page). Checked in Fino's library/reuse-terms.csv.",
+    "terms_url": "https://www.edpb.europa.eu/copyright_en",
+    "credit": "European Data Protection Board"
+   },
+   "credit": "European Data Protection Board"
+  },
+  {
+   "id": "EDPB-G-1-2021",
+   "kind": "guidelines",
+   "kind_label": "Guidelines",
+   "body": "European Data Protection Board",
+   "issued_by": "European Data Protection Board",
+   "number": "Guidelines 01/2021",
+   "version": "2.0",
+   "date": "2021-12-14",
+   "date_is": "date of adoption, as the document states it",
+   "cover_line": "Adopted on 14 December 2021 Version 2.0",
+   "title": "Guidelines 01/2021 on Examples regarding Personal Data Breach Notification",
+   "status": "final",
+   "status_note": "Version 2.0 was adopted after public consultation on version 1.0 (14 January 2021).",
+   "source_url": "https://www.edpb.europa.eu/documents/guideline/guidelines-012021-on-examples-regarding-personal-data-breach-notification_en",
+   "pdf_url": "https://www.edpb.europa.eu/system/files/documents/2022-01/edpb_guidelines_012021_pdbnotification_adopted_en.pdf",
+   "gdpr_articles": [
+    33,
+    34
+   ],
+   "other_provisions": [],
+   "topics": [
+    "Personal data breach"
+   ],
+   "scope": {
+    "ref": "paragraph 3",
+    "text": "This document is intended to complement the Guidelines WP 250 and it reflects the common experiences of the SAs of the EEA since the GDPR became applicable. Its aim is to help data controllers in deciding how to handle data breaches and what factors to consider during risk assessment."
+   },
+   "extracts": [
+    {
+     "kind": "key_passage",
+     "ref": "paragraph 4",
+     "text": "As part of any attempt to address a breach the controller and processor should first be able to recognize one."
+    },
+    {
+     "kind": "key_passage",
+     "ref": "paragraph 6",
+     "text": "A breach can potentially have a range of significant adverse effects on individuals, which can result in physical, material, or non-material damage."
+    },
+    {
+     "kind": "key_passage",
+     "ref": "paragraph 7",
+     "text": "Accordingly, the GDPR requires the controller to: • document any personal data breaches, comprising the facts relating to the personal data breach, its effects and the remedial action taken; • notify the personal data breach to the supervisory authority, unless the data breach is unlikely to result in a risk to the rights and freedoms of natural persons; • communicate the personal data breach to the data subject when the personal data breach is likely to result in a high risk to the rights and freedoms of natural persons."
+    },
+    {
+     "kind": "key_passage",
+     "ref": "paragraph 28",
+     "text": "The data controller needs to keep in mind that if the attack is more sophisticated the malware has the functionality to edit log files and remove the trace."
+    }
+   ],
+   "fino_line": "European Data Protection Board, Guidelines 01/2021, version 2.0, adopted 14 December 2021, paragraph 6: “A breach can potentially have a range of significant adverse effects on individuals, which can result in physical, material, or non-material damage.”",
+   "read_by_fino": {
+    "document": "PDF, English text, as published on the EDPB website",
+    "scope": "whole document",
+    "date": "2026-11-06",
+    "sha256": "3a488520ab3a14500911ae44ac9cc5bcc3aa2242b2457f87bcd5286a10ae5949"
+   },
+   "reuse": {
+    "basis": "The reuse of any information of the EDPB website is authorised, with the source acknowledged and without distorting its meaning (EDPB copyright page). Checked in Fino's library/reuse-terms.csv.",
+    "terms_url": "https://www.edpb.europa.eu/copyright_en",
+    "credit": "European Data Protection Board"
+   },
+   "credit": "European Data Protection Board"
+  },
+  {
+   "id": "EDPB-BD-1-2021",
+   "kind": "binding_decision",
+   "kind_label": "Binding decision of the Board (Article 65)",
+   "body": "European Data Protection Board",
+   "issued_by": "European Data Protection Board",
+   "number": "Binding decision 1/2021",
+   "version": "adopted",
+   "date": "2021-07-28",
+   "date_is": "date of adoption, as the document states it",
+   "cover_line": "Adopted on 28 July 2021",
+   "title": "Binding decision 1/2021 on the dispute arisen on the draft decision of the Irish Supervisory Authority regarding WhatsApp Ireland under Article 65(1)(a) GDPR",
+   "status": "final",
+   "status_note": "A binding decision of the Board under Article 65(1)(a) GDPR.",
+   "source_url": "https://www.edpb.europa.eu/documents/edpb-binding-decisions/binding-decision-12021-on-the-dispute-arisen-on-the-draft-decision_en",
+   "pdf_url": "https://www.edpb.europa.eu/system/files/documents/2021-09/edpb_bindingdecision_202101_ie_sa_whatsapp_redacted_en.pdf",
+   "gdpr_articles": [
+    65
+   ],
+   "other_provisions": [],
+   "topics": [
+    "Consistency mechanism (Article 65)",
+    "Fines",
+    "Transparency"
+   ],
+   "scope": {
+    "ref": "paragraph 1",
+    "text": "This document contains a binding decision adopted by the EDPB in accordance with Article 65(1)(a) GDPR."
+   },
+   "extracts": [
+    {
+     "kind": "key_passage",
+     "ref": "paragraph 426",
+     "text": "On the objections concerning a possible finding of an infringement of Article 13(1)(d) GDPR: • In relation to the objections of the DE, IT and PL SAs on the possible finding of an infringement of Article 13(1)(d) GDPR, the EDPB decides that they meet the requirements of Article 4(24) GDPR and instructs the IE SA to find in its final decision that there has been an infringement of Article 13(1)(d) GDPR, on the basis of the shortcomings identified by the EDPB."
+    },
+    {
+     "kind": "key_passage",
+     "ref": "paragraph 430",
+     "text": "In relation to the objections of the DE SA, FR SA and PT SA concerning the application of Article 83(3) GDPR, the EDPB decides that they meet the requirements of Article 4(24) GDPR and that the IE SA is required to amend its Draft Decision in respect to Article 83(3) GDPR in order to also take into account the other infringements – in addition to the gravest infringement – when calculating the fine, subject to the criteria of Article 83(1) GDPR of effectiveness, proportionality and dissuasiveness."
+    },
+    {
+     "kind": "key_passage",
+     "ref": "paragraph 423",
+     "text": "The EDPB instructs the IE SA to re-assess its envisaged corrective measure in terms of administrative fine in accordance with the conclusions reached by the EDPB, namely: - the relevant turnover is the global annual turnover of all the component companies of the single undertaking (paragraph 292); - the relevant turnover is the one corresponding to the financial year preceding the date of the final decision taken by the LSA pursuant to Article 65(6) GDPR (paragraph 298). - the relevant turnover is relevant for the determination of the maximum fine amount and also for the calculation of the fine itself, where appropriate, to ensure the fine is effective, proportionate and dissuasive (paragraph 412). - the amount of the fine shall appropriately reflect the aggravating factors identified in the Draft Decision under Article 83(2) GDPR, to ensure the fine is proportionate (paragraph 404). - the identified additional infringements of Articles 5(1)(a), 13(1)(d), 13(2)(e) and the extended scope of 14 GDPR are to be reflected in the amount of the fine, as brought up by several CSAs in their objections; - all the infringements identified in the Draft Decision, as well as the additional ones identified in the present decision, are to be taken into account when calculating the amount of the fine, in accordance with the EDPB’s interpretation of Article 83(3) GDPR (paragraph 327)."
+    }
+   ],
+   "fino_line": "European Data Protection Board, Binding decision 1/2021, adopted 28 July 2021, paragraph 430: “In relation to the objections of the DE SA, FR SA and PT SA concerning the application of Article 83(3) GDPR, the EDPB decides that they meet the requirements of Article 4(24) GDPR and that the IE SA is required to amend its Draft Decision in respect to Article 83(3) GDPR in order to also take into account the other infringements – in addition to the gravest infringement – when calculating the fine, subject to the criteria of Article 83(1) GDPR of effectiveness, proportionality and dissuasiveness.”",
+   "read_by_fino": {
+    "document": "PDF, English text, as published on the EDPB website",
+    "scope": "whole document",
+    "date": "2026-11-06",
+    "sha256": "3f5f2b6d560b3d659f3f32dc42c4cb0028e876b7bf3f8ff1a297849c1a75ef41"
+   },
+   "reuse": {
+    "basis": "The reuse of any information of the EDPB website is authorised, with the source acknowledged and without distorting its meaning (EDPB copyright page). Checked in Fino's library/reuse-terms.csv.",
+    "terms_url": "https://www.edpb.europa.eu/copyright_en",
+    "credit": "European Data Protection Board"
+   },
+   "credit": "European Data Protection Board"
+  },
+  {
+   "id": "EDPB-G-7-2020",
+   "kind": "guidelines",
+   "kind_label": "Guidelines",
+   "body": "European Data Protection Board",
+   "issued_by": "European Data Protection Board",
+   "number": "Guidelines 07/2020",
+   "version": "2.1",
+   "date": "2021-07-07",
+   "date_is": "date of adoption, as the document states it",
+   "cover_line": "Version 2.1 Adopted on 07 July 2021",
+   "title": "Guidelines 07/2020 on the concepts of controller and processor in the GDPR",
+   "status": "final",
+   "status_note": "Version 2.1 of 20 September 2022 made minor corrections to version 2.0 (7 July 2021).",
+   "source_url": "https://www.edpb.europa.eu/documents/guideline/guidelines-072020-on-the-concepts-of-controller-and-processor-in-the-gdpr_en",
+   "pdf_url": "https://www.edpb.europa.eu/system/files/documents/2023-10/EDPB_guidelines_202007_controllerprocessor_final_en.pdf",
+   "gdpr_articles": [
+    4,
+    26,
+    28
+   ],
+   "other_provisions": [],
+   "topics": [
+    "Controller and processor",
+    "Joint controllers",
+    "Processors and sub-processors"
+   ],
+   "scope": {
+    "ref": "paragraph 1",
+    "text": "This document seeks to provide guidance on the concepts of controller and processor based on the GDPR’s rules on definitions in Article 4 and the provisions on obligations in chapter IV."
+   },
+   "extracts": [
+    {
+     "kind": "key_passage",
+     "ref": "paragraph 31",
+     "text": "Article 4(7) recognizes that the “purposes and means” of the processing might be determined by more than one actor. It states that the controller is the actor who “alone or jointly with others” determines the purposes and means of the processing."
+    },
+    {
+     "kind": "key_passage",
+     "ref": "paragraph 40",
+     "text": "As regards the determination of means, a distinction can be made between essential and non-essential means. “Essential means” are traditionally and inherently reserved to the controller. While non-essential means can also be determined by the processor, essential means are to be determined by the controller."
+    },
+    {
+     "kind": "key_passage",
+     "ref": "paragraph 52",
+     "text": "The assessment of joint controllership should be carried out on a factual, rather than a formal, analysis of the actual influence on the purposes and means of the processing. All existing or envisaged arrangements should be checked against the factual circumstances regarding the relationship between the parties."
+    },
+    {
+     "kind": "key_passage",
+     "ref": "paragraph 60",
+     "text": "In addition, when the entities do not have the same purpose for the processing, joint controllership may also, in light of the CJEU case law, be established when the entities involved pursue purposes which are closely linked or complementary. Such may be the case, for example, when there is a mutual benefit arising from the same processing operation, provided that each of the entities involved participates in the determination of the purposes and means of the relevant processing operation."
+    },
+    {
+     "kind": "key_passage",
+     "ref": "paragraph 62",
+     "text": "In this respect, it is important to highlight that the mere existence of a mutual benefit (for ex. commercial) arising from a processing activity does not give rise to joint controllership. If the entity involved in the processing does not pursue any purpose(s) of its own in relation to the processing activity, but is merely being paid for services rendered, it is acting as a processor rather than as a joint controller."
+    }
+   ],
+   "fino_line": "European Data Protection Board, Guidelines 07/2020, version 2.1, adopted 7 July 2021, paragraph 52: “The assessment of joint controllership should be carried out on a factual, rather than a formal, analysis of the actual influence on the purposes and means of the processing.”",
+   "read_by_fino": {
+    "document": "PDF, English text, as published on the EDPB website",
+    "scope": "whole document",
+    "date": "2026-11-06",
+    "sha256": "f47d0428ebfab4e4767495bd87e11cbd370439105f35baf710fe9fb31a043e22"
+   },
+   "reuse": {
+    "basis": "The reuse of any information of the EDPB website is authorised, with the source acknowledged and without distorting its meaning (EDPB copyright page). Checked in Fino's library/reuse-terms.csv.",
+    "terms_url": "https://www.edpb.europa.eu/copyright_en",
+    "credit": "European Data Protection Board"
+   },
+   "credit": "European Data Protection Board"
+  },
+  {
+   "id": "EDPB-G-2-2021",
+   "kind": "guidelines",
+   "kind_label": "Guidelines",
+   "body": "European Data Protection Board",
+   "issued_by": "European Data Protection Board",
+   "number": "Guidelines 02/2021",
+   "version": "2.0",
+   "date": "2021-07-07",
+   "date_is": "date of adoption, as the document states it",
+   "cover_line": "Version 2.0 Adopted on 7 July 2021",
+   "title": "Guidelines 02/2021 on virtual voice assistants",
+   "status": "final",
+   "status_note": "Version 2.0 was adopted after public consultation on version 1.0 (9 March 2021).",
+   "source_url": "https://www.edpb.europa.eu/documents/guideline/guidelines-022021-on-virtual-voice-assistants_en",
+   "pdf_url": "https://www.edpb.europa.eu/system/files/documents/2021-07/edpb_guidelines_202102_on_vva_v2.0_adopted_en.pdf",
+   "gdpr_articles": [],
+   "other_provisions": [
+    "ePrivacy Directive 2002/58/EC, Article 5(3)"
+   ],
+   "topics": [
+    "Voice assistants",
+    "ePrivacy and cookies"
+   ],
+   "scope": {
+    "ref": "paragraph 7",
+    "text": "This document seeks to provide guidance as to the application of the GDPR in the context of the VVAs."
+   },
+   "extracts": [
+    {
+     "kind": "key_passage",
+     "ref": "paragraph 30",
+     "text": "VVAs can accidentally capture audio of individuals who did not intend to use a VVA service. First, to a certain extent and depending on the VVAs, the wake-up expression can be changed."
+    },
+    {
+     "kind": "key_passage",
+     "ref": "paragraph 37",
+     "text": "When using a VVA, personal data are processed from the first interaction with the VVA."
+    },
+    {
+     "kind": "key_passage",
+     "ref": "paragraph 95",
+     "text": "VVAs process and generate a wide variety of personal data like voice, transcriptions of voice, metadata or system logs. These types of data could be processed for a wide range of purposes like provision of a service, NLP improvement, personalization or scientific research."
+    }
+   ],
+   "fino_line": "European Data Protection Board, Guidelines 02/2021, version 2.0, adopted 7 July 2021, paragraph 95: “VVAs process and generate a wide variety of personal data like voice, transcriptions of voice, metadata or system logs.”",
+   "read_by_fino": {
+    "document": "PDF, English text, as published on the EDPB website",
+    "scope": "whole document",
+    "date": "2026-11-06",
+    "sha256": "145c1e9297ef64079ee6bad86a31a8c00b3d155b64436245bed7c76db428bdcf"
+   },
+   "reuse": {
+    "basis": "The reuse of any information of the EDPB website is authorised, with the source acknowledged and without distorting its meaning (EDPB copyright page). Checked in Fino's library/reuse-terms.csv.",
+    "terms_url": "https://www.edpb.europa.eu/copyright_en",
+    "credit": "European Data Protection Board"
+   },
+   "credit": "European Data Protection Board"
+  },
+  {
+   "id": "EDPB-G-8-2020",
+   "kind": "guidelines",
+   "kind_label": "Guidelines",
+   "body": "European Data Protection Board",
+   "issued_by": "European Data Protection Board",
+   "number": "Guidelines 8/2020",
+   "version": "2.0",
+   "date": "2021-04-13",
+   "date_is": "date of adoption, as the document states it",
+   "cover_line": "Version 2.0 Adopted on 13 April 2021",
+   "title": "Guidelines 8/2020 on the targeting of social media users",
+   "status": "final",
+   "status_note": "The version history in the document also lists version 2.1 of 7 July 2021 (references amended); the copy Fino read states version 2.0.",
+   "source_url": "https://www.edpb.europa.eu/documents/guideline/guidelines-82020-on-the-targeting-of-social-media-users_en",
+   "pdf_url": "https://www.edpb.europa.eu/system/files/documents/2021-04/edpb_guidelines_082020_on_the_targeting_of_social_media_users_en.pdf",
+   "gdpr_articles": [
+    6,
+    26
+   ],
+   "other_provisions": [],
+   "topics": [
+    "Targeting and tracking",
+    "Joint controllers"
+   ],
+   "scope": {
+    "ref": "the guidelines, introduction",
+    "text": "These guidelines use the term “targeter” to designate natural or legal persons that use social media services in order to direct specific messages at a set of social media users on the basis of specific parameters or criteria."
+   },
+   "extracts": [
+    {
+     "kind": "key_passage",
+     "ref": "section \"A. Roles\"",
+     "text": "The above analysis remains the same even if the targeter only specifies the parameters of its intended audience and does not have access to the personal data of the users that are affected. Indeed, joint responsibility of several actors for the same processing does not require each of them to have access to the personal data concerned."
+    },
+    {
+     "kind": "key_passage",
+     "ref": "section \"B. Legal basis\"",
+     "text": "As joint controllers, both parties (the social media provider and the targeter) must be able to demonstrate the existence of a legal basis (Article 6 GDPR) to justify the processing of personal data for which each of the joint controllers is responsible."
+    },
+    {
+     "kind": "key_passage",
+     "ref": "section \"A. Roles\"",
+     "text": "The EDPB recalls that actual access to personal data is not a prerequisite for joint responsibility."
+    }
+   ],
+   "fino_line": "European Data Protection Board, Guidelines 8/2020, version 2.0, adopted 13 April 2021, section \"A. Roles\": “The above analysis remains the same even if the targeter only specifies the parameters of its intended audience and does not have access to the personal data of the users that are affected.”",
+   "read_by_fino": {
+    "document": "PDF, English text, as published on the EDPB website",
+    "scope": "whole document",
+    "date": "2026-11-06",
+    "sha256": "1752ccea30a6fbeff0907c0be261c05e40fa5d6a5d512da483894ebd4060bbed"
+   },
+   "reuse": {
+    "basis": "The reuse of any information of the EDPB website is authorised, with the source acknowledged and without distorting its meaning (EDPB copyright page). Checked in Fino's library/reuse-terms.csv.",
+    "terms_url": "https://www.edpb.europa.eu/copyright_en",
+    "credit": "European Data Protection Board"
+   },
+   "credit": "European Data Protection Board"
+  },
+  {
+   "id": "EDPB-G-1-2020",
+   "kind": "guidelines",
+   "kind_label": "Guidelines",
+   "body": "European Data Protection Board",
+   "issued_by": "European Data Protection Board",
+   "number": "Guidelines 01/2020",
+   "version": "2.0",
+   "date": "2021-03-09",
+   "date_is": "date of adoption, as the document states it",
+   "cover_line": "Version 2.0 Adopted on 9 March 2021",
+   "title": "Guidelines 01/2020 on processing personal data in the context of connected vehicles and mobility related applications",
+   "status": "final",
+   "status_note": "Version 2.0 was adopted after public consultation on version 1.0 (28 January 2020).",
+   "source_url": "https://www.edpb.europa.eu/documents/guideline/guidelines-012020-on-processing-personal-data-in-the-context-of-connected_en",
+   "pdf_url": "https://www.edpb.europa.eu/system/files/documents/2021-03/edpb_guidelines_202001_connected_vehicles_v2.0_adopted_en.pdf",
+   "gdpr_articles": [],
+   "other_provisions": [
+    "ePrivacy Directive 2002/58/EC, Article 5(3)"
+   ],
+   "topics": [
+    "Connected vehicles",
+    "ePrivacy and cookies"
+   ],
+   "scope": {
+    "ref": "paragraph 10",
+    "text": "Additionally to the GDPR, directive 2002/58/EC as revised by 2009/136/EC (hereinafter – “ePrivacy directive”), sets a specific standard for all actors that wish to store or access information stored in the terminal equipment of a subscriber or user in the European Economic Area (EEA)."
+   },
+   "extracts": [
+    {
+     "kind": "key_passage",
+     "ref": "paragraph 13",
+     "text": "As a result, provided that the aforementioned criteria are met, the connected vehicle and device connected to it should be considered as a “terminal equipment” (just like a computer, a smartphone or a smart TV) and provisions of art. 5(3) ePrivacy directive apply where relevant."
+    },
+    {
+     "kind": "key_passage",
+     "ref": "paragraph 14",
+     "text": "As outlined by the EDPB in its opinion 5/2019 on the interplay between the ePrivacy directive and the GDPR, art. 5(3) ePrivacy directive provides that, as a rule, and subject to the exceptions to that rule mentioned in paragraph 17 below, prior consent is required for the storing of information, or the gaining of access to information already stored, in the terminal equipment of a subscriber or user. To the extent that the information stored in the end-user’s device constitutes personal data, art. 5(3) ePrivacy directive shall take precedence over art. 6 GDPR with regards to the activity of storing or gaining access to this information."
+    },
+    {
+     "kind": "key_passage",
+     "ref": "paragraph 76",
+     "text": "Local data processing should be considered by car manufacturers and service providers, whenever possible, to mitigate the potential risks of cloud processing, as they are underlined in the opinion on Cloud Computing released by the Article 29 Working Party."
+    }
+   ],
+   "fino_line": "European Data Protection Board, Guidelines 01/2020, version 2.0, adopted 9 March 2021, paragraph 13: “As a result, provided that the aforementioned criteria are met, the connected vehicle and device connected to it should be considered as a “terminal equipment” (just like a computer, a smartphone or a smart TV) and provisions of art. 5(3) ePrivacy directive apply where relevant.”",
+   "read_by_fino": {
+    "document": "PDF, English text, as published on the EDPB website",
+    "scope": "whole document",
+    "date": "2026-11-06",
+    "sha256": "e3986ae29b91ae6a4658237982c21f8aa70165caab06e315bd1d40cc3127a832"
+   },
+   "reuse": {
+    "basis": "The reuse of any information of the EDPB website is authorised, with the source acknowledged and without distorting its meaning (EDPB copyright page). Checked in Fino's library/reuse-terms.csv.",
+    "terms_url": "https://www.edpb.europa.eu/copyright_en",
+    "credit": "European Data Protection Board"
+   },
+   "credit": "European Data Protection Board"
+  },
+  {
+   "id": "EDPB-BD-01-2020",
+   "kind": "binding_decision",
+   "kind_label": "Binding decision of the Board (Article 65)",
+   "body": "European Data Protection Board",
+   "issued_by": "European Data Protection Board",
+   "number": "Decision 01/2020",
+   "version": "adopted",
+   "date": "2020-11-09",
+   "date_is": "date of adoption, as the document states it",
+   "cover_line": "Adopted on 09 November 2020",
+   "title": "Decision 01/2020 on the dispute arisen on the draft decision of the Irish Supervisory Authority regarding Twitter International Company under Article 65(1)(a) GDPR",
+   "status": "final",
+   "status_note": "A binding decision of the Board under Article 65(1)(a) GDPR.",
+   "source_url": "https://www.edpb.europa.eu/documents/edpb-binding-decisions/decision-012020-on-the-dispute-arisen-on-the-draft-decision-of-the_en",
+   "pdf_url": "https://www.edpb.europa.eu/system/files/documents/files/file1/edpb_bindingdecision01_2020_en.pdf",
+   "gdpr_articles": [
+    33,
+    65
+   ],
+   "other_provisions": [],
+   "topics": [
+    "Consistency mechanism (Article 65)",
+    "Personal data breach",
+    "Fines"
+   ],
+   "scope": {
+    "ref": "paragraph 1",
+    "text": "This document contains a binding decision adopted by the EDPB in accordance with Article 65(1)(a) GDPR."
+   },
+   "extracts": [
+    {
+     "kind": "key_passage",
+     "ref": "paragraph 203",
+     "text": "On the objections concerning the qualification of controller and processor and the competence of the LSA: • The EDPB decides that the IE SA is not required to amend its Draft Decision on the basis of the objections raised, as they do not meet the requirements of Article 4(24) GDPR."
+    },
+    {
+     "kind": "key_passage",
+     "ref": "paragraph 204",
+     "text": "On the objections concerning the infringements of Article 33(1) and 33(5) GDPR found by the LSA: • In relation to the objection of the FR SA on the absence of an infringement of Article 33(1) GDPR, the objection of the DE SA on the determination of the dies a quo for the infringement of Article 33(1) GDPR, and the objection of the IT SA relating to the infringement of Article 33(5) GDPR, the EDPB decides that the IE SA is not required to amend its Draft Decision on the basis of the objections raised as they do not meet the requirements of Article 4(24) GDPR."
+    },
+    {
+     "kind": "key_passage",
+     "ref": "paragraph 207",
+     "text": "On the objection concerning the calculation of the fine suggested by the LSA: • In relation to the objection of the HU on the insufficiently dissuasive nature of the fine, the EDPB decides that the IE SA is not required to amend its Draft Decision on the basis of the objection raised as it does not meet the requirements of Article 4(24) GDPR."
+    }
+   ],
+   "fino_line": "European Data Protection Board, Decision 01/2020, adopted 9 November 2020, paragraph 203: “On the objections concerning the qualification of controller and processor and the competence of the LSA: • The EDPB decides that the IE SA is not required to amend its Draft Decision on the basis of the objections raised, as they do not meet the requirements of Article 4(24) GDPR.”",
+   "read_by_fino": {
+    "document": "PDF, English text, as published on the EDPB website",
+    "scope": "whole document",
+    "date": "2026-11-06",
+    "sha256": "bd796b12f28b6a9160581fb987b1851b26aa66fa7cabef1cbaeb1d84a5ba2974"
+   },
+   "reuse": {
+    "basis": "The reuse of any information of the EDPB website is authorised, with the source acknowledged and without distorting its meaning (EDPB copyright page). Checked in Fino's library/reuse-terms.csv.",
+    "terms_url": "https://www.edpb.europa.eu/copyright_en",
+    "credit": "European Data Protection Board"
+   },
+   "credit": "European Data Protection Board"
+  },
+  {
+   "id": "EDPB-G-4-2019",
+   "kind": "guidelines",
+   "kind_label": "Guidelines",
+   "body": "European Data Protection Board",
+   "issued_by": "European Data Protection Board",
+   "number": "Guidelines 4/2019",
+   "version": "2.0",
+   "date": "2020-10-20",
+   "date_is": "date of adoption, as the document states it",
+   "cover_line": "Version 2.0 Adopted on 20 October 2020",
+   "title": "Guidelines 4/2019 on Article 25 Data Protection by Design and by Default",
+   "status": "final",
+   "status_note": "Version 2.0 was adopted after public consultation on version 1.0 (13 November 2019).",
+   "source_url": "https://www.edpb.europa.eu/documents/guideline/guidelines-42019-on-article-25-data-protection-by-design-and-by-default_en",
+   "pdf_url": "https://www.edpb.europa.eu/system/files/documents/files/file1/edpb_guidelines_201904_dataprotection_by_design_and_by_default_v2.0_en.pdf",
+   "gdpr_articles": [
+    25
+   ],
+   "other_provisions": [],
+   "topics": [
+    "Data protection by design and default"
+   ],
+   "scope": {
+    "ref": "paragraph 1",
+    "text": "The Guidelines focus on controllers’ implementation of DPbDD based on the obligation in Article 25 of the GDPR."
+   },
+   "extracts": [
+    {
+     "kind": "key_passage",
+     "ref": "paragraph 6",
+     "text": "DPbDD is a requirement for all controllers, including small businesses and multinational companies alike. That being the case, the complexity of implementing DPbDD may vary based on the individual processing operation."
+    },
+    {
+     "kind": "key_passage",
+     "ref": "paragraph 19",
+     "text": "In the context of Article 25, the reference to “state of the art” imposes an obligation on controllers, when determining the appropriate technical and organisational measures, to take account of the current progress in technology that is available in the market. The requirement is for controllers to have knowledge of, and stay up to date on technological advances; how technology can present data protection risks or opportunities to the processing operation; and how to implement and update the measures and safeguards that secure effective implementation of the principles and rights of data subjects taking into account the evolving technological landscape."
+    },
+    {
+     "kind": "key_passage",
+     "ref": "paragraph 24",
+     "text": "The cost element does not require the controller to spend a disproportionate amount of resources when alternative, less resource demanding, yet effective measures exist. However, the cost of implementation is a factor to be considered to implement data protection by design rather than a ground to not implement it."
+    },
+    {
+     "kind": "key_passage",
+     "ref": "paragraph 37",
+     "text": "Once the processing has started the controller has a continued obligation to maintain DPbDD, i.e. the continued effective implementation of the principles in order to protect the rights, staying up to date on the state of the art, reassessing the level of risk, etc. The nature, scope and context of processing operations, as well as the risk may change over the course of processing, which means that the controller must re-evaluate their processing operations through regular reviews and assessments of the effectiveness of their chosen measures and safeguards."
+    }
+   ],
+   "fino_line": "European Data Protection Board, Guidelines 4/2019, version 2.0, adopted 20 October 2020, paragraph 37: “Once the processing has started the controller has a continued obligation to maintain DPbDD, i.e. the continued effective implementation of the principles in order to protect the rights, staying up to date on the state of the art, reassessing the level of risk, etc. The nature, scope and context of processing operations, as well as the risk may change over the course of processing, which means that the controller must re-evaluate their processing operations through regular reviews and assessments of the effectiveness of their chosen measures and safeguards.”",
+   "read_by_fino": {
+    "document": "PDF, English text, as published on the EDPB website",
+    "scope": "whole document",
+    "date": "2026-11-06",
+    "sha256": "179c669a3aac9a2c6cd9b5765d262a2150347eec88e1b73e4e6cf3eb6dfb46ac"
+   },
+   "reuse": {
+    "basis": "The reuse of any information of the EDPB website is authorised, with the source acknowledged and without distorting its meaning (EDPB copyright page). Checked in Fino's library/reuse-terms.csv.",
+    "terms_url": "https://www.edpb.europa.eu/copyright_en",
+    "credit": "European Data Protection Board"
+   },
+   "credit": "European Data Protection Board"
+  },
+  {
+   "id": "EDPB-G-5-2020",
+   "kind": "guidelines",
+   "kind_label": "Guidelines",
+   "body": "European Data Protection Board",
+   "issued_by": "European Data Protection Board",
+   "number": "Guidelines 05/2020",
+   "version": "1.1",
+   "date": "2020-05-04",
+   "date_is": "date of adoption, as the document states it",
+   "cover_line": "Version 1.1 Adopted on 4 May 2020",
+   "title": "Guidelines 05/2020 on consent under Regulation 2016/679",
+   "status": "final",
+   "status_note": "Version 1.1 of 13 May 2020 corrected the formatting of version 1.0 (4 May 2020).",
+   "source_url": "https://www.edpb.europa.eu/documents/guideline/guidelines-052020-on-consent-under-regulation-2016679_en",
+   "pdf_url": "https://www.edpb.europa.eu/system/files/documents/files/file1/edpb_guidelines_202005_consent_en.pdf",
+   "gdpr_articles": [
+    4,
+    6,
+    7,
+    9
+   ],
+   "other_provisions": [],
+   "topics": [
+    "Consent"
+   ],
+   "scope": {
+    "ref": "paragraph 1",
+    "text": "These Guidelines provide a thorough analysis of the notion of consent in Regulation 2016/679, the General Data Protection Regulation (hereafter: GDPR)."
+   },
+   "extracts": [
+    {
+     "kind": "key_passage",
+     "ref": "paragraph 3",
+     "text": "Generally, consent can only be an appropriate lawful basis if a data subject is offered control and is offered a genuine choice with regard to accepting or declining the terms offered or declining them without detriment. When asking for consent, a controller has the duty to assess whether it will meet all the requirements to obtain valid consent. If obtained in full compliance with the GDPR, consent is a tool that gives data subjects control over whether or not personal data concerning them will be processed. If not, the data subject’s control becomes illusory and consent will be an invalid basis for processing, rendering the processing activity unlawful."
+    },
+    {
+     "kind": "key_passage",
+     "ref": "paragraph 16",
+     "text": "Recital 43 clearly indicates that it is unlikely that public authorities can rely on consent for processing as whenever the controller is a public authority, there is often a clear imbalance of power in the relationship between the controller and the data subject. It is also clear in most cases that the data subject will have no realistic alternatives to accepting the processing (terms) of this controller."
+    },
+    {
+     "kind": "key_passage",
+     "ref": "paragraph 21",
+     "text": "An imbalance of power also occurs in the employment context. Given the dependency that results from the employer/employee relationship, it is unlikely that the data subject is able to deny his/her employer consent to data processing without experiencing the fear or real risk of detrimental effects as a result of a refusal."
+    },
+    {
+     "kind": "key_passage",
+     "ref": "paragraph 22",
+     "text": "However, this does not mean that employers can never rely on consent as a lawful basis for processing. There may be situations when it is possible for the employer to demonstrate that consent actually is freely given. Given the imbalance of power between an employer and its staff members, employees can only give free consent in exceptional circumstances, when it will have no adverse consequences at all whether or not they give consent."
+    },
+    {
+     "kind": "key_passage",
+     "ref": "paragraph 39",
+     "text": "In order for consent to be freely given, access to services and functionalities must not be made conditional on the consent of a user to the storing of information, or gaining of access to information already stored, in the terminal equipment of a user (so called cookie walls)."
+    },
+    {
+     "kind": "key_passage",
+     "ref": "paragraph 79",
+     "text": "The use of pre-ticked opt-in boxes is invalid under the GDPR. Silence or inactivity on the part of the data subject, as well as merely proceeding with a service cannot be regarded as an active indication of choice."
+    },
+    {
+     "kind": "key_passage",
+     "ref": "paragraph 114",
+     "text": "However, when consent is obtained via electronic means through only one mouse-click, swipe, or keystroke, data subjects must, in practice, be able to withdraw that consent equally as easily."
+    }
+   ],
+   "fino_line": "European Data Protection Board, Guidelines 05/2020, version 1.1, adopted 4 May 2020, paragraph 39: “In order for consent to be freely given, access to services and functionalities must not be made conditional on the consent of a user to the storing of information, or gaining of access to information already stored, in the terminal equipment of a user (so called cookie walls).”",
+   "read_by_fino": {
+    "document": "PDF, English text, as published on the EDPB website",
+    "scope": "whole document",
+    "date": "2026-11-06",
+    "sha256": "d45afa0c7f062e9b0d9f5d2abbcfeb8a59d44e6c29c7e65693da9f2a5ea8fcb7"
+   },
+   "reuse": {
+    "basis": "The reuse of any information of the EDPB website is authorised, with the source acknowledged and without distorting its meaning (EDPB copyright page). Checked in Fino's library/reuse-terms.csv.",
+    "terms_url": "https://www.edpb.europa.eu/copyright_en",
+    "credit": "European Data Protection Board"
+   },
+   "credit": "European Data Protection Board"
+  },
+  {
+   "id": "EDPB-G-3-2019",
+   "kind": "guidelines",
+   "kind_label": "Guidelines",
+   "body": "European Data Protection Board",
+   "issued_by": "European Data Protection Board",
+   "number": "Guidelines 3/2019",
+   "version": "2.0",
+   "date": "2020-01-29",
+   "date_is": "date of adoption, as the document states it",
+   "cover_line": "Version 2.0 Adopted on 29 January 2020",
+   "title": "Guidelines 3/2019 on processing of personal data through video devices",
+   "status": "final",
+   "status_note": "Version 2.1 of 26 February 2020 amended a material mistake; the copy Fino read states version 2.0.",
+   "source_url": "https://www.edpb.europa.eu/documents/guideline/guidelines-32019-on-processing-of-personal-data-through-video-devices_en",
+   "pdf_url": "https://www.edpb.europa.eu/system/files/documents/files/file1/edpb_guidelines_201903_video_devices_en_0.pdf",
+   "gdpr_articles": [
+    2,
+    6,
+    9
+   ],
+   "other_provisions": [],
+   "topics": [
+    "Video surveillance",
+    "Biometric data",
+    "Legitimate interest",
+    "Employment"
+   ],
+   "scope": {
+    "ref": "paragraph 6",
+    "text": "These guidelines aim at giving guidance on how to apply the GDPR in relation to processing personal data through video devices."
+   },
+   "extracts": [
+    {
+     "kind": "key_passage",
+     "ref": "paragraph 12",
+     "text": "This provision – the so-called household exemption – in the context of video surveillance must be narrowly construed."
+    },
+    {
+     "kind": "key_passage",
+     "ref": "paragraph 18",
+     "text": "Video surveillance is lawful if it is necessary in order to meet the purpose of a legitimate interest pursued by a controller or a third party, unless such interests are overridden by the data subject’s interests or fundamental rights and freedoms (Article 6 (1) (f))."
+    },
+    {
+     "kind": "key_passage",
+     "ref": "paragraph 20",
+     "text": "The legitimate interest needs to be of real existence and has to be a present issue (i.e. it must not be fictional or speculative). A real-life situation of distress needs to be at hand – such as damages or serious incidents in the past – before starting the surveillance."
+    },
+    {
+     "kind": "key_passage",
+     "ref": "paragraph 37",
+     "text": "For instance, an employee in his/her workplace is in most cases not likely expecting to be monitored by his or her employer. Furthermore, monitoring is not to be expected in one’s private garden, in living areas, or in examination and treatment rooms."
+    },
+    {
+     "kind": "key_passage",
+     "ref": "paragraph 47",
+     "text": "Given the imbalance of power between employers and employees, in most cases employers should not rely on consent when processing personal data, as it is unlikely to be freely given. The guidelines on consent should be taken into consideration in this context."
+    },
+    {
+     "kind": "key_passage",
+     "ref": "paragraph 77",
+     "text": "The use of video surveillance including biometric recognition functionality installed by private entities for their own purposes (e.g. marketing, statistical, or even security) will, in most cases, require explicit consent from all data subjects (Article 9 (2) (a)), however another suitable exception in Article 9 could also be applicable."
+    }
+   ],
+   "fino_line": "European Data Protection Board, Guidelines 3/2019, version 2.0, adopted 29 January 2020, paragraph 12: “This provision – the so-called household exemption – in the context of video surveillance must be narrowly construed.”",
+   "read_by_fino": {
+    "document": "PDF, English text, as published on the EDPB website",
+    "scope": "whole document",
+    "date": "2026-11-06",
+    "sha256": "51c9d9902b9aa5f444b694bd25aea5931aee8941aa049b7db80c647003188c4b"
+   },
+   "reuse": {
+    "basis": "The reuse of any information of the EDPB website is authorised, with the source acknowledged and without distorting its meaning (EDPB copyright page). Checked in Fino's library/reuse-terms.csv.",
+    "terms_url": "https://www.edpb.europa.eu/copyright_en",
+    "credit": "European Data Protection Board"
+   },
+   "credit": "European Data Protection Board"
+  },
+  {
+   "id": "EDPB-G-2-2019",
+   "kind": "guidelines",
+   "kind_label": "Guidelines",
+   "body": "European Data Protection Board",
+   "issued_by": "European Data Protection Board",
+   "number": "Guidelines 2/2019",
+   "version": "2.0",
+   "date": "2019-10-08",
+   "date_is": "date of adoption, as the document states it",
+   "cover_line": "Version 2.0 8 October 2019",
+   "title": "Guidelines 2/2019 on the processing of personal data under Article 6(1)(b) GDPR in the context of the provision of online services to data subjects",
+   "status": "final",
+   "status_note": "Version 2.0 was adopted after public consultation on version 1.0 (9 April 2019).",
+   "source_url": "https://www.edpb.europa.eu/documents/guideline/guidelines-22019-on-the-processing-of-personal-data-under-article-61b-gdpr-in_en",
+   "pdf_url": "https://www.edpb.europa.eu/system/files/documents/files/file1/edpb_guidelines-art_6-1-b-adopted_after_public_consultation_en.pdf",
+   "gdpr_articles": [
+    6
+   ],
+   "other_provisions": [],
+   "topics": [
+    "Contract as a legal basis"
+   ],
+   "scope": {
+    "ref": "paragraph 7",
+    "text": "These guidelines are concerned with the applicability of Article 6(1)(b) to processing of personal data in the context of contracts for online services, irrespective of how the services are financed."
+   },
+   "extracts": [
+    {
+     "kind": "key_passage",
+     "ref": "paragraph 2",
+     "text": "Article 6(1)(b) GDPR provides a lawful basis for the processing of personal data to the extent that “processing is necessary for the performance of a contract to which the data subject is party or in order to take steps at the request of the data subject prior to entering into a contract”."
+    },
+    {
+     "kind": "key_passage",
+     "ref": "paragraph 22",
+     "text": "Article 6(1)(b) applies where either of two conditions are met: the processing in question must be objectively necessary for the performance of a contract with a data subject, or the processing must be objectively necessary in order to take pre-contractual steps at the request of a data subject."
+    },
+    {
+     "kind": "key_passage",
+     "ref": "paragraph 25",
+     "text": "Assessing what is ‘necessary’ involves a combined, fact-based assessment of the processing “for the objective pursued and of whether it is less intrusive compared to other options for achieving the same goal”."
+    }
+   ],
+   "fino_line": "European Data Protection Board, Guidelines 2/2019, version 2.0, adopted 8 October 2019, paragraph 22: “Article 6(1)(b) applies where either of two conditions are met: the processing in question must be objectively necessary for the performance of a contract with a data subject, or the processing must be objectively necessary in order to take pre-contractual steps at the request of a data subject.”",
+   "read_by_fino": {
+    "document": "PDF, English text, as published on the EDPB website",
+    "scope": "whole document",
+    "date": "2026-11-06",
+    "sha256": "bacffd3d66abf3b3e097739bbba618b8db78ad908d7a7ea1941314e192122bf5"
+   },
+   "reuse": {
+    "basis": "The reuse of any information of the EDPB website is authorised, with the source acknowledged and without distorting its meaning (EDPB copyright page). Checked in Fino's library/reuse-terms.csv.",
+    "terms_url": "https://www.edpb.europa.eu/copyright_en",
+    "credit": "European Data Protection Board"
+   },
+   "credit": "European Data Protection Board"
+  },
+  {
+   "id": "WP29-260",
+   "kind": "wp29_guidelines",
+   "kind_label": "Article 29 Working Party guidelines, endorsed by the Board",
+   "body": "European Data Protection Board",
+   "issued_by": "Article 29 Working Party, endorsed by the European Data Protection Board",
+   "number": "WP 260 rev.01",
+   "version": "rev.01",
+   "date": "2018-04-11",
+   "date_is": "date of adoption, as the document states it",
+   "cover_line": "Adopted on 29 November 2017 As last Revised and Adopted on 11 April 2018",
+   "title": "Article 29 Working Party Guidelines on transparency under Regulation 2016/679",
+   "status": "final",
+   "status_note": "A document of the Article 29 Working Party, endorsed by the European Data Protection Board at its first plenary meeting on 25 May 2018 (Endorsement 1/2018). The PDF Fino read is the copy on the Board's own website.",
+   "source_url": "https://www.edpb.europa.eu/documents/guideline/article-29-working-party-guidelines-on-transparency-under-regulation-2016679_en",
+   "pdf_url": "https://www.edpb.europa.eu/system/files/documents/2023-09/wp260rev01_en.pdf",
+   "gdpr_articles": [
+    12,
+    13,
+    14
+   ],
+   "other_provisions": [],
+   "topics": [
+    "Transparency"
+   ],
+   "scope": {
+    "ref": "paragraph 1",
+    "text": "These guidelines provide practical guidance and interpretative assistance from the Article 29 Working Party (WP29) on the new obligation of transparency concerning the processing of personal data under the General Data Protection Regulation (the “GDPR”)."
+   },
+   "extracts": [
+    {
+     "kind": "key_passage",
+     "ref": "paragraph 7",
+     "text": "In particular Article 12 requires that the information or communication in question must comply with the following rules: • it must be concise, transparent, intelligible and easily accessible (Article 12.1); [...]"
+    },
+    {
+     "kind": "key_passage",
+     "ref": "paragraph 4",
+     "text": "Transparency, when adhered to by data controllers, empowers data subjects to hold data controllers and processors accountable and to exercise control over their personal data by, for example, providing or withdrawing informed consent and actioning their data subject rights."
+    },
+    {
+     "kind": "key_passage",
+     "ref": "paragraph 1",
+     "text": "These guidelines provide practical guidance and interpretative assistance from the Article 29 Working Party (WP29) on the new obligation of transparency concerning the processing of personal data under the General Data Protection Regulation (the “GDPR”). Transparency is an overarching obligation under the GDPR applying to three central areas: (1) the provision of information to data subjects related to fair processing; (2) how data controllers communicate with data subjects in relation to their rights under the GDPR; and (3) how data controllers facilitate the exercise by data subjects of their rights."
+    }
+   ],
+   "fino_line": "Article 29 Working Party, endorsed by the European Data Protection Board, WP 260 rev.01, adopted 11 April 2018, paragraph 4: “Transparency, when adhered to by data controllers, empowers data subjects to hold data controllers and processors accountable and to exercise control over their personal data by, for example, providing or withdrawing informed consent and actioning their data subject rights.”",
+   "read_by_fino": {
+    "document": "PDF, English text, as published on the EDPB website",
+    "scope": "whole document",
+    "date": "2026-11-06",
+    "sha256": "e026fbc21b2c6a6246ee09f8e66a6dc2a11830833eab15d54882bd6ad6c0c624"
+   },
+   "reuse": {
+    "basis": "The reuse of any information of the EDPB website is authorised, with the source acknowledged and without distorting its meaning (EDPB copyright page). Checked in Fino's library/reuse-terms.csv.",
+    "terms_url": "https://www.edpb.europa.eu/copyright_en",
+    "credit": "Article 29 Data Protection Working Party, WP 260 rev.01 (endorsed by the EDPB, 25 May 2018). Source: European Data Protection Board, edpb.europa.eu (EDPB copyright terms: source acknowledged, meaning not distorted). Extract unchanged except spacing, footnotes left out and a bullet sign set in the PDF's symbol font written as a bullet; [...] marks any cut."
+   },
+   "credit": "Article 29 Data Protection Working Party, WP 260 rev.01 (endorsed by the EDPB, 25 May 2018). Source: European Data Protection Board, edpb.europa.eu (EDPB copyright terms: source acknowledged, meaning not distorted). Extract unchanged except spacing, footnotes left out and a bullet sign set in the PDF's symbol font written as a bullet; [...] marks any cut.",
+   "endorsed_on": "2018-05-25",
+   "endorsement_source": "https://www.edpb.europa.eu/sites/default/files/files/news/endorsement_of_wp29_documents_en_0.pdf"
+  },
+  {
+   "id": "WP29-251",
+   "kind": "wp29_guidelines",
+   "kind_label": "Article 29 Working Party guidelines, endorsed by the Board",
+   "body": "European Data Protection Board",
+   "issued_by": "Article 29 Working Party, endorsed by the European Data Protection Board",
+   "number": "WP 251 rev.01",
+   "version": "rev.01",
+   "date": "2018-02-06",
+   "date_is": "date of adoption, as the document states it",
+   "cover_line": "Adopted on 3 October 2017 As last Revised and Adopted on 6 February 2018",
+   "title": "Guidelines on Automated individual decision-making and Profiling for the purposes of Regulation 2016/679",
+   "status": "final",
+   "status_note": "A document of the Article 29 Working Party, endorsed by the European Data Protection Board at its first plenary meeting on 25 May 2018 (Endorsement 1/2018). The Board's own page for it is the source named here; the PDF Fino read is the copy on the Commission's Article 29 pages. Fino also holds the Court of Justice judgment of 7 December 2023 on Article 22 (C-634/21).",
+   "source_url": "https://www.edpb.europa.eu/documents/guideline/automated-decision-making-and-profiling_en",
+   "pdf_url": "https://ec.europa.eu/newsroom/just/document.cfm?doc_id=49826",
+   "gdpr_articles": [
+    22
+   ],
+   "other_provisions": [],
+   "topics": [
+    "Automated decisions and profiling"
+   ],
+   "scope": {
+    "ref": "section IV, \"Specific provisions on solely automated decision-making defined in Article 22\"",
+    "text": "Article 22(1) establishes a general prohibition for decision-making based solely on automated processing. This prohibition applies whether or not the data subject takes an action regarding the processing of their personal data."
+   },
+   "extracts": [
+    {
+     "kind": "key_passage",
+     "ref": "under the heading \"B. Automated decision-making\"",
+     "text": "Decisions that are not solely automated might also include profiling. For example, before granting a mortgage, a bank may consider the credit score of the borrower, with additional meaningful intervention carried out by humans before any decision is applied to an individual."
+    },
+    {
+     "kind": "key_passage",
+     "ref": "section IV, \"Specific provisions on solely automated decision-making defined in Article 22\"",
+     "text": "In summary, Article 22 provides that: (i) as a rule, there is a general prohibition on fully automated individual decision-making, including profiling that has a legal or similarly significant effect; (ii) there are exceptions to the rule; (iii) where one of these exceptions applies, there must be measures in place to safeguard the data subject’s rights and freedoms and legitimate interests [...]"
+    },
+    {
+     "kind": "key_passage",
+     "ref": "under the heading \"C. How the GDPR addresses the concepts\"",
+     "text": "There are potentially three ways in which profiling may be used: (i) general profiling; (ii) decision-making based on profiling; and (iii) solely automated decision-making, including profiling, which produces legal effects or similarly significantly affects the data subject (Article 22[1])."
+    }
+   ],
+   "fino_line": "Article 29 Working Party, endorsed by the European Data Protection Board, WP 251 rev.01, adopted 6 February 2018, section IV, \"Specific provisions on solely automated decision-making defined in Article 22\": “In summary, Article 22 provides that: (i) as a rule, there is a general prohibition on fully automated individual decision-making, including profiling that has a legal or similarly significant effect; (ii) there are exceptions to the rule; (iii) where one of these exceptions applies, there must be measures in place to safeguard the data subject’s rights and freedoms and legitimate interests [...]”",
+   "read_by_fino": {
+    "document": "PDF, English text, as published on the Article 29 Working Party pages of the European Commission (endorsed by the EDPB)",
+    "scope": "whole document",
+    "date": "2026-11-06",
+    "sha256": "9046de3069ee27a6914796adf18521d4b439c4f39c9c1d58eead8c0182c942d2"
+   },
+   "reuse": {
+    "basis": "The PDF is held only on the European Commission's Article 29 pages. The Commission's legal notice (read 6 November 2026) says that its reuse policy is implemented by Commission Decision 2011/833/EU and that, unless otherwise indicated, “content owned by the EU on this website” is licensed under CC BY 4.0: reuse is allowed, provided appropriate credit is given and changes are indicated; third-party works may need the rightholder's permission. The notice does not say who owns an individual Working Party document, so Fino credits the Working Party and the Commission. Checked in Fino's library/reuse-terms.csv.",
+    "terms_url": "https://commission.europa.eu/legal-notice_en",
+    "credit": "Article 29 Data Protection Working Party, WP 251 rev.01 (endorsed by the EDPB, 25 May 2018). Source: European Commission, ec.europa.eu/newsroom/article29, © European Union. Extract unchanged except spacing and footnotes left out; [...] marks any cut."
+   },
+   "credit": "Article 29 Data Protection Working Party, WP 251 rev.01 (endorsed by the EDPB, 25 May 2018). Source: European Commission, ec.europa.eu/newsroom/article29, © European Union. Extract unchanged except spacing and footnotes left out; [...] marks any cut.",
+   "endorsed_on": "2018-05-25",
+   "endorsement_source": "https://www.edpb.europa.eu/sites/default/files/files/news/endorsement_of_wp29_documents_en_0.pdf"
+  },
+  {
+   "id": "WP29-248",
+   "kind": "wp29_guidelines",
+   "kind_label": "Article 29 Working Party guidelines, endorsed by the Board",
+   "body": "European Data Protection Board",
+   "issued_by": "Article 29 Working Party, endorsed by the European Data Protection Board",
+   "number": "WP 248 rev.01",
+   "version": "rev.01",
+   "date": "2017-10-04",
+   "date_is": "date of adoption, as the document states it",
+   "cover_line": "Adopted on 4 April 2017 As last Revised and Adopted on 4 October 2017",
+   "title": "Guidelines on Data Protection Impact Assessment (DPIA) and determining whether processing is “likely to result in a high risk” for the purposes of Regulation 2016/679",
+   "status": "final",
+   "status_note": "A document of the Article 29 Working Party, endorsed by the European Data Protection Board at its first plenary meeting on 25 May 2018 (Endorsement 1/2018). The Board's own page for it is the source named here; the PDF Fino read is the copy on the Commission's Article 29 pages.",
+   "source_url": "https://www.edpb.europa.eu/documents/guideline/data-protection-impact-assessments-high-risk-processing_en",
+   "pdf_url": "https://ec.europa.eu/newsroom/just/document.cfm?doc_id=47711",
+   "gdpr_articles": [
+    35
+   ],
+   "other_provisions": [],
+   "topics": [
+    "Data protection impact assessment"
+   ],
+   "scope": {
+    "ref": "section III.B, \"Which processing operations are subject to a DPIA?\"",
+    "text": "In most cases, a data controller can consider that a processing meeting two criteria would require a DPIA to be carried out."
+   },
+   "extracts": [
+    {
+     "kind": "key_passage",
+     "ref": "section III.B, after criterion 9",
+     "text": "In general, the WP29 considers that the more criteria are met by the processing, the more likely it is to present a high risk to the rights and freedoms of data subjects, and therefore to require a DPIA, regardless of the measures which the controller envisages to adopt."
+    },
+    {
+     "kind": "key_passage",
+     "ref": "section III.B, criterion 9",
+     "text": "When the processing in itself “prevents data subjects from exercising a right or using a service or a contract” (Article 22 and recital 91). This includes processing operations that aims at allowing, modifying or refusing data subjects’ access to a service or entry into a contract."
+    },
+    {
+     "kind": "key_passage",
+     "ref": "section III.B, \"Which processing operations are subject to a DPIA?\"",
+     "text": "This section describes when a DPIA is mandatory, and when it is not necessary to carry out a DPIA."
+    }
+   ],
+   "fino_line": "Article 29 Working Party, endorsed by the European Data Protection Board, WP 248 rev.01, adopted 4 October 2017, section III.B, after criterion 9: “In general, the WP29 considers that the more criteria are met by the processing, the more likely it is to present a high risk to the rights and freedoms of data subjects, and therefore to require a DPIA, regardless of the measures which the controller envisages to adopt.”",
+   "read_by_fino": {
+    "document": "PDF, English text, as published on the Article 29 Working Party pages of the European Commission (endorsed by the EDPB)",
+    "scope": "whole document",
+    "date": "2026-11-06",
+    "sha256": "4de1ee2df6bbe9517847b45ba8b0657e7de4c1bd796f107d940df255ca6ded67"
+   },
+   "reuse": {
+    "basis": "The PDF is held only on the European Commission's Article 29 pages. The Commission's legal notice (read 6 November 2026) says that its reuse policy is implemented by Commission Decision 2011/833/EU and that, unless otherwise indicated, “content owned by the EU on this website” is licensed under CC BY 4.0: reuse is allowed, provided appropriate credit is given and changes are indicated; third-party works may need the rightholder's permission. The notice does not say who owns an individual Working Party document, so Fino credits the Working Party and the Commission. Checked in Fino's library/reuse-terms.csv.",
+    "terms_url": "https://commission.europa.eu/legal-notice_en",
+    "credit": "Article 29 Data Protection Working Party, WP 248 rev.01 (endorsed by the EDPB, 25 May 2018). Source: European Commission, ec.europa.eu/newsroom/article29, © European Union. Extract unchanged except spacing and footnotes left out; [...] marks any cut."
+   },
+   "credit": "Article 29 Data Protection Working Party, WP 248 rev.01 (endorsed by the EDPB, 25 May 2018). Source: European Commission, ec.europa.eu/newsroom/article29, © European Union. Extract unchanged except spacing and footnotes left out; [...] marks any cut.",
+   "endorsed_on": "2018-05-25",
+   "endorsement_source": "https://www.edpb.europa.eu/sites/default/files/files/news/endorsement_of_wp29_documents_en_0.pdf"
+  },
+  {
+   "id": "WP29-243",
+   "kind": "wp29_guidelines",
+   "kind_label": "Article 29 Working Party guidelines, endorsed by the Board",
+   "body": "European Data Protection Board",
+   "issued_by": "Article 29 Working Party, endorsed by the European Data Protection Board",
+   "number": "WP 243 rev.01",
+   "version": "rev.01",
+   "date": "2017-04-05",
+   "date_is": "date of adoption, as the document states it",
+   "cover_line": "Adopted on 13 December 2016 As last Revised and Adopted on 5 April 2017",
+   "title": "Guidelines on Data Protection Officers (‘DPOs’)",
+   "status": "final",
+   "status_note": "A document of the Article 29 Working Party, endorsed by the European Data Protection Board at its first plenary meeting on 25 May 2018 (Endorsement 1/2018). The Board's own page for it is the source named here; the PDF Fino read is the copy on the Commission's Article 29 pages.",
+   "source_url": "https://www.edpb.europa.eu/documents/guideline/data-protection-officer_en",
+   "pdf_url": "https://ec.europa.eu/newsroom/just/document.cfm?doc_id=44100",
+   "gdpr_articles": [
+    37,
+    38,
+    39
+   ],
+   "other_provisions": [],
+   "topics": [
+    "Data protection officer"
+   ],
+   "scope": {
+    "ref": "section 3.5, \"Conflict of interests\"",
+    "text": "Although DPOs are allowed to have other functions, they can only be entrusted with other tasks and duties provided that these do not give rise to conflicts of interests. This entails in particular that the DPO cannot hold a position within the organisation that leads him or her to determine the purposes and the means of the processing of personal data. Due to the specific organisational structure in each organisation, this has to be considered case by case."
+   },
+   "extracts": [
+    {
+     "kind": "key_passage",
+     "ref": "section 3.5, \"Conflict of interests\"",
+     "text": "As a rule of thumb, conflicting positions within the organisation may include senior management positions (such as chief executive, chief operating, chief financial, chief medical officer, head of marketing department, head of Human Resources or head of IT departments) but also other roles lower down in the organisational structure if such positions or roles lead to the determination of purposes and means of processing."
+    },
+    {
+     "kind": "key_passage",
+     "ref": "section 3.5, \"Conflict of interests\"",
+     "text": "This entails in particular that the DPO cannot hold a position within the organisation that leads him or her to determine the purposes and the means of the processing of personal data."
+    },
+    {
+     "kind": "key_passage",
+     "ref": "section 3.5, \"Conflict of interests\"",
+     "text": "In addition, a conflict of interests may also arise for example if an external DPO is asked to represent the controller or processor before the Courts in cases involving data protection issues."
+    }
+   ],
+   "fino_line": "Article 29 Working Party, endorsed by the European Data Protection Board, WP 243 rev.01, adopted 5 April 2017, section 3.5, \"Conflict of interests\": “This entails in particular that the DPO cannot hold a position within the organisation that leads him or her to determine the purposes and the means of the processing of personal data.”",
+   "read_by_fino": {
+    "document": "PDF, English text, as published on the Article 29 Working Party pages of the European Commission (endorsed by the EDPB)",
+    "scope": "whole document",
+    "date": "2026-11-06",
+    "sha256": "d6765c6fb386d6bbdb2603bca47f51329e1209a73a7dff8def2772b0a75a55a8"
+   },
+   "reuse": {
+    "basis": "The PDF is held only on the European Commission's Article 29 pages. The Commission's legal notice (read 6 November 2026) says that its reuse policy is implemented by Commission Decision 2011/833/EU and that, unless otherwise indicated, “content owned by the EU on this website” is licensed under CC BY 4.0: reuse is allowed, provided appropriate credit is given and changes are indicated; third-party works may need the rightholder's permission. The notice does not say who owns an individual Working Party document, so Fino credits the Working Party and the Commission. Checked in Fino's library/reuse-terms.csv.",
+    "terms_url": "https://commission.europa.eu/legal-notice_en",
+    "credit": "Article 29 Data Protection Working Party, WP 243 rev.01 (endorsed by the EDPB, 25 May 2018). Source: European Commission, ec.europa.eu/newsroom/article29, © European Union. Extract unchanged except spacing and footnotes left out; [...] marks any cut."
+   },
+   "credit": "Article 29 Data Protection Working Party, WP 243 rev.01 (endorsed by the EDPB, 25 May 2018). Source: European Commission, ec.europa.eu/newsroom/article29, © European Union. Extract unchanged except spacing and footnotes left out; [...] marks any cut.",
+   "endorsed_on": "2018-05-25",
+   "endorsement_source": "https://www.edpb.europa.eu/sites/default/files/files/news/endorsement_of_wp29_documents_en_0.pdf"
+  }
+ ]
+}
