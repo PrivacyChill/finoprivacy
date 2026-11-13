@@ -5,8 +5,8 @@
 <url><loc>https://finoprivacy.com/fines.html</loc><lastmod>2026-11-13</lastmod></url>
 <url><loc>https://finoprivacy.com/guidance/</loc><lastmod>2026-11-09</lastmod></url>
 <url><loc>https://finoprivacy.com/rulings/</loc><lastmod>2026-11-09</lastmod></url>
-<url><loc>https://finoprivacy.com/key-cases/</loc><lastmod>2026-11-09</lastmod></url>
-<url><loc>https://finoprivacy.com/glossary/</loc><lastmod>2026-11-08</lastmod></url>
+<url><loc>https://finoprivacy.com/key-cases/</loc><lastmod>2026-11-13</lastmod></url>
+<url><loc>https://finoprivacy.com/glossary/</loc><lastmod>2026-11-13</lastmod></url>
 <url><loc>https://finoprivacy.com/ai-act/</loc><lastmod>2026-11-02</lastmod></url>
 <url><loc>https://finoprivacy.com/gdpr/</loc><lastmod>2026-11-13</lastmod></url>
 <url><loc>https://finoprivacy.com/documents/de/processor-agreement.html</loc><lastmod>2026-11-08</lastmod></url>
@@ -69,8 +69,8 @@
 <url><loc>https://finoprivacy.com/tools/similar-fines.html</loc><lastmod>2026-11-13</lastmod></url>
 <url><loc>https://finoprivacy.com/tools/response-timeline.html</loc><lastmod>2026-11-09</lastmod></url>
 <url><loc>https://finoprivacy.com/regulators.html</loc><lastmod>2026-11-13</lastmod></url>
-<url><loc>https://finoprivacy.com/Privacy.html</loc><lastmod>2026-11-09</lastmod></url>
-<url><loc>https://finoprivacy.com/laws.html</loc><lastmod>2026-11-09</lastmod></url>
+<url><loc>https://finoprivacy.com/Privacy.html</loc><lastmod>2026-11-13</lastmod></url>
+<url><loc>https://finoprivacy.com/laws.html</loc><lastmod>2026-11-13</lastmod></url>
 <url><loc>https://finoprivacy.com/tools/cookie-check.html</loc><lastmod>2026-11-09</lastmod></url>
 <url><loc>https://finoprivacy.com/ai/</loc><lastmod>2026-11-09</lastmod></url>
 <url><loc>https://finoprivacy.com/About.html</loc><lastmod>2026-11-13</lastmod></url>
@@ -2331,8 +2331,8 @@
 <url><loc>https://finoprivacy.com/countries/luxembourg/</loc><lastmod>2026-11-12</lastmod></url>
 <url><loc>https://finoprivacy.com/countries/malta/</loc><lastmod>2026-11-09</lastmod></url>
 <url><loc>https://finoprivacy.com/countries/netherlands/</loc><lastmod>2026-11-12</lastmod></url>
-<url><loc>https://finoprivacy.com/countries/norway/</loc><lastmod>2026-11-09</lastmod></url>
-<url><loc>https://finoprivacy.com/countries/poland/</loc><lastmod>2026-11-09</lastmod></url>
+<url><loc>https://finoprivacy.com/countries/norway/</loc><lastmod>2026-11-13</lastmod></url>
+<url><loc>https://finoprivacy.com/countries/poland/</loc><lastmod>2026-11-13</lastmod></url>
 <url><loc>https://finoprivacy.com/countries/portugal/</loc><lastmod>2026-11-13</lastmod></url>
 <url><loc>https://finoprivacy.com/countries/romania/</loc><lastmod>2026-11-13</lastmod></url>
 <url><loc>https://finoprivacy.com/countries/slovakia/</loc><lastmod>2026-11-09</lastmod></url>
@@ -2342,6 +2342,11 @@
 <url><loc>https://finoprivacy.com/countries/switzerland/</loc><lastmod>2026-11-09</lastmod></url>
 <url><loc>https://finoprivacy.com/countries/united-kingdom/</loc><lastmod>2026-11-09</lastmod></url>
 <url><loc>https://finoprivacy.com/countries/</loc><lastmod>2026-11-12</lastmod></url>
+<url><loc>https://finoprivacy.com/documents/checklists/privacy-notice.html</loc><lastmod>2026-11-13</lastmod></url>
+<url><loc>https://finoprivacy.com/documents/checklists/processor-contract.html</loc><lastmod>2026-11-13</lastmod></url>
+<url><loc>https://finoprivacy.com/documents/checklists/records-of-processing.html</loc><lastmod>2026-11-13</lastmod></url>
+<url><loc>https://finoprivacy.com/documents/checklists/data-breach-report.html</loc><lastmod>2026-11-13</lastmod></url>
+<url><loc>https://finoprivacy.com/documents/checklists/dpia.html</loc><lastmod>2026-11-13</lastmod></url>
 <url><loc>https://finoprivacy.com/gdpr/article-1.html</loc><lastmod>2026-11-08</lastmod></url>
 <url><loc>https://finoprivacy.com/gdpr/article-2.html</loc><lastmod>2026-11-09</lastmod></url>
 <url><loc>https://finoprivacy.com/gdpr/article-3.html</loc><lastmod>2026-11-09</lastmod></url>
@@ -2999,7 +3004,7 @@
 <url><loc>https://finoprivacy.com/decisions/2026-ES-010.html</loc><lastmod>2026-11-08</lastmod></url>
 <url><loc>https://finoprivacy.com/decisions/2026-ES-035.html</loc><lastmod>2026-11-08</lastmod></url>
 <url><loc>https://finoprivacy.com/decisions/2026-AT-007.html</loc><lastmod>2026-11-08</lastmod></url>
-<url><loc>https://finoprivacy.com/decisions/2026-NO-001.html</loc><lastmod>2026-11-08</lastmod></url>
+<url><loc>https://finoprivacy.com/decisions/2026-NO-001.html</loc><lastmod>2026-11-13</lastmod></url>
 <url><loc>https://finoprivacy.com/decisions/2026-IT-172.html</loc><lastmod>2026-11-08</lastmod></url>
 <url><loc>https://finoprivacy.com/decisions/2026-IT-173.html</loc><lastmod>2026-11-08</lastmod></url>
 <url><loc>https://finoprivacy.com/decisions/2026-IT-174.html</loc><lastmod>2026-11-08</lastmod></url>
@@ -4223,7 +4228,7 @@
 <url><loc>https://finoprivacy.com/decisions/2023-IS-025.html</loc><lastmod>2026-11-08</lastmod></url>
 <url><loc>https://finoprivacy.com/decisions/2023-IS-026.html</loc><lastmod>2026-11-08</lastmod></url>
 <url><loc>https://finoprivacy.com/decisions/2023-BE-050.html</loc><lastmod>2026-11-08</lastmod></url>
-<url><loc>https://finoprivacy.com/decisions/2023-PL-007.html</loc><lastmod>2026-11-08</lastmod></url>
+<url><loc>https://finoprivacy.com/decisions/2023-PL-007.html</loc><lastmod>2026-11-13</lastmod></url>
 <url><loc>https://finoprivacy.com/decisions/2023-HU-011.html</loc><lastmod>2026-11-08</lastmod></url>
 <url><loc>https://finoprivacy.com/decisions/2023-PL-003.html</loc><lastmod>2026-11-08</lastmod></url>
 <url><loc>https://finoprivacy.com/decisions/2023-NL-002.html</loc><lastmod>2026-11-12</lastmod></url>
@@ -4371,7 +4376,7 @@
 <url><loc>https://finoprivacy.com/decisions/2023-ES-030.html</loc><lastmod>2026-11-08</lastmod></url>
 <url><loc>https://finoprivacy.com/decisions/2023-ES-058.html</loc><lastmod>2026-11-08</lastmod></url>
 <url><loc>https://finoprivacy.com/decisions/2023-ES-057.html</loc><lastmod>2026-11-08</lastmod></url>
-<url><loc>https://finoprivacy.com/decisions/2023-PL-002.html</loc><lastmod>2026-11-08</lastmod></url>
+<url><loc>https://finoprivacy.com/decisions/2023-PL-002.html</loc><lastmod>2026-11-13</lastmod></url>
 <url><loc>https://finoprivacy.com/decisions/2023-SE-003.html</loc><lastmod>2026-11-08</lastmod></url>
 <url><loc>https://finoprivacy.com/decisions/2023-GR-029.html</loc><lastmod>2026-11-08</lastmod></url>
 <url><loc>https://finoprivacy.com/decisions/2023-BE-047.html</loc><lastmod>2026-11-08</lastmod></url>

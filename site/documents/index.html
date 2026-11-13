@@ -326,6 +326,7 @@
   <div class="sec-lbl"><span class="sec-n" aria-hidden="true">01</span><h2 id="s-checklists">Checklists to tick on this page</h2></div>
   <div class="sec-body">
     <p class="dx-note cl-intro">5 checklists, 38 points. Each point is the GDPR&rsquo;s own requirement, quoted word for word, with one plain line to tick. Ticks stay in this browser.</p>
+    <p class="dx-note cl-intro cl-pages">Each checklist also has its own page, to read, print and share: <a href="/documents/checklists/privacy-notice.html">Privacy notice</a> (14 points) &middot; <a href="/documents/checklists/processor-contract.html">Processor contract</a> (9 points) &middot; <a href="/documents/checklists/records-of-processing.html">Records of processing</a> (7 points) &middot; <a href="/documents/checklists/data-breach-report.html">Breach report</a> (5 points) &middot; <a href="/documents/checklists/dpia.html">Do you need a DPIA?</a> (3 points).</p>
     <div class="cl-main">
       <div class="cl-tabs" role="tablist" aria-label="Checklists" id="cl-tabs"></div>
       <div>
@@ -432,7 +433,7 @@
     const t = ticks[id] || [];
     $('cl-body').setAttribute('aria-labelledby', 't-' + id);
     $('cl-body').innerHTML = `<p class="cl-what">${esc(cur.what)}</p>
-      <p class="cl-meta">${cur.decisions.map(([n, k]) => `<a href="/gdpr/article-${n}.html">Article ${n}</a>${k ? ` is cited in <a href="/fines.html#fines-art-${n}">${k.toLocaleString('en-GB')} decisions</a> on Fino` : ''}`).join('; ')}.</p>
+      <p class="cl-meta">${cur.decisions.map(([n, k]) => `<a href="/gdpr/article-${n}.html">Article ${n}</a>${k ? ` is cited in <a href="/fines.html#fines-art-${n}">${k.toLocaleString('en-GB')} decisions</a> on Fino` : ''}`).join('; ')}. <a href="${esc(cur.url)}">This checklist on its own page</a>.</p>
       <div class="cl-prog"><div class="m"><i id="cl-m" style="width:0"></i></div><span id="cl-n"></span></div>
       <ol class="cl-list">${cur.items.map((it, k) => `<li class="${t.includes(k) ? 'done' : ''}"><input type="checkbox" id="c${k}" data-k="${k}"${t.includes(k) ? ' checked' : ''}>
         <label for="c${k}">${esc(it.plain)}</label><details><summary>${esc(it.ref)}: the law&rsquo;s words</summary><blockquote>&ldquo;${esc(it.text)}&rdquo;</blockquote></details></li>`).join('')}</ol>
@@ -443,7 +444,7 @@
   function prog() {
     const t = ticks[cur.id] || [], n = cur.items.length;
     $('cl-m').style.width = (100 * t.length / n) + '%';
-    $('cl-n').textContent = cur.id === 'dpia' ? (t.length ? 'A DPIA is required' : 'None ticked yet') : `${t.length} of ${n} done`;
+    $('cl-n').textContent = cur.id === 'dpia' ? (t.length ? 'A DPIA is required, unless Article 35(10) applies' : 'None ticked yet') : `${t.length} of ${n} done`;
   }
   $('cl-tabs').addEventListener('click', e => { const b = e.target.closest('button[data-id]'); if (b) show(b.dataset.id, true); });
   $('cl-tabs').addEventListener('keydown', e => {
