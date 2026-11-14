@@ -124,3 +124,17 @@ setMode(saved === 'dark' ? 'dark' : 'light', false);
     history.replaceState(null, '', '#' + p + n); open(n);
   });
 })();
+
+/* "Go to article" (GDPR and AI Act pages): a number opens that article's page; a number the law does not have, or something that is not a number, says so */
+(() => {
+  const f = byId('art-form'); if (!f) return;
+  const input = byId('art-n'), msg = byId('art-msg'), have = f.dataset.articles.split(',');
+  f.addEventListener('submit', e => {
+    e.preventDefault();
+    const v = input.value.trim().toLowerCase().replace(/^art(icle|\.)?\s*/, '').replace(/^0+(?=\d)/, '');
+    if (!/^\d+a?$/.test(v)) { msg.textContent = 'Type an article number, for example ' + f.dataset.example + '.'; input.focus(); return; }
+    if (!have.includes(v)) { msg.textContent = 'There is no Article ' + v + ' in the ' + f.dataset.law + '. Choose a number from 1 to ' + f.dataset.max + '.'; input.focus(); return; }
+    msg.textContent = '';
+    location.href = f.dataset.base + 'article-' + v + '.html';
+  });
+})();

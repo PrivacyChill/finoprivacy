@@ -21,7 +21,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="preload" href="/fonts/fraunces-300-800-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/assets/fino.css?v=7965aa44f725">
+<link rel="stylesheet" href="/assets/fino.css?v=d6d56175e8b3">
 <link rel="stylesheet" href="/assets/find.css?v=9c360da83179">
 <script>/* light unless the visitor chose dark */ (() => { let m = null; try { m = localStorage.getItem('mode'); } catch (e) {} if (m !== 'dark') document.documentElement.dataset.mode = 'light'; })();</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@id":"https://finoprivacy.com/About.html","url":"https://finoprivacy.com/About.html","name":"About Fino: who made it and how it works","description":"Who made Fino and how it works: where the GDPR decisions come from, how duplicates, private people and other currencies are handled, and what the data gets wrong.","inLanguage":"en","dateModified":"2026-11-14","publisher":{"@id":"https://finoprivacy.com/#org"},"@type":"AboutPage","mainEntity":{"@id":"https://finoprivacy.com/#org"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Fino","item":"https://finoprivacy.com/"},{"@type":"ListItem","position":2,"name":"About"}]},{"@type":"Organization","@id":"https://finoprivacy.com/#org","name":"Fino","url":"https://finoprivacy.com/","logo":"https://finoprivacy.com/og/fino-logo.png"}]}</script>
@@ -72,7 +72,7 @@
   .a-toc ol { flex-wrap: nowrap; gap: 8px; overflow-x: auto; border: 0; padding: 0 20px; scrollbar-width: none; }
   .a-toc ol::-webkit-scrollbar { display: none; }
   .a-toc li { flex: none; }
-  .a-toc ol a { padding: 8px 14px; border-radius: 999px; border: 1.5px solid var(--line); background: var(--surface); white-space: nowrap; font-size: 0.9rem; }
+  .a-toc ol a { display: flex; align-items: center; min-height: 44px; box-sizing: border-box; padding: 0 14px; border-radius: 999px; border: 1.5px solid var(--line); background: var(--surface); white-space: nowrap; font-size: 0.9rem; }
   .a-toc ol a[aria-current] { box-shadow: none; border-radius: 999px; background: var(--ink); border-color: var(--ink); color: var(--bg); }
   .a-rows .sec-body { font-size: 1.06rem; }
   .a-end { grid-template-columns: minmax(0, 1fr); }
@@ -148,7 +148,7 @@
           <div class="lp-col">
             <a href="/About.html" aria-current="page"><b>About Fino</b><span>What Fino is for and who made it</span></a>
             <a href="/About.html#method"><b>How it works</b><span>How decisions are read and checked</span></a>
-            <a href="/About.html#limits"><b>Corrections</b><span>What Fino gets wrong, and what was fixed</span></a>
+            <a href="/corrections.html"><b>Corrections</b><span>What Fino got wrong, and what was fixed</span></a>
             <a href="/About.html#reuse"><b>Reuse and cite</b><span>Use the data, with credit</span></a>
             <a href="/Privacy.html"><b>Privacy</b><span>Nothing collected about visitors</span></a>
           </div>
@@ -241,7 +241,7 @@
         <li>Most decisions still rest on the two sources, and not every one has a summary yet. Missing decisions are being added from the regulators&rsquo; own lists.</li>
         <li>A fine a court annulled or reduced is marked when I know about it, but not every appeal is known yet.</li>
       </ul>
-      <p><small>Corrections made since 5 November 2026 are in <a href="/data/corrections.json">a small data file</a>.</small></p>
+      <p>Every correction made since 5 November 2026 is on the <a href="/corrections.html">Corrections page</a>, newest first, with what the page said and what it says now. <small>The same list as <a href="/data/corrections.json">a small data file</a>.</small></p>
     </div></section>
     <section class="sec-row" id="reuse" aria-labelledby="s-reuse"><div class="sec-lbl"><span class="sec-n" aria-hidden="true">06</span><h2 id="s-reuse">Reuse and cite</h2></div><div class="sec-body">
       <p>Every decision has a permanent page, and the &ldquo;Copy citation&rdquo; button gives you a ready reference. All the data can be reused for non-commercial purposes if you credit Fino (CC BY-NC-SA 4.0). <small><a href="/data/cases.json">Download the data</a></small></p>
@@ -302,7 +302,7 @@
         <ul>
           <li><a href="/About.html">About</a></li>
           <li><a href="/About.html#method">How it works</a></li>
-          <li><a href="/About.html#limits">Corrections</a></li>
+          <li><a href="/corrections.html">Corrections</a></li>
           <li><a href="/About.html#reuse">Reuse and cite</a></li>
           <li><a href="/Privacy.html">Privacy</a></li>
         </ul>
@@ -320,7 +320,7 @@
   </div>
 </footer>
 
-<script src="/assets/fino.js?v=4177a09f082c" defer></script>
+<script src="/assets/fino.js?v=ef7957cfdcb0" defer></script>
 <script src="/assets/find.js?v=9c360da83179" defer></script>
 <script>
 /* Contents that follow you: the link of the section you are reading is marked while you scroll */

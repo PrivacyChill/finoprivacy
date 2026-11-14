@@ -448,6 +448,33 @@ aside section + section { margin-top: 44px; }
 .rec-tools .goto input { width: 3.8em; padding: 3px 8px; font-size: 0.88rem; }
 .rec-tools .goto .btn { padding: 3px 12px; font-size: 0.82rem; border-width: 1.5px; }
 .rec-tools .goto-msg { flex-basis: 100%; text-align: right; font-size: 0.72rem; }
+/* "Go to article" on the GDPR and AI Act pages: the recital box, with targets of 44 px and the message under it (pipeline/build_seo.mjs) */
+.art-go { justify-content: flex-start; margin: 22px 0 0; }
+.art-go .goto { padding: 0 0 0 16px; gap: 8px; border-width: 1.5px; box-shadow: none; max-width: 100%; }
+.art-go .goto label { font-size: 0.8rem; }
+.art-go .goto input { box-sizing: border-box; width: 5em; min-height: 44px; padding: 0 12px; font-size: 1rem; }
+.art-go .goto .btn { min-height: 44px; padding: 0 22px; font-size: 0.95rem; border-width: 1.5px; }
+.art-go .goto-msg { flex-basis: 100%; text-align: left; font-size: 0.82rem; }
+.art-go .goto-msg:empty { display: none; }
+/* Jump list: links to the sections of a long page, made by the build from the page's own headings (pipeline/build_seo.mjs addJump). Chips that wrap; each is 44 px tall. */
+.jump { margin: 24px 0 6px; }
+.jump-h { font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin: 0 0 10px; }
+.jump ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+.jump li { min-width: 0; max-width: 100%; }
+.jump a { display: flex; align-items: center; justify-content: center; box-sizing: border-box; min-width: 44px; min-height: 44px; max-width: 100%; padding: 0 14px; border-radius: 999px; border: 1.5px solid var(--line); background: var(--surface); color: var(--ink); text-decoration: none; font-size: 0.92rem; line-height: 1.2; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; transition: border-color var(--fast) var(--ease), scale var(--fast) var(--pop); }
+.jump a:hover { border-color: var(--ink); }
+.jump a:active { scale: 0.97; }
+.jump a:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+/* a list that would be taller than a phone screen is one row that scrolls inside the list (the page itself never scrolls sideways); on a wide screen the chips wrap as usual */
+@media (max-width: 760px) {
+  .jump[data-row] ul { flex-wrap: nowrap; overflow-x: auto; overscroll-behavior-x: contain; margin-right: -20px; padding: 0 20px 2px 0; scrollbar-width: none;
+    -webkit-mask-image: linear-gradient(to right, #000 88%, transparent); mask-image: linear-gradient(to right, #000 88%, transparent); }
+  .jump[data-row] ul::-webkit-scrollbar { display: none; }
+  .jump[data-row] li { flex: none; }
+  .jump[data-row] a { max-width: 76vw; }
+}
+@media (prefers-reduced-motion: no-preference) { html:has(.jump) { scroll-behavior: smooth; } }
+@media (prefers-reduced-motion: reduce) { .jump a { transition: none; } .jump a:active { scale: none; } }
 .pre-end { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px 16px; margin-top: 14px; }
 .pre-end .legend { margin: 0; }
 /* AI Act: the "Changed 2026" label, headings inside annexes, the one annex table, 10 to the power 25 */

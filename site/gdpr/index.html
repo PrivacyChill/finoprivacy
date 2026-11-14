@@ -21,7 +21,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="preload" href="/fonts/fraunces-300-800-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/assets/fino.css?v=7965aa44f725">
+<link rel="stylesheet" href="/assets/fino.css?v=d6d56175e8b3">
 <link rel="stylesheet" href="/assets/find.css?v=9c360da83179">
 <script>/* light unless the visitor chose dark */ (() => { let m = null; try { m = localStorage.getItem('mode'); } catch (e) {} if (m !== 'dark') document.documentElement.dataset.mode = 'light'; })();</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Legislation","@id":"https://finoprivacy.com/gdpr/#law","name":"General Data Protection Regulation (GDPR)","alternateName":"Regulation (EU) 2016/679","legislationIdentifier":"CELEX:32016R0679","legislationType":"Regulation","legislationJurisdiction":"EU","legislationDate":"2016-04-27","sameAs":"https://eur-lex.europa.eu/eli/reg/2016/679/oj","url":"https://finoprivacy.com/gdpr/","inLanguage":"en","legislationLegalForce":"InForce","dateModified":"2026-11-14"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Fino","item":"https://finoprivacy.com/"},{"@type":"ListItem","position":2,"name":"GDPR"}]},{"@type":"Organization","@id":"https://finoprivacy.com/#org","name":"Fino","url":"https://finoprivacy.com/","logo":"https://finoprivacy.com/og/fino-logo.png"}]}</script>
@@ -94,7 +94,7 @@
           <div class="lp-col">
             <a href="/About.html"><b>About Fino</b><span>What Fino is for and who made it</span></a>
             <a href="/About.html#method"><b>How it works</b><span>How decisions are read and checked</span></a>
-            <a href="/About.html#limits"><b>Corrections</b><span>What Fino gets wrong, and what was fixed</span></a>
+            <a href="/corrections.html"><b>Corrections</b><span>What Fino got wrong, and what was fixed</span></a>
             <a href="/About.html#reuse"><b>Reuse and cite</b><span>Use the data, with credit</span></a>
             <a href="/Privacy.html"><b>Privacy</b><span>Nothing collected about visitors</span></a>
           </div>
@@ -118,7 +118,13 @@
       <p class="pg-intro">All 99 articles and the 173 recitals in the official English text, each article linked to the decisions that cite it and to the original on EUR-Lex.</p>
     </header>
     <dl class="facts-row"><div><dt>Law</dt><dd>General Data Protection Regulation<small>Regulation (EU) 2016/679</small></dd></div><div><dt>Articles</dt><dd>99<small>in 11 chapters</small></dd></div><div><dt>Recitals</dt><dd>173</dd></div><div><dt>Cited on Fino</dt><dd><a href="/fines.html">4,738 decisions</a><small>name at least one article</small></dd></div></dl>
-    <div class="sec-rows">
+    <div class="rec-tools art-go"><form class="goto panel" id="art-form" data-law="GDPR" data-base="/gdpr/" data-articles="1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99" data-max="99" data-example="6" novalidate>
+<label for="art-n">Go to article</label>
+<input id="art-n" type="text" inputmode="numeric" placeholder="6" autocomplete="off" aria-describedby="art-msg">
+<button type="submit" class="btn small">Go</button>
+</form><p class="goto-msg" id="art-msg" aria-live="polite"></p></div>
+<nav class="jump" aria-label="On this page"><p class="jump-h" aria-hidden="true">On this page</p><ul><li><a href="#s-pre">Preamble: Legal bases and recitals</a></li><li><a href="#s-ch-cpt_I">Chapter I: General provisions</a></li><li><a href="#s-ch-cpt_II">Chapter II: Principles</a></li><li><a href="#s-ch-cpt_III">Chapter III: Rights of the data subject</a></li><li><a href="#s-ch-cpt_IV">Chapter IV: Controller and processor</a></li><li><a href="#s-ch-cpt_V">Chapter V: Transfers of personal data to third countries or international organisations</a></li><li><a href="#s-ch-cpt_VI">Chapter VI: Independent supervisory authorities</a></li><li><a href="#s-ch-cpt_VII">Chapter VII: Cooperation and consistency</a></li><li><a href="#s-ch-cpt_VIII">Chapter VIII: Remedies, liability and penalties</a></li><li><a href="#s-ch-cpt_IX">Chapter IX: Provisions relating to specific processing situations</a></li><li><a href="#s-ch-cpt_X">Chapter X: Delegated acts and implementing acts</a></li><li><a href="#s-ch-cpt_XI">Chapter XI: Final provisions</a></li></ul></nav>
+<div class="sec-rows">
     <section class="sec-row" aria-labelledby="s-pre"><div class="sec-lbl"><span class="sec-n wordy">Preamble</span><h2 id="s-pre">Legal bases and recitals</h2></div><div class="sec-body"><details class="preamble" id="preamble">
       <summary><span class="n">1&ndash;173</span><span>The legal bases and the 173 recitals, which explain why each rule exists and how to read it</span><span class="tw" aria-hidden="true"></span></summary>
       <div class="inner">
@@ -190,7 +196,7 @@
         <ul>
           <li><a href="/About.html">About</a></li>
           <li><a href="/About.html#method">How it works</a></li>
-          <li><a href="/About.html#limits">Corrections</a></li>
+          <li><a href="/corrections.html">Corrections</a></li>
           <li><a href="/About.html#reuse">Reuse and cite</a></li>
           <li><a href="/Privacy.html">Privacy</a></li>
         </ul>
@@ -208,7 +214,7 @@
   </div>
 </footer>
 
-<script src="/assets/fino.js?v=4177a09f082c" defer></script>
+<script src="/assets/fino.js?v=ef7957cfdcb0" defer></script>
 <script src="/assets/find.js?v=9c360da83179" defer></script>
 </body>
 </html>

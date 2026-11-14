@@ -21,7 +21,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="preload" href="/fonts/fraunces-300-800-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/assets/fino.css?v=7965aa44f725">
+<link rel="stylesheet" href="/assets/fino.css?v=d6d56175e8b3">
 <link rel="stylesheet" href="/assets/find.css?v=9c360da83179">
 <script>/* light unless the visitor chose dark */ (() => { let m = null; try { m = localStorage.getItem('mode'); } catch (e) {} if (m !== 'dark') document.documentElement.dataset.mode = 'light'; })();</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://finoprivacy.com/key-cases/bavarian-lager.html","url":"https://finoprivacy.com/key-cases/bavarian-lager.html","name":"Bavarian Lager (access to documents) (C-28/08 P, 2010): what the court ruled","description":"Bavarian Lager (access to documents), EU Court of Justice, 29 June 2010. When someone asks an EU institution for documents containing personal data, the data…","inLanguage":"en","dateModified":"2026-11-09","publisher":{"@id":"https://finoprivacy.com/#org"},"citation":["https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:62008CJ0028"]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Fino","item":"https://finoprivacy.com/"},{"@type":"ListItem","position":2,"name":"Key cases","item":"https://finoprivacy.com/key-cases/"},{"@type":"ListItem","position":3,"name":"Bavarian Lager (access to documents)"}]},{"@type":"Organization","@id":"https://finoprivacy.com/#org","name":"Fino","url":"https://finoprivacy.com/","logo":"https://finoprivacy.com/og/fino-logo.png"}]}</script>
@@ -54,12 +54,11 @@
 .gl-view button { font: inherit; font-size: 0.88rem; border: 0; background: none; color: var(--muted); padding: 6px 14px; border-radius: 999px; cursor: pointer; }
 .gl-view button[aria-pressed="true"] { background: var(--latte); color: var(--latte-ink); box-shadow: inset 0 0 0 1.5px var(--latte-line); }
 .gl-az { display: flex; flex-wrap: wrap; gap: 2px; font-family: var(--mono); font-size: 0.85rem; }
-.gl-az a, .gl-az span { min-width: 28px; text-align: center; padding: 4px 6px; border-radius: 8px; text-decoration: none; }
+.gl-az a { display: inline-flex; align-items: center; justify-content: center; box-sizing: border-box; min-width: 44px; min-height: 44px; border-radius: 12px; text-decoration: none; }   /* a letter is a 44 px target (plan row 426) */
 .gl-az a:hover { background: var(--surface); }
-.gl-az span { color: var(--line); }
 .gl-az[hidden], .gl-topics[hidden] { display: none; }
 .gl-topics { display: flex; flex-wrap: wrap; gap: 6px; }
-.gl-topics a { text-decoration: none; font-size: 0.86rem; padding: 5px 12px; border-radius: 999px; border: 1.5px solid var(--line); background: var(--surface); color: var(--ink); white-space: nowrap; }
+.gl-topics a { display: inline-flex; align-items: center; min-height: 44px; box-sizing: border-box; text-decoration: none; font-size: 0.86rem; padding: 0 14px; border-radius: 999px; border: 1.5px solid var(--line); background: var(--surface); color: var(--ink); white-space: nowrap; }
 .gl-topics a span { font-family: var(--mono); font-size: 0.74rem; color: var(--muted); margin-left: 3px; }
 .gl-topics a:hover { border-color: var(--ink); }
 .gl-topics a[aria-current] { background: var(--latte); color: var(--latte-ink); border-color: var(--latte-ink); }
@@ -69,7 +68,12 @@
   .gl-topics { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; margin-right: -20px; padding-right: 20px;
     -webkit-mask-image: linear-gradient(to right, #000 85%, transparent); mask-image: linear-gradient(to right, #000 85%, transparent); }
   .gl-topics::-webkit-scrollbar { display: none; }
+  /* the filter, the letters and the topics are about a third of a phone screen: they scroll away with the page, so a jump lands with its heading under the header and nothing over it (plan row 426) */
+  .gl-tools { position: static; }
+  .gl .gl-sec h2, .gl .gl-list li { scroll-margin-top: 0; }
 }
+/* the "About this list" row under the lists: its label is not sticky (the sticky filter bar would cover it) and a jump to it stops below the bar */
+@media (min-width: 761px) { .gl .sec-rows .sec-lbl { position: static; } .gl .sec-rows .sec-lbl h2 { scroll-margin-top: calc(var(--head-h, 64px) + 140px); } }
 /* each letter (or topic, or court) a row: its name on the left, its terms on the right, as on the law pages */
 .gl-sec { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 9fr); gap: 10px 56px; padding: 30px 0; border-bottom: 1px solid var(--line); }
 .gl-sec:last-child { border-bottom: 0; }
@@ -165,7 +169,7 @@
           <div class="lp-col">
             <a href="/About.html"><b>About Fino</b><span>What Fino is for and who made it</span></a>
             <a href="/About.html#method"><b>How it works</b><span>How decisions are read and checked</span></a>
-            <a href="/About.html#limits"><b>Corrections</b><span>What Fino gets wrong, and what was fixed</span></a>
+            <a href="/corrections.html"><b>Corrections</b><span>What Fino got wrong, and what was fixed</span></a>
             <a href="/About.html#reuse"><b>Reuse and cite</b><span>Use the data, with credit</span></a>
             <a href="/Privacy.html"><b>Privacy</b><span>Nothing collected about visitors</span></a>
           </div>
@@ -232,7 +236,7 @@
         <ul>
           <li><a href="/About.html">About</a></li>
           <li><a href="/About.html#method">How it works</a></li>
-          <li><a href="/About.html#limits">Corrections</a></li>
+          <li><a href="/corrections.html">Corrections</a></li>
           <li><a href="/About.html#reuse">Reuse and cite</a></li>
           <li><a href="/Privacy.html">Privacy</a></li>
         </ul>
@@ -250,7 +254,7 @@
   </div>
 </footer>
 
-<script src="/assets/fino.js?v=4177a09f082c" defer></script>
+<script src="/assets/fino.js?v=ef7957cfdcb0" defer></script>
 <script src="/assets/find.js?v=9c360da83179" defer></script>
 </body>
 </html>
