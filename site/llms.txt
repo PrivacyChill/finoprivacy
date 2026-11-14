@@ -118,10 +118,10 @@ Facts about the data:
 - [Germany](https://finoprivacy.com/countries/germany/): 286 decisions, €96.4 million in 125 fines with a published amount, and 146 more fines with no published amount
 - [Greece](https://finoprivacy.com/countries/greece/): 191 decisions, €38.3 million in 144 fines with a published amount
 - [Hungary](https://finoprivacy.com/countries/hungary/): 122 decisions, about €3.6 million in 104 fines with a published amount
-- [Iceland](https://finoprivacy.com/countries/iceland/): 122 decisions, about €749,742 in 23 fines with a published amount
+- [Iceland](https://finoprivacy.com/countries/iceland/): 122 decisions, about €677,942 in 19 fines with a published amount
 - [Ireland](https://finoprivacy.com/countries/ireland/): 58 decisions, €4.44 billion in 41 fines with a published amount, and 1 more fine with no published amount
 - [Isle of Man](https://finoprivacy.com/countries/isle-of-man/): 3 decisions, €218,750 in 3 fines with a published amount
-- [Italy](https://finoprivacy.com/countries/italy/): 783 decisions, €372.7 million in 678 fines with a published amount
+- [Italy](https://finoprivacy.com/countries/italy/): 783 decisions, €372.6 million in 676 fines with a published amount, and 1 more fine with no published amount
 - [Latvia](https://finoprivacy.com/countries/latvia/): 26 decisions, €567,895 in 17 fines with a published amount, and 3 more fines with no published amount
 - [Liechtenstein](https://finoprivacy.com/countries/liechtenstein/): 1 decision, €4,100 in 1 fine with a published amount
 - [Lithuania](https://finoprivacy.com/countries/lithuania/): 34 decisions, €3.2 million in 19 fines with a published amount
@@ -137,7 +137,7 @@ Facts about the data:
 - [Spain](https://finoprivacy.com/countries/spain/): 1,337 decisions, €170.0 million in 1,225 fines with a published amount
 - [Sweden](https://finoprivacy.com/countries/sweden/): 88 decisions, about €35.9 million in 51 fines with a published amount
 - [Switzerland](https://finoprivacy.com/countries/switzerland/): 4 decisions, no fine amount
-- [United Kingdom](https://finoprivacy.com/countries/united-kingdom/): 113 decisions, about €123.6 million in 74 fines with a published amount
+- [United Kingdom](https://finoprivacy.com/countries/united-kingdom/): 113 decisions, about €123.4 million in 74 fines with a published amount
 
 ## Documents to download
 

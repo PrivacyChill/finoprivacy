@@ -745,7 +745,7 @@ blockquote p { display: inline; }
 
 
 
-<link rel="stylesheet" href="/assets/find.css?v=5a1c35f214e8">
+<link rel="stylesheet" href="/assets/find.css?v=1101723d9278">
 
 <!-- seo -->
 <meta property="og:type" content="website">
@@ -1027,7 +1027,8 @@ const CASES = DATA.rows.map((r, i) => {
   /* Spain: the fine shown is after the early-payment reductions. reduction = 'amount before|percent off|flags' (p = a quote says it was paid, a = a quote says the breach was admitted, n = a quote says it was not) */
   [c.red_before, c.red_pct, c.red_flags] = c.reduction ? c.reduction.split('|') : [];
   c.red_before = +c.red_before || 0; c.red_pct = +c.red_pct || 0; c.red_flags = c.red_flags || '';
-  c.unconf = (c.status === 'reduced' && !!c.fine_before && c.fine_before === c.fine_eur) || (c.status === 'partly_annulled' && !!c.fine_eur);   /* reduced or partly annulled on appeal, the amount now not yet confirmed: kept out of company, group and article totals (and, if partly annulled, out of the size picture) */
+  c.cu = c.status === 'partly_annulled' || c.status === 'partly_favourable';   /* a court judgment that leaves the fine unconfirmed: partly annulled (the Belgian DPA's own words) or partly in the regulator's favour (the Garante's own words); both are counted nowhere */
+  c.unconf = (c.status === 'reduced' && !!c.fine_before && c.fine_before === c.fine_eur) || (c.cu && !!c.fine_eur);   /* reduced or partly annulled on appeal, the amount now not yet confirmed: kept out of company, group and article totals (and, if partly annulled, out of the size picture) */
   /* The regulator is shown by the name in pipeline/regulators.csv, with its short form (audit F19, 8 Nov 2026): the same regulator reads the same on every page,
      and a typo or a house style of the source ('Auhtority', 'IP (Slovenia)') does not reach the page. The source's own label stays in the data (c.authority_source) and in the search text. */
   c.authority_source = c.authority;
@@ -1040,9 +1041,9 @@ const BY_SLUG = new Map(CASES.map(c => [slug(c.pharos_id), c]));
 /* A decision whose ID changed (an undated ND/ case that later got its year) keeps its old link working. */
 for (const [old, cur] of Object.entries(DATA.meta.moved || {})) if (!BY_SLUG.has(slug(old)) && BY_SLUG.has(slug(cur))) BY_SLUG.set(slug(old), BY_SLUG.get(slug(cur)));
 const FINES_BY_CC = {};
-for (const c of CASES) if (c.fine_eur && c.status !== 'partly_annulled') (FINES_BY_CC[c.country_code] ||= []).push(c.fine_eur);   /* a fine a court partly annulled is in no size picture */
+for (const c of CASES) if (c.fine_eur && !c.cu) (FINES_BY_CC[c.country_code] ||= []).push(c.fine_eur);   /* a fine a court partly annulled is in no size picture */
 for (const k in FINES_BY_CC) FINES_BY_CC[k].sort((a, b) => a - b);
-const ALL_FINES = CASES.filter(c => c.fine_eur && c.status !== 'partly_annulled').map(c => c.fine_eur).sort((a, b) => a - b);
+const ALL_FINES = CASES.filter(c => c.fine_eur && !c.cu).map(c => c.fine_eur).sort((a, b) => a - b);
 /* Same company: 'org' is the pipeline's key for one legal entity. Same group: 'org_group', only for groups
    a person has checked (organisations.csv). Each company is shown with the countries where it was fined. */
 const BY_ORG = {}, BY_GROUP = {};
@@ -1059,7 +1060,14 @@ for (const [k, list] of Object.entries(BY_ORG)) {
 const countriesOf = list => [...new Set(list.map(c => c.country).filter(Boolean))].sort();
 /* totals leave out a fine that was reduced on appeal with the new amount not yet confirmed (we would add the old amount); the legend says so */
 const sumFines = list => list.reduce((a, c) => a + (c.unconf ? 0 : c.fine_eur || 0), 0);
-const unconfLegend = (list, style = 'margin:0 0 8px') => { const n = list.filter(c => c.unconf && c.fine_eur).length; return n ? `<p class="legend" style="${style}">Not counted: ${num(n)} ${n === 1 ? 'fine' : 'fines'} changed on appeal, the amount now not yet confirmed.</p>` : ''; };
+/* one line for every kind of fine a court ruling left unconfirmed: reduced (new amount not known), partly annulled (the Belgian DPA's words), court ruling partly in the regulator's favour (the Garante's words); each is said as the source says it, none is called 'changed on appeal' */
+const unconfLegend = (list, style = 'margin:0 0 8px') => {
+  const u = list.filter(c => c.unconf && c.fine_eur), n = u.length; if (!n) return '';
+  const kinds = [['reduced', 'reduced on appeal, the new amount not yet known'], ['partly_annulled', k => `in ${k === 1 ? 'a decision' : 'decisions'} a court partly annulled, the effect on the fine not yet confirmed`], ['partly_favourable', 'with a court ruling partly in the regulator’s favour and no word on the fine']]
+    .map(([s, t]) => { const k = u.filter(c => c.status === s).length; return [k, typeof t === 'function' ? t(k) : t]; }).filter(k => k[0]);
+  const what = kinds.map(([k, t]) => (kinds.length > 1 ? `${num(k)} ` : '') + t).join('; ');
+  return `<p class="legend" style="${style}">Not counted: ${num(n)} ${n === 1 ? 'fine' : 'fines'} whose amount a court ruling has left unconfirmed (${what}).</p>`;
+};
 const BY_ART = {};
 for (const c of CASES) for (const n of c.arts) (BY_ART[n] ||= []).push(c);
 const CHAPTER = Object.fromEntries(GDPR.chapters.map(ch => [ch.id, ch]));
@@ -1107,7 +1115,7 @@ const SHEET_MARK = `<svg viewBox="0 0 200 180" aria-hidden="true"><path d="M100 
 
 /* What happened next (case_status): an annulled, removed or withdrawn fine shows struck through and counts nowhere; a fine changed
    or confirmed in court shows the amount that stands, with a short label. */
-const STATUS_LABEL = { annulled: 'Annulled by a court', removed: 'Removed after a court judgment', reduced: 'Reduced on appeal', increased: 'Increased on appeal', confirmed: 'Confirmed in court', appealed: 'Under appeal', appeal_announced: 'Fine issued · appeal announced', objection_announced: 'Fine issued · objection announced', reopened: 'Fine set aside · case reopened', final: 'Final', concluded: 'Appeal concluded', partly_annulled: 'Partly annulled by a court', withdrawn: 'Withdrawn by the regulator', objection: 'Reduced after objection' };
+const STATUS_LABEL = { annulled: 'Annulled by a court', removed: 'Removed after a court judgment', reduced: 'Reduced on appeal', increased: 'Increased on appeal', confirmed: 'Confirmed in court', appealed: 'Under appeal', appeal_announced: 'Fine issued · appeal announced', objection_announced: 'Fine issued · objection announced', reopened: 'Fine set aside · case reopened', final: 'Final', concluded: 'Appeal concluded', partly_annulled: 'Partly annulled by a court', partly_favourable: 'Court ruling partly in the regulator’s favour', withdrawn: 'Withdrawn by the regulator', objection: 'Reduced after objection' };
 /* 'Annulled by a court' only when the note says a court did it; a decision the regulator's own page marks as annulled, with no word on by whom, is just 'Annulled' (the note opens "Annulled by a court" or "Annulled in court" when one did it) */
 const statusLabel = c => c.status === 'annulled' && !/^Annulled (?:by a court|in court)/.test(c.status_note || '') ? 'Annulled'
   : c.status === 'confirmed' && /^Fine confirmed in court, decision annulled/.test(c.status_note || '') ? 'Fine confirmed in court, decision annulled' : STATUS_LABEL[c.status];   /* 2022/BE/010: the Market Court annulled the decision on procedural grounds and confirmed the fine: 'Confirmed in court' alone would hide the first half */
@@ -1117,6 +1125,7 @@ const statusLabel = c => c.status === 'annulled' && !/^Annulled (?:by a court|in
 const NOT_FINAL_STATUS = new Set(['annulled', 'partly_annulled', 'reduced', 'removed']);
 const notFinal = c => !NOT_FINAL_STATUS.has(c.status) ? '' : /\bnot (?:yet )?final\b/i.test(c.status_note || '') ? 'not final' : /\bmay not be final\b/i.test(c.status_note || '') ? 'may not be final' : '';
 const withFinality = (c, s) => { const n = s && notFinal(c); return n ? `${s} (${n})` : s; };
+const settledHalf = c => c.status === 'final' && /^Final: the company paid the reduced amount, half the fine/.test(c.status_note || '');   /* 2024/IT/037 */
 function fineInfo(c) {
   const f = fineInfoCore(c), n = f.status && !f.title && notFinal(c);
   return n ? { ...f, status: withFinality(c, f.status), ...(f.short ? { short: withFinality(c, f.short) } : {}) } : f;
@@ -1133,14 +1142,16 @@ function fineInfoCore(c) {
   }
   if (c.status === 'annulled' || c.status === 'withdrawn' || c.status === 'removed') return { label: eur(c.fine_before), struck: true, status: st };   /* removed = the regulator took the decision off its website after a court judgment; whether the court annulled the fine is not known, so it is not called annulled */
   if (c.status === 'reduced' && c.fine_eur === 0) return { label: 'Warning only', conv: `was ${eur(c.fine_before)}`, none: true, status: st };  /* the court swapped the fine for a warning */
-  if (c.status === 'partly_annulled' && c.fine_eur) {   /* a court partly annulled the decision and the source does not say what that did to the fine: the regulator's amount, labelled, and not counted */
+  if (c.cu && c.fine_eur) {   /* a court judgment left the fine unconfirmed and the source does not say what it did to it: the regulator's amount, labelled, and not counted. Partly annulled is the Belgian DPA's own word; the Garante says the judgment was 'partly favourable' to it, and that is all this page says */
     const acr = (authority(c.authority).match(/\(([^)]+)\)$/) || [])[1];
+    if (c.status === 'partly_favourable') return { ...fineInfoPlain(c), status: `Court ruling partly in ${acr ? `the ${acr}’s` : 'the regulator’s'} favour · effect on the fine not stated`, short: `Court ruling partly in ${acr ? `the ${acr}’s` : 'the regulator’s'} favour`, titleStatus: `court ruling partly favourable to ${acr ? `the ${acr}` : 'the regulator'}`, sub: acr ? `${acr}’s amount` : 'Regulator’s amount', setBy: acr ? `the ${acr}` : 'the regulator', unconfirmed: true };
     return { ...fineInfoPlain(c), status: 'Partly annulled by a court · effect on the fine not yet confirmed', short: 'Partly annulled by a court', sub: acr ? `${acr}’s amount` : 'Regulator’s amount', setBy: acr ? `the ${acr}` : 'the regulator', unconfirmed: true };
   }
   if (c.status === 'reduced' && c.fine_before && c.fine_before === c.fine_eur) {   /* the appeal result is known, the new amount is not: keep the regulator's amount, labelled */
     const acr = (authority(c.authority).match(/\(([^)]+)\)$/) || [])[1];
     return { ...fineInfoPlain(c), status: 'Reduced on appeal · new amount not yet confirmed', short: 'Reduced on appeal', sub: acr ? `${acr}’s amount` : 'Regulator’s amount', setBy: acr ? `the ${acr}` : 'the regulator', unconfirmed: true };
   }
+  if (settledHalf(c)) return { ...fineInfoPlain(c), status: `Final · settled at half (${eur(c.fine_eur / 2)})`, short: 'Settled by paying half' };   /* 2024/IT/037: the fine was settled by paying half (Art. 166(8) of the Italian Code) and the court declared the challenge inadmissible: 'Final' alone would say less */
   if (c.red_before) return { ...fineInfoPlain(c), ...(st ? { status: st } : {}), early: true, sub: `after reductions, from ${eur(c.red_before)}` };
   if (st) return { ...fineInfoPlain(c), status: st };
   return fineInfoPlain(c);
@@ -1161,7 +1172,7 @@ function reducedNote(c) {
 }
 /* the label of a Spanish reduction: 'early payment' only when a quote says it was paid, or both reductions were applied */
 const redLabel = c => c.red_flags.includes('p') || c.red_pct === 40 ? 'Reduced for early payment' : 'Reduced under Spanish law';
-const moneyS = c => money(c) + (fineInfo(c).unconfirmed ? (c.status === 'partly_annulled' ? ' (partly annulled by a court, effect on the fine not yet confirmed)' : ' (reduced on appeal, new amount not yet confirmed)') : '');
+const moneyS = c => money(c) + (fineInfo(c).unconfirmed ? (c.status === 'partly_favourable' ? ' (court ruling partly in the regulator’s favour, effect on the fine not stated)' : c.status === 'partly_annulled' ? ' (decision partly annulled by a court, effect on the fine not yet confirmed)' : ' (reduced on appeal, new amount not yet confirmed)') : '');
 const stmtLower = s => /^[A-Z]{3}\b/.test(s) ? s : s.charAt(0).toLowerCase() + s.slice(1);
 function fineInfoPlain(c) {
   /* a fine set in another currency whose euro figure is Fino's estimate, kept after an appeal (case_status): the amount that stands, as the status note gives it, then the estimate */
@@ -1171,10 +1182,18 @@ function fineInfoPlain(c) {
   if (c.fine_eur && c.fine_note) return { label: eur(c.fine_eur), sub: c.fine_note, multi: true, none: false };   /* several fines, fine_eur is their total (added_cases.csv fine_note): the page says so beside the amount, in the title and in the meta */
   if (c.fine_eur) return { label: eur(c.fine_eur), none: false };
   if (c.fine_stmt) return { label: c.fine_stmt, stmt: true, none: false, title: c.best_outcome === 'Fine proposed' ? `GDPR decision: fine proposed, ${stmtLower(c.fine_stmt)}` : `GDPR fine, ${stmtLower(c.fine_stmt)}` };   /* the original gives no single amount (a range, 'mid four-figure amount'): the page says what it says, with its words under it (fine_quote) */
-  if (c.fine_original && c.fine_original !== 'None' && c.currency && c.currency !== 'EUR') return { label: `${c.fine_original} ${c.currency}`, none: false };
+  if (c.fine_original && c.fine_original !== 'None' && c.currency && c.currency !== 'EUR') return { label: /^[0-9]+(\.[0-9]+)?$/.test(c.fine_original.trim()) ? `${c.currency} ${(+c.fine_original).toLocaleString('en-GB', Number.isInteger(+c.fine_original) ? {} : { minimumFractionDigits: 2, maximumFractionDigits: 2 })}` : `${c.fine_original} ${c.currency}`, none: false };   /* a plain number from the source ('26750.0') reads 'RON 26,750', the currency first as every other amount here; text the source wrote ('1,470', 'RON 5,242') is kept as it is */
   if (/fine/i.test(c.best_outcome || '')) return { label: 'Amount not published', none: true };
   return { label: 'No fine', none: true };
 }
+/* what a similar-decision row with no euro amount says: not 'No fine' for a fine that was withdrawn, annulled or not confirmed, or whose amount is not published (Controller round 6, 14 Nov 2026) */
+const simNoAmount = c => {
+  const f = fineInfo(c), gone = c.status === 'annulled' || c.status === 'withdrawn' || c.status === 'removed';
+  if (c.cu) return 'Fine not confirmed';
+  /* a struck fine says what happened to it, a decision that imposed no fine (an order, a reprimand) says what happened to the decision (2024/BE/040: withdrawn); either keeps the 'not final' the decision page shows */
+  if (gone) return withFinality(c, ({ annulled: f.struck ? 'Fine annulled' : 'Decision annulled', withdrawn: f.struck ? 'Fine withdrawn' : 'Decision withdrawn', removed: 'Decision removed' })[c.status]);
+  return f.struck ? 'Fine set aside' : f.label || 'No fine';
+};
 function similar(c) {
   const out = [];
   for (const q of CASES) {
@@ -1231,7 +1250,7 @@ function matches(c) {
     const k = c.fine_eur || o === 'Fine issued' ? 'fine' : o === 'Violation found' || o === 'Reprimand' ? 'found' : o === 'Rejected' ? 'rejected' : 'other';   /* a reprimand finds a violation and imposes no fine */
     if (k !== state.outcome) return false;
   }
-  if (state.band) { const [lo, hi] = state.band.split('-').map(Number); if (!c.fine_eur || c.status === 'partly_annulled' || c.fine_eur < lo || c.fine_eur >= hi) return false; }
+  if (state.band) { const [lo, hi] = state.band.split('-').map(Number); if (!c.fine_eur || c.cu || c.fine_eur < lo || c.fine_eur >= hi) return false; }
   if (state.q) { for (const w of state.q.toLowerCase().split(/\s+/).filter(Boolean)) if (!c.hay.includes(w)) return false; }
   return true;
 }
@@ -1313,7 +1332,7 @@ function renderResults() {
   const fresh = lastKey !== null && key !== lastKey, flash = fresh && list.length !== lastCount;
   lastKey = key; lastCount = list.length;
   const scoped = !!(state.org || state.group || state.art);   /* a company, group or article total leaves out the unconfirmed ones */
-  const fines = list.filter(c => c.fine_eur && !(c.unconf && (scoped || c.status === 'partly_annulled'))).map(c => c.fine_eur);
+  const fines = list.filter(c => c.fine_eur && !(c.unconf && (scoped || c.cu))).map(c => c.fine_eur);
   const total = fines.reduce((a, b) => a + b, 0);
   const converted = list.filter(c => c.est).length;
   const filtered = state.q || state.country || state.year || state.sector || state.art || state.outcome || state.band || state.org || state.group || state.reg;
@@ -1594,7 +1613,7 @@ function companyBlock(c) {
     <p class="stat" style="font-size:1.15rem">${num(list.length)} decisions against ${esc(ORG_NAME[c.org])}${total ? `, ${bigEur(total)} in fines` : ''}.</p>
     ${unconfLegend(list, 'margin:-6px 0 8px')}
     <p class="legend" style="margin:0 0 8px">Decisions in ${esc(countriesOf(list).join(', '))}.</p>
-    <ul class="sim">${others.slice(0, 3).map(s => `<li><a href="#d-${slug(s.pharos_id)}"><b>${esc(s.country)} &middot; ${esc(when(s.decision_date, s.date_precision).short)}</b><span>${s.fine_eur ? moneyS(s) : 'No fine'}${s.arts.length ? ' · ' + artsTxt(s.arts.slice(0, 3)) : ''}</span></a></li>`).join('')}</ul>
+    <ul class="sim">${others.slice(0, 3).map(s => `<li><a href="#d-${slug(s.pharos_id)}"><b>${esc(s.country)} &middot; ${esc(when(s.decision_date, s.date_precision).short)}</b><span>${s.fine_eur ? moneyS(s) : simNoAmount(s)}${s.arts.length ? ' · ' + artsTxt(s.arts.slice(0, 3)) : ''}</span></a></li>`).join('')}</ul>
     <p style="margin:14px 0 0"><a class="btn small latte" href="#fines" data-org="${esc(c.org)}">All ${num(list.length)} decisions &rarr;</a></p>
   </section>`;
 }
@@ -1626,7 +1645,7 @@ function renderDecision(c) {
     [dateLabel(c), `${esc(d.main)}${d.note ? `<small>${esc(d.note)}</small>` : ''}${dateUnstated(c) ? `<small>${esc(dateUnstatedNote(c))}</small>` : ''}`],
     c.sector_tag ? ['Sector', esc(c.sector_tag)] : null, [isCourt(c) ? 'Court' : 'Regulator', esc(authority(c.authority))]].filter(Boolean);
   /* the similar decisions are a block of their own only when there is something beside them; alone they are the section, with its one heading */
-  const simList = sims.length ? `<ul class="sim">${sims.map(s => `<li><a href="#d-${slug(s.pharos_id)}"><b>${pHtml(party(s))}</b><span>${[s.year || 'No date', s.fine_eur ? moneyS(s) : 'No fine', artsTxt(s.arts.slice(0, 3))].filter(Boolean).join(' · ')}</span></a></li>`).join('')}</ul>` : '';
+  const simList = sims.length ? `<ul class="sim">${sims.map(s => `<li><a href="#d-${slug(s.pharos_id)}"><b>${pHtml(party(s))}</b><span>${[s.year || 'No date', s.fine_eur ? moneyS(s) : simNoAmount(s), artsTxt(s.arts.slice(0, 3))].filter(Boolean).join(' · ')}</span></a></li>`).join('')}</ul>` : '';
   const others = [explainedBlock(EX_BY_CASE.get(c.pharos_id)), companyBlock(c), groupBlock(c)].filter(Boolean);
   const related = others.length ? [...others, simList ? `<section><h2 class="sec-h">Similar decisions</h2>${simList}</section>` : ''].filter(Boolean) : simList ? [`<section>${simList}</section>`] : [];
   const links = sourceLinks(c);
@@ -1648,7 +1667,7 @@ function renderDecision(c) {
   /* the order: what happened, the rules, what a DPO could check (when Fino has one), how big it is, related, the record */
   const rows = [['summary', 'Summary', summaryBlock(c), 'summary-row'], ['rules', 'Rules involved', rulesBlock(c)],
     dpoBlock(c) ? ['dpo', 'What a DPO could check', dpoBlock(c)] : null,
-    c.status === 'reopened' || c.status === 'partly_annulled' || !context(c) ? null : ['size', 'How big is it?', sizeBlock(c)],   // nothing to compare: no section
+    c.status === 'reopened' || c.cu || !context(c) ? null : ['size', 'How big is it?', sizeBlock(c)],   // nothing to compare: no section
     related.length ? ['related', others.length ? 'Related decisions' : 'Similar decisions', `<div class="rel-grid n${Math.min(related.length, 3)}">${related.join('')}</div>`, 'rel-row'] : null,
     ['record', 'Sources and record', record]].filter(Boolean);
   $('main').innerHTML = `
@@ -1716,7 +1735,7 @@ function nativeStepOf(c) {
 const REF_LEAD = /^(Decision|D[ée]cision(?: quant au fond)?|D[ée]lib[ée]ration|Decisi[oó]n|Decisione|Beschluss|Beslissing|Entscheidung)\s+(?=(?:n[°o.]?\s*|nr\.?\s*)?\S*\d)/i;
 const wordingTags = c => [removalNotice(c) ? 'removal-notice' : '', fxCur(c) && (c.status === 'reopened' || !fineInfoPlain(c).conv) ? 'no-estimate-note' : '',
   (m => m && !/^decision$/i.test(m[1]) || /\d\.$/.test(c.ref || ''))(REF_LEAD.exec(c.ref || '')) ? 'cite-ref' : '',
-  !c.own && c.source === 'gdprhub' && c.case_id.includes(' - ') && REF_NONE.test(c.case_id.split(' - ').slice(1).join(' - ').trim()) ? 'ref-placeholder' : '', nativeStepOf(c) ? 'cite-native' : '', OWN_LAW_CC[c.country_code] ? 'own-law-country' : '', notFinal(c) ? 'not-final-status' : ''].filter(Boolean);
+  !c.own && c.source === 'gdprhub' && c.case_id.includes(' - ') && REF_NONE.test(c.case_id.split(' - ').slice(1).join(' - ').trim()) ? 'ref-placeholder' : '', nativeStepOf(c) ? 'cite-native' : '', OWN_LAW_CC[c.country_code] ? 'own-law-country' : '', notFinal(c) ? 'not-final-status' : '', settledHalf(c) && c.fine_eur ? 'cite-settled-half' : ''].filter(Boolean);
 function citation(c) {
   const d = when(c.decision_date, c.date_precision), f = fineInfo(c);
   /* a date that is not the decision's own is cited as what it is: 'press release of ...', 'decision as reported by eldiario.es on ...' */
@@ -1734,9 +1753,10 @@ function citation(c) {
   const nfs = notFinal(c) ? ` (${notFinal(c)})` : '';   /* a ruling that is not final says so in the citation too */
   const eu = fxCur(c) && !c.est ? (n => '≈ ' + eur(n)) : eur;   /* a converted figure is marked as an estimate */
   const nativeStep = st ? nativeStepOf(c) : '';
-  const amt = c.status === 'partly_annulled' && c.fine_eur ? `, fine of ${eur(c.fine_eur)}, decision partly annulled by a court (effect on the fine not yet confirmed)` : unconf ? `, fine of ${eur(c.fine_eur)}, reduced on appeal (new amount not yet confirmed)` : nativeStep ? nativeStep : st ? (c.status === 'reduced' && c.fine_eur === 0 ? `, fine of ${eur(c.fine_before)}, replaced by a warning on appeal`
+  const amt = c.status === 'partly_favourable' && c.fine_eur ? `, fine of ${eur(c.fine_eur)}, court ruling partly favourable to the regulator (effect on the fine not stated)` : c.status === 'partly_annulled' && c.fine_eur ? `, fine of ${eur(c.fine_eur)}, decision partly annulled by a court (effect on the fine not yet confirmed)` : unconf ? `, fine of ${eur(c.fine_eur)}, reduced on appeal (new amount not yet confirmed)` : nativeStep ? nativeStep : st ? (c.status === 'reduced' && c.fine_eur === 0 ? `, fine of ${eur(c.fine_before)}, replaced by a warning on appeal`
       : c.fine_eur ? `, fine of ${eu(c.fine_before)}, ${st.toLowerCase()} to ${eu(c.fine_eur)}${nfs}` : `, fine of ${eu(c.fine_before)}, ${st.toLowerCase()}${nfs}`)
     : c.status === 'removed' ? `, decision removed from the regulator’s website after ${/final court judgment/.test(c.status_note || '') ? 'a final' : 'a'} court judgment against it${nfs}` : c.status === 'annulled' ? (statusLabel(c) === 'Annulled' ? ', decision annulled' : `, decision annulled by a court${nfs}`) : c.status === 'withdrawn' ? `, ${STATUS_LABEL[c.status].toLowerCase()}`
+    : settledHalf(c) ? `, fine of ${eur(c.fine_eur)}, settled by paying half (${eur(c.fine_eur / 2)})`
     : c.red_before ? `, fine of ${eur(c.fine_eur)} after ${c.red_flags.includes('p') || c.red_pct === 40 ? 'early-payment reductions' : 'reductions under Spanish law'} (from ${eur(c.red_before)})`
     : c.status === 'reduced' && c.est ? `, fine reduced on appeal to ${native(c)} (about ${eur(approx(c.fine_eur))})`
     : c.est ? `, fine of ${native(c)} (about ${eur(approx(c.fine_eur))})` : c.fine_eur && c.fine_note ? `, fines of ${eur(c.fine_eur)} ${c.fine_note}` : c.fine_eur ? `, fine of ${eur(c.fine_eur)}` : c.fine_stmt ? `, fine: ${stmtLower(c.fine_stmt)}` : '';
@@ -1749,7 +1769,7 @@ function citation(c) {
 /* ---------- View: GDPR ---------- */
 function artStats(n) {
   const list = BY_ART[n] || [];
-  const fined = list.filter(c => c.fine_eur && c.status !== 'partly_annulled');   /* a fine a court partly annulled is counted nowhere: not in the number, not in the total */
+  const fined = list.filter(c => c.fine_eur && !c.cu);   /* a fine a court partly annulled is counted nowhere: not in the number, not in the total */
   return { list, fined, total: sumFines(fined), unconf: list.filter(c => c.unconf && c.fine_eur).length };
 }
 function bindGdpr(pre = 'rec-') {
@@ -1829,7 +1849,7 @@ function openRecital(n, pre = 'rec-') {
   const el = $(pre + n); if (el) el.scrollIntoView({ block: 'start' });
 }
 /* the fines citing an article, sorted: drawn once per article into assets/dots/art-<n>.svg by build_seo.mjs */
-const artFines = n => (BY_ART[n] || []).filter(c => c.fine_eur && c.status !== 'partly_annulled').map(c => c.fine_eur).sort((a, b) => a - b);
+const artFines = n => (BY_ART[n] || []).filter(c => c.fine_eur && !c.cu).map(c => c.fine_eur).sort((a, b) => a - b);
 function renderArticle(n) {
   const a = GDPR.arts[n], ch = CHAPTER[a.ch], st = artStats(n);
   const top = [...st.fined].sort((x, y) => y.fine_eur - x.fine_eur).slice(0, 5);
@@ -2109,7 +2129,7 @@ function sheet(c) {
     : c.own_law ? '' : '<p class="s-small">The source does not list the articles involved.</p>'}${c.own_rules_note ? `<p class="s-small">${esc(c.own_rules_note)}</p>` : ''}${c.own_law ? `<p class="s-small">${esc(c.own_law)}</p>` : ''}`;
   const ctx = !include.context || !k ? '' : `<h3>How big is it</h3><p>${biggerLine(k.below, k.n, 'in ' + esc(c.country)).replace(/<\/?b>/g, '')}; among all ${num(k.eu_n)} fines in the Fino database it is ${rank(k.eu_below, k.eu_n, '').trim()} (data of ${UPDATED}).</p>`;
   const sims = include.similar ? similar(c) : [];
-  const simH = !sims.length ? '' : `<h3>Similar decisions</h3><table>${sims.map(s => `<tr><td>${esc(s.pharos_id)}</td><td>${esc(party(s).name)} &middot; ${s.year || 'no date'} &middot; ${s.fine_eur ? moneyS(s) : 'no fine'}</td></tr>`).join('')}</table>`;
+  const simH = !sims.length ? '' : `<h3>Similar decisions</h3><table>${sims.map(s => `<tr><td>${esc(s.pharos_id)}</td><td>${esc(party(s).name)} &middot; ${s.year || 'no date'} &middot; ${s.fine_eur ? moneyS(s) : stmtLower(simNoAmount(s))}</td></tr>`).join('')}</table>`;
   const src = sourceLinks(c).map(s => [s[0], s[1]]);
   if (c.status_source && !src.some(s => s[1] === c.status_source)) src.push(['What happened next', c.status_source]);
   src.push(['This page', `https://${SITE}/decisions/${slug(c.pharos_id)}.html`]);
@@ -2405,6 +2425,6 @@ setMode(saved === 'dark' ? 'dark' : 'light', false);
   });
 })();
 </script>
-<script src="/assets/find.js?v=5a1c35f214e8" defer></script>
+<script src="/assets/find.js?v=1101723d9278" defer></script>
 </body>
 </html>

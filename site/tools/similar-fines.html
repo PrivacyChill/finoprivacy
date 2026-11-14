@@ -22,7 +22,7 @@
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="preload" href="/fonts/fraunces-300-800-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/assets/fino.css?v=8c0af6ec1eb0">
-<link rel="stylesheet" href="/assets/find.css?v=5a1c35f214e8">
+<link rel="stylesheet" href="/assets/find.css?v=1101723d9278">
 <script>/* light unless the visitor chose dark */ (() => { let m = null; try { m = localStorage.getItem('mode'); } catch (e) {} if (m !== 'dark') document.documentElement.dataset.mode = 'light'; })();</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@id":"https://finoprivacy.com/tools/similar-fines.html","url":"https://finoprivacy.com/tools/similar-fines.html","name":"Similar GDPR fines: what regulators fined in cases like yours","description":"Pick what went wrong: see the real range of GDPR fines in similar decisions, the closest cases and the legal maximum under Article 83. Built on 5,055 decisions.","inLanguage":"en","dateModified":"2026-11-13","publisher":{"@id":"https://finoprivacy.com/#org"},"@type":"WebApplication","applicationCategory":"BusinessApplication","operatingSystem":"Any","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"EUR"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Fino","item":"https://finoprivacy.com/"},{"@type":"ListItem","position":2,"name":"Similar fines"}]},{"@type":"Organization","@id":"https://finoprivacy.com/#org","name":"Fino","url":"https://finoprivacy.com/","logo":"https://finoprivacy.com/og/fino-logo.png"}]}</script>
 <style>
@@ -294,7 +294,7 @@
 </footer>
 
 <script src="/assets/fino.js?v=4177a09f082c" defer></script>
-<script src="/assets/find.js?v=5a1c35f214e8" defer></script>
+<script src="/assets/find.js?v=1101723d9278" defer></script>
 <script>
 (() => {
   const $ = id => document.getElementById(id);
@@ -370,7 +370,7 @@
     const close = match.slice().sort((a, b) => (b[F.eur] > 0) - (a[F.eur] > 0) || b[F.month].localeCompare(a[F.month])).slice(0, 6);
     if (close.length) html += `<section><h2 class="sf-h">The newest similar decisions</h2><ul class="sf-list">${close.map(r => `<li><a href="/decisions/${r[F.slug]}.html"><b>${esc(r[F.name])}</b>`
       + `<span>${r[F.cc] && r[F.cc] !== 'EU' ? `<img class="flag" src="/flags/${r[F.cc].toLowerCase()}.svg" alt="" width="16" height="16">` : ''}${esc(D.countries[r[F.cc]] || '')} &middot; ${month(r[F.month])}</span>`
-      + `<i>${r[F.eur] ? (r[F.est] ? '&asymp;' : '') + euro(r[F.eur]) : 'No fine'}</i></a></li>`).join('')}</ul></section>`;
+      + `<i>${r[F.eur] ? (r[F.est] ? '&asymp;' : '') + euro(r[F.eur]) : esc(r[F.label] || 'No fine')}</i></a></li>`).join('')}</ul></section>`;
     html += `<section><h2 class="sf-h">What regulators must weigh (Article 83(2))</h2><ol class="sf-weigh" type="a">
       <li>How serious the breach was, how long it lasted, how many people it hit and how much harm they suffered</li><li>Whether it was on purpose or careless</li>
       <li>What was done to limit the harm</li><li>How much responsibility the company bears, given its security and organisation</li><li>Earlier breaches</li>
