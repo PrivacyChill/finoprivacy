@@ -10,7 +10,7 @@
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="canonical" href="https://finoprivacy.com/fines.html">
 <link rel="preload" href="fonts/fraunces-300-800-latin.woff2" as="font" type="font/woff2" crossorigin>
-<script>/* light unless the visitor chose dark; the corporate look if the visitor chose it */ (() => { let m = null, l = null; try { m = localStorage.getItem('mode'); l = localStorage.getItem('fino-look'); } catch (e) {} if (m !== 'dark') document.documentElement.dataset.mode = 'light'; if (l === 'corporate') document.documentElement.dataset.look = 'corporate'; })();</script>
+<script>/* light unless the visitor chose dark */ (() => { let m = null; try { m = localStorage.getItem('mode'); } catch (e) {} if (m !== 'dark') document.documentElement.dataset.mode = 'light'; })();</script>
 <style>
 /* Fonts are served from this site, so no visitor data goes to a font provider. All under the SIL Open Font License. */
 @font-face { font-family: "Fraunces"; font-style: normal; font-weight: 300 800; font-display: swap; src: url("fonts/fraunces-300-800-latin.woff2") format("woff2"); }
@@ -182,7 +182,7 @@ h1 .tag-person { display: inline-block; vertical-align: 0.4em; margin-left: 12px
 .pill { justify-self: start; font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.06em; text-transform: uppercase; padding: 4px 9px; border-radius: 6px; white-space: nowrap; }
 .pill.bad { background: var(--soon-bg); color: var(--soon); }
 .pill.ok { background: var(--neutral-bg); color: var(--muted); }
-:root[data-mode="light"]:not([data-look]) .pill.ok { color: #635750; }   /* the muted brown on this beige is just under 4.5:1 */
+:root[data-mode="light"] .pill.ok { color: #635750; }   /* the muted brown on this beige is just under 4.5:1 */
 .card { background: var(--surface); border: 2px solid var(--ink); border-radius: 24px; padding: 22px; }
 
 /* ---------- Browse ---------- */
@@ -259,7 +259,6 @@ img.flag { display: inline-block; width: 1.15em; height: 1.15em; border-radius: 
 .strip .pin { stroke: var(--ink); stroke-width: 1; }
 /* the bell: the whole list pale, the part smaller than this fine shaded, a thin line on top */
 .strip .b-all { fill: var(--line); stroke: none; } .strip .b-in { fill: var(--pink); stroke: none; } .strip .b-top { fill: none; stroke: var(--ink); stroke-opacity: 1; stroke-width: 1.5; stroke-linejoin: round; }
-[data-look="corporate"] .strip .b-in { fill: color-mix(in srgb, var(--brand) 32%, var(--bg)); }
 .strip .melbl { fill: var(--ink); font-weight: 500; }
 .size-big { font-family: var(--display); font-variation-settings: "SOFT" 100, "opsz" 72; font-weight: 500; font-size: 1.6rem; line-height: 1.22; margin: 0 0 6px; text-wrap: balance; }
 .size-big b { font-weight: 650; background: linear-gradient(transparent 58%, var(--hl-bg) 58%, var(--hl-bg) 92%, transparent 92%); }
@@ -309,30 +308,12 @@ img.flag { display: inline-block; width: 1.15em; height: 1.15em; border-radius: 
   .head .fine { min-width: 0; max-width: none; }
   .summary-row .summary { font-size: 1.1rem; }
 }
-/* the corporate look (tokens in assets/find.css): plainer type, no pink shadow, square corners */
-[data-look="corporate"] .head h1 { font-size: clamp(2rem, 4.6vw, 3.6rem); line-height: 1.04; letter-spacing: -0.035em; }
-[data-look="corporate"] .sec-lbl h2, [data-look="corporate"] .fine .amt, [data-look="corporate"] .fine .conv, [data-look="corporate"] .dpo-q blockquote p { font-variation-settings: normal; font-weight: 700; letter-spacing: -0.02em; }
-[data-look="corporate"] .dpo-q blockquote p { font-weight: 400; letter-spacing: 0; }
-[data-look="corporate"] .size-big { font-variation-settings: normal; font-weight: 400; letter-spacing: -0.01em; }
-[data-look="corporate"] .size-big b { background: none; color: var(--accent); font-weight: 700; }
-[data-look="corporate"] .fine { box-shadow: none; border: 1px solid var(--line); border-radius: 4px; }
-[data-look="corporate"] .dpo { border-width: 1px; border-color: var(--line); border-radius: 4px; }
-[data-look="corporate"] .dpo-q { border-radius: 2px; border-left-width: 3px; }
-[data-look="corporate"] .strip .me { fill: var(--accent); stroke: var(--bg); stroke-width: 2; }
-[data-look="corporate"] .facts-row.tally-facts dd, [data-look="corporate"] .lawpage .atitle { font-variation-settings: normal; font-weight: 700; letter-spacing: -0.02em; }
-[data-look="corporate"] .lawpage .atitle { font-weight: 400; letter-spacing: -0.01em; }
-[data-look="corporate"] .results a, [data-look="corporate"] .law-toc a, [data-look="corporate"] .preamble > summary, [data-look="corporate"] .sim a,
-[data-look="corporate"] .rules a.in, [data-look="corporate"] .goto input { border-radius: 2px; }
-[data-look="corporate"] .results .amt small.tag, [data-look="corporate"] .law-toc .chg, [data-look="corporate"] .topics li.chg-t { border-radius: 2px; }
-[data-look="corporate"] .desk { border-radius: 4px; }
-[data-look="corporate"] .r-cols, [data-look="corporate"] .law-toc, [data-look="corporate"] .rules, [data-look="corporate"] .sim, [data-look="corporate"] .prevnext { border-top-width: 1px; }
-[data-look="corporate"] .r-cols { border-bottom-width: 1px; }
 .fine { background: var(--surface); border: 2px solid var(--ink); border-radius: 26px; box-shadow: 7px 7px 0 var(--pink); padding: 22px 24px 20px; display: grid; gap: 6px; }
 .fine .lbl { font-family: var(--mono); font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
 .fine .amt { font-family: var(--display); font-variation-settings: "SOFT" 100, "opsz" 96; font-weight: 600; font-size: clamp(2rem, 4.4vw, 2.9rem); line-height: 1.05; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; overflow-wrap: anywhere; }
 .fine .amt.none { font-size: 1.6rem; font-weight: 500; }
 .fine .amt.stmt { font-size: 1.5rem; font-weight: 500; line-height: 1.2; }
-.fine .conv.stmt-q, [data-look="corporate"] .fine .conv.stmt-q { display: block; margin-top: 8px; font-family: var(--body); font-variation-settings: normal; font-size: 0.9rem; line-height: 1.45; font-weight: 400; font-style: italic; letter-spacing: 0; color: var(--muted); }
+.fine .conv.stmt-q { display: block; margin-top: 8px; font-family: var(--body); font-variation-settings: normal; font-size: 0.9rem; line-height: 1.45; font-weight: 400; font-style: italic; letter-spacing: 0; color: var(--muted); }
 .results .amt.stmt { font-family: var(--body); font-weight: 400; font-size: 0.85rem; line-height: 1.3; max-width: 9.5rem; margin-left: auto; overflow-wrap: break-word; }   /* a long statement wraps under its width, so the name keeps its room on a phone */
 .results .amt.stmt small.tag { display: block; width: max-content; margin-left: auto; }
 .amt s { text-decoration-thickness: 2px; color: var(--muted); }
@@ -734,6 +715,28 @@ html.is-loading footer { visibility: hidden; }
 @keyframes f-sheet { 0%, 12% { transform: none; opacity: 1; } 58% { transform: translate(-66px, -18px) rotate(-14deg); opacity: 1; } 72%, 100% { transform: translate(-74px, -22px) rotate(-16deg) scale(.5); opacity: 0; } }
 @keyframes f-tick { 0%, 60% { opacity: 0; transform: scale(.4); } 70% { opacity: 1; transform: scale(1.15); } 78%, 92% { opacity: 1; transform: scale(1); } 100% { opacity: 0; transform: scale(1); } }
 @media (prefers-reduced-motion: reduce) { .fetch-art .bob, .fetch-art .ant, .fetch-art .scan, .fetch-art .sheet { animation: none; } .fetch-art .tick { animation: none; opacity: 1; } }
+/* refresh-tokens: site refresh "Read in the original" (14 Nov 2026). The shared design language, kept calm on the reading pages: heavier titles, a status
+   is a stamp, quoted words sit on the pink marker. One source (design/refresh/tokens.css), written into fines.html (from which fino.css is built) and into
+   the hand-written pages that carry their own styles, by design/refresh/sync_tokens.py. */
+h1 { font-weight: 720; }
+.head h1 { font-weight: 760; letter-spacing: -0.035em; }
+.sec-h, .sec-lbl h2 { font-weight: 700; }
+.brand { font-weight: 760; }
+/* A stamp: a status pressed on the page. .pill is the old name and stays in the pages; .stamp is the new one.
+   ok = how the page stands or how Fino read it; bad or warn = look here; plain = not read by Fino. */
+.pill, .stamp { display: inline-block; font-family: var(--mono); font-weight: 500; font-size: 0.74rem; letter-spacing: 0.09em; text-transform: uppercase; line-height: 1.25;
+  padding: 6px 10px 5px; background: none; border: 2px solid currentColor; border-radius: 5px; transform: rotate(-1.5deg); box-shadow: inset 0 0 0 1.5px var(--stamp-paper, var(--bg)), inset 0 0 0 2.5px currentColor; }
+.pill.ok, .pill.bad { background: none; }
+.pill.bad, .stamp.warn { color: var(--soon); }
+.stamp.ok { color: var(--accent); }
+.stamp.plain { color: var(--muted); border-style: dashed; box-shadow: none; transform: none; }
+.fine .pill { margin-top: 10px; }
+.head .fine { max-width: 400px; }   /* room for a ten-figure amount on one line */
+/* quoted words: the marker runs under every line of a quotation, and under a quotation inside a sentence */
+blockquote p, q { background: linear-gradient(transparent 68%, var(--hl-bg) 68%, var(--hl-bg) 94%, transparent 94%); -webkit-box-decoration-break: clone; box-decoration-break: clone; }
+blockquote p { display: inline; }
+/* /refresh-tokens */
+
 </style>
 
 
@@ -742,8 +745,8 @@ html.is-loading footer { visibility: hidden; }
 
 
 
-<link rel="stylesheet" href="/assets/find.css?v=ff0461e02f0d">
-
+<link rel="stylesheet" href="/assets/find.css?v=5a1c35f214e8">
+
 <!-- seo -->
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Fino">
@@ -780,6 +783,7 @@ html.is-loading footer { visibility: hidden; }
         <div class="laws-menu lp lp-one" id="m-fines" hidden>
           <div class="lp-col">
             <a href="#fines"><b>All decisions</b><span>Search and filter every decision</span></a>
+            <a href="/countries/"><b>By country</b><span>Each country&rsquo;s decisions and regulators</span></a>
             <a href="regulators.html"><b>Regulators</b><span>The regulators behind the decisions</span></a>
           </div>
         </div>
@@ -798,11 +802,11 @@ html.is-loading footer { visibility: hidden; }
             <a href="/key-cases/"><b>Key cases</b><span>The court rulings behind the rules</span></a>
             <a href="/rulings/"><b>Court rulings</b><span>Court of Justice judgments, read in the original</span></a>
             <a href="/guidance/"><b>EDPB guidance</b><span>Guidelines and opinions, read in the original</span></a>
+            <a href="/questions.html"><b>Questions</b><span>What a DPO is asked, with the explainers</span></a>
           </div>
           <button type="button" class="lp-find" data-find-open><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m20 20-4.6-4.6"/></svg><span>Look up a term, case or article&hellip;</span><kbd>Ctrl K</kbd></button>
         </div>
       </div>
-      <a href="/questions.html">Questions</a>
       <div class="laws" id="tools">
         <button type="button" id="nav-tools" aria-expanded="false" aria-controls="m-tools">Tools <svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
         <div class="laws-menu lp lp-one" id="m-tools" hidden>
@@ -812,6 +816,9 @@ html.is-loading footer { visibility: hidden; }
             <a href="/documents/"><b>Documents and checklists</b><span>Notices, letters, a contract and checklists</span></a>
             <a href="/tools/similar-fines.html"><b>Similar fines</b><span>The range of fines in cases like yours</span></a>
             <a href="/tools/response-timeline.html"><b>Response timeline</b><span>Deadlines for a breach or a request</span></a>
+            <a href="/tools/which-regulator.html"><b>Which regulator?</b><span>Which authority is yours, or which leads</span></a>
+            <a href="/tools/cookie-check.html"><b>Cookie banner check</b><span>Ten points regulators look at</span></a>
+            <a href="/tools/ai-act-triage.html"><b>AI Act check</b><span>Banned, high-risk, transparency or minimal risk</span></a>
             <hr class="lp-sep">
             <a href="Tool.html"><b>All tools</b><span>Free tools built on the decisions</span></a>
           </div>
@@ -823,6 +830,7 @@ html.is-loading footer { visibility: hidden; }
           <div class="lp-col">
             <a href="About.html"><b>About Fino</b><span>What Fino is for and who made it</span></a>
             <a href="/About.html#method"><b>How it works</b><span>How decisions are read and checked</span></a>
+            <a href="/About.html#limits"><b>Corrections</b><span>What Fino gets wrong, and what was fixed</span></a>
             <a href="/About.html#reuse"><b>Reuse and cite</b><span>Use the data, with credit</span></a>
             <a href="/Privacy.html"><b>Privacy</b><span>Nothing collected about visitors</span></a>
           </div>
@@ -831,7 +839,6 @@ html.is-loading footer { visibility: hidden; }
     </nav>
     <a class="ai-btn" href="/ai/" aria-label="Use with your AI"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5c.6 4.9 2.6 6.9 7.5 7.5-4.9.6-6.9 2.6-7.5 7.5-.6-4.9-2.6-6.9-7.5-7.5 4.9-.6 6.9-2.6 7.5-7.5z"/><path d="M19 15.5c.3 2.1 1.2 3 3.3 3.3-2.1.3-3 1.2-3.3 3.3-.3-2.1-1.2-3-3.3-3.3 2.1-.3 3-1.2 3.3-3.3z"/></svg><span class="ai-full">Use with your AI</span><span class="ai-short" aria-hidden="true">Your AI</span></a>
     <button class="find-btn" id="find-btn" type="button" data-find-open aria-label="Search Fino" title="Search (Ctrl K)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m20 20-4.6-4.6"/></svg></button>
-    <button class="look-btn" id="look-btn" type="button" aria-pressed="false" title="Switch to the corporate look"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2"/></svg><span class="look-txt">Corporate</span></button>
     <button class="mode" id="mode" type="button" aria-label="Switch to light mode" title="Switch to light mode">
       <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
       <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 14.5A8.5 8.5 0 0 1 9.5 3.5a8.5 8.5 0 1 0 11 11z"/></svg>
@@ -863,14 +870,24 @@ html.is-loading footer { visibility: hidden; }
         <p class="foot-lbl">Explore</p>
         <ul>
           <li><a href="/fines.html">Fines</a></li>
+          <li><a href="/countries/">Countries</a></li>
           <li><a href="/regulators.html">Regulators</a></li>
+          <li><a href="/Tool.html">Tools</a></li>
+          <li><a href="/documents/">Documents and checklists</a></li>
           <li><a href="/questions.html">Questions</a></li>
+          <li><a href="/ai/">Use with your AI</a></li>
+        </ul>
+      </nav>
+      <nav class="foot-col" aria-label="The law">
+        <p class="foot-lbl">Law</p>
+        <ul>
           <li><a href="/gdpr/">GDPR</a></li>
           <li><a href="/ai-act/">AI Act</a></li>
           <li><a href="/laws.html">All laws</a></li>
-          <li><a href="/Tool.html">Tools</a></li>
-          <li><a href="/documents/">Documents and checklists</a></li>
-          <li><a href="/ai/">Use with your AI</a></li>
+          <li><a href="/glossary/">Glossary</a></li>
+          <li><a href="/key-cases/">Key cases</a></li>
+          <li><a href="/rulings/">Court rulings</a></li>
+          <li><a href="/guidance/">EDPB guidance</a></li>
         </ul>
       </nav>
       <nav class="foot-col" aria-label="About Fino">
@@ -878,6 +895,7 @@ html.is-loading footer { visibility: hidden; }
         <ul>
           <li><a href="/About.html">About</a></li>
           <li><a href="/About.html#method">How it works</a></li>
+          <li><a href="/About.html#limits">Corrections</a></li>
           <li><a href="/About.html#reuse">Reuse and cite</a></li>
           <li><a href="/Privacy.html">Privacy</a></li>
         </ul>
@@ -2303,7 +2321,7 @@ if (DATA.sumP) DATA.sumP.then(sum => {
   };
   /* keyboard: opening moves focus into the menu, Tab stays among the menu and the header buttons until it is closed, Escape closes and returns focus to the button */
   const shown = el => el.getClientRects().length > 0;
-  const ring = () => [...top.querySelectorAll('nav a[href], nav button, .ai-btn, .find-btn, .look-btn, .mode, .menu-btn')].filter(shown);
+  const ring = () => [...top.querySelectorAll('nav a[href], nav button, .ai-btn, .find-btn, .mode, .menu-btn')].filter(shown);
   btn.addEventListener('click', () => {
     const open = !top.classList.contains('open');
     set(open);
@@ -2363,29 +2381,6 @@ modeBtn.addEventListener('click', () => {
 let saved = null;
 try { saved = localStorage.getItem('mode'); } catch (e) {}
 setMode(saved === 'dark' ? 'dark' : 'light', false);
-/* Look switch: the Fino look or a quieter corporate look. The choice stays in this browser (localStorage 'fino-look'),
-   nothing is sent; the line in the head applies it before the page paints. A quick cross-fade, none with reduced motion. */
-(() => {
-  const b = document.getElementById('look-btn'), r = document.documentElement;
-  if (!b) return;
-  const t = b.querySelector('.look-txt');
-  const show = () => {
-    const on = r.dataset.look === 'corporate';
-    b.setAttribute('aria-pressed', String(on)); t.textContent = on ? 'Fino look' : 'Corporate';
-    b.title = on ? 'Switch back to the Fino look' : 'Switch to the corporate look';
-  };
-  const set = on => {
-    if (on) r.dataset.look = 'corporate'; else delete r.dataset.look;
-    try { if (on) localStorage.setItem('fino-look', 'corporate'); else localStorage.removeItem('fino-look'); } catch (e) {}
-    show();
-  };
-  show();
-  b.addEventListener('click', () => {
-    const on = r.dataset.look !== 'corporate';
-    if (!document.startViewTransition || matchMedia('(prefers-reduced-motion: reduce)').matches) set(on);
-    else document.startViewTransition(() => set(on));
-  });
-})();
 
 /* Moving between pages: a link to a decision carries its name and amount into the decision page, and back again */
 (() => {
@@ -2410,6 +2405,6 @@ setMode(saved === 'dark' ? 'dark' : 'light', false);
   });
 })();
 </script>
-<script src="/assets/find.js?v=ff0461e02f0d" defer></script>
+<script src="/assets/find.js?v=5a1c35f214e8" defer></script>
 </body>
 </html>

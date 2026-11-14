@@ -170,7 +170,7 @@ h1 .tag-person { display: inline-block; vertical-align: 0.4em; margin-left: 12px
 .pill { justify-self: start; font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.06em; text-transform: uppercase; padding: 4px 9px; border-radius: 6px; white-space: nowrap; }
 .pill.bad { background: var(--soon-bg); color: var(--soon); }
 .pill.ok { background: var(--neutral-bg); color: var(--muted); }
-:root[data-mode="light"]:not([data-look]) .pill.ok { color: #635750; }   /* the muted brown on this beige is just under 4.5:1 */
+:root[data-mode="light"] .pill.ok { color: #635750; }   /* the muted brown on this beige is just under 4.5:1 */
 .card { background: var(--surface); border: 2px solid var(--ink); border-radius: 24px; padding: 22px; }
 
 /* ---------- Browse ---------- */
@@ -247,7 +247,6 @@ img.flag { display: inline-block; width: 1.15em; height: 1.15em; border-radius: 
 .strip .pin { stroke: var(--ink); stroke-width: 1; }
 /* the bell: the whole list pale, the part smaller than this fine shaded, a thin line on top */
 .strip .b-all { fill: var(--line); stroke: none; } .strip .b-in { fill: var(--pink); stroke: none; } .strip .b-top { fill: none; stroke: var(--ink); stroke-opacity: 1; stroke-width: 1.5; stroke-linejoin: round; }
-[data-look="corporate"] .strip .b-in { fill: color-mix(in srgb, var(--brand) 32%, var(--bg)); }
 .strip .melbl { fill: var(--ink); font-weight: 500; }
 .size-big { font-family: var(--display); font-variation-settings: "SOFT" 100, "opsz" 72; font-weight: 500; font-size: 1.6rem; line-height: 1.22; margin: 0 0 6px; text-wrap: balance; }
 .size-big b { font-weight: 650; background: linear-gradient(transparent 58%, var(--hl-bg) 58%, var(--hl-bg) 92%, transparent 92%); }
@@ -297,30 +296,12 @@ img.flag { display: inline-block; width: 1.15em; height: 1.15em; border-radius: 
   .head .fine { min-width: 0; max-width: none; }
   .summary-row .summary { font-size: 1.1rem; }
 }
-/* the corporate look (tokens in assets/find.css): plainer type, no pink shadow, square corners */
-[data-look="corporate"] .head h1 { font-size: clamp(2rem, 4.6vw, 3.6rem); line-height: 1.04; letter-spacing: -0.035em; }
-[data-look="corporate"] .sec-lbl h2, [data-look="corporate"] .fine .amt, [data-look="corporate"] .fine .conv, [data-look="corporate"] .dpo-q blockquote p { font-variation-settings: normal; font-weight: 700; letter-spacing: -0.02em; }
-[data-look="corporate"] .dpo-q blockquote p { font-weight: 400; letter-spacing: 0; }
-[data-look="corporate"] .size-big { font-variation-settings: normal; font-weight: 400; letter-spacing: -0.01em; }
-[data-look="corporate"] .size-big b { background: none; color: var(--accent); font-weight: 700; }
-[data-look="corporate"] .fine { box-shadow: none; border: 1px solid var(--line); border-radius: 4px; }
-[data-look="corporate"] .dpo { border-width: 1px; border-color: var(--line); border-radius: 4px; }
-[data-look="corporate"] .dpo-q { border-radius: 2px; border-left-width: 3px; }
-[data-look="corporate"] .strip .me { fill: var(--accent); stroke: var(--bg); stroke-width: 2; }
-[data-look="corporate"] .facts-row.tally-facts dd, [data-look="corporate"] .lawpage .atitle { font-variation-settings: normal; font-weight: 700; letter-spacing: -0.02em; }
-[data-look="corporate"] .lawpage .atitle { font-weight: 400; letter-spacing: -0.01em; }
-[data-look="corporate"] .results a, [data-look="corporate"] .law-toc a, [data-look="corporate"] .preamble > summary, [data-look="corporate"] .sim a,
-[data-look="corporate"] .rules a.in, [data-look="corporate"] .goto input { border-radius: 2px; }
-[data-look="corporate"] .results .amt small.tag, [data-look="corporate"] .law-toc .chg, [data-look="corporate"] .topics li.chg-t { border-radius: 2px; }
-[data-look="corporate"] .desk { border-radius: 4px; }
-[data-look="corporate"] .r-cols, [data-look="corporate"] .law-toc, [data-look="corporate"] .rules, [data-look="corporate"] .sim, [data-look="corporate"] .prevnext { border-top-width: 1px; }
-[data-look="corporate"] .r-cols { border-bottom-width: 1px; }
 .fine { background: var(--surface); border: 2px solid var(--ink); border-radius: 26px; box-shadow: 7px 7px 0 var(--pink); padding: 22px 24px 20px; display: grid; gap: 6px; }
 .fine .lbl { font-family: var(--mono); font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
 .fine .amt { font-family: var(--display); font-variation-settings: "SOFT" 100, "opsz" 96; font-weight: 600; font-size: clamp(2rem, 4.4vw, 2.9rem); line-height: 1.05; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; overflow-wrap: anywhere; }
 .fine .amt.none { font-size: 1.6rem; font-weight: 500; }
 .fine .amt.stmt { font-size: 1.5rem; font-weight: 500; line-height: 1.2; }
-.fine .conv.stmt-q, [data-look="corporate"] .fine .conv.stmt-q { display: block; margin-top: 8px; font-family: var(--body); font-variation-settings: normal; font-size: 0.9rem; line-height: 1.45; font-weight: 400; font-style: italic; letter-spacing: 0; color: var(--muted); }
+.fine .conv.stmt-q { display: block; margin-top: 8px; font-family: var(--body); font-variation-settings: normal; font-size: 0.9rem; line-height: 1.45; font-weight: 400; font-style: italic; letter-spacing: 0; color: var(--muted); }
 .results .amt.stmt { font-family: var(--body); font-weight: 400; font-size: 0.85rem; line-height: 1.3; max-width: 9.5rem; margin-left: auto; overflow-wrap: break-word; }   /* a long statement wraps under its width, so the name keeps its room on a phone */
 .results .amt.stmt small.tag { display: block; width: max-content; margin-left: auto; }
 .amt s { text-decoration-thickness: 2px; color: var(--muted); }
@@ -722,3 +703,25 @@ html.is-loading footer { visibility: hidden; }
 @keyframes f-sheet { 0%, 12% { transform: none; opacity: 1; } 58% { transform: translate(-66px, -18px) rotate(-14deg); opacity: 1; } 72%, 100% { transform: translate(-74px, -22px) rotate(-16deg) scale(.5); opacity: 0; } }
 @keyframes f-tick { 0%, 60% { opacity: 0; transform: scale(.4); } 70% { opacity: 1; transform: scale(1.15); } 78%, 92% { opacity: 1; transform: scale(1); } 100% { opacity: 0; transform: scale(1); } }
 @media (prefers-reduced-motion: reduce) { .fetch-art .bob, .fetch-art .ant, .fetch-art .scan, .fetch-art .sheet { animation: none; } .fetch-art .tick { animation: none; opacity: 1; } }
+/* refresh-tokens: site refresh "Read in the original" (14 Nov 2026). The shared design language, kept calm on the reading pages: heavier titles, a status
+   is a stamp, quoted words sit on the pink marker. One source (design/refresh/tokens.css), written into fines.html (from which fino.css is built) and into
+   the hand-written pages that carry their own styles, by design/refresh/sync_tokens.py. */
+h1 { font-weight: 720; }
+.head h1 { font-weight: 760; letter-spacing: -0.035em; }
+.sec-h, .sec-lbl h2 { font-weight: 700; }
+.brand { font-weight: 760; }
+/* A stamp: a status pressed on the page. .pill is the old name and stays in the pages; .stamp is the new one.
+   ok = how the page stands or how Fino read it; bad or warn = look here; plain = not read by Fino. */
+.pill, .stamp { display: inline-block; font-family: var(--mono); font-weight: 500; font-size: 0.74rem; letter-spacing: 0.09em; text-transform: uppercase; line-height: 1.25;
+  padding: 6px 10px 5px; background: none; border: 2px solid currentColor; border-radius: 5px; transform: rotate(-1.5deg); box-shadow: inset 0 0 0 1.5px var(--stamp-paper, var(--bg)), inset 0 0 0 2.5px currentColor; }
+.pill.ok, .pill.bad { background: none; }
+.pill.bad, .stamp.warn { color: var(--soon); }
+.stamp.ok { color: var(--accent); }
+.stamp.plain { color: var(--muted); border-style: dashed; box-shadow: none; transform: none; }
+.fine .pill { margin-top: 10px; }
+.head .fine { max-width: 400px; }   /* room for a ten-figure amount on one line */
+/* quoted words: the marker runs under every line of a quotation, and under a quotation inside a sentence */
+blockquote p, q { background: linear-gradient(transparent 68%, var(--hl-bg) 68%, var(--hl-bg) 94%, transparent 94%); -webkit-box-decoration-break: clone; box-decoration-break: clone; }
+blockquote p { display: inline; }
+/* /refresh-tokens */
+

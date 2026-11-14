@@ -51,20 +51,26 @@
 .find-out { overflow-y: auto; overscroll-behavior: contain; padding: 6px 8px 12px; }
 .find-g { margin: 12px 10px 4px; font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--latte-muted); }
 .find-out ul { list-style: none; margin: 0; padding: 0; }
-.find-out a { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 1px 12px; padding: 9px 12px; border-radius: 12px; text-decoration: none; color: var(--latte-ink); }
+.find-out a { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 1px 12px; align-content: center; min-height: 44px; padding: 9px 12px; border-radius: 12px; text-decoration: none; color: var(--latte-ink); }
 .find-out a b { font-weight: 600; overflow-wrap: anywhere; }
 .find-out a span { grid-column: 1; font-size: 0.86rem; color: var(--latte-muted); }
-.find-out a i { grid-column: 2; grid-row: 1 / span 2; align-self: center; font-style: normal; font-family: var(--mono); font-size: 0.78rem; color: var(--latte-muted); white-space: nowrap; }
+.find-out a i { grid-column: 2; grid-row: 1 / span 2; align-self: center; max-width: 11em; font-style: normal; font-family: var(--mono); font-size: 0.78rem; text-align: right; color: var(--latte-muted); overflow-wrap: anywhere; }   /* an amount is never cut: it wraps */
 .find-out a[aria-selected="true"], .find-out a:hover { background: var(--field); box-shadow: inset 0 0 0 1.5px var(--latte-line); }
 .find-out mark { background: #FFE1E8; color: inherit; border-radius: 3px; padding: 0 1px; }
 .find-tip { margin: 14px 12px; color: var(--latte-muted); font-size: 0.95rem; }
 .find-tip button { font: inherit; font-size: 0.88rem; margin: 6px 6px 0 0; padding: 4px 11px; border-radius: 999px; border: 1.5px solid var(--latte-line); background: var(--field); color: var(--latte-ink); cursor: pointer; }
 .find-foot { display: flex; gap: 14px; flex-wrap: wrap; padding: 9px 16px; border-top: 1.5px solid var(--latte-line); font-size: 0.8rem; color: var(--latte-muted); }
 .find-foot kbd { font-family: var(--mono); font-size: 0.72rem; padding: 1px 6px; border-radius: 5px; border: 1px solid var(--latte-line); background: var(--field); }
+.find-near { margin: 10px 12px 0; font-size: 0.88rem; }
+.find-tip, .find-none { overflow-wrap: anywhere; }
+.find-links { margin-top: 4px; }
+.find-out { overflow-x: hidden; }
 @media (max-width: 600px) {
   .find-dlg { width: 100vw; max-width: 100vw; height: 100dvh; max-height: 100dvh; margin: 0; border: 0; border-radius: 0; box-shadow: none;
     padding-top: env(safe-area-inset-top, 0px); }
   .find-out a { padding-block: 12px; }
+  .find-tip button, .find-x { min-height: 44px; }
+  .find-out a i:not(.amt) { display: none; }
   .find-foot { display: none; }
 }
 @media (prefers-reduced-motion: reduce) { .find-dlg[open] { animation: none; } }
@@ -105,124 +111,6 @@ button.def:hover, button.def[aria-expanded="true"] { text-decoration-color: var(
 .find-btn, .lp-find { transition: scale var(--fast) var(--pop); }
 .find-btn:active, .lp-find:active { scale: .96; }
 @media (prefers-reduced-motion: reduce) { .find-btn:active, .lp-find:active { scale: none; } }
-
-/* ---------- The look switch: the Fino look or a quieter corporate look (rows 275 and 276, 2 Nov 2026) ----------
-   A button in every header, next to light/dark. The choice stays in this browser only (localStorage 'fino-look');
-   a line in each page's head applies it before the page paints. Text on wide screens, the icon alone on a phone. */
-.look-btn { display: inline-flex; align-items: center; gap: 7px; height: 40px; padding: 0 14px 0 12px; border-radius: 999px; border: 1.5px solid var(--line);
-  background: var(--surface); color: var(--ink); font-family: var(--mono); font-size: 0.78rem; cursor: pointer; flex: none; white-space: nowrap; position: relative;
-  transition: scale var(--fast) var(--pop); }
-.look-btn:hover { border-color: var(--ink); }
-.look-btn:active { scale: .96; }
-.look-btn svg { width: 18px; height: 18px; flex: none; }
-.top .wrap > .look-btn { margin-right: -8px; }
-@media (max-width: 760px) {
-  .look-btn { width: 40px; padding: 0; justify-content: center; }
-  .look-btn .look-txt { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
-  .top.has-menu .wrap > .look-btn { order: 2; margin: 0 0 0 8px; }
-}
-@media (prefers-reduced-motion: reduce) { .look-btn:active { scale: none; } }
-
-/* ---------- The corporate look: same content, same order, Fino in a suit ----------
-   One colour, one device, one typeface.
-   - Fino green: the Fino look's own olive (#56662A, 6.4:1 on white; #BFD183 for text on dark), so the two looks stay
-     one brand. It marks what you can act on, this fine, and the fine block. Raspberry and pink were tried and set aside.
-   - The dot: every fine on Fino is a dot, so the wordmark ends in a square dot and the charts pin this fine.
-   - Instrument Sans (OFL, self-hosted, downloaded only in this look) for everything; IBM Plex Mono stays for labels.
-   White or warm near-black, square corners, thin rules, no mascot, no pink shadow. --mark is the highlighter. */
-@font-face { font-family: "Instrument Sans"; font-style: normal; font-weight: 400 700; font-display: swap; src: url("/fonts/instrument-sans-latin-wght-normal.woff2") format("woff2");
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
-@font-face { font-family: "Instrument Sans"; font-style: normal; font-weight: 400 700; font-display: swap; src: url("/fonts/instrument-sans-latin-ext-wght-normal.woff2") format("woff2");
-  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
-:root[data-look="corporate"] {
-  --brand: #BFD183; --brand-tint: #33381E; --brand-field: #56662A; --field-ink: #FFFFFF; --field-deep: #44511F;
-  --bg: #141110; --surface: #1D1918; --ink: #F3EFEC; --muted: #ABA39E; --line: #322C2A; --dot: #5E5652;
-  --pink: #33381E; --accent: var(--brand); --accent-ink: #151A05; --go-deep: var(--brand); --soon: #D9CFC8; --soon-bg: #2A2523;
-  --official: var(--brand); --official-bg: var(--brand-tint); --neutral-bg: #262120; --live-bg: #33381E; --desk: #0E0C0B;
-  --latte: #F3EFEC; --latte-ink: #141110; --latte-muted: #5F5853; --latte-line: #DCD5D0; --field: #FFFFFF;
-  --mark: var(--brand-tint); --pc-hl: var(--brand-tint);
-  --m1: #576031; --m2: #6E7A3D; --m3: #87944B; --m4: #A0B05C; --m5: #BACB77; --m6: #D7E5A1;
-  --body: "Instrument Sans", "Atkinson Hyperlegible", system-ui, sans-serif; --display: var(--body);
-}
-:root[data-look="corporate"][data-mode="light"] {
-  --brand: #56662A; --brand-tint: #E6EBD2; --brand-field: #56662A; --field-ink: #FFFFFF; --field-deep: #44511F; --accent: #56662A; --accent-ink: #FFFFFF;
-  --bg: #FFFFFF; --surface: #F7F4F1; --ink: #14110F; --muted: #5F5853; --line: #E6E0DB; --dot: #BDB4AD;
-  --pink: #E6EBD2; --soon: #5F5853; --soon-bg: #F1ECE8;
-  --official: var(--brand); --official-bg: var(--brand-tint); --neutral-bg: #F1ECE8; --live-bg: #E6EBD2; --desk: #F4F0EC;
-  --latte: #F7F4F1; --latte-ink: #14110F; --latte-muted: #5F5853; --latte-line: #E6E0DB; --field: #FFFFFF;
-  --m1: #9DAC61; --m2: #869542; --m3: #707F23; --m4: #5B6814; --m5: #475203; --m6: #353D00;
-}
-:root[data-look="corporate"] ::selection { background: var(--mark); color: var(--ink); }
-[data-look="corporate"] h1, [data-look="corporate"] h2, [data-look="corporate"] h3, [data-look="corporate"] .sec-h, [data-look="corporate"] .brand,
-[data-look="corporate"] .stat, [data-look="corporate"] .tally .big { font-variation-settings: normal; font-weight: 700; letter-spacing: -0.02em; }
-[data-look="corporate"] h1 { letter-spacing: -0.03em; }
-[data-look="corporate"] h1.unnamed { font-style: normal; font-weight: 400; }
-[data-look="corporate"] .hl, [data-look="corporate"] .lede strong, [data-look="corporate"] .hero h1 mark { background: linear-gradient(transparent 62%, var(--mark) 62%, var(--mark) 92%, transparent 92%); }
-/* no mascot: the header keeps the word "Fino" when the page scrolls */
-[data-look="corporate"] .brand .logo, [data-look="corporate"] .mini { display: none; }
-[data-look="corporate"] .top.scrolled .brand .word span { opacity: 1; transform: none; }
-[data-look="corporate"] .empty, [data-look="corporate"] .empty-list { grid-template-columns: minmax(0, 1fr); }
-/* thin borders and square corners instead of the pink shadow and the round shapes */
-[data-look="corporate"] .card, [data-look="corporate"] .panel, [data-look="corporate"] .bubble, [data-look="corporate"] .laws-menu,
-[data-look="corporate"] .def-card, [data-look="corporate"] .find-dlg { border-width: 1px; border-radius: 4px; box-shadow: none; }
-[data-look="corporate"] .card, [data-look="corporate"] .bubble { border-color: var(--line); }
-[data-look="corporate"] .bubble::after { border-width: 1px; border-color: var(--line); }
-[data-look="corporate"] .goto, [data-look="corporate"] .card.changed, [data-look="corporate"] .btn.latte:hover { box-shadow: none; }
-[data-look="corporate"] .btn, [data-look="corporate"] .look-btn, [data-look="corporate"] .mode, [data-look="corporate"] .find-btn,
-[data-look="corporate"] .menu-btn, [data-look="corporate"] .chip, [data-look="corporate"] .fbtn, [data-look="corporate"] .search,
-[data-look="corporate"] .top nav a, [data-look="corporate"] .laws > button, [data-look="corporate"] .lp-find, [data-look="corporate"] .find-x { border-radius: 4px; }
-[data-look="corporate"] .btn { border-width: 1.5px; }
-[data-look="corporate"] .pill, [data-look="corporate"] .chips li, [data-look="corporate"] .eurlex, [data-look="corporate"] .law-tag { border-radius: 2px; }
-[data-look="corporate"] .top nav .laws-menu a, [data-look="corporate"] .find-out a { border-radius: 2px; }
-/* The identity. :root in front of each rule so it wins over the pages' own corporate rules, whatever the load order. */
-/* the wordmark: tight grotesk, ending in the green dot; a green band along the top edge */
-:root[data-look="corporate"] .brand .word { font-weight: 700; letter-spacing: -0.045em; align-items: baseline; }
-:root[data-look="corporate"] .brand .word::after { content: ""; display: inline-block; width: 0.26em; height: 0.26em; margin-left: 0.07em; background: var(--brand-field); }
-:root[data-look="corporate"] .top { box-shadow: inset 0 4px 0 var(--brand-field); }
-:root[data-look="corporate"] .top.scrolled { box-shadow: inset 0 4px 0 var(--brand-field), 0 1px 0 var(--line); }
-:root[data-look="corporate"] .top nav a.on, :root[data-look="corporate"] .laws > button.on { background: none; box-shadow: inset 0 -2px 0 var(--brand); color: var(--ink); border-radius: 0; }
-/* headlines: big, tight, heavy; the key words in green instead of a highlighter */
-:root[data-look="corporate"] body { word-spacing: 0.04em; }   /* Instrument Sans has a narrow word space */
-:root[data-look="corporate"] h1, :root[data-look="corporate"] .pg-head h1, :root[data-look="corporate"] .head h1 { font-weight: 600; letter-spacing: -0.04em; word-spacing: 0.1em; line-height: 0.98; }
-:root[data-look="corporate"] h1.unnamed { font-weight: 600; color: var(--ink); }
-:root[data-look="corporate"] .hero h1 mark { background: none; color: var(--brand); padding: 0; }
-:root[data-look="corporate"] h2, :root[data-look="corporate"] h3, :root[data-look="corporate"] .sec-lbl h2 { font-weight: 600; letter-spacing: -0.02em; word-spacing: 0.08em; }
-/* section numbers in green, with a short rule above: the one place colour leads the eye down the page */
-:root[data-look="corporate"] .sec-n { color: var(--brand); font-weight: 500; padding-top: 10px; border-top: 3px solid var(--brand); width: 28px; }
-/* the fine: a solid green block, the one big field of colour on a decision page; no amount = an outlined block */
-:root[data-look="corporate"] .fine { background: var(--brand-field); border: 0; border-radius: 0; box-shadow: none; color: var(--field-ink); padding: 22px 26px 22px; }
-:root[data-look="corporate"] .fine .lbl, :root[data-look="corporate"] .fine .conv, :root[data-look="corporate"] .fine small { color: inherit; opacity: 0.85; }
-:root[data-look="corporate"] .fine .amt { font-weight: 600; letter-spacing: -0.04em; }
-:root[data-look="corporate"] .fine .pill { background: transparent; color: inherit; box-shadow: inset 0 0 0 1px currentColor; }
-:root[data-look="corporate"] .fine a { color: inherit; }
-:root[data-look="corporate"] .fine:has(.amt.none) { background: transparent; color: var(--ink); box-shadow: inset 0 0 0 1.5px var(--ink); }
-:root[data-look="corporate"] .fine:has(.amt.none) .pill { box-shadow: inset 0 0 0 1px var(--line); color: var(--muted); }
-/* the facts row: one firm black rule on top, like a report's table */
-:root[data-look="corporate"] .facts-row { border-top: 2px solid var(--ink); }
-/* the dot charts: grey dots, this fine (or the biggest) in green */
-:root[data-look="corporate"] .strip .me { fill: var(--brand); stroke: var(--bg); stroke-width: 2; }
-:root[data-look="corporate"] .strip .pin { stroke: var(--brand); stroke-width: 1.5; }
-:root[data-look="corporate"] .strip .melbl { fill: var(--brand); font-family: var(--mono); }
-:root[data-look="corporate"] .size-big b { color: var(--brand); }
-/* what you can act on is green: buttons, the underline of links in text */
-:root[data-look="corporate"] .btn.primary { background: var(--brand-field); border-color: var(--brand-field); color: var(--field-ink); }
-:root[data-look="corporate"] .btn.primary:hover { background: var(--field-deep); border-color: var(--field-deep); filter: none; transform: none; }
-:root[data-look="corporate"] .btn:hover { transform: none; }
-:root[data-look="corporate"] main p a, :root[data-look="corporate"] .sec-body a:not(.btn) { text-decoration-color: var(--brand); text-decoration-thickness: 1.5px; text-underline-offset: 3px; }
-:root[data-look="corporate"] main p a:hover, :root[data-look="corporate"] .sec-body a:not(.btn):hover { color: var(--brand); }
-:root[data-look="corporate"] .look-btn[aria-pressed="true"] { border-color: var(--brand); color: var(--brand); }
-:root[data-look="corporate"] :focus-visible { outline-color: var(--brand); }
-/* the footer: a full green field to close every page, the way a report's back cover does */
-:root[data-look="corporate"] footer { background: var(--brand-field); color: var(--field-ink); }
-:root[data-look="corporate"] footer .brand .word::after { background: var(--field-ink); }
-:root[data-look="corporate"] footer .foot-lbl { opacity: 0.8; }
-:root[data-look="corporate"] footer .foot-mail { background: var(--field-ink); color: var(--brand-field); border-color: var(--field-ink); border-radius: 2px; }
-:root[data-look="corporate"] footer .foot-mail:hover { background: transparent; color: var(--field-ink); box-shadow: inset 0 0 0 1.5px var(--field-ink); }
-:root[data-look="corporate"] footer .mail { border-bottom-color: var(--field-ink); }
-:root[data-look="corporate"] footer a:focus-visible { outline-color: var(--field-ink); }
-@media (max-width: 760px) {
-  :root[data-look="corporate"] .fine { padding: 18px 20px; }
-}
 
 /* ---------- Layout v2, shared by every page (rows 275 and 276, 2 Nov 2026) ----------
    From the decision page pilot (research/decision-page-pilot/DESIGN.md): one large plain title with one line under it,
@@ -277,35 +165,25 @@ button.def:hover, button.def[aria-expanded="true"] { text-decoration-color: var(
   .sec-n { margin: 0; }
   .rel-grid { grid-template-columns: minmax(0, 1fr); }
 }
-[data-look="corporate"] .pg-head h1 { font-size: clamp(2.2rem, 5vw, 3.6rem); line-height: 1.04; letter-spacing: -0.035em; }
-[data-look="corporate"] .sec-lbl h2 { font-variation-settings: normal; font-weight: 700; letter-spacing: -0.02em; }
-[data-look="corporate"] .topics li { border-radius: 2px; border-width: 1px; }
-[data-look="corporate"] .facts-row { border-top-width: 1px; }
 .who-d { font-weight: normal; color: var(--muted); }
 h1 .who-d { opacity: .75; }
 /* Review fixes (2 Nov 2026): a lone last fact spans the row on a phone; chips are labels, so a glossary term inside
-   one is not underlined; in the corporate look the menu button is square like the rest and "official" is the one colour */
+   one is not underlined */
 @media (max-width: 760px) { .facts-row > div:last-child:nth-child(odd) { grid-column: 1 / -1; border-left: 0; padding-left: 0; } }
 .topics li a, .topics li .def, .topics li [data-def] { text-decoration: none; border-bottom: 0; }
-:root[data-look="corporate"] .top.has-menu .menu-btn { border-radius: 4px; }
 /* Pass 292 (3 Nov 2026) */
-/* No blue: the official-source chip and every box built on --official take the accent (corporate: the brand green, set above) */
+/* No blue: the official-source chip and every box built on --official take the accent */
 :root, :root[data-mode="light"] { --official: var(--accent); --official-bg: var(--live-bg); --quote: #F59BB4; }
-:root[data-look="corporate"] { --quote: var(--accent); }
 /* One quote style: a rule on the left, no box, no blue. The cookies explainer's, everywhere */
 :root .gl-q, :root .dpo-q, :root .ck-src, :root .rt-q, :root .ai-q2, :root .wr-q2, :root .cl-list blockquote {
   background: none; border-radius: 0; border-left: 4px solid var(--quote); padding: 2px 0 2px 18px; }
-:root[data-look="corporate"] .gl-q, :root[data-look="corporate"] .dpo-q, :root[data-look="corporate"] .ck-src, :root[data-look="corporate"] .rt-q,
-:root[data-look="corporate"] .ai-q2, :root[data-look="corporate"] .wr-q2, :root[data-look="corporate"] .cl-list blockquote { border-left-width: 3px; }
 /* One H1 scale on every page (the home page's, the explainers' and the 404's included) */
 :root :is(.pg-head, .head, .ex-head, .x-head, .hero, .oops, .law) h1 { font-size: clamp(2.4rem, 6vw, 4.6rem); line-height: .98; letter-spacing: -0.03em; font-weight: 560; }
-:root[data-look="corporate"] :is(.pg-head, .head, .ex-head, .x-head, .hero, .oops, .law) h1 { font-size: clamp(2.2rem, 5vw, 3.6rem); line-height: 1.02; letter-spacing: -0.035em; font-weight: 600; }
 /* The footer's LinkedIn link is an icon; its label is "Fino on LinkedIn" */
 footer .foot-in { display: inline-grid; place-items: center; width: 38px; height: 38px; margin-left: 8px; vertical-align: middle; border-radius: 50%; border: 1.5px solid currentColor; color: inherit; text-decoration: none; transition: background var(--fast) var(--ease); }
 footer .foot-in svg { width: 18px; height: 18px; }
 footer .foot-in:hover { background: rgba(255, 255, 255, .16); }
 footer .foot-in:focus-visible { outline: 3px solid currentColor; outline-offset: 3px; }
-:root[data-look="corporate"] footer .foot-in { border-radius: 2px; }
 @media (prefers-reduced-motion: reduce) { footer .foot-in { transition: none; } }
 :root { --hl-bg: #6B3A47; }
 :root[data-mode="light"] { --hl-bg: var(--pink); }
@@ -324,7 +202,7 @@ footer .foot-in:focus-visible { outline: 3px solid currentColor; outline-offset:
 
 /* ---------- 44 px targets on a phone: the header buttons and logo, the footer's mail and LinkedIn (Controller, 7 Nov 2026) ---------- */
 @media (max-width: 760px) {
-  .find-btn, .mode, .look-btn { width: 44px; height: 44px; }
+  .find-btn, .mode { width: 44px; height: 44px; }
   .top .brand { min-height: 44px; }
   footer .foot-in { width: 44px; height: 44px; }
   footer .foot-mail { display: inline-flex; align-items: center; min-height: 44px; }
@@ -342,7 +220,7 @@ footer .foot-in:focus-visible { outline: 3px solid currentColor; outline-offset:
 
 /* ---------- The "Use with your AI" button (9 Nov 2026, site v2 WP1) ----------
    One green button in every header, to /ai/. Fino green (--accent: the dark green on light, the light green on dark; --accent-ink always reads on it).
-   Wide screens and phones from 391 px: the full words (on a phone under 450 px the look switch gives way so they fit). A narrower phone: the sparkle and "Your AI"; under 341 px the sparkle alone. The link's accessible name is always "Use with your AI". */
+   Wide screens and phones from 391 px: the full words. A narrower phone: the sparkle and "Your AI"; under 341 px the sparkle alone. The link's accessible name is always "Use with your AI". */
 .ai-btn { display: inline-flex; align-items: center; gap: 8px; height: 40px; padding: 0 16px 0 13px; border-radius: 999px; border: 1.5px solid var(--accent); background: var(--accent);
   color: var(--accent-ink); font-family: inherit; font-size: 0.92rem; font-weight: 700; line-height: 1; text-decoration: none; white-space: nowrap; flex: none;
   transition: scale var(--fast) var(--pop), filter var(--fast) var(--ease); -webkit-tap-highlight-color: transparent; }
@@ -352,8 +230,6 @@ footer .foot-in:focus-visible { outline: 3px solid currentColor; outline-offset:
 .ai-btn svg { width: 17px; height: 17px; flex: none; }
 .ai-btn .ai-short { display: none; }
 .top .wrap > .ai-btn { margin-left: 8px; }
-[data-look="corporate"] .ai-btn { border-radius: 4px; background: var(--brand-field); border-color: var(--brand-field); color: var(--field-ink); }
-[data-look="corporate"] .ai-btn:hover { background: var(--field-deep); border-color: var(--field-deep); filter: none; color: var(--field-ink); }
 @media (max-width: 1000px) and (min-width: 761px) { .ai-btn .ai-full { display: none; } .ai-btn .ai-short { display: inline; } .ai-btn { padding: 0 14px 0 11px; } }
 @media (max-width: 760px) {
   .ai-btn { height: 44px; padding: 0 14px 0 11px; gap: 6px; font-size: 0.9rem; }
@@ -361,10 +237,9 @@ footer .foot-in:focus-visible { outline: 3px solid currentColor; outline-offset:
   .ai-btn .ai-short { display: inline; }
   .top.has-menu .wrap { gap: 6px; }
   .top.has-menu .wrap > .ai-btn { order: 2; margin: 0 0 0 auto; }
-  .top.has-menu .wrap > .ai-btn ~ .find-btn, .top.has-menu .wrap > .ai-btn ~ .look-btn, .top.has-menu .wrap > .ai-btn ~ .mode { margin: 0; }
+  .top.has-menu .wrap > .ai-btn ~ .find-btn, .top.has-menu .wrap > .ai-btn ~ .mode { margin: 0; }
 }
 @media (min-width: 391px) and (max-width: 760px) { .ai-btn .ai-full { display: inline; } .ai-btn .ai-short { display: none; } }
-@media (max-width: 449px) { .top.has-menu .wrap > .look-btn { display: none; } }
 @media (max-width: 340px) { .ai-btn { width: 44px; padding: 0; justify-content: center; } .ai-btn .ai-short { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; } .ai-btn svg { width: 20px; height: 20px; } }
 @media (prefers-reduced-motion: reduce) { .ai-btn { transition: none; } .ai-btn:active { scale: none; } }
 
@@ -376,5 +251,9 @@ footer .foot-in:focus-visible { outline: 3px solid currentColor; outline-offset:
   .top .wrap { gap: 12px; }
   .top nav a, .laws > button { padding: 6px 7px; }
   .top nav { gap: 2px; }
-  .top .look-btn { padding-inline: 10px; }
 }
+
+/* 14 Nov 2026 (plan row 422). The footer has three lists (Explore, Law, Fino): five columns on a wide screen. */
+@media (min-width: 901px) { footer .foot-top { grid-template-columns: minmax(0, 1.3fr) minmax(0, 0.8fr) minmax(0, 0.7fr) minmax(0, 0.7fr) minmax(0, 1.2fr); gap: 28px; } }
+/* The Fines and Law lists open from the left edge of their button, so on a laptop (861 to 1280px) they no longer run off the left of the screen. */
+@media (min-width: 861px) { #m-fines, #m-law { left: 0; right: auto; } }

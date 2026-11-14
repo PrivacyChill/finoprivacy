@@ -6,7 +6,7 @@
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <title>Cookie banners without “reject” · Fino</title>
 <meta name="description" content="How big the fines are for a cookie banner without a reject button, the rules behind it and the real decisions.">
-<script>/* light unless the visitor chose dark; the corporate look if the visitor chose it */ (() => { let m = null, l = null; try { m = localStorage.getItem('mode'); l = localStorage.getItem('fino-look'); } catch (e) {} if (m !== 'dark') document.documentElement.dataset.mode = 'light'; if (l === 'corporate') document.documentElement.dataset.look = 'corporate'; })();</script>
+<script>/* light unless the visitor chose dark */ (() => { let m = null; try { m = localStorage.getItem('mode'); } catch (e) {} if (m !== 'dark') document.documentElement.dataset.mode = 'light'; })();</script>
 <style>
 /* Fonts are served from this site, so no visitor data goes to a font provider. All under the SIL Open Font License. */
 @font-face { font-family: "Fraunces"; font-style: normal; font-weight: 300 800; font-display: swap; src: url("fonts/fraunces-300-800-latin.woff2") format("woff2"); }
@@ -280,7 +280,7 @@ a.pill-card:hover { transform: translateY(-3px); }
 .x-toc ol a .sec-n { margin: 0; flex: none; }
 .post-link { justify-self: start; font-family: var(--mono); font-size: 0.8rem; color: var(--muted); }
 .post-link:hover { color: var(--ink); }
-/* The reading sheet: latte on the espresso desk (Fino's look); flat in the corporate look */
+/* The reading sheet: latte on the espresso desk */
 .paper { background: none; color: var(--ink); border: 0; border-top: 1px solid var(--ink); border-radius: 0; box-shadow: none; padding: 0; margin: 0 0 72px;
   font-size: 1.125rem; line-height: 1.7; min-width: 0; --latte-ink: var(--ink); --latte-muted: var(--muted); --latte-line: var(--line); --field: var(--surface); --go-deep: var(--accent); }
 .paper :focus-visible { outline-color: var(--go-deep); }
@@ -349,18 +349,6 @@ a.pill-card:hover { transform: translateY(-3px); }
   .a-dec { grid-template-columns: minmax(0, 1fr); }
 }
 @media (prefers-reduced-motion: reduce) { a.pill-card, .x-toc ol a, .a-dec a, .a-rel a { transition: none; } .a-rel a:hover { translate: none; } }
-/* The corporate look (tokens in assets/find.css): the sheet goes flat and takes the page's colours; no highlighter, no
-   offset shadow, square corners, plain headings */
-[data-look="corporate"] .x-head h1 { font-size: clamp(2rem, 4.4vw, 3.4rem); line-height: 1.06; letter-spacing: -0.035em; }
-[data-look="corporate"] .paper .sec-lbl h2 { font-variation-settings: normal; font-weight: 700; letter-spacing: -0.02em; }
-[data-look="corporate"] .facts-row { border-top-width: 1px; }
-[data-look="corporate"] .a-lead strong { background: none; }
-[data-look="corporate"] .paper blockquote { border-left: 3px solid var(--accent); font-style: normal; font-variation-settings: normal; font-size: 1.15rem; }
-[data-look="corporate"] .a-dec { border-top-width: 1px; }
-[data-look="corporate"] .a-dec a, [data-look="corporate"] .x-toc ol a { border-radius: 2px; }
-[data-look="corporate"] .a-rel a { border-width: 1px; border-color: var(--line); border-radius: 4px; }
-[data-look="corporate"] .a-rel a:hover { box-shadow: none; border-color: var(--ink); translate: none; }
-[data-look="corporate"] .a-rel b { font-style: normal; font-variation-settings: normal; font-weight: 700; letter-spacing: -0.01em; }
 /* Header logo: the word at the top; on scroll the letters close in (outer pair first, then the inner pair)
    and the mascot pops up where they meet. Reduced motion: a plain fade. */
 .top .brand { position: relative; gap: 0; }
@@ -436,7 +424,7 @@ a.pill-card:hover { transform: translateY(-3px); }
 .top nav .laws-menu a.all-laws { border-top: 1px solid var(--latte-line); border-radius: 0 0 14px 14px; margin-top: 4px; }
 </style>
 
-<link rel="stylesheet" href="/assets/find.css?v=ff0461e02f0d">
+<link rel="stylesheet" href="/assets/find.css?v=5a1c35f214e8">
 <!-- seo -->
 <link rel="canonical" href="https://finoprivacy.com/cookies.html">
 <meta property="og:type" content="article">
@@ -450,7 +438,7 @@ a.pill-card:hover { transform: translateY(-3px); }
 <meta property="og:image:alt" content="Fino, the mascot of the site, next to the words: GDPR fines and decisions, in plain English">
 <meta property="og:locale" content="en_GB">
 <meta name="twitter:card" content="summary_large_image">
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Article","@id":"https://finoprivacy.com/cookies.html","headline":"Cookie banners without “reject”","alternativeHeadline":"Our cookie banner has no “reject” button. How big are the fines?","description":"How big the fines are for a cookie banner without a reject button, the rules behind it and the real decisions.","url":"https://finoprivacy.com/cookies.html","image":"https://finoprivacy.com/cards/cookies.png","inLanguage":"en","dateModified":"2026-11-13","author":{"@id":"https://finoprivacy.com/#org"},"publisher":{"@id":"https://finoprivacy.com/#org"},"about":[{"@type":"Legislation","name":"Article 4 GDPR","url":"https://finoprivacy.com/gdpr/article-4.html"},{"@type":"Legislation","name":"Article 7 GDPR","url":"https://finoprivacy.com/gdpr/article-7.html"}],"citation":["https://finoprivacy.com/decisions/2021-FR-025.html","https://finoprivacy.com/decisions/2021-FR-027.html","https://finoprivacy.com/decisions/2020-ES-163.html","https://finoprivacy.com/decisions/2019-ES-045.html","https://finoprivacy.com/decisions/2024-BE-040.html","https://finoprivacy.com/decisions/2024-SE-010.html","https://finoprivacy.com/decisions/2023-IT-160.html","https://finoprivacy.com/decisions/2024-BE-011.html"]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Fino","item":"https://finoprivacy.com/"},{"@type":"ListItem","position":2,"name":"Questions","item":"https://finoprivacy.com/questions.html"},{"@type":"ListItem","position":3,"name":"Cookie banners without “reject”"}]},{"@type":"Organization","@id":"https://finoprivacy.com/#org","name":"Fino","url":"https://finoprivacy.com/","logo":"https://finoprivacy.com/og/fino-logo.png"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Article","@id":"https://finoprivacy.com/cookies.html","headline":"Cookie banners without “reject”","alternativeHeadline":"Our cookie banner has no “reject” button. How big are the fines?","description":"How big the fines are for a cookie banner without a reject button, the rules behind it and the real decisions.","url":"https://finoprivacy.com/cookies.html","image":"https://finoprivacy.com/cards/cookies.png","inLanguage":"en","dateModified":"2026-11-14","author":{"@id":"https://finoprivacy.com/#org"},"publisher":{"@id":"https://finoprivacy.com/#org"},"about":[{"@type":"Legislation","name":"Article 4 GDPR","url":"https://finoprivacy.com/gdpr/article-4.html"},{"@type":"Legislation","name":"Article 7 GDPR","url":"https://finoprivacy.com/gdpr/article-7.html"}],"citation":["https://finoprivacy.com/decisions/2021-FR-025.html","https://finoprivacy.com/decisions/2021-FR-027.html","https://finoprivacy.com/decisions/2020-ES-163.html","https://finoprivacy.com/decisions/2019-ES-045.html","https://finoprivacy.com/decisions/2024-BE-040.html","https://finoprivacy.com/decisions/2024-SE-010.html","https://finoprivacy.com/decisions/2023-IT-160.html","https://finoprivacy.com/decisions/2024-BE-011.html"]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Fino","item":"https://finoprivacy.com/"},{"@type":"ListItem","position":2,"name":"Questions","item":"https://finoprivacy.com/questions.html"},{"@type":"ListItem","position":3,"name":"Cookie banners without “reject”"}]},{"@type":"Organization","@id":"https://finoprivacy.com/#org","name":"Fino","url":"https://finoprivacy.com/","logo":"https://finoprivacy.com/og/fino-logo.png"}]}</script>
 <!-- /seo -->
 </head>
 <body>
@@ -474,6 +462,7 @@ a.pill-card:hover { transform: translateY(-3px); }
         <div class="laws-menu lp lp-one" id="m-fines" hidden>
           <div class="lp-col">
             <a href="fines.html#fines"><b>All decisions</b><span>Search and filter every decision</span></a>
+            <a href="/countries/"><b>By country</b><span>Each country&rsquo;s decisions and regulators</span></a>
             <a href="regulators.html"><b>Regulators</b><span>The regulators behind the decisions</span></a>
           </div>
         </div>
@@ -492,11 +481,11 @@ a.pill-card:hover { transform: translateY(-3px); }
             <a href="/key-cases/"><b>Key cases</b><span>The court rulings behind the rules</span></a>
             <a href="/rulings/"><b>Court rulings</b><span>Court of Justice judgments, read in the original</span></a>
             <a href="/guidance/"><b>EDPB guidance</b><span>Guidelines and opinions, read in the original</span></a>
+            <a href="/questions.html"><b>Questions</b><span>What a DPO is asked, with the explainers</span></a>
           </div>
           <button type="button" class="lp-find" data-find-open><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m20 20-4.6-4.6"/></svg><span>Look up a term, case or article&hellip;</span><kbd>Ctrl K</kbd></button>
         </div>
       </div>
-      <a href="/questions.html">Questions</a>
       <div class="laws" id="tools">
         <button type="button" id="nav-tools" aria-expanded="false" aria-controls="m-tools">Tools <svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
         <div class="laws-menu lp lp-one" id="m-tools" hidden>
@@ -506,6 +495,9 @@ a.pill-card:hover { transform: translateY(-3px); }
             <a href="/documents/"><b>Documents and checklists</b><span>Notices, letters, a contract and checklists</span></a>
             <a href="/tools/similar-fines.html"><b>Similar fines</b><span>The range of fines in cases like yours</span></a>
             <a href="/tools/response-timeline.html"><b>Response timeline</b><span>Deadlines for a breach or a request</span></a>
+            <a href="/tools/which-regulator.html"><b>Which regulator?</b><span>Which authority is yours, or which leads</span></a>
+            <a href="/tools/cookie-check.html"><b>Cookie banner check</b><span>Ten points regulators look at</span></a>
+            <a href="/tools/ai-act-triage.html"><b>AI Act check</b><span>Banned, high-risk, transparency or minimal risk</span></a>
             <hr class="lp-sep">
             <a href="Tool.html"><b>All tools</b><span>Free tools built on the decisions</span></a>
           </div>
@@ -517,6 +509,7 @@ a.pill-card:hover { transform: translateY(-3px); }
           <div class="lp-col">
             <a href="About.html"><b>About Fino</b><span>What Fino is for and who made it</span></a>
             <a href="/About.html#method"><b>How it works</b><span>How decisions are read and checked</span></a>
+            <a href="/About.html#limits"><b>Corrections</b><span>What Fino gets wrong, and what was fixed</span></a>
             <a href="/About.html#reuse"><b>Reuse and cite</b><span>Use the data, with credit</span></a>
             <a href="/Privacy.html"><b>Privacy</b><span>Nothing collected about visitors</span></a>
           </div>
@@ -525,7 +518,6 @@ a.pill-card:hover { transform: translateY(-3px); }
     </nav>
     <a class="ai-btn" href="/ai/" aria-label="Use with your AI"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5c.6 4.9 2.6 6.9 7.5 7.5-4.9.6-6.9 2.6-7.5 7.5-.6-4.9-2.6-6.9-7.5-7.5 4.9-.6 6.9-2.6 7.5-7.5z"/><path d="M19 15.5c.3 2.1 1.2 3 3.3 3.3-2.1.3-3 1.2-3.3 3.3-.3-2.1-1.2-3-3.3-3.3 2.1-.3 3-1.2 3.3-3.3z"/></svg><span class="ai-full">Use with your AI</span><span class="ai-short" aria-hidden="true">Your AI</span></a>
     <button class="find-btn" id="find-btn" type="button" data-find-open aria-label="Search Fino" title="Search (Ctrl K)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m20 20-4.6-4.6"/></svg></button>
-    <button class="look-btn" id="look-btn" type="button" aria-pressed="false" title="Switch to the corporate look"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2"/></svg><span class="look-txt">Corporate</span></button>
     <button class="mode" id="mode" type="button" aria-label="Switch to light mode" title="Switch to light mode">
       <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
       <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 14.5A8.5 8.5 0 0 1 9.5 3.5a8.5 8.5 0 1 0 11 11z"/></svg>
@@ -616,14 +608,24 @@ Analytics and advertising cookies need consent.</p>
         <p class="foot-lbl">Explore</p>
         <ul>
           <li><a href="/fines.html">Fines</a></li>
+          <li><a href="/countries/">Countries</a></li>
           <li><a href="/regulators.html">Regulators</a></li>
+          <li><a href="/Tool.html">Tools</a></li>
+          <li><a href="/documents/">Documents and checklists</a></li>
           <li><a href="/questions.html">Questions</a></li>
+          <li><a href="/ai/">Use with your AI</a></li>
+        </ul>
+      </nav>
+      <nav class="foot-col" aria-label="The law">
+        <p class="foot-lbl">Law</p>
+        <ul>
           <li><a href="/gdpr/">GDPR</a></li>
           <li><a href="/ai-act/">AI Act</a></li>
           <li><a href="/laws.html">All laws</a></li>
-          <li><a href="/Tool.html">Tools</a></li>
-          <li><a href="/documents/">Documents and checklists</a></li>
-          <li><a href="/ai/">Use with your AI</a></li>
+          <li><a href="/glossary/">Glossary</a></li>
+          <li><a href="/key-cases/">Key cases</a></li>
+          <li><a href="/rulings/">Court rulings</a></li>
+          <li><a href="/guidance/">EDPB guidance</a></li>
         </ul>
       </nav>
       <nav class="foot-col" aria-label="About Fino">
@@ -631,6 +633,7 @@ Analytics and advertising cookies need consent.</p>
         <ul>
           <li><a href="/About.html">About</a></li>
           <li><a href="/About.html#method">How it works</a></li>
+          <li><a href="/About.html#limits">Corrections</a></li>
           <li><a href="/About.html#reuse">Reuse and cite</a></li>
           <li><a href="/Privacy.html">Privacy</a></li>
         </ul>
@@ -661,7 +664,7 @@ const byId = id => document.getElementById(id);
   };
   /* keyboard: opening moves focus into the menu, Tab stays among the menu and the header buttons until it is closed, Escape closes and returns focus to the button */
   const shown = el => el.getClientRects().length > 0;
-  const ring = () => [...top.querySelectorAll('nav a[href], nav button, .ai-btn, .find-btn, .look-btn, .mode, .menu-btn')].filter(shown);
+  const ring = () => [...top.querySelectorAll('nav a[href], nav button, .ai-btn, .find-btn, .mode, .menu-btn')].filter(shown);
   btn.addEventListener('click', () => {
     const open = !top.classList.contains('open');
     set(open);
@@ -721,29 +724,6 @@ modeBtn.addEventListener('click', () => {
 let saved = null;
 try { saved = localStorage.getItem('mode'); } catch (e) {}
 setMode(saved === 'dark' ? 'dark' : 'light', false);
-/* Look switch: the Fino look or a quieter corporate look. The choice stays in this browser (localStorage 'fino-look'),
-   nothing is sent; the line in the head applies it before the page paints. A quick cross-fade, none with reduced motion. */
-(() => {
-  const b = document.getElementById('look-btn'), r = document.documentElement;
-  if (!b) return;
-  const t = b.querySelector('.look-txt');
-  const show = () => {
-    const on = r.dataset.look === 'corporate';
-    b.setAttribute('aria-pressed', String(on)); t.textContent = on ? 'Fino look' : 'Corporate';
-    b.title = on ? 'Switch back to the Fino look' : 'Switch to the corporate look';
-  };
-  const set = on => {
-    if (on) r.dataset.look = 'corporate'; else delete r.dataset.look;
-    try { if (on) localStorage.setItem('fino-look', 'corporate'); else localStorage.removeItem('fino-look'); } catch (e) {}
-    show();
-  };
-  show();
-  b.addEventListener('click', () => {
-    const on = r.dataset.look !== 'corporate';
-    if (!document.startViewTransition || matchMedia('(prefers-reduced-motion: reduce)').matches) set(on);
-    else document.startViewTransition(() => set(on));
-  });
-})();
 
 /* Moving between pages: a link to a decision carries its name and amount into the decision page, and back again */
 (() => {
@@ -769,6 +749,6 @@ setMode(saved === 'dark' ? 'dark' : 'light', false);
 })();
 
 </script>
-<script src="/assets/find.js?v=ff0461e02f0d" defer></script>
+<script src="/assets/find.js?v=5a1c35f214e8" defer></script>
 </body>
 </html>
