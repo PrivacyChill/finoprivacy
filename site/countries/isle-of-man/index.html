@@ -21,24 +21,88 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="preload" href="/fonts/fraunces-300-800-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/assets/fino.css?v=d6d56175e8b3">
+<link rel="stylesheet" href="/assets/fino.css?v=52f35dd38851">
 <link rel="stylesheet" href="/assets/find.css?v=9c360da83179">
 <script>/* light unless the visitor chose dark */ (() => { let m = null; try { m = localStorage.getItem('mode'); } catch (e) {} if (m !== 'dark') document.documentElement.dataset.mode = 'light'; })();</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"CollectionPage","@id":"https://finoprivacy.com/countries/isle-of-man/","url":"https://finoprivacy.com/countries/isle-of-man/","name":"GDPR fines and decisions in the Isle of Man","description":"3 GDPR decisions in the Isle of Man, €218,750 in fines, a typical fine of €13,500, the biggest €202,000. The regulators, the figures by year, the most cited…","inLanguage":"en","dateModified":"2026-11-09","publisher":{"@id":"https://finoprivacy.com/#org"},"about":{"@type":"Place","name":"Isle of Man"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Fino","item":"https://finoprivacy.com/"},{"@type":"ListItem","position":2,"name":"Countries","item":"https://finoprivacy.com/countries/"},{"@type":"ListItem","position":3,"name":"Isle of Man"}]},{"@type":"Organization","@id":"https://finoprivacy.com/#org","name":"Fino","url":"https://finoprivacy.com/","logo":"https://finoprivacy.com/og/fino-logo.png"}]}</script>
-<style>/* Country pages (/countries/<name>/ and /countries/), built by pipeline/build_countries.mjs. The shared parts (.pg-head, .facts-row, .sec-row, .results, .panel, .finder, .filters) come from assets/fino.css and find.css. */
-.cp .pg-head { padding-block: 22px 28px; }
-.cp .pg-head .eyebrow { display: flex; align-items: center; margin: 0 0 4px; }
-.cp .pg-head .eyebrow img.flag { width: 1.6em; height: 1.6em; margin-right: 0.7em; vertical-align: 0; }
-.cp .pg-head h1 { font-size: clamp(2.2rem, 5.4vw, 4.2rem); max-width: 17em; }
-.cp .facts-row { margin-bottom: 8px; }
-.cp .facts-row dd { font-family: var(--display); font-variation-settings: "SOFT" 100, "opsz" 72; font-weight: 560; font-size: 1.5rem; line-height: 1.15; font-variant-numeric: tabular-nums; }
-.cp .facts-row dd small { display: block; font-family: var(--body); font-variation-settings: normal; font-weight: 400; font-size: 0.85rem; color: var(--muted); margin-top: 2px; }
-.cp .facts-row dd a { text-decoration-color: var(--accent); text-decoration-thickness: 1.5px; text-underline-offset: 3px; }
-@media (max-width: 760px) {
-  .cp .facts-row { grid-auto-flow: row; grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .cp .facts-row > div { padding: 12px 12px 14px 0; border-left: 0 !important; border-bottom: 1px solid var(--line); }
-  .cp .facts-row > div:nth-child(even) { padding-left: 14px; border-left: 1px solid var(--line) !important; }
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"CollectionPage","@id":"https://finoprivacy.com/countries/isle-of-man/","url":"https://finoprivacy.com/countries/isle-of-man/","name":"GDPR fines and decisions in the Isle of Man","description":"3 GDPR decisions in the Isle of Man, €218,750 in fines, a typical fine of €13,500, the biggest €202,000. The regulators, the figures by year, the most cited…","inLanguage":"en","dateModified":"2026-11-14","publisher":{"@id":"https://finoprivacy.com/#org"},"about":{"@type":"Place","name":"Isle of Man"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Fino","item":"https://finoprivacy.com/"},{"@type":"ListItem","position":2,"name":"Countries","item":"https://finoprivacy.com/countries/"},{"@type":"ListItem","position":3,"name":"Isle of Man"}]},{"@type":"Organization","@id":"https://finoprivacy.com/#org","name":"Fino","url":"https://finoprivacy.com/","logo":"https://finoprivacy.com/og/fino-logo.png"}]}</script>
+<style>/* Country pages (/countries/<name>/ and /countries/), built by pipeline/build_countries.mjs. The shared parts (.pg-head, .facts-row, .sec-row, .results, .panel, .finder, .filters) come from assets/fino.css and find.css;
+   the bands, rooms and stamps are the home page's (design/refresh, plan row 427): a hero on dotted paper with the country's name as the star, its case file, the figures in a pink room, the years in an olive one. */
+/* the hero: the flag, the name, one sentence, and the biggest fine as a case file */
+.cp-hero > .wrap { position: relative; z-index: 1; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 400px); column-gap: 40px; row-gap: 22px; align-items: start; padding-block: 24px 52px; }
+.cp-hero .crumbs { grid-column: 1 / -1; margin: 0; }
+.cp-title { min-width: 0; container-type: inline-size; padding-top: 18px; }
+.cp .cp-title .eyebrow { display: flex; align-items: center; gap: 16px; margin: 0 0 18px; }
+.cp .eyebrow img.xl { flex: none; width: 72px; height: 72px; box-sizing: border-box; border: 3px solid var(--ink); border-radius: 50%; transform: rotate(-6deg); }
+#main .cp-h1 { margin: 0 0 .28em; max-width: none; font-weight: 800; font-variation-settings: "SOFT" 100, "opsz" 144; line-height: .88; letter-spacing: -0.03em; }
+.cp-h1 .pre { display: block; margin: 0 0 .5rem; font-size: clamp(1.15rem, 4.6cqw, 1.8rem); font-weight: 700; line-height: 1.15; letter-spacing: -0.01em; }
+.cp-h1 .nm { display: block; font-size: clamp(2.6rem, 12vw, 6rem); font-size: clamp(2.6rem, calc(94cqw / (var(--nl) * .6)), 8.8rem); text-wrap: balance; overflow-wrap: normal; padding-bottom: .04em; }
+.cp-lede { margin: 0; max-width: 30em; font-size: clamp(1.1rem, 2vw, 1.35rem); line-height: 1.45; color: var(--muted); }
+.cp-file { min-width: 0; padding-top: 6px; }
+.files-h { display: flex; align-items: flex-end; gap: 12px; margin: 0 0 -6px; font-family: var(--mono); font-size: 0.78rem; line-height: 1.45; color: var(--muted); position: relative; z-index: 6; }
+.files-h span { padding-bottom: 18px; }
+.files-h .clay { flex: none; width: 128px; height: auto; margin-left: -6px; }
+.cfile { position: relative; box-sizing: border-box; margin: 0 16px 18px 0; padding: 16px 20px 22px; transform: rotate(-1.2deg); --stamp-paper: var(--surface);
+  background-color: var(--surface); border: 2px solid var(--ink); border-radius: 6px 18px 18px 18px;
+  background-image: linear-gradient(var(--line), var(--line)); background-size: 100% 1.5px; background-position: 0 46px; background-repeat: no-repeat;
+  box-shadow: 8px 8px 0 -2px var(--surface), 8px 8px 0 0 var(--ink), 15px 16px 0 -2px var(--surface), 15px 16px 0 0 var(--ink); }
+.cf-id { margin: 0 0 18px; font-family: var(--mono); font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+.cf-meta { margin: 0 0 4px; display: flex; align-items: center; gap: 8px; font-size: 1rem; color: var(--muted); }
+.cf-meta img { width: 18px; height: 18px; }
+.cf-who { margin: 0 0 10px; font-family: var(--display); font-variation-settings: "SOFT" 100, "opsz" 48; font-weight: 600; font-size: 1.4rem; line-height: 1.15; text-wrap: balance; overflow-wrap: break-word; }
+.cf-who.lg { font-size: 1.2rem; }
+.cf-who a { padding-block: 12px; color: inherit; text-decoration-color: var(--accent); text-decoration-thickness: 2px; text-underline-offset: 4px; }
+.cf-who a:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+.cf-amt { margin: 0 0 14px; width: fit-content; max-width: 100%; font-family: var(--display); font-variation-settings: "SOFT" 100, "opsz" 144; font-weight: 800; font-size: clamp(1.9rem, 8.4vw, 2.5rem); line-height: 1; letter-spacing: -0.03em;
+  font-variant-numeric: tabular-nums; overflow-wrap: anywhere; background: linear-gradient(transparent 58%, var(--hl-bg) 58%, var(--hl-bg) 94%, transparent 94%); }
+.cf-amt.txt { font-size: 1.35rem; line-height: 1.2; letter-spacing: -0.01em; background: none; }
+.cf-amt s { text-decoration-thickness: 2px; color: var(--muted); }
+.cf-sub { margin: -6px 0 14px; font-size: 1rem; color: var(--muted); }
+.cf-stamps { margin: 0; display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px; }
+.cfile .stamp { transform: rotate(-2.5deg); font-size: 0.74rem; }
+.cfile .stamp.warn { transform: rotate(2deg); }
+.cfile .stamp.plain { transform: none; }
+@media (max-width: 860px) { .cp-hero > .wrap { grid-template-columns: minmax(0, 1fr); padding-bottom: 40px; } .cp-file { margin-top: 8px; } }
+
+/* the key figures, in a room of their own: the same facts, large */
+.cp-room > .wrap { padding-block: 46px 52px; }
+.cp-room .cp-figs.facts-row { display: grid; grid-auto-flow: row; grid-template-columns: minmax(0, 1fr) minmax(0, 2fr) minmax(0, 1.4fr) minmax(0, 2fr); margin: 0; border-top: 2px solid var(--ink); border-bottom: 0; }
+.cp-room .cp-figs.facts-row.nofine { grid-template-columns: minmax(0, 1fr) minmax(0, 2fr) minmax(0, 2fr); }
+.cp-room .cp-figs.facts-row > div { grid-column: span 1; padding: 20px 20px 24px 0; border: 0; min-width: 0; }
+.cp-room .cp-figs.facts-row > div + div { padding-left: 22px; border-left: 1px solid var(--line); }
+.cp-room .cp-figs.facts-row > div.f4 { grid-column: 1 / -1; padding: 18px 0 0; border-left: 0; border-top: 1px solid var(--line); }
+.cp-figs dt { margin: 0 0 10px; font-size: 0.78rem; }
+.cp-figs dd { font-family: var(--display); font-variation-settings: "SOFT" 100, "opsz" 144; font-weight: 800; font-size: clamp(2rem, 3.4vw, 2.9rem); line-height: 1; letter-spacing: -0.025em; font-variant-numeric: tabular-nums; overflow-wrap: anywhere; }
+.cp-figs .f2.lg dd { font-size: clamp(1.5rem, 2.2vw, 1.8rem); }
+.cp-figs.nofine .f1 dd { font-size: clamp(1.5rem, 2.4vw, 2rem); line-height: 1.1; }
+.cp-figs .f4 dd { font-size: clamp(1.6rem, 2.6vw, 2.2rem); }
+.cp-figs dd small { display: block; margin-top: 8px; font-family: var(--body); font-variation-settings: normal; font-weight: 400; font-size: 1rem; line-height: 1.35; letter-spacing: 0; color: var(--muted); }
+.cp-figs .f4 dd small { display: inline; margin: 0 0 0 12px; }
+.cp-figs dd a { text-decoration-color: var(--accent); text-decoration-thickness: 3px; text-underline-offset: 5px; }
+.cp-figs dd a:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+.cp-room .pg-intro { max-width: 46rem; margin: 30px 0 0; font-size: 1.08rem; line-height: 1.55; }
+@media (max-width: 760px) {   /* the figures keep their order, two to a row; one with a long amount takes the full row (the classes are set by the build) */
+  .cp-room .cp-figs.facts-row, .cp-room .cp-figs.facts-row.nofine { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .cp-room .cp-figs.facts-row > .w, .cp-room .cp-figs.facts-row.nofine > .w { grid-column: 1 / -1; }
+  .cp-room .cp-figs.facts-row > div, .cp-room .cp-figs.facts-row > div + div { grid-column: span 1; padding: 16px 12px 18px 0; border-left: 0; border-top: 1px solid var(--line); }
+  .cp-room .cp-figs.facts-row > .w { grid-column: 1 / -1; }
+  .cp-room .cp-figs.facts-row > .r { padding-left: 16px; border-left: 1px solid var(--line); }
+  .cp-room .cp-figs.facts-row > div:first-child, .cp-room .cp-figs.facts-row > .r:nth-child(2) { border-top: 0; }
+  .cp-room .cp-figs.facts-row > div.f4 { padding: 16px 0 0; }
+  .cp-figs dd, .cp-room .cp-figs.facts-row > .f4 dd { font-size: 1.9rem; }
+  .cp-room .cp-figs.facts-row > .w dd { font-size: 2.3rem; }
+  .cp-room .cp-figs.facts-row > .f4 dd { font-size: 1.9rem; }
+  .cp-room .cp-figs.facts-row.nofine > .f1 dd { font-size: 1.5rem; }
+  .cp-figs .f4 dd small { display: block; margin: 8px 0 0; }
 }
+
+/* the sections: a big title, then the content (the home page's rooms, stacked) */
+.cp .sec-row, .cp-room .sec-row { grid-template-columns: minmax(0, 1fr); gap: 20px; padding: 56px 0 48px; }
+.cp .sec-lbl, .cp-room .sec-lbl { position: static; display: block; }
+.cp .sec-body { max-width: none; }
+.cp .sec-lbl .sec-n { margin: 0 0 10px; font-size: 0.8rem; }
+.cp .sec-lbl h2 { font-family: var(--display); font-variation-settings: "SOFT" 100, "opsz" 144; font-weight: 800; font-size: clamp(2.2rem, 7.4vw, 3.8rem); line-height: .95; letter-spacing: -0.03em; max-width: 14em; }
+.cp-yrs .sec-row { border-bottom: 0; }
+.cp-yrs > .wrap { padding-block: 10px 28px; }
 .cp .sec-body > :first-child { margin-top: 0; }
 .cp .cp-note { color: var(--muted); font-size: 0.95rem; margin: 0 0 14px; max-width: 46rem; }
 .cp .cp-h3 { font-size: 1.05rem; margin: 26px 0 8px; font-family: var(--body); font-weight: 700; }
@@ -56,31 +120,45 @@
 .cp-regs .meta a { text-decoration-color: var(--accent); text-decoration-thickness: 1.5px; text-underline-offset: 3px; padding-block: 8px; margin-block: -8px; }
 @media (max-width: 760px) { .cp-regs { grid-template-columns: minmax(0, 1fr); } }
 
-/* the lists of decisions: the fines page's rows, without the country column */
-.cp .results a { grid-template-columns: 112px minmax(0, 1fr) 150px; }
-@media (max-width: 760px) { .cp .results a { grid-template-columns: minmax(0, 1fr) auto; } .cp .results .amt { max-width: 8.5rem; } .cp .results .amt small.tag { display: block; width: max-content; max-width: 100%; margin-left: auto; white-space: normal; text-align: right; } }
+
+/* the lists of decisions: the fines page's rows; the name strong, the amount in the display face, the court status as a stamp */
+.cp .results a { grid-template-columns: 112px minmax(0, 1fr) 200px; padding-block: 18px; }
+.cp .results .who b { font-family: var(--display); font-variation-settings: "SOFT" 100, "opsz" 48; font-weight: 700; font-size: 1.22rem; line-height: 1.2; }
+.cp .results .who b.unnamed { font-family: var(--body); font-variation-settings: normal; font-size: 1.05rem; font-weight: 400; }
+.cp .results .who > span, .cp .results .who small, .cp .results .dt { font-size: 1rem; }
+.cp .results .who small { font-size: 0.85rem; }
+.cp .results .amt { font-family: var(--display); font-variation-settings: "SOFT" 100, "opsz" 96; font-weight: 800; font-size: 1.55rem; line-height: 1.05; letter-spacing: -0.02em; padding-top: 0; }
+.cp .results .amt.none, .cp .results .amt.stmt { font-family: var(--body); font-variation-settings: normal; font-weight: 400; font-size: 1rem; letter-spacing: 0; }
+.cp .results .amt small { font-family: var(--body); font-variation-settings: normal; font-weight: 400; font-size: 0.9rem; letter-spacing: 0; margin-top: 4px; }
+.cp .results .amt small.tag { display: inline-block; margin-top: 10px; padding: 6px 10px 5px; border: 2px solid currentColor; border-radius: 5px; color: var(--soon); font-family: var(--mono); font-size: 0.74rem; font-weight: 500; letter-spacing: 0.09em; line-height: 1.25; text-transform: uppercase; transform: rotate(1.5deg);
+  box-shadow: inset 0 0 0 1.5px var(--bg), inset 0 0 0 2.5px currentColor; }
+.cp .results .amt.stmt small.tag { display: block; width: max-content; max-width: 100%; margin-left: auto; text-align: right; }
+@media (max-width: 760px) { .cp .results a { grid-template-columns: minmax(0, 1fr) auto; } .cp .results .dt { grid-column: 1; grid-row: 1; } .cp .results .amt { grid-column: 2; grid-row: 1; max-width: 11rem; font-size: 1.4rem; } .cp .results .who { grid-column: 1 / -1; grid-row: 2; } .cp .results .amt small.tag { display: block; width: max-content; max-width: 100%; margin-left: auto; white-space: normal; text-align: right; } }
 .cp .results li[hidden], .cp [hidden] { display: none !important; }
 .cp .results.cp-first { border-top: 2px solid var(--ink); }
 
-/* decisions by year */
-.cp-years { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; max-width: 46rem; }
-.cp-years li { display: grid; grid-template-columns: 3.4rem minmax(0, 1fr) 3.4rem; gap: 12px; align-items: center; }
-.cp-years .y { font-family: var(--mono); font-size: 0.85rem; color: var(--muted); }
-.cp-years .bar { height: 12px; border-radius: 999px; background: var(--surface); border: 1px solid var(--line); overflow: hidden; }
-.cp-years .bar i { display: block; height: 100%; background: var(--accent); }
-.cp-years b { font-family: var(--mono); font-weight: 500; font-size: 0.85rem; text-align: right; font-variant-numeric: tabular-nums; }
+/* decisions by year: bold bars in the room's accent, the busiest year marked */
+.cp-years { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; max-width: none; }
+.cp-years li { display: grid; grid-template-columns: 3.6rem minmax(0, 1fr) 3.6rem; gap: 14px; align-items: center; }
+.cp-years .y { font-family: var(--mono); font-size: 1rem; color: var(--ink); }
+.cp-years .bar { height: 28px; border-radius: 9px; background: var(--surface); overflow: hidden; }
+.cp-years .bar i { position: relative; display: block; height: 100%; min-width: 9px; border-radius: 9px; background: var(--accent); }
+.cp-years .max .bar i em { position: absolute; right: 12px; top: 50%; transform: translateY(-50%) rotate(-2deg); font-style: normal; font-family: var(--mono); font-size: 0.74rem; letter-spacing: 0.09em; text-transform: uppercase; color: var(--accent-ink); white-space: nowrap; }
+.cp-years b { font-family: var(--display); font-variation-settings: "SOFT" 100, "opsz" 72; font-weight: 800; font-size: 1.35rem; text-align: right; font-variant-numeric: tabular-nums; }
+.cp-years .max .y { font-weight: 500; }
 
-/* most cited articles and most common topics */
-.cp-two { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px 48px; }
+/* most cited articles and most common topics: a card each, the count in a pill */
+.cp-two { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px 40px; }
 @media (max-width: 860px) { .cp-two { grid-template-columns: minmax(0, 1fr); } }
-.cp-top { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
-.cp-top li { border-bottom: 1px solid var(--line); }
-.cp-top a, .cp-top .row { display: grid; grid-template-columns: 4.4rem minmax(0, 1fr) auto; gap: 12px; align-items: baseline; padding: 11px 4px; text-decoration: none; border-radius: 10px; }
+.cp-top { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+.cp-top li { border: 0; }
+.cp-top a, .cp-top .row { display: grid; grid-template-columns: 3.9rem minmax(0, 1fr) auto; gap: 10px; align-items: center; box-sizing: border-box; min-height: 52px; padding: 10px 16px; text-decoration: none; background: var(--surface); border: 1.5px solid var(--line); border-radius: 6px 16px 16px 16px; transition: border-color var(--fast) var(--ease); }
 .cp-top .row.t { grid-template-columns: minmax(0, 1fr) auto; }
-.cp-top a:hover { background: var(--surface); }
-.cp-top .n { font-family: var(--mono); font-size: 0.82rem; color: var(--muted); }
-.cp-top b { font-family: var(--mono); font-weight: 500; font-size: 0.85rem; font-variant-numeric: tabular-nums; }
-.cp-top a:focus-visible { outline: 3px solid var(--accent); outline-offset: -2px; }
+.cp-top a:hover { border-color: var(--ink); }
+.cp-top .n { font-family: var(--mono); font-size: 0.85rem; font-weight: 500; color: var(--accent); }
+.cp-top b { min-width: 2.2rem; padding: 3px 10px; border-radius: 999px; background: var(--ink); color: var(--bg); font-family: var(--mono); font-weight: 500; font-size: 0.85rem; text-align: center; font-variant-numeric: tabular-nums; }
+.cp-top a:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+@media (prefers-reduced-motion: reduce) { .cp-top a { transition: none; } }
 
 /* fines in another currency */
 .cp-cur { width: 100%; border-collapse: collapse; margin: 6px 0 14px; font-size: 0.95rem; }
@@ -104,17 +182,20 @@
 .cp-empty { padding: 28px 4px; color: var(--muted); }
 .cp .more { padding-block: 22px 8px; }
 
-/* the index of countries */
-.cp-index { list-style: none; margin: 0; padding: 0; border-top: 2px solid var(--ink); }
-.cp-index li { border-bottom: 1px solid var(--line); }
-.cp-index a { display: grid; grid-template-columns: minmax(0, 1.6fr) minmax(0, 0.9fr) minmax(0, 1.1fr) minmax(0, 1fr); gap: 6px 18px; align-items: center; padding: 14px 6px; text-decoration: none; border-radius: 14px; transition: background var(--fast) var(--ease); }
-.cp-index a:hover { background: var(--surface); }
-.cp-index .nm { font-size: 1.08rem; font-weight: 700; display: flex; align-items: center; min-width: 0; }
-.cp-index .nm img { flex: none; }
-.cp-index .c { color: var(--muted); font-size: 0.92rem; font-variant-numeric: tabular-nums; }
-.cp-index .c b { color: var(--ink); font-weight: 500; }
-@media (max-width: 760px) { .cp-index a { grid-template-columns: minmax(0, 1fr) auto; } .cp-index .nm { grid-column: 1; } .cp-index .c:nth-of-type(1) { grid-column: 2; grid-row: 1; text-align: right; } .cp-index .c:nth-of-type(2), .cp-index .c:nth-of-type(3) { grid-column: 1 / -1; } }
-@media (prefers-reduced-motion: reduce) { .cp-index a { transition: none; } }
+/* the index of countries: a card for each, the flag and name, its decisions and its fines */
+.cp-index { list-style: none; margin: 8px 0 0 !important; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.cp-index li { border: 0; }
+.cp-index a { display: flex; flex-direction: column; gap: 6px; box-sizing: border-box; height: 100%; padding: 18px 20px 20px; text-decoration: none; background: var(--surface); border: 2px solid var(--ink); border-radius: 6px 18px 18px 18px; transition: translate var(--fast) var(--ease), box-shadow var(--fast) var(--ease); }
+.cp-index a:hover { translate: 0 -3px; box-shadow: 6px 6px 0 var(--pink); }
+.cp-index a:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+.cp-index .nm { display: flex; align-items: center; gap: 12px; min-width: 0; margin-bottom: 6px; font-family: var(--display); font-variation-settings: "SOFT" 100, "opsz" 72; font-weight: 800; font-size: 1.55rem; line-height: 1.1; letter-spacing: -0.02em; scroll-margin-top: 90px; }
+.cp-index .nm img { flex: none; width: 36px; height: 36px; }
+.cp-index .c { color: var(--muted); font-size: 1rem; font-variant-numeric: tabular-nums; }
+.cp-index .c b { color: var(--ink); font-weight: 700; }
+.cp-index .c:nth-of-type(3) b { display: block; font-family: var(--display); font-variation-settings: "SOFT" 100, "opsz" 96; font-weight: 800; font-size: 1.7rem; line-height: 1.1; letter-spacing: -0.02em; }
+@media (max-width: 980px) { .cp-index { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 600px) { .cp-index { grid-template-columns: minmax(0, 1fr); gap: 12px; } }
+@media (prefers-reduced-motion: reduce) { .cp-index a { transition: none; } .cp-index a:hover { translate: none; } }
 @media print { .cp .cp-find, .cp .r-tools, .cp .more { display: none !important; } }
 </style>
 </head>
@@ -203,12 +284,12 @@
   </div>
 </header>
 
-<main id="main"><div class="wrap cp">
-<nav class="crumbs" aria-label="Breadcrumb"><a href="/fines.html">Fines</a><span aria-hidden="true">/</span><a href="/countries/">Countries</a><span aria-hidden="true">/</span><span aria-current="page">Isle of Man</span></nav>
-<header class="pg-head"><p class="eyebrow"><img class="flag" src="/flags/im.svg" alt="" width="22" height="22">Country</p><h1>GDPR fines and decisions in the Isle of Man</h1><p class="pg-intro">Fino holds 3 decisions from the Isle of Man Information Commissioner, dated between 2020 and 13 July 2022. 3 carry a fine with a published amount, €218,750 in all. Every page says where its facts come from.</p></header>
-<dl class="facts-row"><div><dt>Decisions</dt><dd>3</dd></div><div><dt>In fines</dt><dd>€218,750<small>in 3 fines</small></dd></div><div><dt>Typical fine</dt><dd>€13,500<small>the median</small></dd></div><div><dt>Biggest</dt><dd><a href="/decisions/2022-IM-001.html">€202,000</a><small>13 July 2022</small></dd></div><div><dt>Read from an official document</dt><dd>0<small>of 3</small></dd></div></dl>
-<nav class="jump" aria-label="On this page"><p class="jump-h" aria-hidden="true">On this page</p><ul><li><a href="#s-regulators">The regulator</a></li><li><a href="#s-biggest">Biggest fines</a></li><li><a href="#s-years">Decisions by year</a></li><li><a href="#s-cited">Most cited articles and topics</a></li><li><a href="#s-latest">Latest decisions</a></li><li><a href="#s-all">All 3 decisions</a></li></ul></nav>
-<div class="sec-rows"><section class="sec-row" aria-labelledby="s-regulators"><div class="sec-lbl"><span class="sec-n" aria-hidden="true">01</span><h2 id="s-regulators">The regulator</h2></div><div class="sec-body"><ul class="cp-regs one"><li><b>Isle of Man Information Commissioner</b><span class="meta"><a href="https://www.inforights.im" rel="noopener">inforights.im &#8599;</a><span>3 decisions on Fino</span></span></li></ul></div></section><section class="sec-row" aria-labelledby="s-biggest"><div class="sec-lbl"><span class="sec-n" aria-hidden="true">02</span><h2 id="s-biggest">Biggest fines</h2></div><div class="sec-body"><p class="cp-note">The 3 biggest fines, counted as on the fines page.</p><ol class="results cp-first"><li><a href="/decisions/2022-IM-001.html"><span class="dt">13 Jul 2022</span><span class="who"><b class="">Manx Care Ltd</b><span>Non-compliance with general data processing principles</span><small>Arts 24, 25, 32, 34, 5 …</small></span><span class="amt ">€202,000</span></a></li><li><a href="/decisions/2020-IM-002.html"><span class="dt">25 Jun 2020</span><span class="who"><b class="">Department of Home Affairs</b><span>Insufficient fulfilment of data subjects rights</span><small>Arts 12, 15</small></span><span class="amt ">€13,500</span></a></li><li><a href="/decisions/2020-IM-001.html"><span class="dt">11 Dec 2020</span><span class="who"><b class="">Cosmetic Medical Limited</b><span>Insufficient cooperation with supervisory authority</span><small>Art. 31</small></span><span class="amt ">€3,250</span></a></li></ol></div></section><section class="sec-row" aria-labelledby="s-years"><div class="sec-lbl"><span class="sec-n" aria-hidden="true">03</span><h2 id="s-years">Decisions by year</h2></div><div class="sec-body"><ol class="cp-years" aria-label="Decisions by year"><li><span class="y">2020</span><span class="bar" aria-hidden="true"><i style="width:100.0%"></i></span><b>2</b></li><li><span class="y">2022</span><span class="bar" aria-hidden="true"><i style="width:50.0%"></i></span><b>1</b></li></ol></div></section><section class="sec-row" aria-labelledby="s-cited"><div class="sec-lbl"><span class="sec-n" aria-hidden="true">04</span><h2 id="s-cited">Most cited articles and topics</h2></div><div class="sec-body"><div class="cp-two"><div><h3 class="cp-h3" style="margin-top:0">GDPR articles</h3><ol class="cp-top"><li><a href="/gdpr/article-5.html"><span class="n">Art. 5</span><span>Principles relating to processing of personal data</span><b>1</b></a></li><li><a href="/gdpr/article-12.html"><span class="n">Art. 12</span><span>Transparent information, communication and modalities for the exercise of the rights of the data subject</span><b>1</b></a></li><li><a href="/gdpr/article-15.html"><span class="n">Art. 15</span><span>Right of access by the data subject</span><b>1</b></a></li><li><a href="/gdpr/article-24.html"><span class="n">Art. 24</span><span>Responsibility of the controller</span><b>1</b></a></li><li><a href="/gdpr/article-25.html"><span class="n">Art. 25</span><span>Data protection by design and by default</span><b>1</b></a></li><li><a href="/gdpr/article-31.html"><span class="n">Art. 31</span><span>Cooperation with the supervisory authority</span><b>1</b></a></li><li><a href="/gdpr/article-32.html"><span class="n">Art. 32</span><span>Security of processing</span><b>1</b></a></li><li><a href="/gdpr/article-34.html"><span class="n">Art. 34</span><span>Communication of a personal data breach to the data subject</span><b>1</b></a></li></ol></div><div><h3 class="cp-h3" style="margin-top:0">Topics</h3><ol class="cp-top"><li><span class="row t"><span>Accountability</span><b>1</b></span></li><li><span class="row t"><span>Cooperation with the DPA</span><b>1</b></span></li><li><span class="row t"><span>Data breach</span><b>1</b></span></li><li><span class="row t"><span>Data principles</span><b>1</b></span></li><li><span class="row t"><span>Data security</span><b>1</b></span></li><li><span class="row t"><span>Data subject rights</span><b>1</b></span></li><li><span class="row t"><span>Transparency</span><b>1</b></span></li></ol></div></div><p class="cp-note" style="margin-top:12px">A decision counts once for each article or topic it names. The topics come from simple rules, not from reading each decision: use them as a guide.</p></div></section><section class="sec-row" aria-labelledby="s-latest"><div class="sec-lbl"><span class="sec-n" aria-hidden="true">05</span><h2 id="s-latest">Latest decisions</h2></div><div class="sec-body"><ol class="results cp-first"><li><a href="/decisions/2022-IM-001.html"><span class="dt">13 Jul 2022</span><span class="who"><b class="">Manx Care Ltd</b><span>Non-compliance with general data processing principles</span><small>Arts 24, 25, 32, 34, 5 …</small></span><span class="amt ">€202,000</span></a></li><li><a href="/decisions/2020-IM-001.html"><span class="dt">11 Dec 2020</span><span class="who"><b class="">Cosmetic Medical Limited</b><span>Insufficient cooperation with supervisory authority</span><small>Art. 31</small></span><span class="amt ">€3,250</span></a></li><li><a href="/decisions/2020-IM-002.html"><span class="dt">25 Jun 2020</span><span class="who"><b class="">Department of Home Affairs</b><span>Insufficient fulfilment of data subjects rights</span><small>Arts 12, 15</small></span><span class="amt ">€13,500</span></a></li></ol></div></section><section class="sec-row" aria-labelledby="s-all"><div class="sec-lbl"><span class="sec-n" aria-hidden="true">06</span><h2 id="s-all">All 3 decisions</h2></div><div class="sec-body"><div class="finder panel cp-find" role="search">
+<main id="main"><section class="cp-hero" data-room="dots"><div class="wrap cp"><nav class="crumbs" aria-label="Breadcrumb"><a href="/fines.html">Fines</a><span aria-hidden="true">/</span><a href="/countries/">Countries</a><span aria-hidden="true">/</span><span aria-current="page">Isle of Man</span></nav><div class="cp-title"><p class="eyebrow"><img class="flag xl" src="/flags/im.svg" alt="" width="72" height="72"><span>Country</span></p><h1 class="cp-h1" style="--nl:4"><span class="pre">GDPR fines and decisions in the</span> <span class="nm">Isle of Man</span></h1><p class="cp-lede">Fino holds 3 decisions from the Isle of Man Information Commissioner, dated between 2020 and 13 July 2022.</p></div><div class="cp-file"><p class="files-h"><img class="clay" src="/assets/clay/fino-magnifier.webp" alt="" width="520" height="543" decoding="async"><span>The biggest fine from the Isle of Man. The file says how Fino read it.</span></p><article class="cfile"><p class="cf-id">Fino file 2022/IM/001</p><p class="cf-meta"><img class="flag" src="/flags/im.svg" alt="" width="22" height="22">Isle of Man &middot; 13 July 2022</p><p class="cf-who"><a class="" href="/decisions/2022-IM-001.html">Manx Care Ltd</a></p><p class="cf-amt">€202,000</p><p class="cf-stamps"><span class="stamp plain">Summary only</span></p></article></div></div></section>
+<section class="cp-room" data-room="pink" aria-label="Key figures"><div class="wrap cp"><dl class="facts-row cp-figs"><div class="f0"><dt>Decisions</dt><dd>3</dd></div><div class="f1 r"><dt>In fines</dt><dd>€218,750<small>in 3 fines</small></dd></div><div class="f2"><dt>Typical fine</dt><dd>€13,500<small>the median</small></dd></div><div class="f3 r"><dt>Biggest</dt><dd><a href="/decisions/2022-IM-001.html">€202,000</a><small>13 July 2022</small></dd></div><div class="f4 w"><dt>Read from an official document</dt><dd>0<small>of 3</small></dd></div></dl><p class="pg-intro">3 carry a fine with a published amount, €218,750 in all. Every page says where its facts come from.</p></div></section>
+<div class="wrap cp"><nav class="jump" aria-label="On this page"><p class="jump-h" aria-hidden="true">On this page</p><ul><li><a href="#s-regulators">The regulator</a></li><li><a href="#s-biggest">Biggest fines</a></li><li><a href="#s-years">Decisions by year</a></li><li><a href="#s-cited">Most cited articles and topics</a></li><li><a href="#s-latest">Latest decisions</a></li><li><a href="#s-all">All 3 decisions</a></li></ul></nav>
+<div class="sec-rows"><section class="sec-row" aria-labelledby="s-regulators"><div class="sec-lbl"><span class="sec-n" aria-hidden="true">01</span><h2 id="s-regulators">The regulator</h2></div><div class="sec-body"><ul class="cp-regs one"><li><b>Isle of Man Information Commissioner</b><span class="meta"><a href="https://www.inforights.im" rel="noopener">inforights.im &#8599;</a><span>3 decisions on Fino</span></span></li></ul></div></section><section class="sec-row" aria-labelledby="s-biggest"><div class="sec-lbl"><span class="sec-n" aria-hidden="true">02</span><h2 id="s-biggest">Biggest fines</h2></div><div class="sec-body"><p class="cp-note">The 3 biggest fines, counted as on the fines page.</p><ol class="results cp-first"><li><a href="/decisions/2022-IM-001.html"><span class="dt">13 Jul 2022</span><span class="who"><b class="">Manx Care Ltd</b><span>Non-compliance with general data processing principles</span><small>Arts 24, 25, 32, 34, 5 …</small></span><span class="amt ">€202,000</span></a></li><li><a href="/decisions/2020-IM-002.html"><span class="dt">25 Jun 2020</span><span class="who"><b class="">Department of Home Affairs</b><span>Insufficient fulfilment of data subjects rights</span><small>Arts 12, 15</small></span><span class="amt ">€13,500</span></a></li><li><a href="/decisions/2020-IM-001.html"><span class="dt">11 Dec 2020</span><span class="who"><b class="">Cosmetic Medical Limited</b><span>Insufficient cooperation with supervisory authority</span><small>Art. 31</small></span><span class="amt ">€3,250</span></a></li></ol></div></section></div></div>
+<section class="cp-room cp-yrs" data-room="olive"><div class="wrap cp"><div class="sec-rows"><section class="sec-row" aria-labelledby="s-years"><div class="sec-lbl"><span class="sec-n" aria-hidden="true">03</span><h2 id="s-years">Decisions by year</h2></div><div class="sec-body"><ol class="cp-years" aria-label="Decisions by year"><li class="max"><span class="y">2020</span><span class="bar" aria-hidden="true"><i style="width:100.0%"><em>Busiest year</em></i></span><b>2</b></li><li><span class="y">2022</span><span class="bar" aria-hidden="true"><i style="width:50.0%"></i></span><b>1</b></li></ol></div></section></div></div></section>
+<div class="wrap cp"><div class="sec-rows"><section class="sec-row" aria-labelledby="s-cited"><div class="sec-lbl"><span class="sec-n" aria-hidden="true">04</span><h2 id="s-cited">Most cited articles and topics</h2></div><div class="sec-body"><div class="cp-two"><div><h3 class="cp-h3" style="margin-top:0">GDPR articles</h3><ol class="cp-top"><li><a href="/gdpr/article-5.html"><span class="n">Art. 5</span><span>Principles relating to processing of personal data</span><b>1</b></a></li><li><a href="/gdpr/article-12.html"><span class="n">Art. 12</span><span>Transparent information, communication and modalities for the exercise of the rights of the data subject</span><b>1</b></a></li><li><a href="/gdpr/article-15.html"><span class="n">Art. 15</span><span>Right of access by the data subject</span><b>1</b></a></li><li><a href="/gdpr/article-24.html"><span class="n">Art. 24</span><span>Responsibility of the controller</span><b>1</b></a></li><li><a href="/gdpr/article-25.html"><span class="n">Art. 25</span><span>Data protection by design and by default</span><b>1</b></a></li><li><a href="/gdpr/article-31.html"><span class="n">Art. 31</span><span>Cooperation with the supervisory authority</span><b>1</b></a></li><li><a href="/gdpr/article-32.html"><span class="n">Art. 32</span><span>Security of processing</span><b>1</b></a></li><li><a href="/gdpr/article-34.html"><span class="n">Art. 34</span><span>Communication of a personal data breach to the data subject</span><b>1</b></a></li></ol></div><div><h3 class="cp-h3" style="margin-top:0">Topics</h3><ol class="cp-top"><li><span class="row t"><span>Accountability</span><b>1</b></span></li><li><span class="row t"><span>Cooperation with the DPA</span><b>1</b></span></li><li><span class="row t"><span>Data breach</span><b>1</b></span></li><li><span class="row t"><span>Data principles</span><b>1</b></span></li><li><span class="row t"><span>Data security</span><b>1</b></span></li><li><span class="row t"><span>Data subject rights</span><b>1</b></span></li><li><span class="row t"><span>Transparency</span><b>1</b></span></li></ol></div></div><p class="cp-note" style="margin-top:12px">A decision counts once for each article or topic it names. The topics come from simple rules, not from reading each decision: use them as a guide.</p></div></section><section class="sec-row" aria-labelledby="s-latest"><div class="sec-lbl"><span class="sec-n" aria-hidden="true">05</span><h2 id="s-latest">Latest decisions</h2></div><div class="sec-body"><ol class="results cp-first"><li><a href="/decisions/2022-IM-001.html"><span class="dt">13 Jul 2022</span><span class="who"><b class="">Manx Care Ltd</b><span>Non-compliance with general data processing principles</span><small>Arts 24, 25, 32, 34, 5 …</small></span><span class="amt ">€202,000</span></a></li><li><a href="/decisions/2020-IM-001.html"><span class="dt">11 Dec 2020</span><span class="who"><b class="">Cosmetic Medical Limited</b><span>Insufficient cooperation with supervisory authority</span><small>Art. 31</small></span><span class="amt ">€3,250</span></a></li><li><a href="/decisions/2020-IM-002.html"><span class="dt">25 Jun 2020</span><span class="who"><b class="">Department of Home Affairs</b><span>Insufficient fulfilment of data subjects rights</span><small>Arts 12, 15</small></span><span class="amt ">€13,500</span></a></li></ol></div></section><section class="sec-row" aria-labelledby="s-all"><div class="sec-lbl"><span class="sec-n" aria-hidden="true">06</span><h2 id="s-all">All 3 decisions</h2></div><div class="sec-body"><div class="finder panel cp-find" role="search">
       <label class="search" for="cp-q"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg><input id="cp-q" type="search" aria-label="Search this country&rsquo;s decisions" placeholder="Company, case number or a word like &ldquo;cookies&rdquo;" autocomplete="off"></label>
       <details id="cp-filters"><summary>Filters</summary><div class="filters">
         <label for="cp-year">Year<select id="cp-year"><option value="">All years</option><option value="2022">2022 (1)</option><option value="2020">2020 (2)</option></select></label>
