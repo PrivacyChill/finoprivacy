@@ -183,7 +183,7 @@ h1 .tag-person { display: inline-block; vertical-align: 0.4em; margin-left: 12px
 .search svg { width: 20px; height: 20px; flex: none; color: var(--latte-muted); }
 .search input { flex: 1; min-width: 0; border: 0; background: transparent; color: var(--latte-ink); font: inherit; font-size: 1.05rem; padding: 12px 0; outline: none; }
 .search input::placeholder { color: var(--latte-muted); }
-.filters { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 10px; }
+.filters { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 10px; }
 .filters label { display: grid; gap: 4px; font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--latte-muted); min-width: 0; }
 .filters select { font: inherit; font-family: var(--body); font-size: 0.95rem; letter-spacing: 0; text-transform: none; color: var(--latte-ink); background: var(--field); border: 1.5px solid var(--latte-muted); border-radius: 12px; padding: 9px 10px; width: 100%; min-width: 0; }
 .bands { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
@@ -205,6 +205,24 @@ h1 .tag-person { display: inline-block; vertical-align: 0.4em; margin-left: 12px
 .r-tools .legend { margin: 0; }
 .linkbtn { font: inherit; font-size: 0.92rem; background: none; border: 0; color: var(--muted); text-decoration: underline; cursor: pointer; padding: 4px; }
 .linkbtn:hover { color: var(--ink); }
+/* The chosen filters, under the search box: one removable chip each (the whole chip is the button, 44 px tall), and "Clear all" from two. */
+.fchips { list-style: none; margin: 16px 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px 10px; align-items: center; }
+.fchips[hidden] { display: none; }
+.fchips li { min-width: 0; max-width: 100%; }
+.fchip { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; max-width: 100%; padding: 6px 10px 6px 14px; border-radius: 999px; border: 1.5px solid var(--latte-line); background: var(--latte); color: var(--latte-ink);
+  font: inherit; font-size: 0.92rem; text-align: left; cursor: pointer; -webkit-tap-highlight-color: transparent; transition: scale var(--fast) var(--pop), border-color var(--fast) var(--ease); }
+.fchip:hover { border-color: var(--latte-ink); }
+.fchip:active { scale: .96; }
+.fchip .k { flex: none; font-family: var(--mono); font-size: 0.7rem; letter-spacing: .06em; text-transform: uppercase; color: var(--latte-muted); }
+.fchip .v { min-width: 0; overflow-wrap: anywhere; }
+.fchip svg { flex: none; width: 14px; height: 14px; }
+.fchips .linkbtn { min-height: 44px; padding: 4px 10px; }
+@media (prefers-reduced-motion: reduce) { .fchip { transition: none; } .fchip:active { scale: none; } }
+/* a word search: the words that matched, in the highlighter (pink: look here, never clickable), and a short piece of the text they were found in */
+mark.hit { background: linear-gradient(transparent 52%, var(--hl-bg) 52%, var(--hl-bg) 94%, transparent 94%); color: inherit; padding: 0; }
+.results .who > span.snip { margin-top: 6px; font-size: 0.88rem; line-height: 1.45; }
+.snip i { font-style: normal; font-family: var(--mono); font-size: 0.7rem; letter-spacing: .06em; text-transform: uppercase; margin-right: 6px; }
+.vh { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
 /* the column names over the list, as in a table; on a phone each row says it all */
 .r-cols { display: grid; grid-template-columns: 112px minmax(0, 1fr) 130px 150px; gap: 18px; padding: 0 6px 8px; border-bottom: 2px solid var(--ink);
   font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
@@ -665,7 +683,7 @@ footer .foot-base { border-top: 1.5px solid currentColor; padding-top: 16px; dis
   .fs-head b { font-family: var(--display); font-size: 1.5rem; font-weight: 600; }
   .fs-x { display: inline-grid; place-content: center; width: 44px; height: 44px; border-radius: 50%; border: 0; background: var(--field); color: var(--latte-ink); cursor: pointer; }
   .fs-x svg { width: 18px; height: 18px; }
-  .bands .chip, .r-tools .chip, .r-tools select, .linkbtn { min-height: 44px; }   /* 44 px targets on a phone: the fine-size chips, the active-filter chip and the sort box */
+  .bands .chip, .r-tools .chip, .r-tools select, .linkbtn { min-height: 44px; }   /* 44 px targets on a phone: the fine-size chips, the chosen-filter chips and the sort box */
   .fsheet .filters { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
   .fsheet .filters select { padding: 11px 10px; }
   .fs-go { display: block; position: sticky; bottom: 0; height: 52px; border: 0; border-radius: 999px; background: var(--go-deep); color: #fff; font: inherit; font-weight: 700; font-size: 1rem; cursor: pointer; }

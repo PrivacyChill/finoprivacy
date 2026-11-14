@@ -195,7 +195,7 @@ h1 .tag-person { display: inline-block; vertical-align: 0.4em; margin-left: 12px
 .search svg { width: 20px; height: 20px; flex: none; color: var(--latte-muted); }
 .search input { flex: 1; min-width: 0; border: 0; background: transparent; color: var(--latte-ink); font: inherit; font-size: 1.05rem; padding: 12px 0; outline: none; }
 .search input::placeholder { color: var(--latte-muted); }
-.filters { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 10px; }
+.filters { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 10px; }
 .filters label { display: grid; gap: 4px; font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--latte-muted); min-width: 0; }
 .filters select { font: inherit; font-family: var(--body); font-size: 0.95rem; letter-spacing: 0; text-transform: none; color: var(--latte-ink); background: var(--field); border: 1.5px solid var(--latte-muted); border-radius: 12px; padding: 9px 10px; width: 100%; min-width: 0; }
 .bands { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
@@ -217,6 +217,24 @@ h1 .tag-person { display: inline-block; vertical-align: 0.4em; margin-left: 12px
 .r-tools .legend { margin: 0; }
 .linkbtn { font: inherit; font-size: 0.92rem; background: none; border: 0; color: var(--muted); text-decoration: underline; cursor: pointer; padding: 4px; }
 .linkbtn:hover { color: var(--ink); }
+/* The chosen filters, under the search box: one removable chip each (the whole chip is the button, 44 px tall), and "Clear all" from two. */
+.fchips { list-style: none; margin: 16px 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px 10px; align-items: center; }
+.fchips[hidden] { display: none; }
+.fchips li { min-width: 0; max-width: 100%; }
+.fchip { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; max-width: 100%; padding: 6px 10px 6px 14px; border-radius: 999px; border: 1.5px solid var(--latte-line); background: var(--latte); color: var(--latte-ink);
+  font: inherit; font-size: 0.92rem; text-align: left; cursor: pointer; -webkit-tap-highlight-color: transparent; transition: scale var(--fast) var(--pop), border-color var(--fast) var(--ease); }
+.fchip:hover { border-color: var(--latte-ink); }
+.fchip:active { scale: .96; }
+.fchip .k { flex: none; font-family: var(--mono); font-size: 0.7rem; letter-spacing: .06em; text-transform: uppercase; color: var(--latte-muted); }
+.fchip .v { min-width: 0; overflow-wrap: anywhere; }
+.fchip svg { flex: none; width: 14px; height: 14px; }
+.fchips .linkbtn { min-height: 44px; padding: 4px 10px; }
+@media (prefers-reduced-motion: reduce) { .fchip { transition: none; } .fchip:active { scale: none; } }
+/* a word search: the words that matched, in the highlighter (pink: look here, never clickable), and a short piece of the text they were found in */
+mark.hit { background: linear-gradient(transparent 52%, var(--hl-bg) 52%, var(--hl-bg) 94%, transparent 94%); color: inherit; padding: 0; }
+.results .who > span.snip { margin-top: 6px; font-size: 0.88rem; line-height: 1.45; }
+.snip i { font-style: normal; font-family: var(--mono); font-size: 0.7rem; letter-spacing: .06em; text-transform: uppercase; margin-right: 6px; }
+.vh { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
 /* the column names over the list, as in a table; on a phone each row says it all */
 .r-cols { display: grid; grid-template-columns: 112px minmax(0, 1fr) 130px 150px; gap: 18px; padding: 0 6px 8px; border-bottom: 2px solid var(--ink);
   font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
@@ -677,7 +695,7 @@ footer .foot-base { border-top: 1.5px solid currentColor; padding-top: 16px; dis
   .fs-head b { font-family: var(--display); font-size: 1.5rem; font-weight: 600; }
   .fs-x { display: inline-grid; place-content: center; width: 44px; height: 44px; border-radius: 50%; border: 0; background: var(--field); color: var(--latte-ink); cursor: pointer; }
   .fs-x svg { width: 18px; height: 18px; }
-  .bands .chip, .r-tools .chip, .r-tools select, .linkbtn { min-height: 44px; }   /* 44 px targets on a phone: the fine-size chips, the active-filter chip and the sort box */
+  .bands .chip, .r-tools .chip, .r-tools select, .linkbtn { min-height: 44px; }   /* 44 px targets on a phone: the fine-size chips, the chosen-filter chips and the sort box */
   .fsheet .filters { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
   .fsheet .filters select { padding: 11px 10px; }
   .fs-go { display: block; position: sticky; bottom: 0; height: 52px; border: 0; border-radius: 999px; background: var(--go-deep); color: #fff; font: inherit; font-weight: 700; font-size: 1rem; cursor: pointer; }
@@ -745,8 +763,8 @@ blockquote p { display: inline; }
 
 
 
-<link rel="stylesheet" href="/assets/find.css?v=1101723d9278">
-
+<link rel="stylesheet" href="/assets/find.css?v=9c360da83179">
+
 <!-- seo -->
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Fino">
@@ -1215,7 +1233,10 @@ function context(c) {
 }
 
 /* ---------- View: browse ---------- */
-const state = { q: '', country: '', year: '', sector: '', art: '', outcome: '', band: '', org: '', group: '', reg: '', sort: 'new', shown: 40, scroll: 0 };
+/* every filter the list has: all of them live in the address (see parseHash and hashOf) */
+const EMPTY = { q: '', country: '', year: '', sector: '', art: '', outcome: '', band: '', org: '', group: '', reg: '', topic: '' };
+const FKEYS = Object.keys(EMPTY);
+const state = { ...EMPTY, sort: 'new', shown: 40, scroll: 0 };
 const BANDS = [['', 'Any'], ['0-1e4', 'Under €10k'], ['1e4-1e5', '€10k–100k'], ['1e5-1e6', '€100k–1m'], ['1e6-1e7', '€1m–10m'], ['1e7-1e12', 'Over €10m']];
 function options(values, cur, all) {
   return `<option value="">${all}</option>` + values.map(([v, l]) => `<option value="${esc(v)}"${String(v) === String(cur) ? ' selected' : ''}>${esc(l)}</option>`).join('');
@@ -1224,20 +1245,32 @@ function countBy(fn) { const m = new Map(); for (const c of CASES) for (const k 
 const COUNTRIES = [...countBy(c => c.country)].sort((a, b) => a[0].localeCompare(b[0])).map(([k, n]) => [k, `${k} (${num(n)})`]);
 const YEARS = [...countBy(c => c.year)].sort((a, b) => b[0].localeCompare(a[0])).map(([k, n]) => [k, `${k} (${num(n)})`]);
 const SECTORS = [...countBy(c => c.sector_tag)].sort((a, b) => a[0].localeCompare(b[0])).map(([k, n]) => [k, `${k} (${num(n)})`]);
-const ARTS = Object.keys(BY_ART).map(Number).sort((a, b) => a - b).map(n => [n, `Art. ${n}${GDPR.arts[n] ? ' · ' + GDPR.arts[n].t : ''} (${num(BY_ART[n].length)})`]);
-/* the GDPR file may land after the list is drawn (the list does not need it): its article titles go into the dropdown when it does */
-let LATE_GDPR = null;
-if (DATA.gdprLate) LATE_GDPR = DATA.gdprLate.then(g => {
-  LATE_GDPR = null;
-  if (!g) return;
-  DATA.gdpr = g; Object.assign(GDPR, g);
-  for (const ch of GDPR.chapters) CHAPTER[ch.id] = ch;
-  for (const a of ARTS) a[1] = `Art. ${a[0]}${GDPR.arts[a[0]] ? ' \u00b7 ' + GDPR.arts[a[0]].t : ''} (${num(BY_ART[a[0]].length)})`;
-  const sel = document.getElementById('f-art'); if (sel) sel.innerHTML = options(ARTS, state.art, 'All articles');
-});
+/* the article titles for the dropdown come with the filters (data/fines-filters.json, a few KB), so the list does not need the 400 KB GDPR text */
+const artTitle = n => (GDPR.arts[n] && GDPR.arts[n].t) || ((DATA.filters && DATA.filters.articles) || {})[n] || '';
+const ARTS = Object.keys(BY_ART).map(Number).sort((a, b) => a - b).map(n => [n, `Art. ${n}${artTitle(n) ? ' · ' + artTitle(n) : ''} (${num(BY_ART[n].length)})`]);
+/* The GDPR text (400 KB) is fetched only when a view needs it: a decision, the law, the style page. The list never does; it starts the fetch when a visitor points at a row (see renderBrowse). */
+let LATE_GDPR = null, GDPR_GAVE_UP = false;
+function ensureGdpr() {
+  if (DATA.gdpr || !DATA.gdprLoad || GDPR_GAVE_UP) return null;
+  return LATE_GDPR ||= DATA.gdprLoad().then(g => {
+    LATE_GDPR = null;
+    if (!g) { GDPR_GAVE_UP = true; return; }
+    DATA.gdpr = g; Object.assign(GDPR, g);
+    for (const ch of GDPR.chapters) CHAPTER[ch.id] = ch;
+  });
+}
+/* The topics: the same thirteen as the Similar fines tool. They are made once, in pipeline/build_seo.mjs (ISSUES), and written to data/fines-filters.json
+   (the decisions in each topic, by their place in cases.json, and the decision-page tags that belong to one). The counts below are counted from that file. */
+const TOPICS = (DATA.filters && DATA.filters.topics) || [];
+const topicLabel = k => { const t = ((DATA.filters && DATA.filters.topics) || []).find(x => x[0] === k); return t ? t[1] : ''; };   // looked up when asked: the build adds DATA.filters after the first page is drawn
+const TOPIC_SETS = new Map();
+const topicSet = k => { let s = TOPIC_SETS.get(k); if (!s) TOPIC_SETS.set(k, s = new Set(((DATA.filters && DATA.filters.members) || {})[k] || [])); return s; };   // looked up when asked: the build adds DATA.filters after the first page is drawn
+const topicOfTag = t => (DATA.filters && DATA.filters.tags && DATA.filters.tags[t]) || '';
+const TOPIC_OPTIONS = TOPICS.map(([k, l]) => [k, `${l} (${num(topicSet(k).size)})`]);
 const OUTCOMES = [['fine', 'With a fine'], ['found', 'Violation, no fine'], ['rejected', 'Rejected'], ['other', 'Other or not given']];
 
 function matches(c) {
+  if (state.topic && !topicSet(state.topic).has(c.idx)) return false;
   if (state.org && c.org !== state.org) return false;
   if (state.reg && c.regulator !== state.reg) return false;
   if (state.group && c.org_group !== state.group) return false;
@@ -1265,6 +1298,96 @@ function sorted(list) {
 }
 function median(xs) { if (!xs.length) return 0; const s = [...xs].sort((a, b) => a - b), m = s.length >> 1; return s.length % 2 ? s[m] : (s[m - 1] + s[m]) / 2; }
 
+/* The list lives in the address: #fines-country-Italy&art-32&topic-security&band-1e5-1e6&year-2024&sector-..&outcome-fine&reg-..&org-..&group-..&q-cookie&sort-big.
+   Several are joined by '&'; each value is written with encodeURIComponent. A '&' not followed by a filter name stays part of the value before it (older links), so the
+   single forms (#fines-art-5, #fines-q-cookie) read as they always did. Plain #fines is the whole list. Unknown names and values that cannot be right are left out. */
+const SORTS = ['new', 'old', 'big', 'small'];
+const HASH_ORDER = ['q', 'topic', 'country', 'art', 'band', 'year', 'sector', 'outcome', 'reg', 'org', 'group'];
+const hashOf = st => {
+  const parts = HASH_ORDER.filter(k => st[k]).map(k => `${k}-${encodeURIComponent(st[k])}`);
+  if (st.sort && st.sort !== 'new') parts.push(`sort-${st.sort}`);
+  return parts.length ? `fines-${parts.join('&')}` : 'fines';
+};
+const safeDecode = s => { try { return decodeURIComponent(s); } catch (e) { return s; } };
+function parseHash(h) {
+  const st = { ...EMPTY, sort: 'new' };
+  const m = h.match(/^fines-(.+)$/s);
+  if (!m) return st;
+  const raw = {};
+  let last = '';
+  for (const part of m[1].split('&')) {
+    const k = part.match(/^(art|org|group|q|country|reg|band|topic|year|sector|outcome|sort)-(.*)$/s);
+    if (k) { last = k[1]; raw[last] = k[2]; } else if (last) raw[last] += '&' + part;
+  }
+  for (const k in raw) {
+    const v = safeDecode(raw[k]).trim().slice(0, 200);
+    if (k === 'art' ? !/^\d{1,3}$/.test(v) : k === 'year' ? !/^\d{4}$/.test(v) : k === 'band' ? !BANDS.some(b => b[0] === v)
+      : k === 'sort' ? !SORTS.includes(v) : k === 'outcome' ? !OUTCOMES.some(o => o[0] === v) : k === 'topic' ? !TOPICS.some(x => x[0] === v) : false) { if (k === 'topic') st.badTopic = true; continue; }
+    st[k] = v;
+  }
+  return st;
+}
+/* the address follows the list: replaceState, so the Back button is not filled with every letter typed */
+function syncHash() {
+  const want = hashOf(state), now = location.hash.slice(1);
+  if (want === 'fines' && !/^fines-/.test(now)) return;   // nothing chosen, and the address is plain #fines or fines.html: leave it
+  if (now !== want) history.replaceState(null, '', '#' + want);
+}
+/* open the list as the address says (the whole state comes from the address); coming back from a decision to the same list gives back its place */
+let listNotice = '', noticeKey = '';
+function openList(h, fromDecision) {
+  const next = parseHash(h), bad = next.badTopic;
+  delete next.badTopic;
+  const same = [...FKEYS, 'sort'].every(k => state[k] === next[k]);
+  Object.assign(state, next);
+  if (!same) state.shown = 40;
+  listNotice = bad ? 'That topic filter is not available. Showing all decisions.' : '';
+  noticeKey = JSON.stringify([...FKEYS, 'sort'].map(k => state[k]));
+  renderBrowse();
+  window.scrollTo(0, fromDecision && same ? state.scroll : 0);
+}
+/* the chips under the search box: one per chosen filter */
+function chipList() {
+  const out = [], add = (k, kind, text) => out.push({ k, kind, text, aria: `${kind} ${text}` });   // the name of the button holds the words on it: "Remove filter: Country Italy"
+  if (state.q) add('q', 'Search', state.q);
+  if (state.topic) add('topic', 'Topic', topicLabel(state.topic) || state.topic);
+  if (state.country) add('country', 'Country', state.country);
+  if (state.art) add('art', 'Article', state.art);
+  if (state.band) add('band', 'Fine size', (BANDS.find(b => b[0] === state.band) || [0, state.band])[1]);
+  if (state.year) add('year', 'Year', state.year);
+  if (state.sector) add('sector', 'Sector', state.sector);
+  if (state.outcome) add('outcome', 'Outcome', (OUTCOMES.find(o => o[0] === state.outcome) || [0, state.outcome])[1]);
+  if (state.reg) add('reg', 'Regulator', (DATA.meta.regulators || {})[state.reg] || state.reg);
+  if (state.org) add('org', 'Company', ORG_NAME[state.org] || state.org);
+  if (state.group) add('group', 'Group', state.group);
+  return out;
+}
+/* the controls show what the state says (after a chip is removed) */
+function syncControls() {
+  const set = (id, v) => { const el = $(id); if (el) el.value = v; };
+  set('q', state.q); set('f-country', state.country); set('f-year', state.year); set('f-sector', state.sector); set('f-art', state.art); set('f-outcome', state.outcome); set('f-topic', state.topic);
+  document.querySelectorAll('[data-band]').forEach(x => x.setAttribute('aria-pressed', String(x.dataset.band === state.band)));
+}
+/* the words of a word search, found again in what a row shows: the matches in the highlighter, everything else escaped (nothing typed or in the address is ever HTML) */
+const hitWords = () => [...new Set(state.q.toLowerCase().split(/\s+/).filter(Boolean))].sort((a, b) => b.length - a.length);
+const hitRegex = words => words.length ? new RegExp(words.map(w => w.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|'), 'gi') : null;
+function hl(text, re) {
+  text = String(text ?? '');
+  if (!re) return esc(text);
+  let out = '', i = 0;
+  for (const m of text.matchAll(re)) { if (!m[0]) continue; out += esc(text.slice(i, m.index)) + `<mark class="hit">${esc(m[0])}</mark>`; i = m.index + m[0].length; }
+  return out + esc(text.slice(i));
+}
+/* a short piece of a text around the first match, cut at word edges */
+function snippet(text, re) {
+  const m = re && text ? new RegExp(re.source, 'i').exec(text) : null;
+  if (!m) return '';
+  let a = Math.max(0, m.index - 70), b = Math.min(text.length, m.index + m[0].length + 90);
+  if (a > 0) { const s = text.indexOf(' ', a); if (s >= 0 && s < m.index) a = s + 1; }
+  if (b < text.length) { const s = text.lastIndexOf(' ', b); if (s > m.index + m[0].length) b = s; }
+  return `${a > 0 ? '… ' : ''}${hl(text.slice(a, b), re)}${b < text.length ? ' …' : ''}`;
+}
+
 function renderBrowse() {
   $('main').innerHTML = `
   <div class="wrap">
@@ -1288,6 +1411,7 @@ function renderBrowse() {
         <label for="f-sector">Sector<select id="f-sector">${options(SECTORS, state.sector, 'All sectors')}</select></label>
         <label for="f-art">GDPR article<select id="f-art">${options(ARTS, state.art, 'All articles')}</select></label>
         <label for="f-outcome">Outcome<select id="f-outcome">${options(OUTCOMES, state.outcome, 'All outcomes')}</select></label>
+        ${TOPICS.length ? `<label for="f-topic">Topic<select id="f-topic">${options(TOPIC_OPTIONS, state.topic, 'All topics')}</select></label>` : ''}
       </div>
       <div class="bands" role="group" aria-label="Fine size">
         <span>Fine size</span>
@@ -1296,6 +1420,8 @@ function renderBrowse() {
       <button type="button" class="fs-go" id="fs-go">Show results</button>
       </div>
     </form>
+    <ul class="fchips" id="chips" aria-label="Chosen filters" hidden></ul>
+    <p class="vh" id="live" role="status"></p>
     <div class="tally" id="tally"></div>
     <div class="r-cols" aria-hidden="true"><span>Date</span><span>Decision</span><span>Country</span><span>Fine</span></div>
     <ul class="results" id="results"></ul>
@@ -1303,6 +1429,18 @@ function renderBrowse() {
   </div>`;
   const bind = (id, key) => $(id).addEventListener('change', e => { state[key] = e.target.value; state.shown = 40; renderResults(); });
   bind('f-country', 'country'); bind('f-year', 'year'); bind('f-sector', 'sector'); bind('f-art', 'art'); bind('f-outcome', 'outcome');
+  if ($('f-topic')) bind('f-topic', 'topic');
+  /* a chip removes its filter; "Clear all" removes them all (the sort stays). A key press moves focus to the search box, a tap does not (the phone keyboard would open). */
+  $('chips').addEventListener('click', e => {
+    const b = e.target.closest('button'); if (!b) return;
+    if (b.dataset.k) state[b.dataset.k] = ''; else Object.assign(state, EMPTY);
+    state.shown = 40; syncControls(); renderResults();
+    if (e.detail === 0) $('q').focus();
+  });
+  /* pointing at a row starts the fetch of the GDPR text, which a decision needs, so it is there by the time the row is opened */
+  ['pointerdown', 'mouseover', 'focusin'].forEach(ev => $('results').addEventListener(ev, () => ensureGdpr(), { once: true, passive: true }));
+  /* the summaries (a search covers them) are fetched when the search box is used */
+  $('q').addEventListener('focus', () => loadSummaries(), { once: true });
   let t;
   const sheet = $('fsheet'), back = $('fback'), fbtn = $('fbtn');
   const setSheet = open => {
@@ -1328,58 +1466,85 @@ function renderBrowse() {
 let lastKey = null, lastCount = null;
 function renderResults() {
   const list = sorted(CASES.filter(matches));
-  const key = JSON.stringify(['q', 'country', 'year', 'sector', 'art', 'outcome', 'band', 'org', 'group', 'reg', 'sort'].map(k => state[k]));
+  const key = JSON.stringify([...FKEYS, 'sort'].map(k => state[k]));
   const fresh = lastKey !== null && key !== lastKey, flash = fresh && list.length !== lastCount;
   lastKey = key; lastCount = list.length;
   const scoped = !!(state.org || state.group || state.art);   /* a company, group or article total leaves out the unconfirmed ones */
   const fines = list.filter(c => c.fine_eur && !(c.unconf && (scoped || c.cu))).map(c => c.fine_eur);
   const total = fines.reduce((a, b) => a + b, 0);
   const converted = list.filter(c => c.est).length;
-  const filtered = state.q || state.country || state.year || state.sector || state.art || state.outcome || state.band || state.org || state.group || state.reg;
+  const filtered = FKEYS.some(k => state[k]);
+  if (state.q) loadSummaries();   // a word search covers the summaries too
+  /* until the summaries are in, a word search has only looked at names, regulators and topics: its count is not final, so it is not shown as one */
+  const searching = !!state.q && SUM_STATE !== 'done', namesOnly = !!state.q && SUM_FAIL;
+  const nWord = namesOnly ? ' (names only)' : '';
+  if (listNotice && key !== noticeKey) listNotice = '';
   if ($('fn')) {
-    const nf = ['country', 'year', 'sector', 'art', 'outcome', 'band'].filter(k => state[k]).length;
+    const nf = ['country', 'year', 'sector', 'art', 'outcome', 'band', 'topic'].filter(k => state[k]).length;
     $('fn').textContent = nf ? String(nf) : '';
-    $('fs-go').textContent = list.length ? `Show ${num(list.length)} ${list.length === 1 ? 'decision' : 'decisions'}` : 'Nothing matches yet';
+    $('fs-go').textContent = searching ? 'Searching\u2026' : list.length ? `Show ${num(list.length)} ${list.length === 1 ? 'decision' : 'decisions'}` : 'Nothing matches yet';
   }
-  const active = state.org ? ['Company', ORG_NAME[state.org] || state.org, 'org'] : state.group ? ['Group', state.group, 'group']
-    : state.reg ? ['Regulator', (DATA.meta.regulators || {})[state.reg] || state.reg, 'reg'] : null;
+  const active = state.org || state.group || state.reg;   // a company, group or regulator list: its own chip is in the chips, and there is no country link
+  const chips = chipList();
+  $('chips').hidden = !chips.length;
+  $('chips').innerHTML = chips.map(c => `<li><button type="button" class="fchip" data-k="${c.k}" aria-label="Remove filter: ${esc(c.aria)}"><span class="k">${esc(c.kind)}</span><span class="v">${esc(c.text)}</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button></li>`).join('')
+    + (chips.length > 1 ? '<li><button type="button" class="linkbtn" id="clear-all">Clear all</button></li>' : '');
   /* the selection as a facts row (layout v2): how many, how much, the typical and the biggest fine */
-  const cells = [[filtered ? (list.length === 1 ? 'Decision that matches' : 'Decisions that match') : 'Decisions', `<b${flash ? ' class="flash"' : ''}>${num(list.length)}</b>`],
+  const cells = searching ? [['Decisions that match', '<b>Searching&hellip;</b>']] : [[filtered ? (list.length === 1 ? 'Decision that matches' : 'Decisions that match') + nWord : 'Decisions', `<b${flash ? ' class="flash"' : ''}>${num(list.length)}</b>`],
     ...(fines.length ? [['In fines', `${converted ? '≈ ' : ''}${bigEur(total)}<small>in ${num(fines.length)} ${fines.length === 1 ? 'fine' : 'fines'}</small>`],
       ['Typical fine', eur(median(fines))], ['Biggest', eur(Math.max(...fines))]] : [['Fines', 'No fines in this selection']])];
   $('tally').innerHTML = `
     <dl class="facts-row tally-facts">${cells.map(([k, v]) => `<div><dt>${k}</dt><dd>${v}</dd></div>`).join('')}</dl>
     ${scoped ? unconfLegend(list, '') : ''}
+    ${listNotice ? `<p class="legend" role="status">${esc(listNotice)}</p>` : ''}
+    ${searching ? '<p class="legend">Searching the summaries too, one moment&hellip;</p>' : ''}
+    ${namesOnly ? '<p class="legend">The summaries could not be loaded, so this search looks at names, regulators and topics only, and the count is for those.</p>' : ''}
     <div class="r-tools">
-      ${active ? `<p class="active"><button type="button" class="chip" id="drop-org" aria-label="Remove the ${active[0].toLowerCase()} filter"><span>${active[0]}</span>${esc(active[1])} &times;</button></p>` : ''}
       ${state.country && !active ? `<p class="active"><a class="country-go" href="${countryUrl(state.country)}">${esc(state.country)}: regulators, figures and latest decisions &rarr;</a></p>` : ''}
       <div class="right">
-        ${filtered ? '<button type="button" class="linkbtn" id="clear">Clear filters</button>' : ''}
         <label for="sort" class="legend">Sort</label>
         <select id="sort">${options([['new', 'Newest first'], ['old', 'Oldest first'], ['big', 'Biggest fine'], ['small', 'Smallest fine']], state.sort, '').replace('<option value=""></option>', '')}</select>
       </div>
     </div>`;
   $('sort').addEventListener('change', e => { state.sort = e.target.value; renderResults(); });
-  if ($('drop-org')) $('drop-org').addEventListener('click', () => { state.org = ''; state.group = ''; state.reg = ''; state.shown = 40; renderResults(); });
-  if ($('clear')) $('clear').addEventListener('click', () => { Object.assign(state, { q: '', country: '', year: '', sector: '', art: '', outcome: '', band: '', org: '', group: '', reg: '', shown: 40 }); renderBrowse(); });
+  $('live').textContent = searching ? 'Searching the summaries\u2026' : `${num(list.length)} ${list.length === 1 ? 'decision' : 'decisions'}${filtered ? ' match' : ''}${nWord}`;
+  syncHash();
 
+  if (!list.length && searching) {   // nothing found by name yet, and the summaries are still coming: not "Nothing matches"
+    $('results').innerHTML = '<li style="border:0"><p class="legend" style="padding:28px 0">Searching the summaries&hellip;</p></li>';
+    $('more').innerHTML = '';
+    return;
+  }
   if (!list.length) {
     /* puzzled Fino; drawn once, so it does not tilt again with every letter typed */
     if (!$('results').querySelector('.hmm')) $('results').innerHTML = `<li style="border:0"><div class="empty-list">${HMM}<p class="bubble">Nothing matches all of that. Try removing a filter, or a shorter search word.</p></div></li>`;
     $('more').innerHTML = '';
     return;
   }
+  const words = hitWords(), re = hitRegex(words);
   $('results').innerHTML = list.slice(0, state.shown).map(c => {
-    const d = when(c.decision_date, c.date_precision), f = fineInfo(c);
+    const d = when(c.decision_date, c.date_precision), f = fineInfo(c), p = party(c);
     const about = c.violation_type || c.categories || '';
+    /* a word search shows where the words were found: in the name and the line under it (highlighted), in the summary (a short piece), and, only for a word found nowhere
+       else, in the regulator's name, the reference or the topics */
+    let found = '';
+    if (re) {
+      const sn = snippet(c.summary, re);
+      if (sn) found += `<span class="snip"><i>In the summary</i>${sn}</span>`;
+      const seen = `${p.html ? c.who + ' ' + (c.who_detail || '') : p.name} ${p.sub || ''} ${about} ${c.summary || ''}`.toLowerCase();
+      const miss = words.filter(w => !seen.includes(w));
+      if (miss.length) for (const [label, val] of [['Regulator', c.authority_source], ['Reference', c.ref], ['Number', c.pharos_id], ['Topics', c.violation_type ? c.categories : '']]) {
+        if (val && miss.some(w => String(val).toLowerCase().includes(w))) found += `<span class="snip"><i>${label}</i>${hl(val, re)}</span>`;
+      }
+    }
     return `<li><a href="#d-${slug(c.pharos_id)}">
       <span class="dt">${esc(d.short)}</span>
-      <span class="who"><b class="${party(c).cls}">${pHtml(party(c))}</b>${party(c).sub ? `<small>${esc(party(c).sub)}</small>` : ''}${about ? `<span>${esc(about)}</span>` : ''}${c.arts.length ? `<small>${artsTxt(c.arts.slice(0, 5))}${c.arts.length > 5 ? ' …' : ''}</small>` : ''}</span>
+      <span class="who"><b class="${p.cls}">${p.html ? (c.who_detail ? `${hl(c.who, re)} <span class="who-d">(${hl(c.who_detail, re)})</span>` : hl(c.who, re)) : hl(p.name, re)}</b>${p.sub ? `<small>${hl(p.sub, re)}</small>` : ''}${about ? `<span>${hl(about, re)}</span>` : ''}${c.arts.length ? `<small>${artsTxt(c.arts.slice(0, 5))}${c.arts.length > 5 ? ' …' : ''}</small>` : ''}${found}</span>
       <span class="cty">${flag(c)}${esc(c.country || '')}</span>
       <span class="amt ${f.none ? 'none' : ''}${f.stmt ? ' stmt' : ''}">${f.struck ? `<s>${esc(f.label)}</s>` : esc(f.label)}${f.conv ? `<small>${esc(f.conv)}</small>` : ''}${f.sub ? `<small>${esc(f.sub)}</small>` : ''}${f.status ? `<small class="tag">${esc(f.status)}</small>` : ''}</span>
     </a></li>`;
   }).join('');
-  $('more').innerHTML = list.length > state.shown
+  $('more').innerHTML = list.length > state.shown && !searching
     ? `<button type="button" class="btn" id="more-btn">Show ${Math.min(40, list.length - state.shown)} more <span class="muted" style="font-weight:400">of ${num(list.length - state.shown)} left</span></button>` : '';
   if ($('more-btn')) $('more-btn').addEventListener('click', () => { state.shown += 40; renderResults(); });
   if (fresh) { const r = $('results'); r.classList.remove('fresh'); void r.offsetWidth; r.classList.add('fresh'); }
@@ -1585,7 +1750,9 @@ function ownReadLine(c) {
 const editCredit = c => { const k = c.cred.split(':')[0], d = c.cred.slice(k.length + 1); if (k === 'fino_fix') { const [what, noun] = d.includes('|') ? d.split('|') : ['the amount', d]; return `Summary from GDPRhub (noyb), written by its volunteers; Fino corrected ${esc(what)} against ${/^the /.test(noun) ? '' : 'the regulator&rsquo;s own '}${esc(noun)}. CC BY-NC-SA 4.0.`; } if (k === 'fino_rel') return `Summary by Fino, written from ${esc(d.split('|')[0])}.${d.includes('|') ? ' ' + esc(d.slice(d.indexOf('|') + 1)) : ''}`; return k === 'fino_new' ? `Summary by Fino, from the regulator&rsquo;s own decision (${esc(d.split('|')[0].split(' + ')[0])})${d.split('|')[0].includes(' + ') ? ' and its ' + esc(d.split('|')[0].split(' + ')[1]) : ''}.${d.includes('|') ? ' ' + esc(d.slice(d.indexOf('|') + 1)) : ''}` : `Summary from GDPRhub (noyb), written by its volunteers; Fino removed ${esc(d || 'one phrase')}. CC BY-NC-SA 4.0.`; };
 /* what the source link below is: 'The regulator’s own annual report is linked below.' (never 'decision' for an annual report, a press release or a news report; src_report: the link is a report listed in pipeline/annual_reports.csv, whatever the date says) */
 const sourceLinkedLine = c => { if (c.src_kind === 'homepage') return 'The source gives only a home page, not the decision, so there is no link to the original.'; if (c.src_kind === 'wrong') return 'The address in the source belongs to another decision, so there is no link to the original.'; if (c.src_kind === 'gone') return 'The original is no longer at its old address, so there is no link to it.'; if (!c.own && !c.source_url) return `The ${SOURCE_NAMES[c.source] || 'source'} entry for this decision is linked below; Fino has no link to the regulator’s own document yet.`; const l = sourceLabel(c), m = /^The regulator’s (.+)$/.exec(l), e = /^The EDPB’s (.+)$/.exec(l); return e ? `The EDPB’s own ${e[1]} is linked below.` : m ? `The regulator’s own ${m[1]} is linked below.` : `The ${l.replace(/ \(.*$/, '').toLowerCase()} is linked below.`; };
-let SUM_READY = !!DATA.sum;
+let SUM_READY = !!DATA.sum || !DATA.loadSum;
+let SUM_FAIL = false;
+let SUM_STATE = SUM_READY ? 'done' : 'idle';   // the summaries (1.4 MB) are fetched when a word search, a decision or the export needs them, not with the list
 function summaryBlock(c) {
   if (!c.summary && !SUM_READY) return `<p class="summary" id="sum-wait" data-id="${esc(c.pharos_id)}">Loading the summary&hellip;</p>`;
   if (!c.summary) return `<div class="empty">${MINI}<p class="bubble">Nobody has summarised this decision yet. ${esc(sourceLinkedLine(c))}</p></div>`;
@@ -1673,7 +1840,7 @@ function renderDecision(c) {
   $('main').innerHTML = `
   <div class="wrap">
     <nav class="crumbs" aria-label="Breadcrumb">
-      <a href="#fines">${fromBrowse ? '&larr; Back to results' : 'Fines'}</a><span aria-hidden="true">/</span>
+      <a href="#${fromBrowse ? hashOf(state) : 'fines'}">${fromBrowse ? '&larr; Back to results' : 'Fines'}</a><span aria-hidden="true">/</span>
       <span>${esc(c.country || 'No country')}</span><span aria-hidden="true">/</span>
       <span aria-current="page">${esc(c.pharos_id)}</span>
     </nav>
@@ -1683,16 +1850,16 @@ function renderDecision(c) {
         ${p.unchecked ? '<p class="legend">The source names these parties without saying which one the decision is about. I&rsquo;m checking it.</p>'
           : p.sub && !p.person ? `<p class="legend">${esc(p.sub)}.</p>` : ''}
         ${c.violation_type ? `<p class="lede"><span class="hl">${esc(c.violation_type)}</span></p>` : ''}
-        ${c.cats.length ? `<ul class="topics" aria-label="Topics">${c.cats.map(t => `<li>${esc(t)}</li>`).join('')}</ul>` : ''}
+        ${c.cats.length ? `<ul class="topics" aria-label="Topics">${c.cats.map(t => { const k = topicOfTag(t); return k && topicSet(k).has(c.idx) ? `<li><a href="#fines-topic-${k}" aria-label="${esc(t)}: see all decisions on the topic ${esc(topicLabel(k))}" title="See all decisions on the topic: ${esc(topicLabel(k))}">${esc(t)}</a></li>` : `<li>${esc(t)}</li>`; }).join('')}</ul>` : ''}
       </div>
       <div class="fine">${f.none ? '' : '<span class="lbl">Fine</span>'}<span class="amt ${f.none ? 'none' : ''}${f.stmt ? ' stmt' : ''}">${f.conv && (f.cur || c.est) ? `<span class="cur">${esc(f.cur || c.currency)}</span>${esc(f.label.slice((f.cur || c.currency).length + 1))}` : f.struck ? `<s>${esc(f.label)}</s>` : esc(f.label)}</span>${f.conv ? `<span class="conv" title="${esc(f.note)}">${esc(f.conv)}</span>` : ''}${f.sub ? `<span class="conv">${esc(f.sub)}</span>` : ''}${f.stmt && c.fine_quote ? `<span class="conv stmt-q">In the original: &ldquo;${esc(c.fine_quote)}&rdquo;</span>` : ''}${pill}</div>
     </div>
     <dl class="facts-row">${facts.map(([k, v]) => `<div><dt>${k}</dt><dd>${v}</dd></div>`).join('')}</dl>
     <div class="sec-rows">${rows.map(([id, t, b, cls], i) => secRow(i + 1, id, t, b, cls)).join('')}</div>
   </div>`;
-  document.querySelectorAll('[data-org], [data-group]').forEach(a => a.addEventListener('click', () => {
-    Object.assign(state, { q: '', country: '', year: '', sector: '', art: '', outcome: '', band: '', shown: 40,
-                           org: a.dataset.org || '', group: a.dataset.group || '' });
+  document.querySelectorAll('[data-org], [data-group]').forEach(a => a.addEventListener('click', e => {
+    e.preventDefault();
+    location.hash = '#' + hashOf({ ...EMPTY, org: a.dataset.org || '', group: a.dataset.group || '' });
   }));
   $('copy-cite').addEventListener('click', () => {
     const text = citation(c);
@@ -1881,7 +2048,7 @@ function renderArticle(n) {
       ${next ? `<a href="#art-${next}" style="text-align:right"><span>Article ${next} &rarr;</span><b>${esc(GDPR.arts[next].t)}</b></a>` : ''}
     </nav>
   </div>`;
-  document.querySelectorAll('[data-art]').forEach(el => el.addEventListener('click', () => { Object.assign(state, { q: '', country: '', year: '', sector: '', art: String(n), outcome: '', band: '', org: '', group: '', reg: '', shown: 40 }); }));
+  document.querySelectorAll('[data-art]').forEach(el => el.addEventListener('click', e => { e.preventDefault(); location.hash = '#' + hashOf({ ...EMPTY, art: String(n) }); }));
 }
 
 /* ---------- GDPR and AI Act side by side ----------
@@ -2169,7 +2336,7 @@ function renderStyle() {
       `<span class="chip" style="background:var(--latte);color:var(--latte-ink);border-color:var(--latte-line)">Under €10k</span><span class="chip" aria-pressed="true" style="background:var(--go-deep);color:#fff;border-color:var(--go-deep)">€10k–100k</span>`],
     ['official', 'Green §: the official source', 'var(--official)', 'The § badge always opens the official text on EUR-Lex, in a new tab. It appears only on our law pages, next to the article number: people read our version first, and the original is always one click away.',
       EURLEX_BADGE(EURLEX(5), 'Official text on EUR-Lex')],
-    ['shape', 'Round means clickable, square means label', '', 'Buttons and filter choices are fully rounded. Labels such as an outcome or a topic have small square corners and do nothing when clicked.',
+    ['shape', 'Round means clickable, square means label', '', 'Buttons and filter choices are fully rounded. Labels such as an outcome have small square corners and do nothing when clicked. A topic on a decision page is a square label with an arrow: it opens the decisions on that topic.',
       `<span class="btn small">Copy citation</span><span class="btn small latte">See all decisions &rarr;</span><span class="pill ok">Rejected</span><span class="pill bad">Violation found</span>`],
     ['law', 'A GDPR or AI Act tag: the other law', '', 'A small square tag naming a law means the link takes you to that other law on Fino, for example from an AI Act article to the GDPR article it mentions.',
       `<span class="text" style="font-size:1rem">see <a class="xref" href="#art-35" title="Article 35 GDPR">Article 35</a></span><span><small class="law-tag">AI Act</small> Article 27</span>`],
@@ -2201,9 +2368,10 @@ let lastView = '';
 /* Opening a decision from the list (and going back): the company name and the fine slide between the row and the
    decision's title and fine box. Only with view transitions and when motion is welcome; otherwise the view just changes. */
 function route() {
-  if (LATE_GDPR && !/^fines/.test(location.hash.slice(1) || 'fines')) { LATE_GDPR.then(route); return; }   // a decision, the law or the style page needs the GDPR text: wait for it
+  const need = !/^fines/.test(location.hash.slice(1) || 'fines') && ensureGdpr();
+  if (need) { need.then(route); return; }   // a decision, the law or the style page needs the GDPR text: wait for it
   const h = location.hash.slice(1) || 'fines', to = h.match(/^d-(.+)$/), from = lastView.match(/^d-(.+)$/);
-  const s = /^fines/.test(lastView) && to ? to[1] : from && h === 'fines' ? from[1] : '';
+  const s = /^fines/.test(lastView) && to ? to[1] : from && /^fines/.test(h) ? from[1] : '';
   if (!s || typeof document.startViewTransition !== 'function' || matchMedia('(prefers-reduced-motion: reduce)').matches) return draw();
   const row = () => { const a = document.querySelector(`#results a[href="#d-${s}"]`); return a ? [a.querySelector('.who b'), a.querySelector('.amt')] : []; };
   const mark = on => row().forEach((el, i) => { if (el) el.style.viewTransitionName = on ? ['m-name', 'm-amt'][i] : ''; });
@@ -2215,6 +2383,7 @@ function draw() {
   let m;
   const wasBrowse = lastView === 'fines';
   if (wasBrowse) state.scroll = window.scrollY;
+  if (/^[dx]-/.test(h)) loadSummaries();   // a decision and its export show the summary
   $('nav-fines').classList.toggle('on', /^(fines|d-|x-)/.test(h));
   $('nav-gdpr').classList.toggle('on', /^(gdpr|art-|rec-|ai-)/.test(h));
   if ((m = h.match(/^d-(.+)$/)) && BY_SLUG.has(m[1])) { fromBrowse = wasBrowse || (fromBrowse && lastView.startsWith('x-')); renderDecision(BY_SLUG.get(m[1])); window.scrollTo(0, 0); }
@@ -2229,38 +2398,32 @@ function draw() {
   else if (h === 'ai-act') { renderAiAct(); bindGdpr('ai-rec-'); window.scrollTo(0, 0); }
   else if ((m = h.match(/^ai-rec-(\d+)$/)) && AI.preamble.recitals[m[1]]) { if (lastView !== 'ai-act' && !lastView.startsWith('ai-rec-')) { renderAiAct(); bindGdpr('ai-rec-'); } openRecital(+m[1], 'ai-rec-'); }
   else if (h === 'style') { renderStyle(); window.scrollTo(0, 0); }
-  /* links from the static pages open the list already filtered: #fines-art-5, #fines-org-<key>, #fines-group-<key>, #fines-reg-<key>,
-     #fines-band-1e5-1e6 (a size band, as in BANDS), and several at once joined by '&': #fines-country-Spain&art-32&band-1e5-1e6 (the home page). A '&' not followed by a filter
-     name stays part of the value before it, so the single forms read exactly as before. */
-  else if ((m = h.match(/^fines-(art|org|group|q|country|reg|band)-(.+)$/))) {
-    const set = {};
-    let last = '';
-    for (const part of h.slice(6).split('&')) {
-      const k = part.match(/^(art|org|group|q|country|reg|band)-(.+)$/);
-      if (k) { last = k[1]; set[last] = k[2]; } else set[last] += '&' + part;
-    }
-    for (const k in set) set[k] = decodeURIComponent(set[k]);
-    Object.assign(state, { q: '', country: '', year: '', sector: '', art: '', outcome: '', band: '', org: '', group: '', reg: '', shown: 40, ...set });
-    history.replaceState(null, '', '#fines'); renderBrowse(); window.scrollTo(0, 0);
-  }
-  else { renderBrowse(); window.scrollTo(0, lastView.startsWith('d-') ? state.scroll : 0); }
+  /* the list: plain #fines, or a filtered one (#fines-art-5, #fines-country-Spain&art-32&band-1e5-1e6, ...; the grammar is at parseHash). The address is the state of the list.
+     Any other address that is not a view opens the whole list. */
+  else { openList(h, lastView.startsWith('d-')); }
   document.title = titleFor(h);
   lastView = /^fines-/.test(h) ? 'fines' : h;   /* a filter link has become #fines: the list is open (so a search re-runs when the summaries land) */
 }
 window.addEventListener('hashchange', route);
 route();
+/* the summaries are fetched quietly once the list is up and the browser is idle (not on a data-saving connection), so a first word search is complete at once; a search or a decision does not wait for this */
+if (SUM_STATE === 'idle' && !(navigator.connection && navigator.connection.saveData)) setTimeout(() => (window.requestIdleCallback || (f => setTimeout(f, 300)))(() => { if (lastView === 'fines') loadSummaries(); }, { timeout: 3000 }), 1500);
 
 /* The summaries (half the download) load after the list is on screen. When they land, search covers them
    and a decision already open gets its summary. */
-if (DATA.sumP) DATA.sumP.then(sum => {
-  CASES.forEach((c, i) => { c.summary = sum[i]; if (sum[i]) c.hay += ' ' + sum[i].toLowerCase(); });
-}).catch(() => {}).finally(() => {
-  SUM_READY = true;
-  const w = $('sum-wait');
-  if (w) { const c = CASES.find(x => x.pharos_id === w.dataset.id); if (c) w.outerHTML = summaryBlock(c); }
-  if (lastView.startsWith('x-')) route();
-  else if (lastView === 'fines' && state.q) renderResults();
-});
+function loadSummaries() {
+  if (SUM_STATE !== 'idle') return;
+  SUM_STATE = 'loading';
+  DATA.loadSum().then(sum => {
+    CASES.forEach((c, i) => { c.summary = sum[i]; if (sum[i]) c.hay += ' ' + sum[i].toLowerCase(); });
+  }).catch(() => { SUM_FAIL = true; }).finally(() => {
+    SUM_READY = true; SUM_STATE = 'done';
+    const w = $('sum-wait');
+    if (w) { const c = CASES.find(x => x.pharos_id === w.dataset.id); if (c) w.outerHTML = summaryBlock(c); }
+    if (lastView.startsWith('x-')) route();
+    else if (lastView === 'fines' && state.q) renderResults();
+  });
+}
 
 }
 
@@ -2309,18 +2472,23 @@ if (DATA.sumP) DATA.sumP.then(sum => {
     /* cases.json is always checked with the server; the summary files carry its export time, so a cached
        summary file from an older export (rows in a different order) is never paired with newer cases. */
     /* the GDPR text (87 KB) is not needed to draw the list: for the list it loads beside it and is added when it lands (lateGdpr in boot); any other view waits for it */
+    /* what the list needs first: cases.json (3.2 MB) and a few small files. The GDPR text (400 KB) and the summaries (1.4 MB) are fetched later, when a view or a word search needs them (boot: ensureGdpr, loadSummaries). */
     const listView = /^#?(fines(-.*)?)?$/.test(location.hash);
     const casesP = get('data/cases.json', { cache: 'no-cache' });
-    const gdprP = (listView ? casesP.catch(() => null) : Promise.resolve()).then(() => get('data/reg-2016-679.json')).catch(() => null);   // for the list: only once the cases are in, so it never slows them
-    const [cases, gdpr, ex, links, dpo] = await Promise.all([casesP, listView ? null : gdprP,
+    let gdprMemo = null;
+    const loadGdpr = () => (gdprMemo ||= get('data/reg-2016-679.json').catch(() => null));
+    const [cases, gdpr, ex, links, dpo, filters] = await Promise.all([casesP, listView ? null : loadGdpr(),
                                                  get('data/explainers.json', { cache: 'no-cache' }).catch(() => null),
                                                  get('data/law-links.json', { cache: 'no-cache' }).catch(() => null),
-                                                 get('data/dpo-checks.json', { cache: 'no-cache' }).catch(() => null)]);
+                                                 get('data/dpo-checks.json', { cache: 'no-cache' }).catch(() => null),
+                                                 get('data/fines-filters.json', { cache: 'no-cache' }).catch(() => null)]);
     const n = Math.ceil(cases.rows.length / cases.meta.summary_shard);
     const v = encodeURIComponent(cases.meta.generated_at || '');
-    const sumP = Promise.all(Array.from({ length: n }, (_, i) => get(`data/summaries/${i}.json?v=${v}`))).then(a => a.flat().map(clean));
+    const loadSum = () => Promise.all(Array.from({ length: n }, (_, i) => get(`data/summaries/${i}.json?v=${v}`))).then(a => a.flat().map(clean));
     const by = cases.meta.fields.indexOf('summary_by');
-    boot({ meta: cases.meta, fields: cases.meta.fields, rows: cases.rows, sumP, gdpr, gdprLate: listView ? gdprP : null, ex, links, dpo,
+    /* the topics are places in cases.json: a file made for another export of it is not used */
+    const filtersOk = filters && filters.for === cases.meta.generated_at && filters.rows === cases.rows.length ? filters : null;
+    boot({ meta: cases.meta, fields: cases.meta.fields, rows: cases.rows, loadSum, gdpr, gdprLoad: listView ? loadGdpr : null, filters: filtersOk, ex, links, dpo,
            cred: cases.rows.map(r => r[by] === 'cms_tracker' ? 'c' : r[by] === 'fino' ? 'f' : String(r[by] || '').startsWith('fino_') ? r[by] : 'g') });
     document.documentElement.classList.remove('is-loading');
   } catch (e) {
@@ -2425,6 +2593,6 @@ setMode(saved === 'dark' ? 'dark' : 'light', false);
   });
 })();
 </script>
-<script src="/assets/find.js?v=1101723d9278" defer></script>
+<script src="/assets/find.js?v=9c360da83179" defer></script>
 </body>
 </html>

@@ -171,6 +171,14 @@ h1 .who-d { opacity: .75; }
    one is not underlined */
 @media (max-width: 760px) { .facts-row > div:last-child:nth-child(odd) { grid-column: 1 / -1; border-left: 0; padding-left: 0; } }
 .topics li a, .topics li .def, .topics li [data-def] { text-decoration: none; border-bottom: 0; }
+/* a topic on a decision page that leads to the decisions on that topic: still a square label, with an arrow (the style page says so); the hit area reaches 44 px
+   without the label growing */
+.topics li > a { position: relative; display: block; margin: -4px -10px; padding: 4px 10px; color: inherit; }
+.topics li > a::before { content: ''; position: absolute; inset: -9px -3px; }
+.topics:has(> li > a) { row-gap: 10px; }
+.topics li > a::after { content: '\00a0\2192'; content: '\00a0\2192' / ''; }
+.topics li:has(> a):hover { border-color: var(--ink); color: var(--ink); }
+
 /* Pass 292 (3 Nov 2026) */
 /* No blue: the official-source chip and every box built on --official take the accent */
 :root, :root[data-mode="light"] { --official: var(--accent); --official-bg: var(--live-bg); --quote: #F59BB4; }
