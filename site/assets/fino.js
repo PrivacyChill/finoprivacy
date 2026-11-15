@@ -1,4 +1,6 @@
-/* Built from fines.html by pipeline/build_seo.mjs. Do not edit here. */
+/* Fino: the shared script of every page (menu, sticky header, light and dark button, page transitions, copy citation, recitals, go to article).
+   THIS FILE IS THE SOURCE: edit it here, by hand. node pipeline/build_seo.mjs only reads it, to put its version (?v=) into every page. The nine hand-written pages load it
+   before their own script (it defines byId); a built page loads it deferred. Code that only one page uses stays in that page (plan row 429, one page system). */
 const byId = id => document.getElementById(id);
 /* Phone menu: the three-line button opens the links full screen; a link, Escape or a wider screen closes it */
 (() => {

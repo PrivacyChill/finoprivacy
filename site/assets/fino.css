@@ -1,4 +1,7 @@
-/* Built from fines.html by pipeline/build_seo.mjs. Do not edit here. */
+/* Fino: the shared stylesheet of every page, the nine hand-written ones (home, fines, questions, the five explainers, 404) and every built one.
+   THIS FILE IS THE SOURCE: edit it here, by hand. node pipeline/build_seo.mjs only reads it, to put its version (?v=) into every page.
+   Two blocks are written into it from design/refresh/tokens.css and design/refresh/family.css by design/refresh/sync_tokens.py (the markers refresh-tokens and refresh-family).
+   A rule that only one page uses belongs in that page's own <style>, after the link to this file (plan row 429, one page system). */
 
 /* Fonts are served from this site, so no visitor data goes to a font provider. All under the SIL Open Font License. */
 @font-face { font-family: "Fraunces"; font-style: normal; font-weight: 300 800; font-display: swap; src: url("/fonts/fraunces-300-800-latin.woff2") format("woff2"); }
@@ -608,12 +611,14 @@ footer .foot-base { border-top: 1.5px solid currentColor; padding-top: 16px; dis
 }
 @media (prefers-reduced-motion: reduce) { .btn, .rules a, .results a { transition: none; } }
 
-/* The export sheet is what the browser saves as a PDF; everything else is hidden */
+/* The export sheet is what the browser saves as a PDF; everything else is hidden. This is for the fines page and the built pages. The nine hand-written pages other than the fines page
+   (home, questions, the five explainers, the 404) print as they always did: their body has the class own-print, which the rules below leave out (:where keeps their specificity as it was).
+   @page cannot be left out for a page: those pages say their own @page in their Parity block. */
 @media print {
   @page { size: A4; margin: 0; }
-  body { background: #FFFFFF; }
-  body > *:not(main), .x-bar, .x-note, .crumbs, .x-head { display: none !important; }
-  main .wrap { max-width: none !important; padding: 0 !important; margin: 0 !important; }
+  body:where(:not(.own-print)) { background: #FFFFFF; }
+  body:where(:not(.own-print)) > *:not(main), :where(body:not(.own-print)) :is(.x-bar, .x-note, .crumbs, .x-head) { display: none !important; }
+  :where(body:not(.own-print)) main .wrap { max-width: none !important; padding: 0 !important; margin: 0 !important; }
   .desk { background: none; padding: 0; margin: 0; overflow: visible; border-radius: 0; }
   .pages { display: block; zoom: 1 !important; }
   .page { box-shadow: none; border-radius: 0; height: 296.5mm; break-after: page; }

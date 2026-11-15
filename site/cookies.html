@@ -7,14 +7,15 @@
 <title>Cookie banners without “reject” · Fino</title>
 <meta name="description" content="How big the fines are for a cookie banner without a reject button, the rules behind it and the real decisions.">
 <script>/* light unless the visitor chose dark */ (() => { let m = null; try { m = localStorage.getItem('mode'); } catch (e) {} if (m !== 'dark') document.documentElement.dataset.mode = 'light'; })();</script>
+<link rel="preload" href="/assets/fino.js?v=6773a6e05e3b" as="script">
+<link rel="stylesheet" href="/assets/fino.css?v=cc7fcc355be2">
 <style>
-/* Fonts are served from this site, so no visitor data goes to a font provider. All under the SIL Open Font License. */
-@font-face { font-family: "Fraunces"; font-style: normal; font-weight: 300 800; font-display: swap; src: url("fonts/fraunces-300-800-latin.woff2") format("woff2"); }
-@font-face { font-family: "Atkinson Hyperlegible"; font-style: normal; font-weight: 400; font-display: swap; src: url("fonts/atkinson-hyperlegible-400-latin.woff2") format("woff2"); }
-@font-face { font-family: "Atkinson Hyperlegible"; font-style: normal; font-weight: 700; font-display: swap; src: url("fonts/atkinson-hyperlegible-700-latin.woff2") format("woff2"); }
-@font-face { font-family: "IBM Plex Mono"; font-style: normal; font-weight: 400; font-display: swap; src: url("fonts/ibm-plex-mono-400-latin.woff2") format("woff2"); }
-@font-face { font-family: "IBM Plex Mono"; font-style: normal; font-weight: 500; font-display: swap; src: url("fonts/ibm-plex-mono-500-latin.woff2") format("woff2"); }
-
+/* Parity (plan row 429, one page system): this page used to carry its own older copy of the shared styles. These rules say again what it showed before it took assets/fino.css, where
+   a rule of the shared sheet reaches something here that it never reached. Delete the block (or one rule) to take the shared look; nothing else depends on it. */
+.brand { font-weight: 650; }
+.crumbs a { padding-block: 0; margin-block: 0; }
+@media (max-width: 760px) { footer .foot-col a { align-items: normal; } }
+@media print { @page { size: auto; margin: auto; } }
 /* Layout: one shell, four views (browse, decision, GDPR article, export sheet), switched by the link anchor.
    Same tokens as the homepage: espresso by default, latte with the sun/moon button. */
 :root {
@@ -69,163 +70,17 @@
   --official: var(--accent); --official-bg: var(--live-bg); --neutral-bg: #E7DED3;
   color-scheme: light;
 }
-
-* { box-sizing: border-box; }
-body { background: var(--bg); color: var(--ink); font-family: var(--body); font-size: 1.0625rem; line-height: 1.55; overflow-x: hidden; overflow-x: clip; margin: 0; }
-a { color: inherit; }
-a:focus-visible, button:focus-visible, select:focus-visible, input:focus-visible, label:focus-within { outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 6px; }
-::selection { background: var(--pink); color: #15141F; }
-.wrap { max-width: 1120px; margin-inline: auto; padding-inline: 20px; }
-.mono { font-family: var(--mono); }
-.muted { color: var(--muted); }
-
-/* Header */
-.top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 18px; flex-wrap: wrap; }
-.brand { display: flex; align-items: center; gap: 10px; text-decoration: none; font-family: var(--display); font-weight: 650; font-size: 1.5rem; font-variation-settings: "SOFT" 100, "opsz" 48; letter-spacing: -0.01em; }
-.brand svg { width: 34px; height: 31px; }
-.top nav { display: flex; gap: 4px; flex-wrap: wrap; margin-left: auto; }
-.top nav a { text-decoration: none; font-size: 0.95rem; padding: 6px 12px; border-radius: 999px; color: var(--muted); }
-.top nav a:hover { color: var(--ink); background: var(--surface); }
-.top nav a.on, .laws > button.on { color: var(--latte-ink); background: var(--latte); box-shadow: inset 0 0 0 1.5px var(--latte-line); }
-.laws { position: relative; }
-.laws-menu[hidden] { display: none; }
-.laws > button { display: inline-flex; align-items: center; gap: 5px; font: inherit; font-size: 0.95rem; padding: 6px 12px; border-radius: 999px; border: 0; background: none; color: var(--muted); cursor: pointer; }
-.laws > button:hover { color: var(--ink); background: var(--surface); }
-.laws > button.on:hover { color: var(--latte-ink); background: var(--latte); }
-.laws > button svg { width: 12px; height: 12px; transition: transform var(--fast) var(--ease); }
-.laws > button[aria-expanded="true"] svg { transform: rotate(180deg); }
-.laws-menu { position: absolute; right: 0; top: calc(100% + 8px); z-index: 10; list-style: none; margin: 0; padding: 8px; width: 290px; max-width: calc(100vw - 32px);
-  background: var(--latte); color: var(--latte-ink); border: 2px solid var(--latte-ink); border-radius: 20px; box-shadow: 6px 6px 0 var(--pink); display: grid; gap: 2px; color-scheme: light; }
-.top nav .laws-menu a, .laws-menu .soon-law { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 0 10px; padding: 10px 12px; border-radius: 14px; text-decoration: none; color: var(--latte-ink); font-size: 1rem; }
-.top nav .laws-menu a:hover { background: var(--field); color: var(--latte-ink); }
-.top nav .laws-menu a:focus-visible { outline: 3px solid var(--go-deep); outline-offset: 0; }
-.laws-menu b { font-size: 1rem; }
-.laws-menu span { grid-column: 1; font-size: 0.85rem; color: var(--latte-muted); }
-.laws-menu .soon-law { opacity: .75; }
-.laws-menu em { grid-column: 2; grid-row: 1 / span 2; align-self: center; font-style: normal; font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.06em; text-transform: uppercase; padding: 3px 7px; border-radius: 6px; background: #FFE1E8; color: #A3304F; }
-.mode { display: grid; place-items: center; width: 40px; height: 40px; border-radius: 50%; border: 1.5px solid var(--line); background: var(--surface); color: var(--ink); cursor: pointer; padding: 0; }
-.mode:hover { border-color: var(--ink); }
-.mode svg { width: 20px; height: 20px; }
-/* The icon turns into the other one: the sun spins away as its rays pull in, the moon swings in along a small arc.
-   During the light switch the button is drawn on its own layer, so the turn shows while the light spreads or retracts. */
-.mode svg { grid-area: 1 / 1; transition: transform var(--slow) var(--pop), opacity var(--fast) var(--ease); }
-.mode .sun path { transform-origin: 12px 12px; transition: transform var(--mid) var(--ease); }
-.mode .moon { opacity: 0; transform-origin: 50% 170%; transform: rotate(-75deg); }
-:root[data-mode="light"] .mode .sun { opacity: 0; transform: rotate(90deg) scale(.4); }
-:root[data-mode="light"] .mode .sun path { transform: scale(.3); }
-:root[data-mode="light"] .mode .moon { opacity: 1; transform: none; }
-:root[data-switch] .mode { view-transition-name: mode-btn; }
-::view-transition-group(mode-btn), ::view-transition-new(mode-btn) { animation: none; }
-::view-transition-old(mode-btn) { display: none; }
-@media (prefers-reduced-motion: reduce) { .mode svg, .mode .sun path { transition: none; } }
-/* Light switch: light spreads out from the sun button; going dark pulls it back in (view transitions).
-   With reduced motion it is a short fade; browsers without view transitions switch at once. */
-::view-transition-group(root) { animation-duration: var(--mid); }
-:root[data-switch]::view-transition-old(root), :root[data-switch]::view-transition-new(root) { animation: none; mix-blend-mode: normal; }
-:root[data-switch="dark"]::view-transition-old(root) { z-index: 2; }
-:root[data-switch="dark"]::view-transition-new(root) { z-index: 1; }
-/* Moving between pages (pose to pose): the header stays put, the page fades across, and a fine opened from a list
-   carries its company name and amount up into the decision's title and fine box. Never during the light switch;
-   with reduced motion, or in browsers without view transitions, pages simply change. */
-@media (prefers-reduced-motion: no-preference) { @view-transition { navigation: auto; } }
-:root:not([data-switch])::view-transition-old(root) { animation-duration: var(--fast); }   /* the old page leaves quickly, so the two never blur together */
-:root:not([data-switch]) .top { view-transition-name: top; }
-:root:not([data-switch]) .head h1 { view-transition-name: m-name; }
-:root:not([data-switch]) .head .fine .amt { view-transition-name: m-amt; }
-::view-transition-group(m-name), ::view-transition-group(m-amt) { animation-duration: var(--slow); animation-timing-function: var(--ease); }
-::view-transition-old(m-name), ::view-transition-new(m-name), ::view-transition-old(m-amt), ::view-transition-new(m-amt) { block-size: 100%; inline-size: auto; animation-duration: var(--slow); }
-
-/* The header stays at the top while you scroll. Its height is kept in --head-h, so links to a heading stop
-   below it, and it gets a soft edge once the page has scrolled. */
-.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 30; background: var(--bg); transition: box-shadow var(--fast) var(--ease); }
-.top.scrolled { box-shadow: 0 1px 0 var(--line), 0 12px 24px -20px rgba(0, 0, 0, .6); }
-html { scroll-padding-top: calc(var(--head-h, 80px) + 12px); }
-@media (max-width: 860px) {
-  .top .wrap { padding-block: 10px; row-gap: 4px; }
-  .top nav { flex-wrap: nowrap; gap: 0; }
-  .top nav > a, .laws > button { padding: 6px 9px; font-size: 0.9rem; }
-}
-@media (max-width: 360px) { .top nav > a, .laws > button { padding: 6px 6px; font-size: 0.85rem; } }
-@media (prefers-reduced-motion: reduce) { .top { transition: none; } }
-
-.preview { border-bottom: 1px dashed var(--line); font-family: var(--mono); font-size: 0.78rem; color: var(--muted); }
-.preview p { margin: 0; padding-block: 9px; }
-
 /* Shared type */
-.crumbs { font-family: var(--mono); font-size: 0.82rem; color: var(--muted); margin: 30px 0 0; display: flex; flex-wrap: wrap; gap: 6px; }
 .crumbs a { text-decoration: none; }
-.crumbs a:hover { color: var(--ink); text-decoration: underline; }
-.eyebrow { font-family: var(--mono); font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin: 0 0 14px; }
-h1 { font-family: var(--display); font-variation-settings: "SOFT" 100, "opsz" 144; font-weight: 560; font-size: clamp(2.2rem, 5vw, 3.9rem); line-height: 1.0; letter-spacing: -0.025em; margin: 0 0 16px; text-wrap: balance; overflow-wrap: anywhere; }
-h1.unnamed { font-style: italic; font-weight: 400; color: var(--muted); }
-h1 .tag-person { display: inline-block; vertical-align: 0.4em; margin-left: 12px; font-family: var(--mono); font-style: normal; font-size: 0.75rem;
-  font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; background: var(--latte); color: var(--latte-ink);
-  border-radius: 6px; padding: 5px 10px; box-shadow: inset 0 0 0 1.5px var(--latte-line); }
-.sec-h { font-family: var(--display); font-variation-settings: "SOFT" 100, "opsz" 72; font-weight: 560; font-size: 1.7rem; letter-spacing: -0.015em; line-height: 1.1; margin: 0 0 14px; text-wrap: balance; }
-.lede { margin: 0; font-size: 1.2rem; color: var(--muted); max-width: 36em; }
 .lede strong, .hl { color: var(--ink); font-weight: 700; background: linear-gradient(transparent 62%, var(--pink) 62%, var(--pink) 92%, transparent 92%); }
-.note { color: var(--muted); margin: 0; }
-.legend { font-family: var(--mono); font-size: 0.75rem; color: var(--muted); margin: 8px 0 0; }
-.btn { display: inline-flex; align-items: center; gap: 8px; text-decoration: none; font: inherit; font-weight: 700; padding: 11px 20px; border-radius: 999px; border: 2px solid var(--ink); background: transparent; color: var(--ink); cursor: pointer; transition: transform var(--fast) var(--ease), background var(--fast) var(--ease), scale var(--fast) var(--pop); }
-.btn:hover { transform: translateY(-2px); background: var(--surface); }
-.btn.primary:hover { background: var(--accent); filter: brightness(1.05); }
-.btn.primary { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
-.btn.small { padding: 7px 14px; font-size: 0.92rem; }
-.btn.latte { background: var(--latte); color: var(--latte-ink); border-color: var(--latte); }
-.btn.latte:hover { background: var(--latte); box-shadow: 4px 4px 0 var(--pink); }
-.pill { justify-self: start; font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.06em; text-transform: uppercase; padding: 4px 9px; border-radius: 6px; white-space: nowrap; }
-.pill.bad { background: var(--soon-bg); color: var(--soon); }
-.pill.ok { background: var(--neutral-bg); color: var(--muted); }
-.card { background: var(--surface); border: 2px solid var(--ink); border-radius: 24px; padding: 22px; }
-
 .results { list-style: none; margin: 0; padding: 0; border-top: 2px solid var(--ink); }
-.results li { border-bottom: 1px solid var(--line); }
-.results a { display: grid; grid-template-columns: 112px minmax(0, 1fr) 130px 150px; gap: 18px; align-items: start; padding: 16px 6px; text-decoration: none; border-radius: 14px; transition: background var(--fast) var(--ease); }
-.results a:hover { background: var(--surface); }
-.results .dt { font-family: var(--mono); font-size: 0.85rem; color: var(--muted); padding-top: 3px; font-variant-numeric: tabular-nums; }
-.results .who { min-width: 0; }
-.results .who b { display: block; font-size: 1.05rem; overflow-wrap: anywhere; }
-.results .who b.unnamed { font-style: italic; font-weight: 400; color: var(--muted); }
 .results .who span { display: block; color: var(--muted); font-size: 0.92rem; }
-.results .who small { display: block; font-family: var(--mono); font-size: 0.75rem; color: var(--muted); margin-top: 4px; }
-.results .cty { color: var(--muted); font-size: 0.95rem; padding-top: 2px; }
-.results .amt { text-align: right; font-family: var(--mono); font-weight: 500; font-variant-numeric: tabular-nums; padding-top: 2px; }
-.results .amt small { display: block; font-weight: 400; font-size: 0.8rem; color: var(--muted); }
-.results .amt.none { color: var(--muted); font-weight: 400; font-size: 0.85rem; }
-/* Footer: a latte band (espresso in the light look): who Fino is, where to go, how to write */
-footer { background: var(--ink); color: var(--bg); }
-footer .foot { padding-block: 48px 28px; display: grid; gap: 32px; font-size: 0.95rem; }
-footer .foot-top { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 0.7fr) minmax(0, 0.8fr) minmax(0, 1.3fr); gap: 32px; }
-footer p { margin: 0; max-width: 60em; }
-footer .brand { color: inherit; margin-bottom: 12px; }
-footer .brand svg .ln { stroke: var(--bg); }
-footer .foot-about p { opacity: .85; max-width: 28em; line-height: 1.55; }
-footer .foot-lbl { font-family: var(--mono); font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; opacity: .7; margin-bottom: 10px; }
-footer ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
-footer .foot-col a { color: inherit; text-decoration: none; border-bottom: 1.5px solid transparent; }
-footer .foot-col a:hover { border-bottom-color: currentColor; }
-footer .foot-write p:not(.foot-lbl) { opacity: .85; line-height: 1.55; margin-bottom: 14px; }
-/* green = you can do something: a solid pill, one click opens your own mail program */
-footer .foot-mail { display: inline-block; font-family: var(--mono); font-size: 0.9rem; text-decoration: none; padding: 8px 16px; border-radius: 999px;
-  background: var(--go-deep); color: #FFFFFF; border: 2px solid var(--go-deep); }
-footer .foot-mail:hover { background: transparent; color: inherit; }
-footer .foot-write p.foot-follow { margin: 16px 0 0; opacity: .85; } footer .foot-follow a { color: inherit; font-weight: 700; }
-footer a:focus-visible { outline: 3px solid var(--go-deep); outline-offset: 3px; border-radius: 6px; }
-footer .foot-base a { color: inherit; text-decoration: none; border-bottom: 1px solid currentColor; }
-footer .foot-base { border-top: 1.5px solid currentColor; padding-top: 16px; display: grid; gap: 6px; font-size: 0.82rem; opacity: .75; }
-@media (max-width: 900px) { footer .foot-top { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); } }
-@media (max-width: 560px) { footer .foot-top { gap: 24px; } footer .foot-about, footer .foot-write { grid-column: 1 / -1; } }
-
-@media (max-width: 860px) {
-  .top nav { order: 3; width: 100%; margin-left: -12px; }
-  .laws-menu { left: 0; right: auto; }
-}
-
 /* ---------- Pill card: the same component on the site and as a 4:5 post image ---------- */
 .pc-wrap { container-type: inline-size; }
 .pill-card { aspect-ratio: 4 / 5; display: flex; flex-direction: column; gap: 2.6cqw; padding: 6.4cqw 6.6cqw 5.6cqw;
   background: var(--bg); color: var(--ink); border: 2px solid var(--ink); border-radius: 6cqw; text-decoration: none; overflow: hidden; }
-a.pill-card { box-shadow: 7px 7px 0 var(--pink); transition: transform var(--fast) var(--ease); overflow: visible; }  /* on the site a card may grow rather than clip */
+a.pill-card { box-shadow: 7px 7px 0 var(--pink); transition: transform var(--fast) var(--ease); overflow: visible; }
+/* on the site a card may grow rather than clip */
 a.pill-card:hover { transform: translateY(-3px); }
 .pc-top { display: flex; justify-content: space-between; align-items: center; }
 .pc-eye { font-family: var(--mono); font-size: 3.1cqw; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
@@ -248,7 +103,6 @@ a.pill-card:hover { transform: translateY(-3px); }
 .pc-src { font-family: var(--mono); font-size: 2.4cqw; line-height: 1.4; color: var(--muted); margin: 0; }
 :root { --pc-hl: #6B3A47; }
 :root[data-mode="light"] { --pc-hl: var(--pink); }
-
 /* ---------- Article, layout v2 (rows 275 and 276, 2 Nov 2026) ----------
    Like the decision pages: a big plain title, a facts row like a project's credits, the contents as a numbered index,
    then the explainer's own sections as numbered rows on the reading sheet, the label on the left (it stays in view while
@@ -334,97 +188,27 @@ a.pill-card:hover { transform: translateY(-3px); }
 .paper .a-src p { margin: 0; max-width: none; }
 .a-src a { color: var(--go-deep); }
 @media (max-width: 760px) {
-  .facts-row { grid-auto-flow: row; grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .facts-row > div { padding: 12px 12px 14px; }
-  .facts-row > div:nth-child(odd) { padding-left: 0; border-left: 0; }
-  .facts-row > div:nth-child(n+3) { border-top: 1px solid var(--line); }
-  .sec-row { grid-template-columns: minmax(0, 1fr); gap: 14px; padding: 28px 0; }
-  .sec-lbl { position: static; display: flex; align-items: baseline; gap: 10px; }
-  .sec-n { margin: 0; }
-  .x-head h1 { margin-bottom: 24px; }
-  .x-toc { margin: 24px 0 28px; }
-  .paper { margin-bottom: 56px; font-size: 1.0625rem; }
-  .a-lead { font-size: 1.15rem; }
-  .paper blockquote { font-size: 1.15rem; }
-  .a-dec { grid-template-columns: minmax(0, 1fr); }
+.facts-row { grid-auto-flow: row; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.facts-row > div { padding: 12px 12px 14px; }
+.facts-row > div:nth-child(odd) { padding-left: 0; border-left: 0; }
+.facts-row > div:nth-child(n+3) { border-top: 1px solid var(--line); }
+.sec-row { grid-template-columns: minmax(0, 1fr); gap: 14px; padding: 28px 0; }
+.sec-lbl { position: static; display: flex; align-items: baseline; gap: 10px; }
+.sec-n { margin: 0; }
+.x-head h1 { margin-bottom: 24px; }
+.x-toc { margin: 24px 0 28px; }
+.paper { margin-bottom: 56px; font-size: 1.0625rem; }
+.a-lead { font-size: 1.15rem; }
+.paper blockquote { font-size: 1.15rem; }
+.a-dec { grid-template-columns: minmax(0, 1fr); }
 }
-@media (prefers-reduced-motion: reduce) { a.pill-card, .x-toc ol a, .a-dec a, .a-rel a { transition: none; } .a-rel a:hover { translate: none; } }
-/* Header logo: the word at the top; on scroll the letters close in (outer pair first, then the inner pair)
-   and the mascot pops up where they meet. Reduced motion: a plain fade. */
-.top .brand { position: relative; gap: 0; }
-.top .brand .logo { position: absolute; left: 50%; top: 50%; translate: -50% -50%; scale: .2; opacity: 0;
-  transition: scale var(--fast) var(--ease), opacity var(--fast) var(--ease); }
-.top .brand .word { display: inline-flex; }
-.top .brand .word span { display: inline-block; transition: transform var(--mid) var(--ease) .14s, opacity var(--mid) var(--ease) .2s; }
-.top .brand .word .w2, .top .brand .word .w3 { transition-delay: .1s, .16s; }
-.top.scrolled .brand .word span { opacity: 0; transition: transform var(--mid) var(--ease), opacity var(--fast) var(--ease) .1s; }
-.top.scrolled .brand .word .w2, .top.scrolled .brand .word .w3 { transition-delay: .08s, .16s; }
-.top.scrolled .brand .word .w1 { transform: translateX(.86em); }
-.top.scrolled .brand .word .w2 { transform: translateX(.3em); }
-.top.scrolled .brand .word .w3 { transform: translateX(-.28em); }
-.top.scrolled .brand .word .w4 { transform: translateX(-.84em); }
-.top.scrolled .brand .logo { scale: 1; opacity: 1; transition: scale var(--slow) var(--pop) .24s, opacity var(--fast) var(--ease) .24s; }
 @media (prefers-reduced-motion: reduce) {
-  .top .brand .word span, .top.scrolled .brand .word span { transform: none !important; transition: opacity var(--fast) var(--ease); transition-delay: 0s; }
-  .top .brand .logo, .top.scrolled .brand .logo { scale: 1; transition: opacity var(--fast) var(--ease); }
+a.pill-card, .x-toc ol a, .a-dec a, .a-rel a { transition: none; }
+.a-rel a:hover { translate: none; }
 }
-/* The small mascot's antenna wobbles to a stop just after the mascot pops up (follow-through). */
-.brand .logo .ant { transform-origin: 100px 50px; }
-.top.scrolled .brand .logo .ant { animation: ant-wobble .8s var(--ease) .45s both; }
-@keyframes ant-wobble { 0%, 100% { transform: none; } 25% { transform: rotate(14deg); } 50% { transform: rotate(-8deg); } 75% { transform: rotate(3deg); } }
-@media (prefers-reduced-motion: reduce) { .top.scrolled .brand .logo .ant { animation: none; } }
-/* Press feedback (squash and stretch): buttons dip for a moment when pressed, so a tap feels answered */
-.chip, .mode, .menu-btn, .linkbtn { transition: scale var(--fast) var(--pop); }
-.btn:active, .chip:active, .mode:active, .menu-btn:active, .linkbtn:active { scale: .96; }
-@media (prefers-reduced-motion: reduce) { .btn:active, .chip:active, .mode:active, .menu-btn:active, .linkbtn:active { scale: none; } }
-/* Copy citation: a tick pops onto the button once the citation is on the clipboard */
-.btn.done::before { content: "\2713"; font-weight: 700; animation: tick-in var(--mid) var(--pop) both; }
-@keyframes tick-in { from { opacity: 0; transform: scale(.4); } }
-@media (prefers-reduced-motion: reduce) { .btn.done::before { animation: none; } }
-/* Phone menu: below 760px the links fold behind a three-line button and open as a full-screen list.
-   Only when the script has run (.has-menu), so without JavaScript the links simply wrap as before. */
-.menu-btn { display: none; }
-@media (max-width: 760px) {
-  .top.has-menu .wrap { flex-wrap: nowrap; padding-block: 10px; }
-  .top.has-menu .mode { order: 2; margin-left: auto; }
-  .top.has-menu .menu-btn { order: 3; }
-  .top.has-menu .menu-btn { display: inline-grid; place-content: center; gap: 5px; width: 44px; height: 44px; flex: none; padding: 0; border-radius: 50%;
-    border: 1.5px solid var(--line); background: var(--surface); color: var(--ink); cursor: pointer; -webkit-tap-highlight-color: transparent; }
-  .menu-btn span { display: block; width: 18px; height: 2px; border-radius: 2px; background: currentColor; transition: transform var(--mid) var(--ease), opacity var(--fast) var(--ease); }
-  .top.open .menu-btn span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-  .top.open .menu-btn span:nth-child(2) { opacity: 0; }
-  .top.open .menu-btn span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-  .top.has-menu nav { position: fixed; inset: var(--head-h, 64px) 0 0 0; z-index: 40; order: 0; width: auto; margin: 0; display: flex; flex-direction: column;
-    flex-wrap: nowrap; gap: 0; padding: 8px 20px calc(28px + env(safe-area-inset-bottom, 0px)); background: var(--bg); overflow-y: auto; overscroll-behavior: contain;
-    opacity: 0; visibility: hidden; transform: translateY(-10px); transition: opacity var(--fast) var(--ease), transform var(--mid) var(--ease), visibility 0s linear var(--mid); }
-  .top.has-menu.open nav { opacity: 1; visibility: visible; transform: none; transition: opacity var(--fast) var(--ease), transform var(--mid) var(--ease); }
-  .top.has-menu nav > a { font-family: var(--display); font-size: 1.85rem; line-height: 1.2; padding: 16px 2px; border-radius: 0; color: var(--ink);
-    background: none; box-shadow: none; border-bottom: 1px solid var(--line); }
-  .top.has-menu nav > a.on { background: none; box-shadow: none; color: var(--ink); }
-  .top.has-menu nav > a.on::after { content: ''; display: inline-block; width: 9px; height: 9px; margin-left: 12px; vertical-align: middle; border-radius: 50%; background: var(--accent); }
-  .top.has-menu .laws { order: 0; border-bottom: 1px solid var(--line); }
-  .top.has-menu .laws > button, .top.has-menu .laws > button.on, .top.has-menu .laws > button:hover { display: flex; width: 100%; justify-content: space-between; align-items: center;
-    font-family: var(--display); font-size: 1.85rem; line-height: 1.2; padding: 16px 2px; border-radius: 0; color: var(--ink); background: none; box-shadow: none; }
-  .top.has-menu .laws > button svg { width: 18px; height: 18px; }
-  .top.has-menu .laws-menu:not([hidden]) { display: grid; position: static; width: auto; max-width: none; padding: 0 0 12px; margin: 0; gap: 2px;
-    background: none; border: 0; box-shadow: none; animation: menu-in var(--mid) var(--enter) both; }
-  .top.has-menu nav .laws-menu a, .top.has-menu .laws-menu .soon-law { padding: 10px 2px; border-radius: 10px; color: var(--ink); }
-  .top.has-menu .laws-menu b { font-size: 1.15rem; }
-  .top.has-menu .laws-menu span { color: var(--muted); }
-  .top.has-menu.open nav > * { animation: menu-in var(--slow) var(--enter) both; }
-  .top.has-menu.open nav > :nth-child(2) { animation-delay: .03s; } .top.has-menu.open nav > :nth-child(3) { animation-delay: .06s; }
-  .top.has-menu.open nav > :nth-child(4) { animation-delay: .09s; } .top.has-menu.open nav > :nth-child(5) { animation-delay: .12s; }
-  html.menu-open { overflow: hidden; }
-}
-@keyframes menu-in { from { opacity: 0; transform: translateY(8px); } }
-@media (prefers-reduced-motion: reduce) {
-  .menu-btn span, .top.has-menu nav, .top.has-menu.open nav { transition: none; }
-  .top.has-menu.open nav > * { animation: none; }
-}
-.top nav .laws-menu a.all-laws { border-top: 1px solid var(--latte-line); border-radius: 0 0 14px 14px; margin-top: 4px; }
 </style>
 
-<link rel="stylesheet" href="/assets/find.css?v=9c360da83179">
+<link rel="stylesheet" href="/assets/find.css?v=fa77cf47b19b">
 <!-- seo -->
 <link rel="canonical" href="https://finoprivacy.com/cookies.html">
 <meta property="og:type" content="article">
@@ -441,7 +225,7 @@ a.pill-card:hover { transform: translateY(-3px); }
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Article","@id":"https://finoprivacy.com/cookies.html","headline":"Cookie banners without “reject”","alternativeHeadline":"Our cookie banner has no “reject” button. How big are the fines?","description":"How big the fines are for a cookie banner without a reject button, the rules behind it and the real decisions.","url":"https://finoprivacy.com/cookies.html","image":"https://finoprivacy.com/cards/cookies.png","inLanguage":"en","dateModified":"2026-11-14","author":{"@id":"https://finoprivacy.com/#org"},"publisher":{"@id":"https://finoprivacy.com/#org"},"about":[{"@type":"Legislation","name":"Article 4 GDPR","url":"https://finoprivacy.com/gdpr/article-4.html"},{"@type":"Legislation","name":"Article 7 GDPR","url":"https://finoprivacy.com/gdpr/article-7.html"}],"citation":["https://finoprivacy.com/decisions/2021-FR-025.html","https://finoprivacy.com/decisions/2021-FR-027.html","https://finoprivacy.com/decisions/2020-ES-163.html","https://finoprivacy.com/decisions/2019-ES-045.html","https://finoprivacy.com/decisions/2024-BE-040.html","https://finoprivacy.com/decisions/2024-SE-010.html","https://finoprivacy.com/decisions/2023-IT-160.html","https://finoprivacy.com/decisions/2024-BE-011.html"]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Fino","item":"https://finoprivacy.com/"},{"@type":"ListItem","position":2,"name":"Questions","item":"https://finoprivacy.com/questions.html"},{"@type":"ListItem","position":3,"name":"Cookie banners without “reject”"}]},{"@type":"Organization","@id":"https://finoprivacy.com/#org","name":"Fino","url":"https://finoprivacy.com/","logo":"https://finoprivacy.com/og/fino-logo.png"}]}</script>
 <!-- /seo -->
 </head>
-<body>
+<body class="own-print">
 
 <header class="top">
   <a class="skip" href="#main">Skip to content</a>
@@ -650,105 +434,7 @@ Analytics and advertising cookies need consent.</p>
     </div>
   </div>
 </footer>
-<script>
-const byId = id => document.getElementById(id);
-
-/* Phone menu: the three-line button opens the links full screen; a link, Escape or a wider screen closes it */
-(() => {
-  const top = document.querySelector('.top'), btn = document.getElementById('menu-btn'), nav = document.getElementById('main-nav');
-  if (!top || !btn || !nav) return;
-  top.classList.add('has-menu');
-  const set = open => {
-    top.classList.toggle('open', open); document.documentElement.classList.toggle('menu-open', open);
-    btn.setAttribute('aria-expanded', String(open)); btn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
-  };
-  /* keyboard: opening moves focus into the menu, Tab stays among the menu and the header buttons until it is closed, Escape closes and returns focus to the button */
-  const shown = el => el.getClientRects().length > 0;
-  const ring = () => [...top.querySelectorAll('nav a[href], nav button, .ai-btn, .find-btn, .mode, .menu-btn')].filter(shown);
-  btn.addEventListener('click', () => {
-    const open = !top.classList.contains('open');
-    set(open);
-    document.querySelectorAll('main, footer').forEach(el => { el.inert = open; });
-    if (open) { const first = ring()[0]; if (first) first.focus(); }
-  });
-  nav.addEventListener('click', e => { if (e.target.closest('a')) { set(false); document.querySelectorAll('main, footer').forEach(el => { el.inert = false; }); } });
-  document.addEventListener('keydown', e => {
-    if (!top.classList.contains('open')) return;
-    if (e.key === 'Escape') { set(false); document.querySelectorAll('main, footer').forEach(el => { el.inert = false; }); btn.focus(); }
-    else if (e.key === 'Tab') {
-      const r = ring(), a = document.activeElement;
-      if (e.shiftKey && a === r[0]) { e.preventDefault(); r[r.length - 1].focus(); }
-      else if (!e.shiftKey && a === r[r.length - 1]) { e.preventDefault(); r[0].focus(); }
-    }
-  });
-  matchMedia('(min-width: 761px)').addEventListener('change', e => { if (e.matches) { set(false); document.querySelectorAll('main, footer').forEach(el => { el.inert = false; }); } });
-})();
-/* Sticky header: remember its height (for links to headings and the side contents) and show a soft edge once scrolled */
-(() => {
-  const head = document.querySelector('header.top');
-  if (!head) return;
-  const height = () => document.documentElement.style.setProperty('--head-h', head.offsetHeight + 'px');
-  height();
-  if (window.ResizeObserver) new ResizeObserver(height).observe(head);
-  const edge = () => head.classList.toggle('scrolled', window.scrollY > 4);
-  edge();
-  addEventListener('scroll', edge, { passive: true });
-})();
-
-/* Light / dark button, as on the homepage */
-const root = document.documentElement, modeBtn = byId('mode');
-function setMode(v, save) {
-  if (v === 'light') root.dataset.mode = 'light'; else delete root.dataset.mode;
-  const label = v === 'light' ? 'Switch to dark mode' : 'Switch to light mode';
-  modeBtn.setAttribute('aria-label', label); modeBtn.title = label;
-  if (save) { try { localStorage.setItem('mode', v); } catch (e) {} }
-}
-modeBtn.addEventListener('click', () => {
-    const next = root.dataset.mode === 'light' ? 'dark' : 'light';
-    const calm = matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (!document.startViewTransition) { setMode(next, true); return; }
-    if (!calm) root.dataset.switch = next;
-    const t = document.startViewTransition(() => setMode(next, true));
-    t.finished.finally(() => { delete root.dataset.switch; });
-    if (calm) return;
-    const b = modeBtn.getBoundingClientRect(), x = b.left + b.width / 2, y = b.top + b.height / 2;
-    const far = Math.hypot(Math.max(x, innerWidth - x), Math.max(y, innerHeight - y));
-    const dot = `circle(0px at ${x}px ${y}px)`, all = `circle(${far}px at ${x}px ${y}px)`;
-    /* the time follows the distance the light travels: about 0.45s on a phone, up to 0.7s on a big screen; going dark is a little quicker */
-    const up = Math.min(700, Math.max(450, far * .42)), dur = next === 'light' ? up : Math.round(up * .8);
-    document.dispatchEvent(new CustomEvent('fino:light', { detail: { next, x, y, far, dur } }));   // the homepage Fino reacts
-    t.ready.then(() => next === 'light'
-      ? root.animate({ clipPath: [dot, all] }, { duration: dur, easing: 'cubic-bezier(.25,.7,.25,1)', pseudoElement: '::view-transition-new(root)' })
-      : root.animate({ clipPath: [all, dot] }, { duration: dur, easing: 'cubic-bezier(.5,0,.75,.4)', pseudoElement: '::view-transition-old(root)' }));
-  });
-let saved = null;
-try { saved = localStorage.getItem('mode'); } catch (e) {}
-setMode(saved === 'dark' ? 'dark' : 'light', false);
-
-/* Moving between pages: a link to a decision carries its name and amount into the decision page, and back again */
-(() => {
-  if (!('onpageswap' in window)) return;
-  const pathOf = u => { try { return new URL(u, location.href).pathname.replace(/\.html$/, ''); } catch (e) { return ''; } };
-  const linkTo = p => [...document.querySelectorAll('a[href*="decisions/"]')].find(a => pathOf(a.href) === p);
-  const mark = (a, on) => {
-    document.querySelectorAll('.head h1, .head .fine .amt').forEach(x => { x.style.viewTransitionName = on ? 'none' : ''; });
-    const n = a.querySelector('b'), m = a.querySelector('.amt, .pk-amt');
-    if (n) n.style.viewTransitionName = on ? 'm-name' : '';
-    if (m) m.style.viewTransitionName = on ? 'm-amt' : '';
-  };
-  addEventListener('pageswap', e => {
-    if (!e.viewTransition || !e.activation || !e.activation.entry) return;
-    const a = linkTo(pathOf(e.activation.entry.url)); if (!a) return;
-    mark(a, true); addEventListener('pageshow', () => mark(a, false), { once: true });
-  });
-  addEventListener('pagereveal', e => {
-    const from = e.viewTransition && window.navigation && navigation.activation && navigation.activation.from;
-    const a = from && linkTo(pathOf(from.url)); if (!a) return;
-    mark(a, true); e.viewTransition.finished.finally(() => mark(a, false));
-  });
-})();
-
-</script>
-<script src="/assets/find.js?v=9c360da83179" defer></script>
+<script src="/assets/fino.js?v=6773a6e05e3b"></script>
+<script src="/assets/find.js?v=fa77cf47b19b" defer></script>
 </body>
 </html>
