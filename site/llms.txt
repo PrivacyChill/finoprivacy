@@ -4,11 +4,11 @@
 
 Facts about the data:
 
-- Sources: the CMS Enforcement Tracker and GDPRhub (noyb), both CC BY-NC-SA 4.0, and Fino's own readings of the regulators' documents (2,547 decisions read, 1,004 in part), with duplicates merged. Nearly every decision links to the regulator's original.
+- Sources: the CMS Enforcement Tracker and GDPRhub (noyb), both CC BY-NC-SA 4.0, and Fino's own readings of the regulators' documents (2,665 decisions read, 1,012 in part), with duplicates merged. Nearly every decision links to the regulator's original.
 - Each decision has a permanent page at https://finoprivacy.com/decisions/<case number>.html, for example https://finoprivacy.com/decisions/2026-IT-181.html. The case number (e.g. 2026/IT/181) is Fino's own: year / country code / number.
 - Fines in other currencies are converted to euro at the European Central Bank rate of the decision date and marked as estimates (≈).
 - Private individuals are never named; they are described (for example "Doctor").
-- The data files were built on 19 Nov 2026; the CMS Enforcement Tracker and GDPRhub were last read on 16 Nov 2026.
+- The data files were built on 20 Nov 2026; the CMS Enforcement Tracker and GDPRhub were last read on 16 Nov 2026.
 
 ## Connector
 
@@ -32,21 +32,21 @@ Facts about the data:
 ## The GDPR
 
 - [The full text, 99 articles and 173 recitals](https://finoprivacy.com/gdpr/)
-- [Article 5: Principles relating to processing of personal data](https://finoprivacy.com/gdpr/article-5.html): 2,292 decisions cite it
-- [Article 6: Lawfulness of processing](https://finoprivacy.com/gdpr/article-6.html): 1,568 decisions cite it
-- [Article 7: Conditions for consent](https://finoprivacy.com/gdpr/article-7.html): 171 decisions cite it
-- [Article 9: Processing of special categories of personal data](https://finoprivacy.com/gdpr/article-9.html): 361 decisions cite it
-- [Article 12: Transparent information, communication and modalities for the exercise of the rights of the data subject](https://finoprivacy.com/gdpr/article-12.html): 768 decisions cite it
-- [Article 13: Information to be provided where personal data are collected from the data subject](https://finoprivacy.com/gdpr/article-13.html): 816 decisions cite it
-- [Article 14: Information to be provided where personal data have not been obtained from the data subject](https://finoprivacy.com/gdpr/article-14.html): 204 decisions cite it
-- [Article 15: Right of access by the data subject](https://finoprivacy.com/gdpr/article-15.html): 454 decisions cite it
-- [Article 17: Right to erasure (‘right to be forgotten’)](https://finoprivacy.com/gdpr/article-17.html): 284 decisions cite it
-- [Article 21: Right to object](https://finoprivacy.com/gdpr/article-21.html): 164 decisions cite it
+- [Article 5: Principles relating to processing of personal data](https://finoprivacy.com/gdpr/article-5.html): 2,289 decisions cite it
+- [Article 6: Lawfulness of processing](https://finoprivacy.com/gdpr/article-6.html): 1,565 decisions cite it
+- [Article 7: Conditions for consent](https://finoprivacy.com/gdpr/article-7.html): 173 decisions cite it
+- [Article 9: Processing of special categories of personal data](https://finoprivacy.com/gdpr/article-9.html): 357 decisions cite it
+- [Article 12: Transparent information, communication and modalities for the exercise of the rights of the data subject](https://finoprivacy.com/gdpr/article-12.html): 770 decisions cite it
+- [Article 13: Information to be provided where personal data are collected from the data subject](https://finoprivacy.com/gdpr/article-13.html): 820 decisions cite it
+- [Article 14: Information to be provided where personal data have not been obtained from the data subject](https://finoprivacy.com/gdpr/article-14.html): 205 decisions cite it
+- [Article 15: Right of access by the data subject](https://finoprivacy.com/gdpr/article-15.html): 452 decisions cite it
+- [Article 17: Right to erasure (‘right to be forgotten’)](https://finoprivacy.com/gdpr/article-17.html): 281 decisions cite it
+- [Article 21: Right to object](https://finoprivacy.com/gdpr/article-21.html): 166 decisions cite it
 - [Article 24: Responsibility of the controller](https://finoprivacy.com/gdpr/article-24.html): 264 decisions cite it
-- [Article 25: Data protection by design and by default](https://finoprivacy.com/gdpr/article-25.html): 313 decisions cite it
-- [Article 28: Processor](https://finoprivacy.com/gdpr/article-28.html): 204 decisions cite it
+- [Article 25: Data protection by design and by default](https://finoprivacy.com/gdpr/article-25.html): 311 decisions cite it
+- [Article 28: Processor](https://finoprivacy.com/gdpr/article-28.html): 205 decisions cite it
 - [Article 32: Security of processing](https://finoprivacy.com/gdpr/article-32.html): 931 decisions cite it
-- [Article 58: Powers](https://finoprivacy.com/gdpr/article-58.html): 303 decisions cite it
+- [Article 58: Powers](https://finoprivacy.com/gdpr/article-58.html): 297 decisions cite it
 
 ## The AI Act
 
@@ -110,7 +110,7 @@ Facts about the data:
 - [Croatia](https://finoprivacy.com/countries/croatia/): 66 decisions, about €18.7 million in 50 fines with a published amount, and 2 more fines with no published amount
 - [Cyprus](https://finoprivacy.com/countries/cyprus/): 65 decisions, €1.5 million in 48 fines with a published amount
 - [Czech Republic](https://finoprivacy.com/countries/czech-republic/): 82 decisions, about €14.3 million in 66 fines with a published amount, and 10 more fines with no published amount, and 3 more fines in korunas, not converted to euro
-- [Denmark](https://finoprivacy.com/countries/denmark/): 118 decisions, about €676,593 in 19 fines with a published amount, and 1 more fine with no published amount
+- [Denmark](https://finoprivacy.com/countries/denmark/): 119 decisions, about €676,593 in 19 fines with a published amount, and 1 more fine with no published amount
 - [Estonia](https://finoprivacy.com/countries/estonia/): 38 decisions, €3.4 million in 10 fines with a published amount
 - [EU bodies](https://finoprivacy.com/countries/european-union/): 13 decisions, no fine amount
 - [Finland](https://finoprivacy.com/countries/finland/): 106 decisions, €9.5 million in 28 fines with a published amount
@@ -121,13 +121,13 @@ Facts about the data:
 - [Iceland](https://finoprivacy.com/countries/iceland/): 119 decisions, about €646,306 in 17 fines with a published amount
 - [Ireland](https://finoprivacy.com/countries/ireland/): 58 decisions, about €4.44 billion in 41 fines with a published amount, and 1 more fine with no published amount
 - [Isle of Man](https://finoprivacy.com/countries/isle-of-man/): 3 decisions, €218,750 in 3 fines with a published amount
-- [Italy](https://finoprivacy.com/countries/italy/): 785 decisions, €1.18 billion in 678 fines with a published amount, and 1 more fine with no published amount
+- [Italy](https://finoprivacy.com/countries/italy/): 786 decisions, €1.18 billion in 679 fines with a published amount, and 1 more fine with no published amount
 - [Latvia](https://finoprivacy.com/countries/latvia/): 26 decisions, €561,645 in 16 fines with a published amount, and 3 more fines with no published amount
 - [Liechtenstein](https://finoprivacy.com/countries/liechtenstein/): 1 decision, no published fine amount, 1 fine with no published amount
 - [Lithuania](https://finoprivacy.com/countries/lithuania/): 35 decisions, €3.2 million in 19 fines with a published amount
 - [Luxembourg](https://finoprivacy.com/countries/luxembourg/): 48 decisions, €518,061 in 39 fines with a published amount
 - [Malta](https://finoprivacy.com/countries/malta/): 23 decisions, €397,500 in 16 fines with a published amount
-- [Netherlands](https://finoprivacy.com/countries/netherlands/): 52 decisions, €1.28 billion in 45 fines with a published amount
+- [Netherlands](https://finoprivacy.com/countries/netherlands/): 51 decisions, €1.28 billion in 44 fines with a published amount
 - [Norway](https://finoprivacy.com/countries/norway/): 105 decisions, about €22.9 million in 69 fines with a published amount, and 5 more fines with no published amount
 - [Poland](https://finoprivacy.com/countries/poland/): 144 decisions, about €22.7 million in 122 fines with a published amount
 - [Portugal](https://finoprivacy.com/countries/portugal/): 12 decisions, €6.3 million in 8 fines with a published amount
@@ -135,7 +135,7 @@ Facts about the data:
 - [Slovakia](https://finoprivacy.com/countries/slovakia/): 13 decisions, €139,800 in 8 fines with a published amount, and 4 more fines with no published amount
 - [Slovenia](https://finoprivacy.com/countries/slovenia/): 106 decisions, €216,388 in 24 fines with a published amount
 - [Spain](https://finoprivacy.com/countries/spain/): 1,337 decisions, €170.0 million in 1,225 fines with a published amount
-- [Sweden](https://finoprivacy.com/countries/sweden/): 88 decisions, about €32.8 million in 49 fines with a published amount
+- [Sweden](https://finoprivacy.com/countries/sweden/): 87 decisions, about €32.4 million in 48 fines with a published amount
 - [Switzerland](https://finoprivacy.com/countries/switzerland/): 4 decisions, no fine amount
 - [United Kingdom](https://finoprivacy.com/countries/united-kingdom/): 111 decisions, about €123.0 million in 72 fines with a published amount
 
