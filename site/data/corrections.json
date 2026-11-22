@@ -3,8 +3,8 @@
   "name": "Fino corrections",
   "purpose": "Corrections recorded since 5 November 2026, so a reader can see what changed and why. The list says nothing about errors that have not been found or recorded. The Fino connector's corrections() tool returns this list unchanged.",
   "version": 2,
-  "updated": "2026-11-21",
-  "status": "784 corrections are recorded. The list shows only the errors Fino found or was told about, so a page that is not on it is not proven correct: write to hello@finoprivacy.com and quote the decision number.",
+  "updated": "2026-11-22",
+  "status": "797 corrections are recorded. The list shows only the errors Fino found or was told about, so a page that is not on it is not proven correct: write to hello@finoprivacy.com and quote the decision number.",
   "fields": {
    "id": "Running number, C-0001 and up",
    "date": "Day the correction went live (YYYY-MM-DD)",
@@ -6731,7 +6731,7 @@
   {
    "id": "C-0611",
    "date": "2026-11-19",
-   "fino_id": null,
+   "fino_id": "2021/FI/002",
    "page_url": "https://finoprivacy.com/decisions/2021-FI-002.html",
    "what_was_wrong": "The page of 2021/FI/002 showed no court status, although the regulator's own page says a court annulled the decision.",
    "what_it_says_now": "The page now shows the status \"annulled\": Annulled by a court: the Helsinki Administrative Court annulled the decisions of the Data Protection Ombudsman and of the sanctions board (ruling 5398/2023 of 2 October 2023), and the Supreme Administrative Court let the court's ruling stand (precedent KHO:2025:23, given on 26 March 2025). The fine had been EUR 52,000.",
@@ -6742,7 +6742,7 @@
   {
    "id": "C-0612",
    "date": "2026-11-19",
-   "fino_id": null,
+   "fino_id": "2026/IT/139",
    "page_url": "https://finoprivacy.com/decisions/2026-IT-139.html",
    "what_was_wrong": "The page of 2026/IT/139 showed no court status, although the regulator's own page says court proceedings against the decision are pending.",
    "what_it_says_now": "The page now shows the status \"appealed\": Under appeal: the Garante's published text carries the note that the opposition proceedings against the decision are pending in court. No court is named.",
@@ -8639,6 +8639,149 @@
    "what_was_wrong": "The page of 2023/GB/005 named no organisation (C-0397 first gave 'None'). The reprimand is addressed to Nottinghamshire County Council.",
    "what_it_says_now": "The page now names Nottinghamshire County Council.",
    "evidence_url": "https://ico.org.uk/media/action-weve-taken/reprimands/4026605/nottinghamshire-county-council.pdf",
+   "reported_by": "Fino check",
+   "credit": null
+  },
+  {
+   "id": "C-0785",
+   "date": "2026-11-22",
+   "fino_id": "2019/AT/003",
+   "page_url": "https://finoprivacy.com/decisions/2019-AT-003.html",
+   "what_was_wrong": "The page of 2019/AT/003 gave the fine as EUR 25,000, under the date of the Data Protection Authority's decision, and showed no court status. The Authority's penalty decision set EUR 50,000; the Federal Administrative Court reduced it to EUR 25,000 (ruling of 12 March 2020).",
+   "what_it_says_now": "The page now shows the status \"reduced\": Reduced on appeal: the Data Protection Authority's penalty decision of 12 August 2019 set a fine of EUR 50,000. The Federal Administrative Court (BVwG, ruling W256 2223922-1 of 12 March 2020) upheld the company's complaint and reduced the fine to EUR 25,000. The ruling states that a revision under Art. 133(4) B-VG is not admissible.",
+   "evidence_url": "https://www.ris.bka.gv.at/Dokumente/Bvwg/BVWGT_20200312_W256_2223922_1_00/BVWGT_20200312_W256_2223922_1_00.html",
+   "reported_by": "Fino check",
+   "credit": null
+  },
+  {
+   "id": "C-0786",
+   "date": "2026-11-22",
+   "fino_id": "2023/AT/001",
+   "page_url": "https://finoprivacy.com/decisions/2023-AT-001.html",
+   "what_was_wrong": "The page of 2023/AT/001 gave the fine as EUR 28,000, under the year 2023 only (\"Exact date not published\"), and showed no court status. The Authority's penalty decision set EUR 50,700; the Federal Administrative Court reduced it to EUR 28,000 (ruling of 25 October 2024). The ruling names the Authority's decision as of 14.12.2023.",
+   "what_it_says_now": "The page now shows the status \"reduced\": Reduced on appeal: the Data Protection Authority's penalty decision of 14 December 2023 set a fine of EUR 50,700. The Federal Administrative Court (BVwG, ruling W108 2285546-1/22E of 25 October 2024) partly upheld the party's complaint, amended the decision and reduced the fine to EUR 28,000. The ruling states that a revision under Art. 133(4) B-VG is not admissible. The page now gives the date of the Authority's decision, 14 December 2023, as the ruling names it.",
+   "evidence_url": "https://www.ris.bka.gv.at/Dokumente/Bvwg/BVWGT_20241025_W108_2285546_1_00/BVWGT_20241025_W108_2285546_1_00.html",
+   "reported_by": "Fino check",
+   "credit": null
+  },
+  {
+   "id": "C-0787",
+   "date": "2026-11-22",
+   "fino_id": "2020/NL/012",
+   "page_url": "https://finoprivacy.com/decisions/2020-NL-012.html",
+   "what_was_wrong": "The page of 2020/NL/012 showed the Dutch DPA's fine of EUR 525,000 plainly and counted it in the totals, with no word on what happened to it afterwards, although the AP's own news item of 18 October 2025 says the AP and the KNLTB agreed to end the court case and that the AP lowers the fine to EUR 250,000 less the costs of an information campaign and of any other measures (Fino has found no new amount). The page also gave 3 March 2020 as the date of the decision; the AP's decision letter is dated 20 December 2019.",
+   "what_it_says_now": "The page now shows the status \"reduced\" with no new amount (new amount not yet confirmed): the EUR 525,000 is no longer counted in the totals, and the date of the decision is 20 December 2019. Court case ended by agreement: the Dutch DPA's (AP) news item of 18 October 2025 says the AP and the KNLTB agreed to end the legal procedure after the 2024 judgment of the Court of Justice of the EU, and that the AP therefore lowers the fine of EUR 525,000 it imposed in 2019 to EUR 250,000, less the costs the association has for an information campaign on privacy and for any other measures. The AP says it is not yet clear how high those costs are and that it will set the final fine decision in June 2026 at the latest. Fino has found no final decision (the AP page, opened on 21 November 2026, shows none), so the new amount is not known: the page shows no new amount, and the AP's amount of 2019 is not counted in the totals.",
+   "evidence_url": "https://www.autoriteitpersoonsgegevens.nl/actueel/ap-en-knltb-beeindigen-zaak-rond-boete",
+   "reported_by": "Fino check",
+   "credit": null
+  },
+  {
+   "id": "C-0788",
+   "date": "2026-11-22",
+   "fino_id": "2021/CY/002",
+   "page_url": "https://finoprivacy.com/decisions/2021-CY-002.html",
+   "what_was_wrong": "The page of 2021/CY/002 linked an old address of the Cypriot Commissioner's site that now opens only the home page of the Commissioner's new site, so it showed no working link to the original (https://www.dataprotection.gov.cy/dataprotection/dataprotection.nsf/All/D7D2A1120DDE670AC225878B0040D4E7?OpenDocument).",
+   "what_it_says_now": "The page now links the Commissioner's own announcement of the EUR 925,000 fine, signed 12 November 2021 (https://www.gov.cy/dataprotection/documents/epivoli-dioikitikoy-prostimoy-ypsoys-e925-000stin-etaireia-ws-wispear-systems-ltd/). The page calls it the regulator's press release: it is the announcement of the fine, not the decision. The announcement says the fine was imposed by the Commissioner's decision, for a breach of Article 5(1)(a) GDPR, and has been collected; the Commissioner says the company had in essence admitted its liability. The page's summary now keeps that hedge (\"in essence\"); it had said the company admitted responsibility.",
+   "evidence_url": "https://www.gov.cy/dataprotection/documents/epivoli-dioikitikoy-prostimoy-ypsoys-e925-000stin-etaireia-ws-wispear-systems-ltd/",
+   "reported_by": "Fino check",
+   "credit": null
+  },
+  {
+   "id": "C-0789",
+   "date": "2026-11-22",
+   "fino_id": "2020/NO/014",
+   "page_url": "https://finoprivacy.com/decisions/2020-NO-014.html",
+   "what_was_wrong": "The page of 2020/NO/014 linked pvn.no/pvn-2020-12, an old address on the Privacy Appeals Board's own site (pvn.no).",
+   "what_it_says_now": "The page now links the Board's own page for the decision: https://personvernnemnda.no/2020/08/29/pvn-2020-12-klage-over-datatilsynets-palegg-om-redegjorelse-forholdet-mellom-ekomloven-og-personopplysningsloven/",
+   "evidence_url": "https://personvernnemnda.no/2020/08/29/pvn-2020-12-klage-over-datatilsynets-palegg-om-redegjorelse-forholdet-mellom-ekomloven-og-personopplysningsloven/",
+   "reported_by": "Fino check",
+   "credit": null
+  },
+  {
+   "id": "C-0790",
+   "date": "2026-11-22",
+   "fino_id": "2020/NO/016",
+   "page_url": "https://finoprivacy.com/decisions/2020-NO-016.html",
+   "what_was_wrong": "The page of 2020/NO/016 linked pvn.no/pvn-2020-11, an old address on the Privacy Appeals Board's own site (pvn.no).",
+   "what_it_says_now": "The page now links the Board's own page for the decision: https://personvernnemnda.no/2020/08/29/pvn-2020-11-bruk-av-personopplysninger-innsamlet-ved-kameraovervaking-irettesettelse/",
+   "evidence_url": "https://personvernnemnda.no/2020/08/29/pvn-2020-11-bruk-av-personopplysninger-innsamlet-ved-kameraovervaking-irettesettelse/",
+   "reported_by": "Fino check",
+   "credit": null
+  },
+  {
+   "id": "C-0791",
+   "date": "2026-11-22",
+   "fino_id": "2020/NO/017",
+   "page_url": "https://finoprivacy.com/decisions/2020-NO-017.html",
+   "what_was_wrong": "The page of 2020/NO/017 linked pvn.no/pvn-2020-15, an old address on the Privacy Appeals Board's own site (pvn.no).",
+   "what_it_says_now": "The page now links the Board's own page for the decision: https://personvernnemnda.no/2020/08/29/pvn-2020-15-skrivemate-for-personnavn/",
+   "evidence_url": "https://personvernnemnda.no/2020/08/29/pvn-2020-15-skrivemate-for-personnavn/",
+   "reported_by": "Fino check",
+   "credit": null
+  },
+  {
+   "id": "C-0792",
+   "date": "2026-11-22",
+   "fino_id": "2020/NO/019",
+   "page_url": "https://finoprivacy.com/decisions/2020-NO-019.html",
+   "what_was_wrong": "The page of 2020/NO/019 linked pvn.no/pvn-2020-13, an old address on the Privacy Appeals Board's own site (pvn.no).",
+   "what_it_says_now": "The page now links the Board's own page for the decision: https://personvernnemnda.no/2020/08/29/pvn-2020-13-arendal-kommunes-behandling-av-personopplysninger-i-kartleggingsverktoyet-spekter/",
+   "evidence_url": "https://personvernnemnda.no/2020/08/29/pvn-2020-13-arendal-kommunes-behandling-av-personopplysninger-i-kartleggingsverktoyet-spekter/",
+   "reported_by": "Fino check",
+   "credit": null
+  },
+  {
+   "id": "C-0793",
+   "date": "2026-11-22",
+   "fino_id": "2021/NO/045",
+   "page_url": "https://finoprivacy.com/decisions/2021-NO-045.html",
+   "what_was_wrong": "The page of 2021/NO/045 linked pvn.no/pvn-2021-06, an old address on the Privacy Appeals Board's own site (pvn.no).",
+   "what_it_says_now": "The page now links the Board's own page for the decision: https://personvernnemnda.no/2021/09/03/pvn-2021-06-innsyn-i-personopplysninger-knyttet-til-ip-adresser/",
+   "evidence_url": "https://personvernnemnda.no/2021/09/03/pvn-2021-06-innsyn-i-personopplysninger-knyttet-til-ip-adresser/",
+   "reported_by": "Fino check",
+   "credit": null
+  },
+  {
+   "id": "C-0794",
+   "date": "2026-11-22",
+   "fino_id": "2023/NO/010",
+   "page_url": "https://finoprivacy.com/decisions/2023-NO-010.html",
+   "what_was_wrong": "The page of 2023/NO/010 linked pvn.no/pvn-2022-21, an old address on the Privacy Appeals Board's own site (pvn.no).",
+   "what_it_says_now": "The page now links the Board's own page for the decision: https://personvernnemnda.no/2022/09/03/pvn-2022-21-oppreisning-for-oversittelse-av-klagefrist-m-m/",
+   "evidence_url": "https://personvernnemnda.no/2022/09/03/pvn-2022-21-oppreisning-for-oversittelse-av-klagefrist-m-m/",
+   "reported_by": "Fino check",
+   "credit": null
+  },
+  {
+   "id": "C-0795",
+   "date": "2026-11-22",
+   "fino_id": null,
+   "page_url": "https://finoprivacy.com/countries/romania/",
+   "what_was_wrong": "13 Romanian pages show the day an investigation finished, labelled \"Investigation finished\", but their fine print said \"Date from the regulator's decision\"; a 14th, 2019/RO/010, said \"Date from the regulator's press release\" without saying that the date is the day the investigation finished. The press release of the Romanian authority gives the day the investigation finished and does not give the day of a decision. The 14 pages: 2019/RO/006, 2019/RO/009, 2019/RO/010, 2019/RO/011, 2019/RO/012, 2019/RO/014, 2020/RO/003, 2020/RO/006, 2020/RO/013, 2020/RO/020, 2020/RO/021, 2020/RO/023, 2021/RO/013, 2021/RO/014.",
+   "what_it_says_now": "The fine print of each page now says the date is the day the investigation finished, as the press release says it; the dates themselves are unchanged. 2019/RO/006 (25 November 2019; CMS / GDPRhub gave 18 December 2019); 2019/RO/009 (19 November 2019; CMS / GDPRhub gave 16 December 2019); 2019/RO/010 (18 November 2019; CMS / GDPRhub gave 29 November 2019); 2019/RO/011 (4 November 2019; CMS / GDPRhub gave 28 November 2019); 2019/RO/012 (7 November 2019; CMS / GDPRhub gave 4 December 2019); 2019/RO/014 (28 October 2019; CMS / GDPRhub gave 25 November 2019); 2020/RO/003 (20 November 2020; CMS / GDPRhub gave 22 December 2020); 2020/RO/006 (4 November 2020; CMS / GDPRhub gave 23 November 2020); 2020/RO/013 (6 July 2020; CMS / GDPRhub gave 27 July 2020); 2020/RO/020 (10 April 2020; CMS / GDPRhub gave 23 April 2020); 2020/RO/021 (14 April 2020; CMS / GDPRhub gave 5 May 2020); 2020/RO/023 (13 February 2020; CMS / GDPRhub gave 25 March 2020); 2021/RO/013 (6 May 2021; CMS / GDPRhub gave 19 May 2021); 2021/RO/014 (23 April 2021; CMS / GDPRhub gave 13 May 2021).",
+   "evidence_url": "https://finoprivacy.com/countries/romania/",
+   "reported_by": "Fino check",
+   "credit": null
+  },
+  {
+   "id": "C-0796",
+   "date": "2026-11-22",
+   "fino_id": "2020/BG/002",
+   "page_url": "https://finoprivacy.com/decisions/2020-BG-002.html",
+   "what_was_wrong": "The Fino list had one decision twice: 2020/BG/005 and 2020/BG/002, the same decision (same regulator file number, date and amount): 2020/BG/005 was GDPRhub's listing of it.",
+   "what_it_says_now": "2020/BG/005 is no longer a page of its own: its address forwards to 2020/BG/002.",
+   "evidence_url": "https://cpdp.bg/решение-по-жалба-с-рег-№-ппн-01-137-04-02-2019-г/",
+   "reported_by": "Fino check",
+   "credit": null
+  },
+  {
+   "id": "C-0797",
+   "date": "2026-11-22",
+   "fino_id": "2020/ES/010",
+   "page_url": "https://finoprivacy.com/decisions/2020-ES-010.html",
+   "what_was_wrong": "The page of 2020/ES/010 named the company fined. The name listed for it is built on a doctor's name and ends in S.L.P. (sociedad limitada profesional, a professional company): the practice of a named plastic surgeon, which Fino treats like a sole trader, so it names no one.",
+   "what_it_says_now": "The page now shows no name. It describes the party only as a professional plastic surgery practice (a company), and everything else on the page is unchanged.",
+   "evidence_url": "https://www.aepd.es/es/documento/ps-00317-2020.pdf",
    "reported_by": "Fino check",
    "credit": null
   }

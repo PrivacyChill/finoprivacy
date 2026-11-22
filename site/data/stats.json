@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-21 17:34:04",
+  "generated_at": "2026-11-22 12:51:16",
   "licence": "CC BY-NC-SA 4.0 — https://creativecommons.org/licenses/by-nc-sa/4.0/",
   "sources": [
     "enforcementtracker.com, provided by CMS (CC BY-NC-SA 4.0)",
@@ -7,12 +7,12 @@
     "Fino, from the regulator's own publication"
   ],
   "stats": {
-    "cases": 5023,
+    "cases": 5022,
     "countries": 33,
-    "total_fines_eur": 8454664949,
+    "total_fines_eur": 8454139949,
     "latest_decision": "2026-11-13",
-    "last_run": "2026-11-21 17:34:02",
-    "total_fines_eur_converted": 216739626
+    "last_run": "2026-11-22 12:51:15",
+    "total_fines_eur_converted": 216734513
   },
   "last_fetch": "2026-11-16 14:41:39",
   "regulators": {
@@ -249,6 +249,7 @@
     "2019/NL/001": "2019/NL/006",
     "2019/PT/002": "2019/PT/005",
     "2019/RO/022": "2019/RO/017",
+    "2020/BG/005": "2020/BG/002",
     "2020/CY/001": "2020/CY/013",
     "2020/CY/010": "2020/CY/002",
     "2020/CZ/029": "2020/CZ/003",
