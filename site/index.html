@@ -584,27 +584,32 @@ select:focus-visible, input:focus-visible { outline: 3px solid var(--accent); ou
 .home-rows .sec-lbl .clay { position: absolute; right: 0; bottom: -18px; width: clamp(104px, 26vw, 190px); }
 .home-rows .sec-lbl:has(.clay) { padding-right: clamp(112px, 28vw, 210px); min-height: clamp(110px, 27vw, 200px); display: flex; flex-direction: column; justify-content: flex-end; }
 
-/* 01 The connector, with a real answer */
-.ai-split { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 40px; align-items: start; }
-.home-rows .ai-card { position: relative; border: 0; background: none; padding: 0; max-width: none; }
+/* 01 The connector: the card, then one question answered with and without Fino (home v3, 22 Nov 2026) */
+.home-rows .ai-card { position: relative; border: 0; background: none; padding: 0; max-width: none; display: grid; grid-template-columns: minmax(0, 1fr) auto; column-gap: 32px; align-items: end; margin-bottom: 28px; }
+.home-rows .ai-card > p { grid-column: 1; max-width: 46rem; }
+.home-rows .ai-card > .clay-carry { grid-column: 2; grid-row: 1 / span 3; align-self: end; }
 .home-rows .ai-lead { font-size: clamp(1.35rem, 2.4vw, 1.8rem); line-height: 1.25; margin-bottom: 14px; }
 .home-rows .ai-go { border: 2px solid var(--accent); }
-.clay-carry { display: block; width: clamp(150px, 40vw, 230px); margin: 26px 0 0 -8px; }
-.chat { border: 2px solid var(--ink); border-radius: 6px 18px 18px 18px; background: var(--surface); padding: 16px; display: grid; gap: 12px; margin: 0; box-shadow: 7px 7px 0 var(--accent); }
-.chat .msg { display: grid; gap: 8px; min-width: 0; }
-.chat .you { justify-items: end; }
-.chat .q { margin: 0; max-width: 92%; padding: 10px 14px; border-radius: 16px 16px 4px 16px; background: var(--accent); color: var(--accent-ink); font-weight: 700; line-height: 1.45; overflow-wrap: anywhere; }
-.chat .q .sfx { font-weight: 400; opacity: .85; }
-.calls { display: flex; flex-wrap: wrap; gap: 6px; margin: 0; padding: 0; list-style: none; }
-.call { font-family: var(--mono); font-size: 0.74rem; padding: 4px 10px; border-radius: 999px; border: 1.5px solid var(--accent); color: var(--ink); }
-.call b { color: var(--accent); font-weight: 500; }
-.ans { border: 1px solid var(--line); background: var(--bg); border-radius: 4px 16px 16px 16px; padding: 14px 16px; min-width: 0; font-size: 0.97rem; line-height: 1.55; overflow-wrap: anywhere; }
-.ans p { margin: 0 0 10px; }
-.ans > :last-child { margin-bottom: 0; }
+.clay-carry { display: block; width: clamp(150px, 40vw, 230px); margin: 0; }
+.cmp { border: 2px solid var(--ink); border-radius: 6px 18px 18px 18px; background: var(--surface); padding: 18px; display: grid; gap: 14px; box-shadow: 7px 7px 0 var(--accent); }
+.cmp-lead { margin: 0; font-size: clamp(1.05rem, 1.6vw, 1.2rem); line-height: 1.4; font-weight: 700; max-width: 46rem; }
+.cmp-q { margin: 0; justify-self: end; max-width: 92%; padding: 10px 14px; border-radius: 16px 16px 4px 16px; background: var(--accent); color: var(--accent-ink); font-weight: 700; line-height: 1.45; overflow-wrap: anywhere; }
+.cmp-q small { display: block; font-weight: 400; opacity: .85; font-size: .8em; margin-bottom: 2px; }
+.cmp-cols { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+.cmp-col { border: 1px solid var(--line); background: var(--bg); border-radius: 4px 16px 16px 16px; padding: 14px 16px; min-width: 0; font-size: 0.97rem; line-height: 1.55; overflow-wrap: anywhere; display: grid; gap: 8px; align-content: start; }
+.cmp-col h3 { margin: 0; font-size: 1rem; line-height: 1.3; }
+.cmp-tag { display: inline-block; font-family: var(--mono); font-size: .74rem; font-weight: 500; padding: 3px 10px; border-radius: 999px; border: 1.5px solid var(--muted); color: var(--muted); margin-bottom: 6px; }
+.cmp-col.with .cmp-tag { border-color: var(--accent); color: var(--accent); }
+.cmp-meta { margin: 0; font-size: .86rem; color: var(--muted); }
+.cmp-ans { display: grid; gap: 8px; }
+.cmp-ans p { margin: 0; }
+.cmp-ans .cmp-h { font-weight: 700; font-size: .8rem; color: var(--muted); text-transform: uppercase; letter-spacing: .05em; }
+.cmp-ans a { color: var(--ink); text-decoration: underline; text-decoration-color: var(--accent); text-decoration-thickness: 2px; text-underline-offset: 3px; }
 .chat-more a { display: inline-flex; align-items: center; min-height: 44px; font-weight: 700; color: var(--ink); text-decoration: underline; text-decoration-color: var(--accent); text-decoration-thickness: 2px; text-underline-offset: 4px; }
 .chat-more a:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
-.chat .cap { margin: 0; font-size: 0.86rem; color: var(--muted); }
-@media (max-width: 860px) { .ai-split { grid-template-columns: minmax(0, 1fr); gap: 26px; } .clay-carry { position: absolute; right: -6px; bottom: -14px; margin: 0; width: 132px; } .home-rows .ai-card { padding-bottom: 8px; min-height: 150px; } .home-rows .ai-lead, .home-rows .ai-small { max-width: none; } .home-rows .ai-go-row { margin-right: 130px; } }
+.cmp .chat-more, .cmp .cap { margin: 0; }
+.cmp .cap { font-size: 0.86rem; color: var(--muted); }
+@media (max-width: 860px) { .cmp-cols { grid-template-columns: minmax(0, 1fr); } .cmp { padding: 12px; } .home-rows .ai-card { grid-template-columns: minmax(0, 1fr); padding-bottom: 8px; min-height: 150px; margin-bottom: 20px; } .home-rows .ai-card > .clay-carry { position: absolute; right: -6px; bottom: -14px; width: 132px; grid-column: auto; grid-row: auto; } .home-rows .ai-lead, .home-rows .ai-small { max-width: none; } .home-rows .ai-go-row { margin-right: 130px; } }
 
 /* 05 Where the facts come from: each promise is a slip of paper with its stamp */
 .slips { list-style: none; padding: 0; max-width: none; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin-bottom: 26px; }
@@ -630,7 +635,7 @@ select:focus-visible, input:focus-visible { outline: 3px solid var(--accent); ou
 </style>
 <link rel="stylesheet" href="/assets/find.css?v=fa77cf47b19b">
 
-
+
 <!-- seo -->
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Fino">
@@ -763,7 +768,6 @@ select:focus-visible, input:focus-visible { outline: 3px solid var(--accent); ou
         <div><dt>Decisions</dt><dd><b data-n="cases">5,022</b></dd></div>
         <div><dt>Countries</dt><dd><b data-n="countries">33</b></dd></div>
         <div><dt>Laws</dt><dd><b data-n="laws">28</b></dd></div>
-        <div><dt>Read from an official document</dt><dd><b data-n="read">2,692</b> <small class="part">(<span data-n="read_part">1,014</span> in part)</small></dd></div>
       </dl>
       <p class="built">Data built <span data-n="generated">22 Nov 2026</span>.</p>
     </div>
@@ -778,16 +782,14 @@ select:focus-visible, input:focus-visible { outline: 3px solid var(--accent); ou
   <div class="wrap"><div class="sec-rows home-rows">
     <section class="sec-row ai-block" id="ai" aria-labelledby="ai-h" data-room="olive">
       <div class="sec-lbl"><span class="sec-n">01</span><h2 id="ai-h">Plug your AI into Fino.</h2></div>
-      <div class="sec-body">
-        <div class="ai-split">
-          <div class="ai-card">
-            <p class="ai-lead">Connect your AI to Fino&rsquo;s database and tools with a connector (MCP): AI&rsquo;s power, Fino&rsquo;s knowledge.</p>
-            <p class="ai-small">Free. Read-only. No login.</p>
-            <p class="ai-go-row"><a class="ai-go" href="/ai/">See how it works</a></p>
-            <img class="clay clay-carry" src="/assets/clay/fino-carrying.webp" alt="" width="480" height="513" loading="lazy" decoding="async">
-          </div>
-          <div class="ai-demo" data-reveal><!-- ai-demo --><div class="chat"><div class="msg you"><p class="q">What was the Garante&rsquo;s fine on Enel Energia for telemarketing in 2024, and is it final?<span class="sfx"> Use ONLY the fino tools; give the Fino links.</span></p></div><div class="msg ai"><ul class="calls" aria-label="The Fino tools the AI called"><li class="call"><b>Fino</b> search_decisions</li><li class="call"><b>Fino</b> get_decision</li><li class="call"><b>Fino</b> search_decisions</li></ul><div class="ans"><p><b>The fine:</b> &euro;79,107,101, imposed on Enel Energia SpA by the Garante in its decision of 8 February 2024 (Provvedimento n. 81).</p><p>Fino&rsquo;s summary says the Garante found that Enel Energia&rsquo;s sales-agency platform let shared or unauthorised users load telemarketing contracts, obtained from illegally acquired contact lists, into Enel&rsquo;s systems from 2015 to 2022. It found weak security measures (credentials used by several people at once, access-log alerts switched off), too little control of agencies and sub-agents, and a flawed Art. 28 contract framework, and it ordered Enel to notify the affected data subjects, adopt technical measures and publish the decision. The decision cites GDPR Arts. 5(1)(f), 5(2), 24(1), 25, 28 and 32.</p><p><b>Is it final?</b> Not yet. Fino records two stages:</p><ul><li><b>Confirmed in court:</b> the Rome Tribunal rejected Enel&rsquo;s challenge and confirmed the decision in full (judgment 12783/2025, published 18 September 2025). The fine is unchanged at &euro;79,107,101.</li><li><b>Further appeal pending:</b> Fino notes that another appeal is still pending. The fine therefore isn&rsquo;t final, and Fino&rsquo;s data doesn&rsquo;t say what that appeal is or when it will be decided.</li></ul><p class="chat-more"><a href="/ai/#demo-1">Read the whole answer</a></p></div></div><p class="cap">A real answer from an AI connected to Fino, 5 November 2026, checked again on 9 November. Not legal advice.</p></div><!-- /ai-demo --></div>
+      <div class="sec-body wide">
+        <div class="ai-card">
+          <p class="ai-lead">Connect your AI to Fino&rsquo;s database and tools with a connector (MCP): AI&rsquo;s power, Fino&rsquo;s knowledge.</p>
+          <p class="ai-small">Free. Read-only. No login.</p>
+          <p class="ai-go-row"><a class="ai-go" href="/ai/">See how it works</a></p>
+          <img class="clay clay-carry" src="/assets/clay/fino-carrying.webp" alt="" width="480" height="513" loading="lazy" decoding="async">
         </div>
+        <div class="ai-demo" data-reveal><!-- ai-demo --><div class="cmp"><p class="cmp-lead">Same question, same AI. Without Fino it could not read the two regulators&rsquo; lists and answered from memory. With Fino it read them and gave the items, with links.</p><p class="cmp-q"><small>The question</small>We&rsquo;re a retailer operating in Italy and Germany, planning to use an AI tool that scores job applicants from their CVs. Is a DPIA mandatory in Italy and in Germany? Point me to the exact item on the Italian Garante&rsquo;s list and on the German authorities&rsquo; list that applies, and to the relevant EDPB guidance. Give me what I can cite, with links.</p><div class="cmp-cols"><div class="cmp-col" role="group" aria-labelledby="cmp-a"><h3 id="cmp-a"><span class="cmp-tag">Without Fino</span><br>Claude Sonnet 5.5, web search only</h3><p class="cmp-meta">3 web searches and 8 page fetches &middot; 92 seconds</p><div class="cmp-ans"><p>&hellip; I couldn&rsquo;t read the Garante and German list PDFs, though, so the exact item numbers and wording below are <b>not verified</b>. &hellip;</p><p>The list PDFs came back as compressed binary, and my fetch tool couldn&rsquo;t extract the text. &hellip;</p><p class="cmp-h">Italy</p><p>&hellip; <b>Applicable item (from memory):</b> item 1, which covers scoring or evaluative processing on a large scale, including profiling and predictive activities. &hellip;</p><p class="cmp-h">Germany</p><p>&hellip; <b>Applicable item (from memory):</b> the entry on using AI to process personal data in order to evaluate personal aspects of data subjects or steer interaction with them. I believe it is item 2, but I haven&rsquo;t confirmed that. &hellip;</p></div></div><div class="cmp-col with" role="group" aria-labelledby="cmp-b"><h3 id="cmp-b"><span class="cmp-tag">With Fino</span><br>Claude Sonnet 5.5, connected to Fino</h3><p class="cmp-meta">5 Fino tool calls &middot; 26 seconds</p><div class="cmp-ans"><p>&hellip; <b>Italy:</b> the closest Garante list entries are <b>item 1</b> (scoring/profiling) and <b>item 2</b> (automated decisions with significant effects). &hellip;</p><p><b>Germany:</b> there is no DSK list entry that names CV scoring as such. The nearest is <b>DSK item 11</b> (AI used to assess personal aspects of people). &hellip;</p><p><a href="/gdpr/article-35.html">GDPR Art. 35 on Fino</a> (Read in the original, EUR-Lex consolidated text): &hellip;</p><p><a href="/guidance/WP29-248.html">WP 248 rev.01 on Fino</a> (Article 29 Working Party, endorsed by the EDPB on 25 May 2018, Endorsement 1/2018; Read in the original, whole document): &hellip;</p></div></div></div><p class="chat-more"><a href="/ai/#compare">Read both answers in full</a></p><p class="cap">Real answers, same question, same model (Claude Sonnet 5.5), 22 November 2026. Left: web search only. Right: connected to Fino. Not legal advice.</p><p class="cap">Claude is a trademark of Anthropic. Fino is not affiliated with Anthropic, which does not endorse Fino.</p></div><!-- /ai-demo --></div>
       </div>
     </section>
 

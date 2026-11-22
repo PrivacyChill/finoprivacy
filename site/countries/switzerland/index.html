@@ -66,17 +66,14 @@
 /* the key figures, in a room of their own: the same facts, large */
 .cp-room > .wrap { padding-block: 46px 52px; }
 .cp-room .cp-figs.facts-row { display: grid; grid-auto-flow: row; grid-template-columns: minmax(0, 1fr) minmax(0, 2fr) minmax(0, 1.4fr) minmax(0, 2fr); margin: 0; border-top: 2px solid var(--ink); border-bottom: 0; }
-.cp-room .cp-figs.facts-row.nofine { grid-template-columns: minmax(0, 1fr) minmax(0, 2fr) minmax(0, 2fr); }
+.cp-room .cp-figs.facts-row.nofine { grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); }   /* two figures since 22 Nov 2026: Decisions, Fines (the read figure left the tile) */
 .cp-room .cp-figs.facts-row > div { grid-column: span 1; padding: 20px 20px 24px 0; border: 0; min-width: 0; }
 .cp-room .cp-figs.facts-row > div + div { padding-left: 22px; border-left: 1px solid var(--line); }
-.cp-room .cp-figs.facts-row > div.f4 { grid-column: 1 / -1; padding: 18px 0 0; border-left: 0; border-top: 1px solid var(--line); }
 .cp-figs dt { margin: 0 0 10px; font-size: 0.78rem; }
 .cp-figs dd { font-family: var(--display); font-variation-settings: "SOFT" 100, "opsz" 144; font-weight: 800; font-size: clamp(2rem, 3.4vw, 2.9rem); line-height: 1; letter-spacing: -0.025em; font-variant-numeric: tabular-nums; overflow-wrap: anywhere; }
 .cp-figs .f2.lg dd { font-size: clamp(1.5rem, 2.2vw, 1.8rem); }
 .cp-figs.nofine .f1 dd { font-size: clamp(1.5rem, 2.4vw, 2rem); line-height: 1.1; }
-.cp-figs .f4 dd { font-size: clamp(1.6rem, 2.6vw, 2.2rem); }
 .cp-figs dd small { display: block; margin-top: 8px; font-family: var(--body); font-variation-settings: normal; font-weight: 400; font-size: 1rem; line-height: 1.35; letter-spacing: 0; color: var(--muted); }
-.cp-figs .f4 dd small { display: inline; margin: 0 0 0 12px; }
 .cp-figs dd a { text-decoration-color: var(--accent); text-decoration-thickness: 3px; text-underline-offset: 5px; }
 .cp-figs dd a:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
 .cp-room .pg-intro { max-width: 46rem; margin: 30px 0 0; font-size: 1.08rem; line-height: 1.55; }
@@ -87,12 +84,9 @@
   .cp-room .cp-figs.facts-row > .w { grid-column: 1 / -1; }
   .cp-room .cp-figs.facts-row > .r { padding-left: 16px; border-left: 1px solid var(--line); }
   .cp-room .cp-figs.facts-row > div:first-child, .cp-room .cp-figs.facts-row > .r:nth-child(2) { border-top: 0; }
-  .cp-room .cp-figs.facts-row > div.f4 { padding: 16px 0 0; }
-  .cp-figs dd, .cp-room .cp-figs.facts-row > .f4 dd { font-size: 1.9rem; }
+  .cp-figs dd { font-size: 1.9rem; }
   .cp-room .cp-figs.facts-row > .w dd { font-size: 2.3rem; }
-  .cp-room .cp-figs.facts-row > .f4 dd { font-size: 1.9rem; }
   .cp-room .cp-figs.facts-row.nofine > .f1 dd { font-size: 1.5rem; }
-  .cp-figs .f4 dd small { display: block; margin: 8px 0 0; }
 }
 
 /* the sections: a big title, then the content (the home page's rooms, stacked) */
@@ -285,7 +279,7 @@
 </header>
 
 <main id="main"><section class="cp-hero" data-room="dots"><div class="wrap cp"><nav class="crumbs" aria-label="Breadcrumb"><a href="/fines.html">Fines</a><span aria-hidden="true">/</span><a href="/countries/">Countries</a><span aria-hidden="true">/</span><span aria-current="page">Switzerland</span></nav><div class="cp-title"><p class="eyebrow"><img class="flag xl" src="/flags/ch.svg" alt="" width="72" height="72"><span>Country</span></p><h1 class="cp-h1" style="--nl:11"><span class="pre">Data protection decisions in</span> <span class="nm">Switzerland</span></h1><p class="cp-lede">Fino holds 4 decisions from the Federal Data Protection and Information Commissioner (FDPIC), dated between 2024 and 28 April 2025.</p></div><div class="cp-file"><p class="files-h"><img class="clay" src="/assets/clay/fino-magnifier.webp" alt="" width="520" height="543" decoding="async"><span>The latest decision from Switzerland. The file says how Fino read it.</span></p><article class="cfile"><p class="cf-id">Fino file 2025/CH/001</p><p class="cf-meta"><img class="flag" src="/flags/ch.svg" alt="" width="22" height="22">Switzerland &middot; 28 April 2025</p><p class="cf-who"><a class="" href="/decisions/2025-CH-001.html">Inkasso-Team AG</a></p><p class="cf-amt txt">No fine</p><p class="cf-stamps"><span class="stamp ok">Read in the original</span><span class="stamp warn">Under appeal</span></p></article></div></div></section>
-<section class="cp-room" data-room="pink" aria-label="Key figures"><div class="wrap cp"><dl class="facts-row cp-figs nofine"><div class="f0"><dt>Decisions</dt><dd>4</dd></div><div class="f1 r"><dt>Fines</dt><dd>No fine amount</dd></div><div class="f2 w"><dt>Read from an official document</dt><dd>3<small>of 4, 1 in part</small></dd></div></dl><p class="pg-intro">Switzerland is not in the EU or the EEA: its regulator applies the Swiss Federal Act on Data Protection (FADP), not the GDPR. None of them carries a fine amount. Fino read 3 of the 4 decisions in an official document, in full or in part (1 in part); every page says where its facts come from.</p></div></section>
+<section class="cp-room" data-room="pink" aria-label="Key figures"><div class="wrap cp"><dl class="facts-row cp-figs nofine"><div class="f0"><dt>Decisions</dt><dd>4</dd></div><div class="f1 r"><dt>Fines</dt><dd>No fine amount</dd></div></dl><p class="pg-intro">Switzerland is not in the EU or the EEA: its regulator applies the Swiss Federal Act on Data Protection (FADP), not the GDPR. None of them carries a fine amount. Fino read 3 of the 4 decisions in an official document, in full or in part (1 in part); every page says where its facts come from.</p></div></section>
 <div class="wrap cp"><div class="sec-rows"><section class="sec-row" aria-labelledby="s-regulators"><div class="sec-lbl"><span class="sec-n" aria-hidden="true">01</span><h2 id="s-regulators">The regulator</h2></div><div class="sec-body"><ul class="cp-regs one"><li><b>Federal Data Protection and Information Commissioner</b><abbr>FDPIC</abbr><span class="local"><span lang="de">Eidgenössischer Datenschutz- und Öffentlichkeitsbeauftragter</span></span><span class="meta"><a href="https://www.edoeb.admin.ch" rel="noopener">edoeb.admin.ch &#8599;</a><span>4 decisions on Fino</span></span></li></ul></div></section></div></div>
 <section class="cp-room cp-yrs" data-room="olive"><div class="wrap cp"><div class="sec-rows"><section class="sec-row" aria-labelledby="s-years"><div class="sec-lbl"><span class="sec-n" aria-hidden="true">02</span><h2 id="s-years">Decisions by year</h2></div><div class="sec-body"><ol class="cp-years" aria-label="Decisions by year"><li><span class="y">2024</span><span class="bar" aria-hidden="true"><i style="width:100.0%"></i></span><b>2</b></li><li><span class="y">2025</span><span class="bar" aria-hidden="true"><i style="width:100.0%"></i></span><b>2</b></li></ol></div></section></div></div></section>
 <div class="wrap cp"><div class="sec-rows"><section class="sec-row" aria-labelledby="s-latest"><div class="sec-lbl"><span class="sec-n" aria-hidden="true">03</span><h2 id="s-latest">Latest decisions</h2></div><div class="sec-body"><ol class="results cp-first"><li><a href="/decisions/2025-CH-001.html"><span class="dt">28 Apr 2025</span><span class="who"><b class="">Inkasso-Team AG</b></span><span class="amt none">No fine<small class="tag">Under appeal</small></span></a></li><li><a href="/decisions/2025-CH-002.html"><span class="dt">29 Jan 2025</span><span class="who"><b class="">Cembra Money Bank AG</b></span><span class="amt none">No fine</span></a></li><li><a href="/decisions/2024-CH-001.html"><span class="dt">1 May 2024</span><span class="who"><b class="">Xplain</b></span><span class="amt none">No fine</span></a></li><li><a href="/decisions/2024-CH-002.html"><span class="dt">9 Apr 2024</span><span class="who"><b class="">Bürgerforum Schweiz</b></span><span class="amt none">No fine</span></a></li></ol></div></section><section class="sec-row" aria-labelledby="s-all"><div class="sec-lbl"><span class="sec-n" aria-hidden="true">04</span><h2 id="s-all">All 4 decisions</h2></div><div class="sec-body"><div class="finder panel cp-find" role="search">
