@@ -4,7 +4,7 @@
   "purpose": "Corrections recorded since 5 November 2026, so a reader can see what changed and why. The list says nothing about errors that have not been found or recorded. The Fino connector's corrections() tool returns this list unchanged.",
   "version": 2,
   "updated": "2026-11-22",
-  "status": "797 corrections are recorded. The list shows only the errors Fino found or was told about, so a page that is not on it is not proven correct: write to hello@finoprivacy.com and quote the decision number.",
+  "status": "809 corrections are recorded. The list shows only the errors Fino found or was told about, so a page that is not on it is not proven correct: write to hello@finoprivacy.com and quote the decision number.",
   "fields": {
    "id": "Running number, C-0001 and up",
    "date": "Day the correction went live (YYYY-MM-DD)",
@@ -8782,6 +8782,138 @@
    "what_was_wrong": "The page of 2020/ES/010 named the company fined. The name listed for it is built on a doctor's name and ends in S.L.P. (sociedad limitada profesional, a professional company): the practice of a named plastic surgeon, which Fino treats like a sole trader, so it names no one.",
    "what_it_says_now": "The page now shows no name. It describes the party only as a professional plastic surgery practice (a company), and everything else on the page is unchanged.",
    "evidence_url": "https://www.aepd.es/es/documento/ps-00317-2020.pdf",
+   "reported_by": "Fino check",
+   "credit": null
+  },
+  {
+   "id": "C-0798",
+   "date": "2026-11-22",
+   "fino_id": "2020/IM/001",
+   "page_url": "https://finoprivacy.com/decisions/2020-IM-001.html",
+   "what_was_wrong": "The page of 2020/IM/001 gave the Isle of Man Information Commissioner's fine as EUR 3,250. The penalty notice sets the amount in pounds: GBP 3,250 (page 1 of the notice, \"PN2020/02\"). The figure on the page was the pound figure shown as euro.",
+   "what_it_says_now": "The page now gives the fine as GBP 3,250, the amount in the notice, with Fino's own estimate in euro (about EUR 3,520, at the ECB rate of the decision date; the estimate is counted apart from the fines set in euro). The page shows Fino's own reading of the notice (read twice, by two readers that agree) and its reference PN2020/02.",
+   "evidence_url": "https://www.inforights.im/media/1903/cosmedltd_pn_11dec2020_website.pdf",
+   "reported_by": "Fino check",
+   "credit": null
+  },
+  {
+   "id": "C-0799",
+   "date": "2026-11-22",
+   "fino_id": "2020/IM/002",
+   "page_url": "https://finoprivacy.com/decisions/2020-IM-002.html",
+   "what_was_wrong": "The page of 2020/IM/002 gave the Isle of Man Information Commissioner's fine as EUR 13,500. The penalty notice sets the amount in pounds: GBP 12,250 (page 2 of the notice, paragraph 6; reference PN2020/01). The euro figure on the page was a conversion made by the source. The page also gave 25 June 2020 as the date of the decision; the notice is dated 20 March 2020 (page 1: \"Date: 20 March 2020\"), which is also in the address of the notice on the Commissioner's site.",
+   "what_it_says_now": "The page now gives the fine as GBP 12,250, the amount in the notice, with Fino's own estimate in euro (about EUR 13,500, at the ECB rate of the decision date; the estimate is counted apart from the fines set in euro). The page shows Fino's own reading of the notice (read twice, by two readers that agree) and its reference PN2020/01. The date of the decision is now 20 March 2020.",
+   "evidence_url": "https://www.inforights.im/media/1840/dha_penaltynotice_20mar2020_website.pdf",
+   "reported_by": "Fino check",
+   "credit": null
+  },
+  {
+   "id": "C-0800",
+   "date": "2026-11-22",
+   "fino_id": "2022/IM/001",
+   "page_url": "https://finoprivacy.com/decisions/2022-IM-001.html",
+   "what_was_wrong": "The page of 2022/IM/001 gave the Isle of Man Information Commissioner's fine as EUR 202,000. The penalty notice sets the amount in pounds: GBP 170,500 (page 1 of the notice, \"PN2022/01\"). The euro figure on the page was a conversion made by the source. The page also called the party \"Manx Care Ltd\"; the notice names it \"Manx Care\" only.",
+   "what_it_says_now": "The page now gives the fine as GBP 170,500, the amount in the notice, with Fino's own estimate in euro (about EUR 202,000, at the ECB rate of the decision date; the estimate is counted apart from the fines set in euro). The page shows Fino's own reading of the notice (read twice, by two readers that agree) and its reference PN2022/01. The party is now named as the notice names it: Manx Care.",
+   "evidence_url": "https://www.inforights.im/media/2021/manx_care_penalty_notice_13july2022_web.pdf",
+   "reported_by": "Fino check",
+   "credit": null
+  },
+  {
+   "id": "C-0801",
+   "date": "2026-11-22",
+   "fino_id": "2025/CH/002",
+   "page_url": "https://finoprivacy.com/decisions/2025-CH-002.html",
+   "what_was_wrong": "The page of 2025/CH/002 gave the outcome label \"Violation found\" for the decision of the Swiss Federal Data Protection and Information Commissioner (EDÖB) of 29 January 2025, named no organisation, gave no reference and did not say which articles of the Swiss Act the EDÖB applied.",
+   "what_it_says_now": "The page now names the company (Cembra Money Bank AG, a bank), gives the EDÖB's reference (EDÖB-A-D3DA3401/2) and the outcome as the decision states it: a warning (Verwarnung) with orders. The EDÖB applied the Swiss Federal Act on Data Protection (FADP, DSG), Art. 25(2)(b) and 25(7) on access requests, not the GDPR. No fine was imposed: the EDÖB charged a fee of CHF 5,829.40 for the warning, which is not a fine and is counted in no total.",
+   "evidence_url": "https://backend.edoeb.admin.ch/fileservice/sdweb-docs-prod-edoebch-files/files/2025/07/01/38c5fccc-45de-47f9-be46-4cf5bbf0fcc8.pdf",
+   "reported_by": "Fino check",
+   "credit": null
+  },
+  {
+   "id": "C-0802",
+   "date": "2026-11-22",
+   "fino_id": "2024/CH/001",
+   "page_url": "https://finoprivacy.com/decisions/2024-CH-001.html",
+   "what_was_wrong": "The page of 2024/CH/001 linked the Internet Archive's copy of the EDÖB's press release of 1 May 2024, because the EDÖB's old address for it no longer works (https://web.archive.org/web/20241202141237id_/https://www.edoeb.admin.ch/edoeb/fr/home/kurzmeldungen/nsb_mm.msg-id-100884.html).",
+   "what_it_says_now": "The page now links the EDÖB's own page for the press release, at its new address: https://www.edoeb.admin.ch/de/nsb?id=100884.",
+   "evidence_url": "https://www.edoeb.admin.ch/de/nsb?id=100884",
+   "reported_by": "Fino check",
+   "credit": null
+  },
+  {
+   "id": "C-0803",
+   "date": "2026-11-22",
+   "fino_id": "2022/NO/021",
+   "page_url": "https://finoprivacy.com/decisions/2022-NO-021.html",
+   "what_was_wrong": "The page of 2022/NO/021 linked pvn.no/pvn-2022-11, an old address on the Privacy Appeals Board's own site (pvn.no).",
+   "what_it_says_now": "The page now links the Board's own page for the decision: https://personvernnemnda.no/2022/09/03/pvn-2022-11-behandling-av-personopplysninger-i-barneverntjenesten-datatilsynets-kompetanse/",
+   "evidence_url": "https://personvernnemnda.no/2022/09/03/pvn-2022-11-behandling-av-personopplysninger-i-barneverntjenesten-datatilsynets-kompetanse/",
+   "reported_by": "Fino check",
+   "credit": null
+  },
+  {
+   "id": "C-0804",
+   "date": "2026-11-22",
+   "fino_id": "2023/NO/011",
+   "page_url": "https://finoprivacy.com/decisions/2023-NO-011.html",
+   "what_was_wrong": "The page of 2023/NO/011 linked pvn.no/pvn-2023-01, an old address on the Privacy Appeals Board's own site (pvn.no).",
+   "what_it_says_now": "The page now links the Board's own page for the decision: https://personvernnemnda.no/2023/09/03/pvn-2023-01-kredittvurdering-ved-bilutleie-via-en-bildelingsplattform/",
+   "evidence_url": "https://personvernnemnda.no/2023/09/03/pvn-2023-01-kredittvurdering-ved-bilutleie-via-en-bildelingsplattform/",
+   "reported_by": "Fino check",
+   "credit": null
+  },
+  {
+   "id": "C-0805",
+   "date": "2026-11-22",
+   "fino_id": "2023/NO/016",
+   "page_url": "https://finoprivacy.com/decisions/2023-NO-016.html",
+   "what_was_wrong": "The page of 2023/NO/016 linked pvn.no/pvn-2022-19, an old address on the Privacy Appeals Board's own site (pvn.no).",
+   "what_it_says_now": "The page now links the Board's own page for the decision: https://personvernnemnda.no/2022/09/03/pvn-2022-19-krav-om-sletting-av-personopplysninger-i-barnevernjournal/",
+   "evidence_url": "https://personvernnemnda.no/2022/09/03/pvn-2022-19-krav-om-sletting-av-personopplysninger-i-barnevernjournal/",
+   "reported_by": "Fino check",
+   "credit": null
+  },
+  {
+   "id": "C-0806",
+   "date": "2026-11-22",
+   "fino_id": "2019/RO/012",
+   "page_url": "https://finoprivacy.com/decisions/2019-RO-012.html",
+   "what_was_wrong": "The fine print of 2019/RO/012 said the name of the organisation came from \"the regulator's decision\", although the page's source is the Romanian regulator's press release and not a decision.",
+   "what_it_says_now": "The fine print now says \"press release\" wherever it says where the figure or the name comes from. Nothing else on the page changed.",
+   "evidence_url": "https://www.dataprotection.ro/?page=Sanctiune_CN_TAROM&lang=ro",
+   "reported_by": "Fino check",
+   "credit": null
+  },
+  {
+   "id": "C-0807",
+   "date": "2026-11-22",
+   "fino_id": "2020/RO/023",
+   "page_url": "https://finoprivacy.com/decisions/2020-RO-023.html",
+   "what_was_wrong": "The fine print of 2020/RO/023 said the fine came from \"the regulator's decision\", although the page's source is the Romanian regulator's press release and not a decision.",
+   "what_it_says_now": "The fine print now says \"press release\" wherever it says where the figure or the name comes from. Nothing else on the page changed.",
+   "evidence_url": "https://www.dataprotection.ro/index.jsp?page=Comunicat_noua_amenda_vodafone&lang=ro",
+   "reported_by": "Fino check",
+   "credit": null
+  },
+  {
+   "id": "C-0808",
+   "date": "2026-11-22",
+   "fino_id": "2019/RO/023",
+   "page_url": "https://finoprivacy.com/decisions/2019-RO-023.html",
+   "what_was_wrong": "The fine print of 2019/RO/023 said the name of the organisation and the fine came from \"the regulator's decision\", although the page's source is the Romanian regulator's press release and not a decision.",
+   "what_it_says_now": "The fine print now says \"press release\" wherever it says where the figure or the name comes from. Nothing else on the page changed.",
+   "evidence_url": "https://www.dataprotection.ro/index.jsp?page=O_noua_amenda_in_baza_Legii_506_/_2004_Vodafone&lang=en",
+   "reported_by": "Fino check",
+   "credit": null
+  },
+  {
+   "id": "C-0809",
+   "date": "2026-11-22",
+   "fino_id": "2023/AT/001",
+   "page_url": "https://finoprivacy.com/decisions/2023-AT-001.html",
+   "what_was_wrong": "The page of 2023/AT/001 said the regulator's reference was \"Not recorded\" although the Federal Administrative Court's ruling names it, and its button said \"The regulator's decision\" although it opens the Data Protection Authority's newsletter 1/2024, which reports the decision (a summary, not the decision).",
+   "what_it_says_now": "The page now gives the reference as the ruling names it for the Authority's penalty decision of 14 December 2023 (D550.688 2023-0.615.432), and the button says that the link is the regulator's newsletter.",
+   "evidence_url": "https://www.ris.bka.gv.at/Dokumente/Bvwg/BVWGT_20241025_W108_2285546_1_00/BVWGT_20241025_W108_2285546_1_00.html",
    "reported_by": "Fino check",
    "credit": null
   }

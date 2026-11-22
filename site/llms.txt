@@ -4,7 +4,7 @@
 
 Facts about the data:
 
-- Sources: the CMS Enforcement Tracker and GDPRhub (noyb), both CC BY-NC-SA 4.0, and Fino's own readings of the regulators' documents (2,688 decisions read, 1,014 in part), with duplicates merged. Nearly every decision links to the regulator's original.
+- Sources: the CMS Enforcement Tracker and GDPRhub (noyb), both CC BY-NC-SA 4.0, and Fino's own readings of the regulators' documents (2,692 decisions read, 1,014 in part), with duplicates merged. Nearly every decision links to the regulator's original.
 - Each decision has a permanent page at https://finoprivacy.com/decisions/<case number>.html, for example https://finoprivacy.com/decisions/2026-IT-181.html. The case number (e.g. 2026/IT/181) is Fino's own: year / country code / number.
 - Fines in other currencies are converted to euro at the European Central Bank rate of the decision date and marked as estimates (≈).
 - Private individuals are never named; they are described (for example "Doctor").
@@ -46,7 +46,7 @@ Facts about the data:
 - [Article 25: Data protection by design and by default](https://finoprivacy.com/gdpr/article-25.html): 311 decisions cite it
 - [Article 28: Processor](https://finoprivacy.com/gdpr/article-28.html): 205 decisions cite it
 - [Article 32: Security of processing](https://finoprivacy.com/gdpr/article-32.html): 931 decisions cite it
-- [Article 58: Powers](https://finoprivacy.com/gdpr/article-58.html): 295 decisions cite it
+- [Article 58: Powers](https://finoprivacy.com/gdpr/article-58.html): 296 decisions cite it
 
 ## The AI Act
 
@@ -120,7 +120,7 @@ Facts about the data:
 - [Hungary](https://finoprivacy.com/countries/hungary/): 114 decisions, about €3.4 million in 94 fines with a published amount, and 2 more fines in forints, not converted to euro
 - [Iceland](https://finoprivacy.com/countries/iceland/): 119 decisions, about €646,306 in 17 fines with a published amount
 - [Ireland](https://finoprivacy.com/countries/ireland/): 58 decisions, about €4.44 billion in 41 fines with a published amount, and 1 more fine with no published amount
-- [Isle of Man](https://finoprivacy.com/countries/isle-of-man/): 3 decisions, €218,750 in 3 fines with a published amount
+- [Isle of Man](https://finoprivacy.com/countries/isle-of-man/): 3 decisions, about €219,062 in 3 fines with a published amount
 - [Italy](https://finoprivacy.com/countries/italy/): 786 decisions, €1.18 billion in 679 fines with a published amount, and 1 more fine with no published amount
 - [Latvia](https://finoprivacy.com/countries/latvia/): 26 decisions, €561,645 in 16 fines with a published amount, and 3 more fines with no published amount
 - [Liechtenstein](https://finoprivacy.com/countries/liechtenstein/): 1 decision, no published fine amount, 1 fine with no published amount
