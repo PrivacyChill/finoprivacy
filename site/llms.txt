@@ -5,10 +5,10 @@
 Facts about the data:
 
 - Sources: the CMS Enforcement Tracker and GDPRhub (noyb), both CC BY-NC-SA 4.0, and Fino's own readings of the regulators' documents (2,692 decisions read, 1,014 in part), with duplicates merged. Nearly every decision links to the regulator's original.
-- Each decision has a permanent page at https://finoprivacy.com/decisions/<case number>.html, for example https://finoprivacy.com/decisions/2026-IT-181.html. The case number (e.g. 2026/IT/181) is Fino's own: year / country code / number.
+- Each decision has a permanent page at https://finoprivacy.com/decisions/<case number>.html, for example https://finoprivacy.com/decisions/ND-ES-105.html. The case number (e.g. ND/ES/105) is Fino's own: year / country code / number.
 - Fines in other currencies are converted to euro at the European Central Bank rate of the decision date and marked as estimates (≈).
 - Private individuals are never named; they are described (for example "Doctor").
-- The data files were built on 22 Nov 2026; the CMS Enforcement Tracker and GDPRhub were last read on 16 Nov 2026.
+- The data files were built on 23 Nov 2026; the CMS Enforcement Tracker and GDPRhub were last read on 23 Nov 2026.
 
 ## Connector
 
