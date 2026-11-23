@@ -128,7 +128,7 @@ Facts about the data:
 - [Luxembourg](https://finoprivacy.com/countries/luxembourg/): 48 decisions, €518,061 in 39 fines with a published amount
 - [Malta](https://finoprivacy.com/countries/malta/): 23 decisions, €397,500 in 16 fines with a published amount
 - [Netherlands](https://finoprivacy.com/countries/netherlands/): 51 decisions, €1.28 billion in 43 fines with a published amount
-- [Norway](https://finoprivacy.com/countries/norway/): 104 decisions, about €22.8 million in 68 fines with a published amount, and 5 more fines with no published amount
+- [Norway](https://finoprivacy.com/countries/norway/): 104 decisions, about €22.7 million in 68 fines with a published amount, and 5 more fines with no published amount
 - [Poland](https://finoprivacy.com/countries/poland/): 144 decisions, about €22.7 million in 122 fines with a published amount
 - [Portugal](https://finoprivacy.com/countries/portugal/): 12 decisions, €6.3 million in 8 fines with a published amount
 - [Romania](https://finoprivacy.com/countries/romania/): 312 decisions, about €2.4 million in 310 fines with a published amount

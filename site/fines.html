@@ -986,7 +986,7 @@ const fixWasLine = c => {
   const w = JSON.parse(c.fix_was), reg = c.regulator === 'it' ? 'the Garante’s' : 'the regulator’s', src = c.source === 'gdprhub' ? 'GDPRhub' : 'CMS', out = [];
   /* what the figure was read in: the decision, unless the link is a press release, a court judgment or a page that is not the regulator's (a press release is not 'the regulator's decision') */
   const sk = c.src_kind && !['gone', 'wrong', 'homepage'].includes(c.src_kind) ? c.src_kind : '';
-  const of = (c.cred || '').startsWith('fino_new:press release') || c.src_kind === 'press release' ? `${reg} press release` : c.src_report ? (c.src_report === 'edpb' ? 'the EDPB’s annual report' : `${reg} annual report`) : sk === 'court judgment' ? 'the court’s judgment' : sk ? `the ${sk}` : `${reg} decision`;   /* an annual report is never 'the regulator's decision' (2020/LI/001) */
+  const of = (c.cred || '').startsWith('fino_new:press release') || c.src_kind === 'press release' ? `${reg} press release` : c.src_report ? (c.src_report === 'edpb' ? 'the EDPB’s annual report' : `${reg} annual report`) : sk === 'court judgment' ? 'the court’s judgment' : sk ? (/^the /.test(sk) ? sk : `the ${sk}`) : `${reg} decision`;   /* an annual report is never 'the regulator's decision' (2020/LI/001) */
   if (w.controller) out.push(w.controller_note === 'english' ? `Organisation named as in ${of} (${src} gives the English “${esc(w.controller)}”).` : `Organisation named as in ${of}; ${src} gives “${esc(w.controller)}”.`);
   const was = w.decision_date ? when(w.decision_date, { 10: 'day', 7: 'month', 4: 'year' }[w.decision_date.length]).main : '';
   if (w.decision_date && w.decision_date_note === 'list') out.push(`The decision is dated only by its electronic time stamp, which the published copy does not show; the date is from ${c.regulator === 'lv' ? 'the Inspectorate’s' : 'the regulator’s'} own list of decisions; ${src} gives ${was}.`);   /* a date from the regulator's list, never 'Date from the regulator's decision' (Controller, 14 Nov 2026) */
@@ -1000,6 +1000,8 @@ const fixWasLine = c => {
 const docWeb = u => (/docweb\/(\d+)/.exec(u || '') || [])[1];
 const removalNotice = c => !c.own && c.status === 'removed' && !!docWeb(c.source_url) && docWeb(c.source_url) === docWeb(c.status_source);
 /* what the source link opens (pipeline/source_kinds.csv, audit F8): a news report is not 'the regulator's decision'; 'gone' = the original is no longer at its address and the page does not link it (audit F3) */
+/* a Slovenian opinion (source_kinds.csv: the regulator’s opinion): the regulator gave an opinion, not a decision; its title, citation and credit say so (Release 22) */
+const isOpinion = c => c.src_kind === 'the regulator’s opinion';
 const srcKindLabel = c => c.src_kind && !['gone', 'wrong', 'homepage', 'press release'].includes(c.src_kind) && !ownThirdParty(c) && !c.src_report && !c.own_dateflag ? c.src_kind[0].toUpperCase() + c.src_kind.slice(1) : '';
 const sourceLabel = c => removalNotice(c) ? 'The regulator’s removal notice' : srcKindLabel(c) ? srcKindLabel(c) : !c.own && (c.src_kind === 'press release' || (c.cred || '').startsWith('fino_new:press release')) ? 'The regulator’s press release' : c.src_report === 'edpb' ? 'The EDPB’s annual report' + (/^https?:\/\/web\.archive\.org\//.test(c.source_url || '') ? ' (Internet Archive copy)' : '') : !c.own && (c.own_dateflag === 'yearreport' || c.src_report) ? 'The regulator’s annual report' + (/^https?:\/\/web\.archive\.org\//.test(c.source_url || '') ? ' (Internet Archive copy)' : '') : ownThirdParty(c) ? (c.own_kind === 'news report' ? 'News report' : 'Law firm article') + (c.own_outlet ? ` (${c.own_outlet})` : '') : 'The regulator’s ' + ({ 'press release': 'press release', 'notice of intended decision': 'notice of intended decision', summary: 'summary', 'annual report': 'annual report' }[c.own_kind] || (!c.own_kind && c.own_dateflag === 'announced' ? 'announcement' : 'decision'));
 /* How much of the document was read (pipeline/fino.py read_scope): own_scope is 'part' (parts of it), 'list' (one line of the regulator's list of sanctions) or 'whole' (read in full again after an excerpt); empty = all of it.
@@ -1014,7 +1016,7 @@ function ownCredit0(c) {
     if (c.own_scope === 'part') return `Summary by Fino, read in parts of ${esc(thirdPartyDoc(c))}, not in the regulator&rsquo;s own document. Every fact here was checked word for word against those parts${day}.${note}`;
     return `Summary by Fino, read in ${esc(thirdPartyDoc(c))}, not in the regulator&rsquo;s own document. Every fact here was checked word for word against that ${noun}${day}.${note}`;
   }
-  const doc = { decision: 'decision', 'notice of intended decision': 'notice of intended decision', 'press release': 'press release', summary: 'official summary', 'annual report': 'annual report', 'court ruling': 'court ruling' }[c.own_kind] || 'document';
+  const doc = { decision: 'decision', 'notice of intended decision': 'notice of intended decision', 'press release': 'press release', summary: 'official summary', 'annual report': 'annual report', 'court ruling': 'court ruling', opinion: 'opinion' }[c.own_kind] || 'document';
   const except = (dateUnstated(c) && c.decision_date) || c.own_datesrc ? ', except the decision date' : '';   /* a date that is not the document's (Fino's other data, or the regulator's own list) is not part of what was checked against it */
   if (c.src_report === 'edpb') {   /* read in the EDPB's annual report, which reports a national regulator's decision: not the regulator's own document (src_report, from annual_reports.csv) */
     if (c.own_scope === 'part') return `Summary by Fino, read in parts of the EDPB&rsquo;s annual report, not in the regulator&rsquo;s own document. Every fact here was checked word for word against those parts${day}${except}.${note}`;
@@ -1193,7 +1195,7 @@ function nativeStepOf(c) {
 }
 /* wording that comes from this code and not from the data: build_seo adds these tags to a page's lastmod stamp, so only the pages they touch get a new date */
 const REF_LEAD = /^(Decision|D[ée]cision(?: quant au fond)?|D[ée]lib[ée]ration|Decisi[oó]n|Decisione|Beschluss|Beslissing|Entscheidung)\s+(?=(?:n[°o.]?\s*|nr\.?\s*)?\S*\d)/i;
-const wordingTags = c => [removalNotice(c) ? 'removal-notice' : '', fxCur(c) && (c.status === 'reopened' || !fineInfoPlain(c).conv) ? 'no-estimate-note' : '',
+const wordingTags = c => [removalNotice(c) ? 'removal-notice' : '', isOpinion(c) ? 'opinion-wording' : '', fxCur(c) && (c.status === 'reopened' || !fineInfoPlain(c).conv) ? 'no-estimate-note' : '',
   (m => m && !/^decision$/i.test(m[1]) || /\d\.$/.test(c.ref || ''))(REF_LEAD.exec(c.ref || '')) ? 'cite-ref' : '', /^not stated/i.test(c.ref || '') ? 'ref-not-stated' : '',
   !c.own && c.source === 'gdprhub' && c.case_id.includes(' - ') && REF_NONE.test(c.case_id.split(' - ').slice(1).join(' - ').trim()) ? 'ref-placeholder' : '', nativeStepOf(c) ? 'cite-native' : '', OWN_LAW_CC[c.country_code] ? 'own-law-country' : '', notFinal(c) ? 'not-final-status' : '', settledHalf(c) && c.fine_eur ? 'cite-settled-half' : '', SET_BY[c.pharos_id] ? 'cite-set-by' : ''].filter(Boolean);
 /* Danish fines (and the fine notice of 2022/DK/004): the Danish DPA cannot fine, it reports to the police and recommends an amount; a court or a fine notice sets it. The citation says who set the amount
@@ -1203,7 +1205,7 @@ function citation(c) {
   const d = when(c.decision_date, c.date_precision), f = fineInfo(c);
   if (SET_BY[c.pharos_id]) { const [kind, how] = SET_BY[c.pharos_id]; return `${c.authority ? authority(c.authority) + ' ' : ''}${kind} of ${d.main}${c.controller ? ` (${c.controller})` : ''}; ${how}. Fino case ${c.pharos_id}, ${SITE}/decisions/${slug(c.pharos_id)}.html, accessed ${today()}.`; }   /* who set the amount: SET_BY */
   /* a date that is not the decision's own is cited as what it is: 'press release of ...', 'decision as reported by eldiario.es on ...' */
-  const kind = c.own_dateflag === 'announced' ? ({ 'press release': 'press release', summary: 'official summary', 'annual report': 'annual report' }[c.own_kind] || (c.own_kind ? 'decision' : 'announcement')) : 'decision';
+  const kind = isOpinion(c) ? 'opinion' : c.own_dateflag === 'announced' ? ({ 'press release': 'press release', summary: 'official summary', 'annual report': 'annual report' }[c.own_kind] || (c.own_kind ? 'decision' : 'announcement')) : 'decision';
   const has = d.main !== 'Date not published';
   const when_ = !has ? '' : ({ reported: `as reported${c.own_outlet ? ` by ${c.own_outlet}` : ''} on ${d.main}`, notified: `notified on ${d.main}`,
     investigation: `(investigation finished ${d.main})`, closed: `closed in ${d.main}`, act: `(act dated ${d.main})`, yearreport: `in the annual report for ${d.main}` })[c.own_dateflag] || `of ${d.main}`;
