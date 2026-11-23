@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-23 05:32:10",
+  "generated_at": "2026-11-23 09:49:08",
   "licence": "CC BY-NC-SA 4.0 — https://creativecommons.org/licenses/by-nc-sa/4.0/",
   "sources": [
     "enforcementtracker.com, provided by CMS (CC BY-NC-SA 4.0)",
@@ -7,12 +7,12 @@
     "Fino, from the regulator's own publication"
   ],
   "stats": {
-    "cases": 5022,
+    "cases": 5020,
     "countries": 33,
-    "total_fines_eur": 8453921199,
+    "total_fines_eur": 8453798079,
     "latest_decision": "2026-11-17",
-    "last_run": "2026-11-23 05:32:08",
-    "total_fines_eur_converted": 216953575
+    "last_run": "2026-11-23 09:49:06",
+    "total_fines_eur_converted": 216956722
   },
   "last_fetch": "2026-11-23 04:01:29",
   "regulators": {
@@ -247,6 +247,7 @@
     "2019/ES/043": "2019/ES/025",
     "2019/IS/003": "2019/IS/002",
     "2019/NL/001": "2019/NL/006",
+    "2019/NO/001": "2019/NO/003",
     "2019/PT/002": "2019/PT/005",
     "2019/RO/022": "2019/RO/017",
     "2020/BG/005": "2020/BG/002",
@@ -301,6 +302,7 @@
     "2021/HU/009": "2021/HU/008",
     "2021/HU/010": "2021/HU/007",
     "2021/HU/016": "2021/HU/002",
+    "2021/IE/004": "2022/IE/011",
     "2021/IS/005": "2021/IS/004",
     "2021/IS/031": "2021/IS/002",
     "2021/LV/001": "2021/LV/002",
