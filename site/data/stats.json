@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-27 07:08:21",
+  "generated_at": "2026-11-28 10:06:24",
   "licence": "CC BY-NC-SA 4.0 — https://creativecommons.org/licenses/by-nc-sa/4.0/",
   "sources": [
     "enforcementtracker.com, provided by CMS (CC BY-NC-SA 4.0)",
@@ -9,10 +9,10 @@
   "stats": {
     "cases": 5021,
     "countries": 33,
-    "total_fines_eur": 8453403431,
+    "total_fines_eur": 8453092698,
     "latest_decision": "2026-11-17",
-    "last_run": "2026-11-27 07:08:19",
-    "total_fines_eur_converted": 216996603
+    "last_run": "2026-11-28 10:06:23",
+    "total_fines_eur_converted": 217007339
   },
   "last_fetch": "2026-11-23 04:01:29",
   "regulators": {

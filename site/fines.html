@@ -472,10 +472,12 @@ const simNoAmount = c => {
   if (gone) return withFinality(c, ({ annulled: f.struck ? 'Fine annulled' : 'Decision annulled', withdrawn: f.struck ? 'Fine withdrawn' : 'Decision withdrawn', removed: 'Decision removed' })[c.status]);
   return f.struck ? 'Fine set aside' : f.label || 'No fine';
 };
+/* Release 25 (FIX round 2, Controller B): a decision whose page still shows a company only by its initials (held until the original names what it does: PLAN-rel26 row 2) is not offered as a similar decision on other pages, or its initials would spread */
+const NOT_SIMILAR = new Set(['2019/BG/011']);
 function similar(c) {
   const out = [];
   for (const q of CASES) {
-    if (q === c || q.country_code !== c.country_code) continue;
+    if (q === c || q.country_code !== c.country_code || NOT_SIMILAR.has(q.pharos_id)) continue;
     const sa = q.arts.filter(n => c.arts.includes(n)).length, sc = q.cats.filter(t => c.cats.includes(t)).length;
     const score = sa * 2 + sc;
     if (!score) continue;
